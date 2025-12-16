@@ -235,8 +235,16 @@ public class CsvExportService
                     
                     if (patient != null)
                     {
-                        // Pobierz powi¹zane dane z lookup
-                        patient.Person = _personLookup.GetValueOrDefault(pk);
+                        // WA¯NE: W Django patient i person maj¹ TEN SAM Primary Key (OneToOne)
+                        patient.Person = _personLookup.GetValueOrDefault(pk);  // Zmiana: u¿ywamy pk zamiast patient.PrimaryKey
+                        
+                        // SprawdŸ czy Person zosta³ za³adowany
+                        if (patient.Person == null)
+                        {
+                            // Pomiñ pacjenta bez danych Person
+                            continue;
+                        }
+                        
                         patient.ResidenceAddress = patient.ResidenceAddressPk.HasValue 
                             ? _addressLookup.GetValueOrDefault(patient.ResidenceAddressPk.Value) 
                             : null;
@@ -450,7 +458,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = await subtree.ReadElementContentAsStringAsync();
+                var fieldValue = subtree.ReadInnerXml(); // Zmiana: ReadInnerXml zamiast ReadElementContentAsStringAsync
 
                 switch (fieldName)
                 {
@@ -479,7 +487,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = await subtree.ReadElementContentAsStringAsync();
+                var fieldValue = subtree.ReadInnerXml();
 
                 switch (fieldName)
                 {
@@ -510,7 +518,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = await subtree.ReadElementContentAsStringAsync();
+                var fieldValue = subtree.ReadInnerXml();
 
                 if (fieldName == "pesel")
                     patient.Pesel = fieldValue;
@@ -530,7 +538,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = await subtree.ReadElementContentAsStringAsync();
+                var fieldValue = subtree.ReadInnerXml();
 
                 switch (fieldName)
                 {
@@ -563,7 +571,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = await subtree.ReadElementContentAsStringAsync();
+                var fieldValue = subtree.ReadInnerXml();
 
                 switch (fieldName)
                 {
@@ -591,7 +599,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = await subtree.ReadElementContentAsStringAsync();
+                var fieldValue = subtree.ReadInnerXml();
 
                 switch (fieldName)
                 {
@@ -622,7 +630,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = await subtree.ReadElementContentAsStringAsync();
+                var fieldValue = subtree.ReadInnerXml();
 
                 switch (fieldName)
                 {
@@ -664,7 +672,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = await subtree.ReadElementContentAsStringAsync();
+                var fieldValue = subtree.ReadInnerXml();
 
                 switch (fieldName)
                 {
