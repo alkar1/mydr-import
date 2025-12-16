@@ -29,6 +29,16 @@ class Program
             return await RunVerifyAsync();
         }
 
+        // Tryb diagnose - diagnostyka struktury XML
+        if (mode == "diagnose")
+        {
+            var objectType = args.Length > 2 ? args[2] : "gabinet.patient";
+            var diagFilePath = args.Length > 1 && args[1] != objectType 
+                ? args[1] 
+                : xmlFilePath;
+            return await RunDiagnoseAsync(diagFilePath, objectType);
+        }
+
         // SprawdŸ czy plik istnieje
         if (!File.Exists(xmlFilePath))
         {
@@ -41,11 +51,13 @@ class Program
             Console.WriteLine("  analyze  - Analiza struktury XML (Etap 1)");
             Console.WriteLine("  export   - Eksport do CSV (Etap 2)");
             Console.WriteLine("  verify   - Weryfikacja eksportowanych plików CSV");
+            Console.WriteLine("  diagnose - Diagnostyka struktury obiektów XML");
             Console.WriteLine();
             Console.WriteLine("Przyk³ady:");
             Console.WriteLine("  MyDr_Import.exe analyze");
             Console.WriteLine("  MyDr_Import.exe export C:\\data\\plik.xml");
             Console.WriteLine("  MyDr_Import.exe verify");
+            Console.WriteLine("  MyDr_Import.exe diagnose gabinet.patient");
             return 1;
         }
 
@@ -193,5 +205,30 @@ class Program
         await verifier.GenerateReportAsync(result, reportPath);
 
         return result.Success ? 0 : 1;
+    }
+
+    static async Task<int> RunDiagnoseAsync(string xmlFilePath, string objectType)
+    {
+        Console.WriteLine("???????????????????????????????????????????????????????????????????????????");
+        Console.WriteLine("TRYB: DIAGNOSTYKA STRUKTURY XML");
+        Console.WriteLine("???????????????????????????????????????????????????????????????????????????");
+        Console.WriteLine();
+        Console.WriteLine($"?? Plik: {xmlFilePath}");
+        Console.WriteLine($"?? Typ obiektu: {objectType}");
+        Console.WriteLine();
+
+        var tool = new Tools.XmlDiagnosticTool(xmlFilePath);
+
+        // Poka¿ 3 przyk³adowe obiekty
+        await tool.ShowObjectStructureAsync(objectType, 3);
+
+        Console.WriteLine();
+        Console.WriteLine("???????????????????????????????????????????????????????????????????????????");
+
+        // Statystyki wype³nienia pól
+        var stats = await tool.GetModelStatisticsAsync(objectType, maxSample: 100);
+        tool.PrintModelStatistics(stats);
+
+        return 0;
     }
 }

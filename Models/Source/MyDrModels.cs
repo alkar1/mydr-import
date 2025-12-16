@@ -7,7 +7,15 @@ public class MyDrPatient
 {
     public long PrimaryKey { get; set; }
     
-    // Basic info
+    // Dane osobowe (s¹ w patient!)
+    public string? FirstName { get; set; }      // name
+    public string? LastName { get; set; }       // surname
+    public DateTime? BirthDate { get; set; }    // date_of_birth
+    public string? Sex { get; set; }            // sex (Kobieta/Mê¿czyzna)
+    public string? Email { get; set; }          // email
+    public string? Phone { get; set; }          // telephone
+    
+    // Dane pacjenta
     public string? Pesel { get; set; }
     public string? SecondName { get; set; }
     public string? MaidenName { get; set; }
@@ -16,18 +24,13 @@ public class MyDrPatient
     public string? PlaceOfBirth { get; set; }
     public string? Nfz { get; set; }
     public string? SecondTelephone { get; set; }
-    public bool IsActive { get; set; }
     
-    // Relations (Foreign Keys)
-    public long? FacilityPk { get; set; }
+    // Relacje
     public long? ResidenceAddressPk { get; set; }
-    public long? EmployerAddressPk { get; set; }
-    public long? DeadPk { get; set; }
-    
-    // These will be populated from related tables
-    public MyDrPerson? Person { get; set; }
     public MyDrAddress? ResidenceAddress { get; set; }
-    public MyDrAddress? EmployerAddress { get; set; }
+    
+    // Dane za³adowane z lookup
+    public MyDrPerson? Person { get; set; }  // Ju¿ nie potrzebne - dane s¹ bezpoœrednio!
     public MyDrPatientDead? Dead { get; set; }
 }
 

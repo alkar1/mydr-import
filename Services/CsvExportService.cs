@@ -235,20 +235,20 @@ public class CsvExportService
                     
                     if (patient != null)
                     {
-                        // WA¯NE: W Django patient i person maj¹ TEN SAM Primary Key (OneToOne)
-                        patient.Person = _personLookup.GetValueOrDefault(pk);  // Zmiana: u¿ywamy pk zamiast patient.PrimaryKey
-                        
-                        // SprawdŸ czy Person zosta³ za³adowany
-                        if (patient.Person == null)
-                        {
-                            // Pomiñ pacjenta bez danych Person
-                            continue;
-                        }
-                        
+                        // DANE OSOBOWE S¥ BEZPOŒREDNIO W PATIENT - nie potrzeda Person!
+                        // Za³aduj tylko adres i dead
                         patient.ResidenceAddress = patient.ResidenceAddressPk.HasValue 
                             ? _addressLookup.GetValueOrDefault(patient.ResidenceAddressPk.Value) 
                             : null;
                         patient.Dead = _patientDeadLookup.GetValueOrDefault(pk);
+
+                        // SprawdŸ czy s¹ podstawowe dane
+                        if (string.IsNullOrEmpty(patient.FirstName) || string.IsNullOrEmpty(patient.LastName))
+                        {
+                            // Pomiñ pacjenta bez danych osobowych
+                            Console.WriteLine($"Warning: Patient {pk} missing FirstName or LastName, skipping.");
+                            continue;
+                        }
 
                         var custodian = _custodianLookup.GetValueOrDefault(pk);
                         var mapped = PatientMapper.Map(patient, _instalacjaId, custodian);
@@ -448,6 +448,32 @@ public class CsvExportService
 
     // ===== HELPER METHODS - Parsowanie XML =====
 
+    // Uniwersalna metoda do odczytu wartoœci pola
+    private async Task<string> ReadFieldValueAsync(XmlReader reader)
+    {
+        if (reader.IsEmptyElement)
+        {
+            reader.Read(); // Przeskocz pusty element
+            return string.Empty;
+        }
+        
+        var rel = reader.GetAttribute("rel");
+        if (!string.IsNullOrEmpty(rel))
+        {
+            return reader.ReadInnerXml();
+        }
+        
+        try
+        {
+            return await reader.ReadElementContentAsStringAsync();
+        }
+        catch (XmlException)
+        {
+            // Jeœli ma dzieci, u¿yæ ReadInnerXml
+            return reader.ReadInnerXml();
+        }
+    }
+
     private async Task<MyDrPerson?> ParsePersonAsync(XmlReader reader, long pk)
     {
         var person = new MyDrPerson { PrimaryKey = pk };
@@ -458,7 +484,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = subtree.ReadInnerXml(); // Zmiana: ReadInnerXml zamiast ReadElementContentAsStringAsync
+                var fieldValue = await ReadFieldValueAsync(subtree);
 
                 switch (fieldName)
                 {
@@ -487,7 +513,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = subtree.ReadInnerXml();
+                var fieldValue = await ReadFieldValueAsync(subtree);
 
                 switch (fieldName)
                 {
@@ -518,7 +544,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = subtree.ReadInnerXml();
+                var fieldValue = await ReadFieldValueAsync(subtree);
 
                 if (fieldName == "pesel")
                     patient.Pesel = fieldValue;
@@ -538,10 +564,17 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = subtree.ReadInnerXml();
+                var fieldValue = await ReadFieldValueAsync(subtree);
 
                 switch (fieldName)
                 {
+                    // Dane osobowe które s¹ w patient!
+                    case "name": patient.FirstName = fieldValue; break;
+                    case "surname": patient.LastName = fieldValue; break;
+                    case "date_of_birth": patient.BirthDate = ParseDateSafe(fieldValue); break;
+                    case "sex": patient.Sex = fieldValue; break;
+                    case "email": patient.Email = fieldValue; break;
+                    case "telephone": patient.Phone = fieldValue; break;
                     case "pesel": patient.Pesel = fieldValue; break;
                     case "second_name": patient.SecondName = fieldValue; break;
                     case "maiden_name": patient.MaidenName = fieldValue; break;
@@ -571,7 +604,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = subtree.ReadInnerXml();
+                var fieldValue = await ReadFieldValueAsync(subtree);
 
                 switch (fieldName)
                 {
@@ -599,7 +632,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = subtree.ReadInnerXml();
+                var fieldValue = await ReadFieldValueAsync(subtree);
 
                 switch (fieldName)
                 {
@@ -630,7 +663,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = subtree.ReadInnerXml();
+                var fieldValue = await ReadFieldValueAsync(subtree);
 
                 switch (fieldName)
                 {
@@ -672,7 +705,7 @@ public class CsvExportService
             if (subtree.NodeType == XmlNodeType.Element && subtree.Name == "field")
             {
                 var fieldName = subtree.GetAttribute("name");
-                var fieldValue = subtree.ReadInnerXml();
+                var fieldValue = await ReadFieldValueAsync(subtree);
 
                 switch (fieldName)
                 {
