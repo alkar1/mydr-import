@@ -1,0 +1,78 @@
+# Ignore build outputs
+bin/
+obj/
+out/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userprefs
+.vs/
+.vscode/
+.idea/
+
+# Ignore data files (large XML files)
+data/*.xml
+data/*.gz
+data/*.zip
+
+# Keep data directory structure but ignore content
+!data/.gitkeep
+
+# Ignore output reports (can be regenerated)
+output/
+*.csv
+*.json
+*.txt
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Ignore test results
+TestResults/
+*.trx
+*.coverage
+
+# Ignore logs
+*.log
+logs/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore temporary files
+*.tmp
+*.temp
+*~
+
+# Ignore publish profiles
+*.pubxml
+*.publishsettings
+
+# Ignore Azure/cloud config
+*.azurePubxml
+
+# Ignore Rider
+.idea/
+*.sln.iml
+
+# Ignore Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Ignore profiler outputs
+*.diagsession
+*.psess
+*.vsp
+*.vspx
+
+# Ignore benchmark results
+BenchmarkDotNet.Artifacts/
+
+# Ignore migration backups
+*.bak
