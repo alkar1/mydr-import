@@ -23,10 +23,15 @@ class Program
 
         xmlFilePath = Path.GetFullPath(xmlFilePath);
 
-        // Tryb verify nie wymaga pliku XML
+        // Tryby które nie wymagaj¹ pliku XML
         if (mode == "verify")
         {
             return await RunVerifyAsync();
+        }
+
+        if (mode == "test")
+        {
+            return await RunTestAsync();
         }
 
         // Tryb diagnose - diagnostyka struktury XML
@@ -50,12 +55,14 @@ class Program
             Console.WriteLine("Tryby (mode):");
             Console.WriteLine("  analyze  - Analiza struktury XML (Etap 1)");
             Console.WriteLine("  export   - Eksport do CSV (Etap 2)");
-            Console.WriteLine("  verify   - Weryfikacja eksportowanych plików CSV");
+            Console.WriteLine("  verify   - Weryfikacja eksportowanych plików CSV (stary test)");
+            Console.WriteLine("  test     - Testy automatyczne dla ka¿dego pliku CSV osobno");
             Console.WriteLine("  diagnose - Diagnostyka struktury obiektów XML");
             Console.WriteLine();
             Console.WriteLine("Przyk³ady:");
             Console.WriteLine("  MyDr_Import.exe analyze");
             Console.WriteLine("  MyDr_Import.exe export C:\\data\\plik.xml");
+            Console.WriteLine("  MyDr_Import.exe test");
             Console.WriteLine("  MyDr_Import.exe verify");
             Console.WriteLine("  MyDr_Import.exe diagnose gabinet.patient");
             return 1;
@@ -205,6 +212,23 @@ class Program
         await verifier.GenerateReportAsync(result, reportPath);
 
         return result.Success ? 0 : 1;
+    }
+
+    static async Task<int> RunTestAsync()
+    {
+        Console.WriteLine("???????????????????????????????????????????????????????????????????????????????");
+        Console.WriteLine("TRYB: TESTY AUTOMATYCZNE CSV (Ka¿dy plik osobno)");
+        Console.WriteLine("???????????????????????????????????????????????????????????????????????????????");
+        Console.WriteLine();
+
+        var outputDir = Path.Combine(AppContext.BaseDirectory, "output_csv");
+        var runner = new Tests.CsvTests.CsvTestRunner(outputDir);
+
+        var result = await runner.RunAllTestsAsync();
+
+        // Zwróæ kod b³êdu jeœli s¹ niezdane testy
+        var failed = result.TestResults.Count(t => !t.Passed);
+        return failed > 0 ? 1 : 0;
     }
 
     static async Task<int> RunDiagnoseAsync(string xmlFilePath, string objectType)
