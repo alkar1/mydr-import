@@ -10,7 +10,12 @@
 
 | Metryka | Wartoœæ |
 |---------|---------|
-| **Testów ogó³em** | 4 |
+| **Plików definicji XLS** | 14 |
+| **Testów CSV utworzonych** | 14 |
+| **+ BaseCsvTest (klasa bazowa)** | 1 |
+| **£¹cznie plików testowych** | 15 |
+| **Pokrycie** | ? **100%** |
+| **Testów uruchomionych** | 4 |
 | **? Zaliczonych** | 0 |
 | **? Niezaliczonych** | 4 |
 | **?? B³êdów** | 14 |
@@ -62,7 +67,7 @@
 #### ?? DIAGNOZA:
 - **Problem:** Eksport pracowników (z tabeli `gabinet.person` gdzie `npwz` nie jest puste) nie generuje ¿adnych rekordów
 - **Mo¿liwe przyczyny:**
-  - Brak osób z wype³nionym NPWZ w bazie Ÿród³owej
+  - Brak osób z wype³nionym NPWZ w bazie Ÿród³ej
   - B³¹d w logice filtrowania pracowników
   - Problem z zapisem do pliku CSV
 
