@@ -1,0 +1,1144 @@
+{
+  "version": "V6",
+  "created": "2024-12-16",
+  "description": "Mapowanie pól z plików Ÿród³owych (etap1) do plików docelowych CSV (etap2) wydobyte z old_mapping_plan.md",
+  
+  "mappings": {
+    "wizyty.csv": {
+      "source_files": ["gabinet.visit.txt", "gabinet.patient.txt", "gabinet.person.txt", "gabinet.recognition.txt", "gabinet.icd10.txt", "gabinet.medicalprocedure.txt", "gabinet.icd9.txt"],
+      "fields": {
+        "InstalacjaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "IdImport": {
+          "source": "gabinet.visit.txt -> id",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "Klucz g³ówny wizyty"
+        },
+        "JednostkaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na DEFAULT_EMPTY ('')",
+          "required": false,
+          "needs": "JednostkaIdImport"
+        },
+        "JednostkaIdImport": {
+          "source": "gabinet.visit.txt -> office",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "ID jednostki/gabinetu"
+        },
+        "PacjentId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na DEFAULT_EMPTY ('')",
+          "required": false
+        },
+        "PacjentIdImport": {
+          "source": "gabinet.visit.txt -> patient",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "ID pacjenta"
+        },
+        "PacjentPesel": {
+          "source": "gabinet.patient.txt -> pesel",
+          "logic": "Po³¹cz gabinet.visit.txt.patient z gabinet.patient.txt.id",
+          "required": true,
+          "join": "visit.patient = patient.id"
+        },
+        "PracownikId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na DEFAULT_EMPTY ('')",
+          "required": false
+        },
+        "PracownikIdImport": {
+          "source": "gabinet.visit.txt -> doctor",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "ID lekarza/pracownika"
+        },
+        "ZasobIdImport": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na DEFAULT_EMPTY ('')",
+          "required": false
+        },
+        "PracownikNPWZ": {
+          "source": "gabinet.person.txt -> pwz",
+          "logic": "Po³¹cz gabinet.visit.txt.doctor z gabinet.person.txt.id",
+          "required": true,
+          "join": "visit.doctor = person.id"
+        },
+        "PracownikPesel": {
+          "source": "gabinet.person.txt -> pesel",
+          "logic": "Po³¹cz gabinet.visit.txt.doctor z gabinet.person.txt.id",
+          "required": true,
+          "join": "visit.doctor = person.id"
+        },
+        "DataUtworzenia": {
+          "source": "gabinet.visit.txt -> created",
+          "logic": "U¿yj znacznika czasu visit.created, format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "DataOd": {
+          "source": "gabinet.visit.txt -> date + timeFrom",
+          "logic": "Po³¹cz datê i czas. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": true
+        },
+        "DataDo": {
+          "source": "gabinet.visit.txt -> date + timeTo",
+          "logic": "Po³¹cz datê i czas. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false,
+          "notes": "Opcjonalne (Ostrze¿enie, jeœli puste)"
+        },
+        "CzasOd": {
+          "source": "gabinet.visit.txt -> timeFrom",
+          "logic": "U¿yj tylko, jeœli DataOd nie zawiera czasu",
+          "required": false
+        },
+        "CzasDo": {
+          "source": "gabinet.visit.txt -> timeTo",
+          "logic": "U¿yj tylko, jeœli DataDo nie zawiera czasu",
+          "required": false
+        },
+        "Status": {
+          "source": "gabinet.visit.txt -> state",
+          "logic": "Zmapuj Ÿród³owy state na kody docelowe: 1=Zaplanowane, 2=W trakcie, 3=Zrealizowane, 4=Rozliczane, 9=Odwo³ane. 'Archiwalna' -> '3'",
+          "required": true,
+          "mapping": {
+            "Archiwalna": "3",
+            "Anulowana": "9"
+          }
+        },
+        "NFZ": {
+          "source": "gabinet.visit.txt -> visit_kind",
+          "logic": "Zmapuj na '1', jeœli visit_kind zawiera 'NFZ', w przeciwnym razie '0'",
+          "required": true
+        },
+        "NieRozliczaj": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Domyœlnie '0'",
+          "required": false
+        },
+        "Dodatkowy": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Domyœlnie '0'",
+          "required": false
+        },
+        "Komentarz": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na pusty ci¹g znaków ''",
+          "required": false,
+          "notes": "Pole visit.note zosta³o przeniesione do karty_wizyt.Zalecenia"
+        },
+        "TrybPrzyjecia": {
+          "source": "gabinet.visit.txt -> reception_mode_choice",
+          "logic": "Bezpoœrednie mapowanie. Jeœli puste, domyœlnie '5'",
+          "required": true,
+          "default": "5"
+        },
+        "TrybDalszegoLeczenia": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Domyœlnie null",
+          "required": false
+        },
+        "TypWizyty": {
+          "source": "gabinet.visit.txt -> visittype?",
+          "logic": "Zmapuj wartoœæ Ÿród³ow¹ na kody docelowe (1-9). Domyœlnie null",
+          "required": false,
+          "notes": "Pole Ÿród³owe wymaga potwierdzenia"
+        },
+        "KodSwiadczeniaNFZ": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Wymaga logiki mapowania opartej na typie wizyty/procedurach, jeœli NFZ='1'. Domyœlnie null",
+          "required": false
+        },
+        "KodUprawnieniaPacjenta": {
+          "source": "gabinet.patient.txt -> rights",
+          "logic": "Po³¹cz visit z patient, aby uzyskaæ kod uprawnieñ. Zmapuj 'X' na pusty ci¹g znaków",
+          "join": "visit.patient = patient.id",
+          "required": false
+        },
+        "ProceduryICD9": {
+          "source": "gabinet.medicalprocedure.txt -> icd9 -> gabinet.icd9.txt -> code",
+          "logic": "Zmapuj visit.id -> medicalprocedure.visit -> medicalprocedure.icd9 -> icd9.code. Agreguj wiele kodów, oddzielonych przecinkami",
+          "join": "visit.id = medicalprocedure.visit AND medicalprocedure.icd9 = icd9.id",
+          "required": false
+        },
+        "RozpoznaniaICD10": {
+          "source": "gabinet.recognition.txt -> icd10 -> gabinet.icd10.txt -> code",
+          "logic": "Zmapuj visit.id -> recognition.visit -> recognition.icd10 -> icd10.code. Agreguj wiele kodów, oddzielonych przecinkami",
+          "join": "visit.id = recognition.visit AND recognition.icd10 = icd10.id",
+          "required": false,
+          "notes": "Pierwszy kod jest g³ówny"
+        },
+        "DokumentSkierowujacyIdImportu": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Domyœlnie null",
+          "required": false
+        }
+      }
+    },
+    
+    "karty_wizyt.csv": {
+      "source_files": ["gabinet.visit.txt", "gabinet.person.txt", "gabinet.recognition.txt", "gabinet.icd10.txt", "gabinet.medicalprocedure.txt", "gabinet.icd9.txt", "gabinet.recipe.txt", "gabinet.recipedrug.txt", "gabinet.ver.txt", "gabinet.visitnotes.txt", "gabinet.sickleave.txt"],
+      "fields": {
+        "InstalacjaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "IdImport": {
+          "source": "gabinet.visit.txt -> id",
+          "logic": "Konwertuj visit.id na ci¹g znaków",
+          "type": "Tekst",
+          "required": false,
+          "notes": "£¹czy z wizyt¹. Opcjonalne (Ostrze¿enie, jeœli puste)"
+        },
+        "IdImportPrefix": {
+          "source": "Sta³a",
+          "logic": "Ustaw sta³¹ wartoœæ (np. 'VISITCARD')",
+          "required": false
+        },
+        "DataWystawienia": {
+          "source": "gabinet.visit.txt -> date",
+          "logic": "U¿yj daty wizyty. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "DataAutoryzacji": {
+          "source": "gabinet.visit.txt -> last_revision?",
+          "logic": "U¿yj visit.last_revision lub DataWystawienia/daty importu jako domyœlnej. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "PracownikWystawiajacyIdImport": {
+          "source": "gabinet.visit.txt -> doctor",
+          "logic": "U¿yj tego ID",
+          "required": true,
+          "notes": "lub PracownikWystawiajacyNpwz"
+        },
+        "PracownikWystawiajacyNpwz": {
+          "source": "gabinet.person.txt -> pwz",
+          "logic": "Po³¹cz visit.doctor z person.id",
+          "join": "visit.doctor = person.id",
+          "required": true,
+          "notes": "lub PracownikWystawiajacyIdImport"
+        },
+        "PracownikWystawiajacyPesel": {
+          "source": "gabinet.person.txt -> pesel",
+          "logic": "Po³¹cz visit.doctor z person.id",
+          "join": "visit.doctor = person.id",
+          "required": false
+        },
+        "WizytaIdImport": {
+          "source": "gabinet.visit.txt -> id",
+          "logic": "Mapowanie bezpoœrednie (liczba ca³kowita)",
+          "type": "Liczba ca³kowita",
+          "required": true,
+          "notes": "£¹czy kartê z powrotem do wizyty"
+        },
+        "Wywiad": {
+          "source": "gabinet.visit.txt -> interview",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "BadaniePrzedmiotowe": {
+          "source": "gabinet.visit.txt -> examination",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "PrzyjmowaneLeki": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na DEFAULT_EMPTY ('')",
+          "required": false,
+          "notes": "Logika niezaimplementowana"
+        },
+        "PrzebiegLeczenia": {
+          "source": "gabinet.recipe.txt + gabinet.recipedrug.txt + gabinet.ver.txt",
+          "logic": "Po³¹cz visit.id z recipe.visit. Agreguj informacje o przepisanych lekach, wyszukuj¹c nazwê leku w gabinet.ver.txt",
+          "join": "visit.id = recipe.visit AND recipedrug.recipe = recipe.id AND recipedrug.drug = ver.id",
+          "required": false,
+          "notes": "Pole dynamicznie budowane z danych o receptach"
+        },
+        "Zalecenia": {
+          "source": "gabinet.visit.txt -> recommendation + note",
+          "logic": "Po³¹cz visit.recommendation z visit.note. Po³¹cz now¹ lini¹, jeœli oba istniej¹",
+          "required": false,
+          "notes": "visit.note (leki) jest teraz czêœci¹ Zaleceñ"
+        },
+        "Zabiegi": {
+          "source": "Mapuj z ProceduryICD9?",
+          "logic": "Potencjalnie wymieñ kody ICD9",
+          "required": false
+        },
+        "Inne": {
+          "source": "gabinet.visitnotes.txt -> note",
+          "logic": "Agreguj tylko notatki z visitnotes.txt powi¹zane przez visitnotes.visit",
+          "join": "visitnotes.visit = visit.id",
+          "required": false,
+          "notes": "Tylko notatki systemowe/dodatkowe"
+        },
+        "NiezdolnoscOd": {
+          "source": "gabinet.sickleave.txt -> date_from?",
+          "logic": "Po³¹cz visit.id z sickleave.visit. Format RRRR-MM-DD GG:MM:SS",
+          "join": "visit.id = sickleave.visit",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "NiezdolnoscDo": {
+          "source": "gabinet.sickleave.txt -> date_to?",
+          "logic": "Po³¹cz visit.id z sickleave.visit. Format RRRR-MM-DD GG:MM:SS",
+          "join": "visit.id = sickleave.visit",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "RozpoznaniaICD10": {
+          "source": "Tak samo jak dla wizyty.csv",
+          "logic": "U¿yj tej samej logiki mapowania ICD10. Oddzielone przecinkami",
+          "required": false
+        },
+        "RozpoznanieGlowneICD10": {
+          "source": "Wyprowadzone z RozpoznaniaICD10",
+          "logic": "Wyodrêbnij pierwszy kod z RozpoznaniaICD10",
+          "required": false
+        },
+        "RozpoznanieWspolistniejaceICD10": {
+          "source": "Wyprowadzone z RozpoznaniaICD10",
+          "logic": "Wyodrêbnij kody po pierwszym z RozpoznaniaICD10",
+          "required": false
+        },
+        "RozpoznanieOpisowe": {
+          "source": "gabinet.visit.txt -> recognition_description? lub visitnotes",
+          "logic": "Mapuj z pola Ÿród³owego (jeœli istnieje)",
+          "required": false,
+          "notes": "Pole wymaga weryfikacji"
+        },
+        "ProceduryICD9": {
+          "source": "Tak samo jak dla wizyty.csv",
+          "logic": "U¿yj tej samej logiki mapowania ICD9. Oddzielone przecinkami",
+          "required": false
+        }
+      }
+    },
+    
+    "pacjenci.csv": {
+      "source_files": ["gabinet.patient.txt", "gabinet.address.txt", "gabinet.custodian.txt", "gabinet.insurance.txt"],
+      "fields": {
+        "InstalacjaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "IdImport": {
+          "source": "gabinet.patient.txt -> id",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "Klucz g³ówny pacjenta"
+        },
+        "UprawnieniePacjentaId": {
+          "source": "gabinet.patient.txt -> rights",
+          "logic": "Zmapuj kod tekstowy (np. 'IB', 'WP', 'X') na ID numeryczne (1-34). 'X' -> null",
+          "required": false,
+          "notes": "Wymaga tabeli mapowania"
+        },
+        "RodzajPacjenta": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Domyœlnie 1 (osoba fizyczna)",
+          "default": "1",
+          "required": false
+        },
+        "Imie": {
+          "source": "gabinet.patient.txt -> name",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "lub Nazwisko/Pesel"
+        },
+        "Nazwisko": {
+          "source": "gabinet.patient.txt -> surname",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "lub Imie/Pesel"
+        },
+        "Pesel": {
+          "source": "gabinet.patient.txt -> pesel",
+          "logic": "Mapowanie bezpoœrednie. SprawdŸ format/sumê kontroln¹",
+          "required": true,
+          "notes": "lub Imie/Nazwisko"
+        },
+        "DataUrodzenia": {
+          "source": "gabinet.patient.txt -> birthdate lub date_of_birth",
+          "logic": "U¿yj birthdate, jeœli dostêpne; w przeciwnym razie date_of_birth. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "CzyUmarl": {
+          "source": "gabinet.patient.txt -> is_active",
+          "logic": "Zmapuj is_active (boolean): true -> '0', false -> '1'. Domyœlnie '0'",
+          "required": false,
+          "notes": "Odwróæ logikê z is_active"
+        },
+        "DataZgonu": {
+          "source": "gabinet.patient.txt -> deceased_date?",
+          "logic": "Zmapuj datê, jeœli CzyUmarl = '1'. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false,
+          "notes": "Pole wymaga potwierdzenia"
+        },
+        "DrugieImie": {
+          "source": "gabinet.patient.txt -> second_name",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "NazwiskoRodowe": {
+          "source": "gabinet.patient.txt -> maiden_name",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "ImieOjca": {
+          "source": "gabinet.patient.txt -> father_name?",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false,
+          "notes": "Pole wymaga potwierdzenia"
+        },
+        "NIP": {
+          "source": "gabinet.patient.txt -> employer_nip?",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false,
+          "notes": "Pole wymaga potwierdzenia"
+        },
+        "Plec": {
+          "source": "gabinet.patient.txt -> sex",
+          "logic": "Zmapuj wartoœæ (np. 'Kobieta', 'Mê¿czyzna') na ('k'/'m')",
+          "required": false,
+          "mapping": {
+            "Kobieta": "k",
+            "Mê¿czyzna": "m"
+          }
+        },
+        "Email": {
+          "source": "gabinet.patient.txt -> email",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "Telefon": {
+          "source": "gabinet.patient.txt -> telephone",
+          "logic": "Mapowanie bezpoœrednie. SprawdŸ format/d³ugoœæ",
+          "required": false
+        },
+        "TelefonDodatkowy": {
+          "source": "gabinet.patient.txt -> second_telephone?",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false,
+          "notes": "Pole wymaga potwierdzenia"
+        },
+        "NumerDokumentuTozsamosci": {
+          "source": "gabinet.patient.txt -> identity_num",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false,
+          "notes": "Wymagane, jeœli podano TypDokumentuTozsamosci"
+        },
+        "TypDokumentuTozsamosci": {
+          "source": "gabinet.patient.txt -> identity_type",
+          "logic": "Zmapuj wartoœæ (np. 'id_card') na kod (D, T, L, P, K, J, I)",
+          "required": false,
+          "notes": "Wymaga logiki mapowania"
+        },
+        "KrajDokumentuTozsamosciKod": {
+          "source": "gabinet.patient.txt -> country?",
+          "logic": "U¿yj kodu kraju pacjenta ('PL'). Domyœlnie 'PL'",
+          "default": "PL",
+          "required": false
+        },
+        "NrIdentyfikacyjnyUe": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Pozostaw puste",
+          "required": false
+        },
+        "MiejsceUrodzenia": {
+          "source": "gabinet.patient.txt -> place_of_birth",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "KodOddzialuNFZ": {
+          "source": "gabinet.insurance.txt -> code",
+          "logic": "Po³¹cz patient.insurance z insurance.id",
+          "join": "patient.insurance = insurance.id",
+          "required": false
+        },
+        "AdresowePolaZameldowanie": {
+          "source": "gabinet.address.txt",
+          "logic": "Po³¹cz patient.registration_address z address.id. Zmapuj pola: country, province, city, postal_code, street, street_number, flat_number",
+          "join": "patient.registration_address = address.id",
+          "required": false,
+          "notes": "Domyœlny kraj 'Polska'. Kody TERYT/Powiat niedostêpne"
+        },
+        "AdresowePolaZamieszkanie": {
+          "source": "gabinet.address.txt",
+          "logic": "Po³¹cz patient.residence_address z address.id. Zmapuj pola: country, province, city, postal_code, street, street_number, flat_number",
+          "join": "patient.residence_address = address.id",
+          "required": false,
+          "notes": "U¿yj zameldowania, jeœli brakuje"
+        },
+        "Uwagi": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na pusty ci¹g znaków ''",
+          "required": false,
+          "notes": "Celowo ustawione na puste"
+        },
+        "Uchodzca": {
+          "source": "gabinet.patient.txt -> is_refugee",
+          "logic": "Zmapuj boolean na '1' (Prawda) lub '0' (Fa³sz). Domyœlnie '0'",
+          "default": "0",
+          "required": false
+        },
+        "VIP": {
+          "source": "gabinet.patient.txt -> vip?",
+          "logic": "Zmapuj boolean na '1' lub '0'. Domyœlnie '0'",
+          "default": "0",
+          "required": false,
+          "notes": "Pole wymaga potwierdzenia"
+        },
+        "UprawnieniePacjenta": {
+          "source": "gabinet.patient.txt -> rights",
+          "logic": "Bezpoœrednie mapowanie kodu tekstowego (np. 'IB', 'X'). 'X' -> pusty ci¹g",
+          "required": false
+        },
+        "PolaOpiekuna": {
+          "source": "gabinet.custodian.txt",
+          "logic": "Po³¹cz patient.supervisor z custodian.id. Zmapuj: name, surname, sex, birthdate, pesel, phone, relation",
+          "join": "patient.supervisor = custodian.id",
+          "required": false,
+          "notes": "Zmapuj relation na ID (1,4,5). Adres prawdopodobnie niedostêpny"
+        },
+        "SprawdzUnikalnoscIdImportu": {
+          "source": "Nie dotyczy",
+          "logic": "Ustaw na '1' (Tak)",
+          "default": "1",
+          "required": false
+        },
+        "SprawdzUnikalnoscPesel": {
+          "source": "Nie dotyczy",
+          "logic": "Ustaw na '0' (Nie)",
+          "default": "0",
+          "required": false
+        },
+        "AktualizujPoPesel": {
+          "source": "Nie dotyczy",
+          "logic": "Ustaw na '0' (Nie)",
+          "default": "0",
+          "required": false
+        },
+        "NumerPacjenta": {
+          "source": "gabinet.patient.txt -> user?",
+          "logic": "Mapuj z pola Ÿród³owego",
+          "required": false,
+          "notes": "Pole wymaga potwierdzenia"
+        }
+      }
+    },
+    
+    "pracownicy.csv": {
+      "source_files": ["gabinet.person.txt", "auth.user.txt", "gabinet.profile.txt", "gabinet.specialty.txt"],
+      "fields": {
+        "InstalacjaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "IdImport": {
+          "source": "gabinet.person.txt -> id",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "Klucz g³ówny pracownika/osoby"
+        },
+        "Imie": {
+          "source": "auth.user.txt -> first_name?",
+          "logic": "Po³¹cz person.user z user.id",
+          "join": "person.user = user.id",
+          "required": false,
+          "notes": "Wymaga ³¹czenia"
+        },
+        "Nazwisko": {
+          "source": "auth.user.txt -> last_name?",
+          "logic": "Po³¹cz person.user z user.id",
+          "join": "person.user = user.id",
+          "required": false,
+          "notes": "Wymaga ³¹czenia"
+        },
+        "Pesel": {
+          "source": "gabinet.person.txt -> pesel",
+          "logic": "Mapowanie bezpoœrednie. SprawdŸ format/sumê kontroln¹",
+          "required": false
+        },
+        "Email": {
+          "source": "auth.user.txt -> email?",
+          "logic": "Po³¹cz person.user z user.id",
+          "join": "person.user = user.id",
+          "required": false
+        },
+        "Telefon": {
+          "source": "gabinet.person.txt -> telephone",
+          "logic": "Mapowanie bezpoœrednie. SprawdŸ format/d³ugoœæ",
+          "required": false
+        },
+        "NPWZ": {
+          "source": "gabinet.person.txt -> pwz",
+          "logic": "Mapowanie bezpoœrednie. SprawdŸ format",
+          "required": false
+        },
+        "TytulNaukowyId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null. Wymaga mapowania TytulNaukowyNazwa na ID",
+          "required": false
+        },
+        "TytulNaukowyNazwa": {
+          "source": "gabinet.person.txt -> academic_degree",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "TypPersoneluId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null. Wymaga mapowania TypPersoneluNFZ lub roli na ID",
+          "required": false
+        },
+        "TypPersoneluNFZ": {
+          "source": "gabinet.person.txt -> profession_code? lub gabinet.profile.txt -> rola?",
+          "logic": "Zmapuj rolê/kod na docelowy kod NFZ (1-41)",
+          "required": false,
+          "notes": "Wymaga ³¹czenia z profile lub u¿ycia profession_code"
+        },
+        "SpecjalizacjeIds": {
+          "source": "gabinet.profile.txt -> specialties -> gabinet.specialty.txt",
+          "logic": "Po³¹cz person.profile -> profile.specialties -> zmapuj specialty.id na ID systemu docelowego. Agreguj ID, oddzielone przecinkami",
+          "join": "person.profile = profile.id AND profile.specialties = specialty.id",
+          "required": false,
+          "notes": "Z³o¿one ³¹czenie/mapowanie"
+        },
+        "PersonelKierujacy": {
+          "source": "Wyprowadzone z TypPersoneluNFZ",
+          "logic": "Ustaw na '1' dla lekarzy/odpowiednich ról, '0' w przeciwnym razie. Domyœlnie '1' dla lekarzy",
+          "default": "1",
+          "required": false
+        },
+        "Konto": {
+          "source": "Wyprowadzone",
+          "logic": "Ustaw na '1', jeœli konto u¿ytkownika istnieje (auth.user.txt), '0' w przeciwnym razie. Domyœlnie '0'",
+          "default": "0",
+          "required": false
+        },
+        "KontoLogin": {
+          "source": "auth.user.txt -> username?",
+          "logic": "Po³¹cz person.user z user.id",
+          "join": "person.user = user.id",
+          "required": false,
+          "notes": "Wymagane, jeœli Konto = '1'"
+        },
+        "NieWymagajZmianyHasla": {
+          "source": "Nie dotyczy",
+          "logic": "Ustaw na '1' (Tak)",
+          "default": "1",
+          "required": false
+        },
+        "PracownikNiemedyczny": {
+          "source": "Wyprowadzone z TypPersoneluNFZ",
+          "logic": "Ustaw na '1' dla ról niemedycznych (np. 36, 37, 38), '0' w przeciwnym razie",
+          "required": false
+        },
+        "SprawdzUnikalnoscPesel": {
+          "source": "Nie dotyczy",
+          "logic": "Ustaw na '1' (Tak)",
+          "default": "1",
+          "required": false
+        },
+        "SprawdzUnikalnoscNpwz": {
+          "source": "Nie dotyczy",
+          "logic": "Ustaw na '1' (Tak)",
+          "default": "1",
+          "required": false
+        },
+        "SprawdzUnikalnoscLoginu": {
+          "source": "Nie dotyczy",
+          "logic": "Ustaw na '1' (Tak)",
+          "default": "1",
+          "required": false
+        },
+        "ZachowajIdentyfikator": {
+          "source": "Nie dotyczy",
+          "logic": "Ustaw na '0' (Nie)",
+          "default": "0",
+          "required": false
+        },
+        "Usunieto": {
+          "source": "gabinet.person.txt -> erased",
+          "logic": "Zmapuj boolean na '1' (Prawda) lub '0' (Fa³sz)",
+          "required": false
+        }
+      }
+    },
+    
+    "stale_leki_pacjenta.csv": {
+      "source_files": ["gabinet.patientpermanentdrug.txt", "gabinet.patient.txt", "gabinet.ver.txt"],
+      "fields": {
+        "InstalacjaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "PacjentId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "PacjentIdImport": {
+          "source": "gabinet.patientpermanentdrug.txt -> patient",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "lub PacjentId/PacjentPesel"
+        },
+        "PacjentPesel": {
+          "source": "gabinet.patient.txt -> pesel",
+          "logic": "Po³¹cz patientpermanentdrug.patient z patient.id",
+          "join": "patientpermanentdrug.patient = patient.id",
+          "required": true,
+          "notes": "lub PacjentId/PacjentIdImport"
+        },
+        "PracownikId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "PracownikIdImport": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Okreœl Ÿród³o, jeœli mo¿liwe. Domyœlnie null",
+          "required": false,
+          "notes": "ród³o ID przepisuj¹cego niejasne"
+        },
+        "KodKreskowy": {
+          "source": "gabinet.ver.txt -> ean13 LUB gabinet.patientpermanentdrug.txt -> composition",
+          "logic": "Jeœli patientpermanentdrug.drug jest puste, u¿yj composition. W przeciwnym razie po³¹cz drug z ver.id, aby uzyskaæ ean13",
+          "join": "patientpermanentdrug.drug = ver.id",
+          "required": true,
+          "notes": "U¿ywa composition jako rezerwy"
+        },
+        "DataZalecenia": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Okreœl Ÿród³o lub u¿yj daty importu. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false,
+          "notes": "ród³o niejasne"
+        },
+        "DataZakonczenia": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Domyœlnie null",
+          "required": false
+        },
+        "Dawkowanie": {
+          "source": "gabinet.patientpermanentdrug.txt -> recommendation",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "Ilosc": {
+          "source": "gabinet.patientpermanentdrug.txt -> dosation",
+          "logic": "Sparsuj iloœæ numeryczn¹ z ci¹gu (np. '2 op.' -> '2')",
+          "required": false
+        },
+        "RodzajIlosci": {
+          "source": "gabinet.patientpermanentdrug.txt -> dosation",
+          "logic": "Sparsuj jednostkê (np. 'op.') i zmapuj na kod (1=opakowanie, 2=inne). Domyœlnie '1' lub '2'",
+          "required": false,
+          "notes": "Potrzebuje logiki mapowania dla jednostek"
+        },
+        "KodOdplatnosci": {
+          "source": "gabinet.patientpermanentdrug.txt -> payment",
+          "logic": "Mapowanie bezpoœrednie (np. '100%')",
+          "required": false
+        }
+      }
+    },
+    
+    "deklaracje_poz.csv": {
+      "source_files": ["gabinet.nfzdeclaration.txt", "gabinet.patient.txt", "gabinet.person.txt", "gabinet.custodian.txt"],
+      "fields": {
+        "InstalacjaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "IdImport": {
+          "source": "gabinet.nfzdeclaration.txt -> id",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "Klucz g³ówny deklaracji"
+        },
+        "TypDeklaracjiPOZ": {
+          "source": "gabinet.nfzdeclaration.txt -> type",
+          "logic": "Bezpoœrednie mapowanie kodów (L, P, O, S, C, H)",
+          "required": true,
+          "notes": "lub TypDeklaracjiPOZId"
+        },
+        "TypDeklaracjiPOZId": {
+          "source": "Wyprowadzone z TypDeklaracjiPOZ",
+          "logic": "Zmapuj kody tekstowe na ID numeryczne",
+          "required": true,
+          "notes": "lub TypDeklaracjiPOZ"
+        },
+        "DataZlozenia": {
+          "source": "gabinet.nfzdeclaration.txt -> creation_date",
+          "logic": "Mapowanie bezpoœrednie. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "DataWygasniecia": {
+          "source": "gabinet.nfzdeclaration.txt -> deletion_date",
+          "logic": "Mapowanie bezpoœrednie. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "JednostkaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "JednostkaIdImport": {
+          "source": "gabinet.nfzdeclaration.txt -> department",
+          "logic": "Mapowanie bezpoœrednie po weryfikacji istnienia w gabinet.office.txt",
+          "join": "nfzdeclaration.department = office.department",
+          "required": true,
+          "notes": "lub JednostkaId"
+        },
+        "PacjentId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "PacjentIdImport": {
+          "source": "gabinet.nfzdeclaration.txt -> patient",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "lub PacjentId/PacjentPesel"
+        },
+        "PacjentPesel": {
+          "source": "gabinet.patient.txt -> pesel",
+          "logic": "Po³¹cz nfzdeclaration.patient z patient.id",
+          "join": "nfzdeclaration.patient = patient.id",
+          "required": true,
+          "notes": "lub PacjentId/PacjentIdImport"
+        },
+        "TypPacjentaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Domyœlnie '1' (Pacjent z nadanym nr PESEL)",
+          "default": "1",
+          "required": true
+        },
+        "PracownikId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "PracownikIdImport": {
+          "source": "gabinet.nfzdeclaration.txt -> personnel",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "lub PracownikId/PracownikNPWZ"
+        },
+        "PracownikNPWZ": {
+          "source": "gabinet.person.txt -> pwz",
+          "logic": "Po³¹cz nfzdeclaration.personnel z person.id",
+          "join": "nfzdeclaration.personnel = person.id",
+          "required": true,
+          "notes": "lub PracownikId/PracownikIdImport"
+        },
+        "PeselOpiekuna": {
+          "source": "gabinet.custodian.txt -> pesel",
+          "logic": "Po³¹cz nfzdeclaration.patient -> patient.id -> patient.supervisor -> custodian.id -> custodian.pesel",
+          "join": "nfzdeclaration.patient = patient.id AND patient.supervisor = custodian.id",
+          "required": false,
+          "notes": "Powi¹zanie z³o¿one i potencjalnie brakuj¹ce"
+        },
+        "PeselOpiekuna2": {
+          "source": "gabinet.custodian.txt -> pesel",
+          "logic": "Podobna logika dla drugiego opiekuna",
+          "required": false,
+          "notes": "Powi¹zanie z³o¿one i potencjalnie brakuj¹ce"
+        },
+        "Komentarz": {
+          "source": "gabinet.nfzdeclaration.txt -> note",
+          "logic": "Mapowanie bezpoœrednie. Obetnij do 255 znaków",
+          "required": false,
+          "notes": "Maks. d³ugoœæ 255"
+        }
+      }
+    },
+    
+    "jednostki.csv": {
+      "source_files": ["gabinet.office.txt"],
+      "fields": {
+        "IdImport": {
+          "source": "gabinet.office.txt -> department",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "U¿yj ID department jako g³ównego klucza importu"
+        },
+        "Nazwa": {
+          "source": "gabinet.office.txt -> name",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true
+        },
+        "Aktywna": {
+          "source": "gabinet.office.txt -> active",
+          "logic": "Zmapuj boolean na '1'/'0' lub 'T'/'N'",
+          "required": false
+        },
+        "IdWewnetrzny": {
+          "source": "gabinet.office.txt -> id?",
+          "logic": "Zmapuj wewnêtrzne ID Ÿród³a",
+          "required": false,
+          "notes": "Wewnêtrzny klucz g³ówny Ÿród³a"
+        }
+      }
+    },
+    
+    "dokumenty_uprawniajace.csv": {
+      "source_files": ["gabinet.insurancedocuments.txt", "gabinet.insurance.txt", "gabinet.patient.txt"],
+      "fields": {
+        "InstalacjaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "IdImport": {
+          "source": "gabinet.insurancedocuments.txt -> id",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "Klucz g³ówny dokumentu"
+        },
+        "KodDokumentu": {
+          "source": "gabinet.insurancedocuments.txt -> document_name",
+          "logic": "Bezpoœrednie mapowanie. Mo¿e wymagaæ mapowania na predefiniowane kody",
+          "required": true
+        },
+        "KodUprawnienia": {
+          "source": "gabinet.insurance.txt -> permissions_title",
+          "logic": "Po³¹cz insurancedocuments.insurance z insurance.id",
+          "join": "insurancedocuments.insurance = insurance.id",
+          "required": true
+        },
+        "NazwaDokumentu": {
+          "source": "gabinet.insurancedocuments.txt -> document_name",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "PacjentId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "PacjentIdImport": {
+          "source": "gabinet.insurance.txt -> patient",
+          "logic": "Po³¹cz insurancedocuments.insurance z insurance.id",
+          "join": "insurancedocuments.insurance = insurance.id",
+          "required": true,
+          "notes": "lub PacjentId/PacjentPesel"
+        },
+        "PacjentPesel": {
+          "source": "gabinet.patient.txt -> pesel",
+          "logic": "Po³¹cz insurancedocuments -> insurance -> patient",
+          "join": "insurancedocuments.insurance = insurance.id AND insurance.patient = patient.id",
+          "required": true,
+          "notes": "lub PacjentId/PacjentIdImport"
+        },
+        "KodOddzialuNFZ": {
+          "source": "gabinet.insurance.txt -> id_nfz",
+          "logic": "Po³¹cz insurancedocuments.insurance z insurance.id",
+          "join": "insurancedocuments.insurance = insurance.id",
+          "required": false
+        },
+        "NIP": {
+          "source": "gabinet.insurancedocuments.txt -> nip",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "DataOd": {
+          "source": "gabinet.insurancedocuments.txt -> valid_from",
+          "logic": "Mapowanie bezpoœrednie. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "DataDo": {
+          "source": "gabinet.insurancedocuments.txt -> valid_to",
+          "logic": "Mapowanie bezpoœrednie. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false,
+          "notes": "Pole mo¿e nie istnieæ we wszystkich rekordach"
+        },
+        "DataWystawienia": {
+          "source": "gabinet.insurancedocuments.txt -> set_date lub receive_date",
+          "logic": "Mapowanie bezpoœrednie. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "KodInstytucjiWystawiajacej": {
+          "source": "gabinet.insurancedocuments.txt -> competent_institution lub issuer",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "NazwaInstytucjiWystawiajacej": {
+          "source": "gabinet.insurancedocuments.txt -> issuing_authority lub issuer",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "Numer": {
+          "source": "gabinet.insurancedocuments.txt -> document_number",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "PodstawaOswiadczenia": {
+          "source": "gabinet.insurancedocuments.txt -> permission_basis",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "RodzajZezwoleniaLubOchrony": {
+          "source": "gabinet.insurancedocuments.txt -> permission_type",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        }
+      }
+    },
+    
+    "szczepienia.csv": {
+      "source_files": ["gabinet.vaccination.txt", "gabinet.patient.txt", "gabinet.person.txt"],
+      "fields": {
+        "InstalacjaId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Ustaw na null",
+          "required": false
+        },
+        "IdImport": {
+          "source": "gabinet.vaccination.txt -> id",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "Klucz g³ówny szczepienia"
+        },
+        "PacjentIdImport": {
+          "source": "gabinet.vaccination.txt -> patient",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": true,
+          "notes": "lub PacjentPesel"
+        },
+        "PacjentPesel": {
+          "source": "gabinet.patient.txt -> pesel",
+          "logic": "Po³¹cz vaccination.patient z patient.id",
+          "join": "vaccination.patient = patient.id",
+          "required": true,
+          "notes": "lub PacjentIdImport"
+        },
+        "PracownikIdImport": {
+          "source": "gabinet.vaccination.txt -> vaccinator lub person",
+          "logic": "U¿yj vaccinator, jeœli dostêpne, w przeciwnym razie person",
+          "required": false
+        },
+        "PracownikNPWZ": {
+          "source": "gabinet.person.txt -> pwz",
+          "logic": "Po³¹cz po PracownikIdImport z person.id",
+          "join": "vaccination.vaccinator = person.id (lub vaccination.person = person.id)",
+          "required": true,
+          "notes": "lub inne identyfikatory"
+        },
+        "PracownikPesel": {
+          "source": "gabinet.person.txt -> pesel",
+          "logic": "Po³¹cz po PracownikIdImport z person.id",
+          "join": "vaccination.vaccinator = person.id (lub vaccination.person = person.id)",
+          "required": true,
+          "notes": "lub inne identyfikatory"
+        },
+        "Nazwa": {
+          "source": "gabinet.vaccination.txt -> drug",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false,
+          "notes": "Nazwa handlowa lub opis szczepionki"
+        },
+        "MiejscePodania": {
+          "source": "gabinet.vaccination.txt -> vaccination_site",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "NrSerii": {
+          "source": "gabinet.vaccination.txt -> vaccine_series",
+          "logic": "Mapowanie bezpoœrednie",
+          "required": false
+        },
+        "DataPodania": {
+          "source": "gabinet.vaccination.txt -> datetime",
+          "logic": "Mapowanie bezpoœrednie. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": true
+        },
+        "DataWaznosci": {
+          "source": "gabinet.vaccination.txt -> expiration_date",
+          "logic": "Mapowanie bezpoœrednie. Format RRRR-MM-DD GG:MM:SS",
+          "format": "RRRR-MM-DD GG:MM:SS",
+          "required": false
+        },
+        "DrogaPodaniaId": {
+          "source": "gabinet.vaccination.txt -> vaccination_area",
+          "logic": "Wymaga mapowania wartoœci tekstowej na ID numeryczne. Domyœlnie null",
+          "required": false,
+          "notes": "Wymaga s³ownika mapuj¹cego"
+        },
+        "CzyZKalendarza": {
+          "source": "gabinet.vaccination.txt -> vaccination_kind",
+          "logic": "Zmapuj 'Z kalendarza szczepieñ' na '1', w przeciwnym razie '0'",
+          "required": false
+        },
+        "SzczepienieId": {
+          "source": "Niedostêpne bezpoœrednio",
+          "logic": "Wymaga mapowania drug na ID ze s³ownika docelowego. Domyœlnie null",
+          "required": true,
+          "notes": "Wymaga s³ownika mapuj¹cego"
+        },
+        "Dawka": {
+          "source": "gabinet.vaccination.txt -> dose lub number_of_dose",
+          "logic": "U¿yj dose, jeœli dostêpne, w przeciwnym razie number_of_dose",
+          "required": false,
+          "notes": "Wymagane, jeœli CzyZKalendarza = '1'"
+        }
+      }
+    }
+  },
+  
+  "key_considerations": {
+    "csv_separator": "Œrednik (;)",
+    "encoding": "UTF-8",
+    "date_format": "RRRR-MM-DD GG:MM:SS",
+    "boolean_mapping": {
+      "true": "1",
+      "false": "0"
+    },
+    "missing_data_handling": "U¿yj wartoœci domyœlnych lub null zgodnie z definicj¹",
+    "required_validations": [
+      "SprawdŸ wymagane pola",
+      "SprawdŸ formaty dat",
+      "SprawdŸ d³ugoœci pól",
+      "SprawdŸ kody wyliczeniowe",
+      "SprawdŸ sumy kontrolne (PESEL)"
+    ],
+    "join_requirements": [
+      "Wizyta -> Pacjent, Lekarz/Osoba, Gabinet",
+      "Pacjent -> Adres (Zameldowania/Zamieszkania), Opiekun",
+      "Osoba -> U¿ytkownik (dla nazwy/loginu), Profil (dla roli/specjalizacji)",
+      "Sta³y Lek -> Pacjent, S³ownik Leków",
+      "Deklaracja NFZ -> Pacjent, Personel/Osoba, Gabinet (przez pole department)"
+    ],
+    "code_mapping_needs": [
+      "Status wizyty: Ÿród³owe wartoœci -> kody docelowe (1,2,3,4,9)",
+      "P³eæ: 'Kobieta'/'Mê¿czyzna' -> 'k'/'m'",
+      "Uprawnienia pacjenta: kody tekstowe -> ID numeryczne",
+      "Typ personelu: role/kody -> kody NFZ (1-41)",
+      "Stopieñ pokrewieñstwa opiekuna: tekst -> ID (1,4,5)"
+    ]
+  }
+}
