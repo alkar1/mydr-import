@@ -41,8 +41,10 @@ class Program
 
         try
         {
-			// Utwórz folder wyjœciowy dla raportów w katalogu 
-			var outputDir = Path.Combine(AppContext.BaseDirectory, "output");
+			// Utwórz folder wyjœciowy dla raportów w katalogu projektu
+			var projectDir = Directory.GetParent(AppContext.BaseDirectory)?.Parent?.Parent?.FullName 
+				?? Directory.GetCurrentDirectory();
+			var outputDir = Path.Combine(projectDir, "data_etap1");
             Directory.CreateDirectory(outputDir);
 
             Console.WriteLine($"?? Folder raportów: {outputDir}");
