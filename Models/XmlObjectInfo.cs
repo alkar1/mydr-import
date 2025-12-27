@@ -15,7 +15,7 @@ public class XmlObjectInfo
     {
         RecordCount++;
 
-        // Aktualizuj zakres kluczy g³ównych
+        // Aktualizuj zakres kluczy gï¿½ï¿½wnych
         if (long.TryParse(primaryKey, out long pk))
         {
             if (pk < MinPrimaryKey) MinPrimaryKey = pk;
@@ -42,14 +42,14 @@ public class XmlObjectInfo
 
     public void PrintSummary()
     {
-        Console.WriteLine($"\n{'=',-80}");
+        Console.WriteLine($"\n{new string('=', 80)}");
         Console.WriteLine($"MODEL: {ModelName}");
-        Console.WriteLine($"{'=',-80}");
-        Console.WriteLine($"Liczba rekordów: {RecordCount:N0}");
+        Console.WriteLine($"{new string('=', 80)}");
+        Console.WriteLine($"Liczba rekordï¿½w: {RecordCount:N0}");
         Console.WriteLine($"Primary Key Range: {MinPrimaryKey:N0} - {MaxPrimaryKey:N0}");
-        Console.WriteLine($"Liczba pól: {Fields.Count}");
+        Console.WriteLine($"Liczba pï¿½l: {Fields.Count}");
         Console.WriteLine($"\nPOLA:");
-        Console.WriteLine($"{'-',-80}");
+        Console.WriteLine($"{new string('-', 80)}");
 
         foreach (var field in Fields.Values.OrderBy(f => f.Name))
         {
@@ -57,7 +57,7 @@ public class XmlObjectInfo
             
             if (field.SampleValues.Any())
             {
-                Console.WriteLine($"    Przyk³ady: {string.Join(", ", field.SampleValues.Take(3).Select(s => $"\"{s}\""))}");
+                Console.WriteLine($"    Przykï¿½ady: {string.Join(", ", field.SampleValues.Take(3).Select(s => $"\"{s}\""))}");
             }
         }
     }

@@ -40,8 +40,8 @@ class Program
 
         try
         {
-            // Utwórz folder wyjœciowy dla raportów
-            var outputDir = Path.Combine(AppContext.BaseDirectory, "output");
+			// Utwórz folder wyjœciowy dla raportów w katalogu 
+			var outputDir = Path.Combine(AppContext.BaseDirectory, "output");
             Directory.CreateDirectory(outputDir);
 
             Console.WriteLine($"?? Folder raportów: {outputDir}");
@@ -76,14 +76,14 @@ class Program
             }
 
             // Zapisz zbiorczy raport
-            var summaryPath = Path.Combine(outputDir, "structure_summary.txt");
+            var summaryPath = Path.Combine(outputDir, "xml_structure_summary.txt");
             await WriteSummaryReport(summaryPath, objectInfos);
-            Console.WriteLine($"? Zapisano: structure_summary.txt");
+            Console.WriteLine($"? Zapisano: xml_structure_summary.txt");
 
             // Zapisz raport JSON dla ³atwego parsowania
-            var jsonPath = Path.Combine(outputDir, "structure_summary.json");
+            var jsonPath = Path.Combine(outputDir, "xml_structure_summary.json");
             await WriteJsonReport(jsonPath, objectInfos);
-            Console.WriteLine($"? Zapisano: structure_summary.json");
+            Console.WriteLine($"? Zapisano: xml_structure_summary.json");
 
             Console.WriteLine();
             Console.WriteLine(new string('=', 80));
