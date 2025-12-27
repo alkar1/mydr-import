@@ -16,9 +16,13 @@ class Program
         Console.WriteLine();
 
         // Œcie¿ka do pliku XML
+        var dataPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),
+            @"NC\PROJ\OPTIMED\MyDr_data");
+
         var xmlFilePath = args.Length > 0 
             ? args[0] 
-            : Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "data", "gabinet_export_2025_12_09.xml");
+            : Path.Combine(dataPath, "gabinet_export.xml");
 
         xmlFilePath = Path.GetFullPath(xmlFilePath);
 
