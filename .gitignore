@@ -9,7 +9,6 @@ out/
 *.userprefs
 .vs/
 .vscode/
-!.vscode/
 !.vscode/settings.json
 .idea/
 
