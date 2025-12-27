@@ -37,13 +37,20 @@ class Program
             return 1;
         }
 
+        // Skopiuj pocz¹tek pliku XML do gabinet_head.xml
+        await CopyXmlHeadAsync(xmlFilePath, dataPath);
+        Console.WriteLine("Naciœnij dowolny klawisz, aby kontynuowaæ...");
+        Console.ReadKey(true);
+        Console.WriteLine();
+
         Console.WriteLine($"? Analiza pliku: {Path.GetFileName(xmlFilePath)}");
 
         try
         {
 			// Utwórz folder wyjœciowy dla raportów w katalogu projektu
-			var projectDir = Directory.GetParent(AppContext.BaseDirectory)?.Parent?.Parent?.FullName 
-				?? Directory.GetCurrentDirectory();
+			var projectDir = Path.GetFullPath(
+				Path.Combine(AppContext.BaseDirectory, "..", "..", "..")
+			);
 			var outputDir = Path.Combine(projectDir, "data_etap1");
             Directory.CreateDirectory(outputDir);
 
@@ -115,6 +122,29 @@ class Program
             Console.WriteLine("Szczegó³y:");
             Console.WriteLine(ex.ToString());
             return 3;
+        }
+    }
+
+    static async Task CopyXmlHeadAsync(string sourceXmlPath, string outputDir)
+    {
+        const int headSize = 10 * 1024; // 10 kB
+        var headFilePath = Path.Combine(outputDir, "gabinet_head.xml");
+
+        try
+        {
+            using var sourceStream = new FileStream(sourceXmlPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            using var targetStream = new FileStream(headFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            
+            var buffer = new byte[headSize];
+            var bytesRead = await sourceStream.ReadAsync(buffer, 0, headSize);
+            
+            await targetStream.WriteAsync(buffer, 0, bytesRead);
+            
+            Console.WriteLine($"? Skopiowano pierwsze {bytesRead:N0} bajtów do: {headFilePath}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"? B³¹d podczas kopiowania nag³ówka: {ex.Message}");
         }
     }
 
