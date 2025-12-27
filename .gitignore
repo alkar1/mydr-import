@@ -9,6 +9,8 @@ out/
 *.userprefs
 .vs/
 .vscode/
+!.vscode/
+!.vscode/settings.json
 .idea/
 
 # Ignore data files (large XML files)
