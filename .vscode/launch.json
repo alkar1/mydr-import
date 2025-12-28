@@ -1,28 +1,19 @@
 {
   "configurations": [
     {
-      "program": "${workspaceFolder}/bin/Debug/net8.0/MyDr_Import.dll",
       "request": "launch",
-      "stopAtEntry": false,
+      "type": "dotnet",
+      "projectPath": "${workspaceFolder}/MyDr_Import.csproj",
+      "name": "MyDr_Import (Debug)"
+    },
+    {
+      "request": "launch",
       "args": [
         "${workspaceFolder}/data_etap1/gabinet.xml"
       ],
-      "name": "MyDr_Import (Debug)",
-      "console": "integratedTerminal",
-      "type": "coreclr",
-      "preLaunchTask": "build",
-      "cwd": "${workspaceFolder}"
-    },
-    {
-      "program": "${workspaceFolder}/bin/Debug/net8.0/MyDr_Import.dll",
-      "request": "launch",
-      "stopAtEntry": false,
-      "args": [],
-      "name": "MyDr_Import (bez argumentow)",
-      "console": "integratedTerminal",
-      "type": "coreclr",
-      "preLaunchTask": "build",
-      "cwd": "${workspaceFolder}"
+      "type": "dotnet",
+      "projectPath": "${workspaceFolder}/MyDr_Import.csproj",
+      "name": "MyDr_Import (z argumentem)"
     }
   ],
   "version": "0.2.0"
