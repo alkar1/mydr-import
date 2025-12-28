@@ -1,20 +1,11 @@
 {
-  "configurations": [
-    {
-      "request": "launch",
-      "type": "dotnet",
-      "projectPath": "${workspaceFolder}/MyDr_Import.csproj",
-      "name": "MyDr_Import (Debug)"
-    },
-    {
-      "request": "launch",
-      "args": [
-        "${workspaceFolder}/data_etap1/gabinet.xml"
-      ],
-      "type": "dotnet",
-      "projectPath": "${workspaceFolder}/MyDr_Import.csproj",
-      "name": "MyDr_Import (z argumentem)"
-    }
-  ],
-  "version": "0.2.0"
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "MyDr_Import",
+            "type": "dotnet",
+            "request": "launch"
+        }
+    ]
+}
 }
