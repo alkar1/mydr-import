@@ -1,55 +1,43 @@
-﻿{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/MyDr_Import.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        },
-        {
-            "label": "publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/MyDr_Import.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "watch",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "watch",
-                "run",
-                "--project",
-                "${workspaceFolder}/MyDr_Import.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "clean",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "clean",
-                "${workspaceFolder}/MyDr_Import.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        }
-    ]
-}}
+{
+  "tasks": [
+    {
+      "problemMatcher": "$msCompile",
+      "label": "build",
+      "args": [
+        "build",
+        "${workspaceFolder}/MyDr_Import.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "type": "process",
+      "command": "dotnet",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "command": "dotnet",
+      "problemMatcher": "$msCompile",
+      "type": "process",
+      "args": [
+        "publish",
+        "${workspaceFolder}/MyDr_Import.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "label": "publish"
+    },
+    {
+      "command": "dotnet",
+      "problemMatcher": "$msCompile",
+      "type": "process",
+      "args": [
+        "clean",
+        "${workspaceFolder}/MyDr_Import.csproj"
+      ],
+      "label": "clean"
+    }
+  ],
+  "version": "2.0.0"
+}
