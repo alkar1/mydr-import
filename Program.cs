@@ -34,9 +34,12 @@ class Program
         }
 
         CopyXmlHead(xmlFilePath, dataPath);
-        Console.WriteLine("Nacisnij dowolny klawisz, aby kontynuowac...");
-        Console.ReadKey(true);
-        Console.WriteLine();
+        if (!Console.IsInputRedirected)
+        {
+            Console.WriteLine("Nacisnij dowolny klawisz, aby kontynuowac...");
+            Console.ReadKey(true);
+            Console.WriteLine();
+        }
 
         Console.WriteLine(new string('=', 80));
         Console.WriteLine("ETAP 1: ANALIZA STRUKTURY XML");
