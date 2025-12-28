@@ -34,12 +34,33 @@ class Program
         }
 
         CopyXmlHead(xmlFilePath, dataPath);
-        if (!Console.IsInputRedirected)
+
+        var outputDir = dataPath;
+         Directory.CreateDirectory(outputDir);
+
+//fukcja listuje pliki z outputDir
+         Console.WriteLine("Zawartosc katalogu outputDir: " + outputDir);
+        var files = Directory.GetFiles(outputDir);
+        foreach (var file in files)
         {
-            Console.WriteLine("Nacisnij dowolny klawisz, aby kontynuowac...");
-            Console.ReadKey(true);
-            Console.WriteLine();
+            Console.WriteLine(" - " + Path.GetFileName(file));
         }
+        Console.WriteLine();    
+
+        //if debug - wyjscie z programu przed analiza
+        bool isDebug = System.Diagnostics.Debugger.IsAttached;
+        if (isDebug)
+        {
+            Console.WriteLine("Tryb debugowania - wyjscie z programu przed analiza.");
+        }
+
+        //wyjscie z programu przed analiza
+        Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
+        Console.ReadLine();
+        Console.WriteLine();
+        return 0;
+        //-------------
+
 
         Console.WriteLine(new string('=', 80));
         Console.WriteLine("ETAP 1: ANALIZA STRUKTURY XML");
@@ -47,8 +68,6 @@ class Program
 
         try
         {
-            var outputDir = dataPath;
-            Directory.CreateDirectory(outputDir);
 
             var analyzer = new XmlStructureAnalyzer(xmlFilePath);
             var objectInfos = analyzer.Analyze();

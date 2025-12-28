@@ -7,5 +7,10 @@
   },
   "[json]": {
     "files.encoding": "utf8"
-  }
+  },
+  "csharp.debug.console": "externalTerminal"      // zewnętrzny terminal cmd/powershell – pełne wsparcie ReadKey/ReadLine, brak problemów z inputem
+  // lub
+  //"csharp.debug.console": "integratedTerminal"  // zintegrowany terminal VS Code – dobre kompromis, input bezpośrednio w VS Code
+  // domyślne (jeśli nie ustawisz): "internalConsole" – input tylko przez pole w Debug Console, czasem mylące przy pauzach
+
 }
