@@ -15,7 +15,7 @@ public class XmlObjectInfo
     {
         RecordCount++;
 
-        // Aktualizuj zakres kluczy g��wnych
+        // Aktualizuj zakres kluczy glownych
         if (long.TryParse(primaryKey, out long pk))
         {
             if (pk < MinPrimaryKey) MinPrimaryKey = pk;
@@ -45,9 +45,9 @@ public class XmlObjectInfo
         Console.WriteLine($"\n{new string('=', 80)}");
         Console.WriteLine($"MODEL: {ModelName}");
         Console.WriteLine($"{new string('=', 80)}");
-        Console.WriteLine($"Liczba rekord�w: {RecordCount:N0}");
+        Console.WriteLine($"Liczba rekordow: {RecordCount:N0}");
         Console.WriteLine($"Primary Key Range: {MinPrimaryKey:N0} - {MaxPrimaryKey:N0}");
-        Console.WriteLine($"Liczba p�l: {Fields.Count}");
+        Console.WriteLine($"Liczba pol: {Fields.Count}");
         Console.WriteLine($"\nPOLA:");
         Console.WriteLine($"{new string('-', 80)}");
 
@@ -57,7 +57,7 @@ public class XmlObjectInfo
             
             if (field.SampleValues.Any())
             {
-                Console.WriteLine($"    Przyk�ady: {string.Join(", ", field.SampleValues.Take(3).Select(s => $"\"{s}\""))}");
+                Console.WriteLine($"    Przyklady: {string.Join(", ", field.SampleValues.Take(3).Select(s => $"\"{s}\""))}");
             }
         }
     }
@@ -81,3 +81,4 @@ public class XmlObjectInfo
         return sb.ToString();
     }
 }
+

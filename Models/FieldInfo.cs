@@ -29,7 +29,7 @@ public class FieldInfo
             MaxLength = value.Length;
         }
 
-        // Przechowuj tylko pierwsze 10 przyk³adowych wartoœci
+        // Przechowuj tylko pierwsze 10 przykladowych wartosci
         if (SampleValues.Count < 10)
         {
             SampleValues.Add(value.Length > 100 ? value.Substring(0, 100) + "..." : value);
@@ -57,3 +57,4 @@ public class FieldInfo
         return string.Join(" | ", parts);
     }
 }
+
