@@ -10,7 +10,11 @@ class Program
         Console.WriteLine();
 
         string xmlFilePath;
-        string dataPath = Path.Combine(AppContext.BaseDirectory, "data_etap1");
+        //folder "data_etap1" jest w katalogu z plikiem �r�d�owym program.cs 
+        string dataPath = Path.Combine(Directory.GetCurrentDirectory(), "data_etap1");
+        Console.WriteLine("folder \"data_etap1\" jest w katalogu dataPath: " + dataPath);
+        Console.WriteLine();
+        
 
         if (args.Length > 0)
         {
@@ -184,6 +188,7 @@ class Program
         File.WriteAllText(filePath, json, Encoding.UTF8);
     }
 }
+
 
 
 
