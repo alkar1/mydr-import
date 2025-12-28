@@ -10,6 +10,8 @@ out/
 .vs/
 .vscode/
 !.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
 .idea/
 
 # Ignore data files (large XML files)
@@ -81,3 +83,4 @@ BenchmarkDotNet.Artifacts/
 # Ignore data_etap1 folder
 data_etap1/
 data_etap1/
+
