@@ -10,6 +10,7 @@ class Program
 
         // Parsowanie argumentow
         bool startFromEtap1 = args.Contains("--etap1", StringComparer.OrdinalIgnoreCase);
+        string? specificModel = GetArgValue(args, "--model");
         var pathArgs = args.Where(a => !a.StartsWith("--")).ToArray();
 
         string dataPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "MyDr_data"));
@@ -26,9 +27,10 @@ class Program
         {
             Console.WriteLine("Blad: Plik nie istnieje: " + xmlFilePath);
             Console.WriteLine();
-            Console.WriteLine("Uzycie: MyDr_Import [--etap1] <sciezka_do_pliku_xml>");
-            Console.WriteLine("  --etap1  Wymusza rozpoczecie od etapu 1 (analiza XML)");
-            Console.WriteLine("           Bez tej flagi program zaczyna od etapu 2");
+            Console.WriteLine("Uzycie: MyDr_Import [--etap1] [--model=nazwa] <sciezka_do_pliku_xml>");
+            Console.WriteLine("  --etap1        Wymusza rozpoczecie od etapu 1 (analiza XML)");
+            Console.WriteLine("  --model=nazwa  Testuje tylko wybrany arkusz mapowania (np. --model=pacjenci)");
+            Console.WriteLine("                 Bez --etap1 program zaczyna od etapu 2");
             Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
             Console.ReadLine();
 
@@ -70,8 +72,8 @@ class Program
             Console.WriteLine();
         }
 
-        // ETAP 2: Przetwarzanie danych
-        result = Etap2.Run(dataEtap1Path);
+        // ETAP 2: Przetwarzanie danych (mapowanie pol)
+        result = Etap2.Run(dataEtap1Path, specificModel);
 
         if (result == 0)
         {
@@ -82,5 +84,14 @@ class Program
         Console.ReadLine();
 
         return result;
+    }
+
+    static string? GetArgValue(string[] args, string prefix)
+    {
+        var arg = args.FirstOrDefault(a => a.StartsWith(prefix, StringComparison.OrdinalIgnoreCase));
+        if (arg == null) return null;
+        
+        var parts = arg.Split('=', 2);
+        return parts.Length > 1 ? parts[1] : null;
     }
 }
