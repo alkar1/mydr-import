@@ -23,7 +23,7 @@ data/*.zip
 # Ignore output reports (can be regenerated)
 output/
 
-# Ignore large XML data files only
+# Ignoruj duze pliki XML
 data_etap1/data_full/
 
 # Ignore NuGet packages
