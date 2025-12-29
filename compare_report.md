@@ -1,5 +1,5 @@
 ﻿# Raport porownania starych i nowych wynikow CSV
-Data: 2025-12-29 20:23:44
+Data: 2025-12-29 22:01:19
 
 ## Podsumowanie
 - Plikow w old_etap2: 11
@@ -10,22 +10,22 @@ Data: 2025-12-29 20:23:44
 Stare pola: 32, Nowe pola: 33
 
 ### Nowe pola
-- `TypDeklaracjiPOZId` (wypelnienie: 0,0%)
+- `TypDeklaracjiPOZId` (wypelnienie: 0,4%)
 
 ### Wypelnienie pol
 | Pole | Stare % | Nowe % | Status |
 |------|---------|--------|--------|
-| `DataWygasniecia` | 25,7 | 0,0 | BRAK DANYCH |
-| `DataZlozenia` | 100,0 | 0,0 | BRAK DANYCH |
+| `DataWygasniecia` | 25,7 | 24,3 | OK |
+| `DataZlozenia` | 100,0 | 100,0 | OK |
 | `IdImport` | 100,0 | 100,0 | OK |
 | `InstalacjaId` | 0,0 | 0,0 | PUSTE |
 | `JednostkaId` | 0,0 | 0,0 | PUSTE |
-| `JednostkaIdImport` | 100,0 | 0,0 | BRAK DANYCH |
+| `JednostkaIdImport` | 100,0 | 100,0 | OK |
 | `KodGminySzkoly` | 0,0 | 0,0 | PUSTE |
 | `KodPocztowySzkoly` | 0,0 | 0,0 | PUSTE |
 | `KodRodzajuSzkoly` | 0,0 | 0,0 | PUSTE |
 | `KodTypuPodopiecznego` | 0,0 | 0,0 | PUSTE |
-| `Komentarz` | 0,2 | 0,0 | BRAK DANYCH |
+| `Komentarz` | 0,2 | 100,0 | DUZA ZMIANA |
 | `MiejscowoscSzkoly` | 0,0 | 0,0 | PUSTE |
 | `NazwaSzkoly` | 0,0 | 0,0 | PUSTE |
 | `NIP` | 0,0 | 0,0 | PUSTE |
@@ -33,18 +33,18 @@ Stare pola: 32, Nowe pola: 33
 | `NrTelefonuSzkoly` | 0,0 | 0,0 | PUSTE |
 | `NrUmowyUbezpieczeniowej` | 0,0 | 0,0 | PUSTE |
 | `PacjentId` | 0,0 | 0,0 | PUSTE |
-| `PacjentIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PacjentPesel` | 100,0 | 0,0 | BRAK DANYCH |
+| `PacjentIdImport` | 100,0 | 100,0 | OK |
+| `PacjentPesel` | 100,0 | 100,0 | OK |
 | `PatronSzkoly` | 0,0 | 0,0 | PUSTE |
 | `PeselOpiekuna` | 0,0 | 0,0 | PUSTE |
 | `PeselOpiekuna2` | 0,0 | 0,0 | PUSTE |
 | `PracownikId` | 0,0 | 0,0 | PUSTE |
-| `PracownikIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PracownikNPWZ` | 100,0 | 0,0 | BRAK DANYCH |
+| `PracownikIdImport` | 100,0 | 100,0 | OK |
+| `PracownikNPWZ` | 100,0 | 100,0 | OK |
 | `ProfilaktykaFluorkowa` | 100,0 | 0,0 | BRAK DANYCH |
 | `RegonSzkoly` | 0,0 | 0,0 | PUSTE |
-| `TypDeklaracjiPOZ` | 100,0 | 0,0 | BRAK DANYCH |
-| `TypPacjentaId` | 100,0 | 0,0 | BRAK DANYCH |
+| `TypDeklaracjiPOZ` | 100,0 | 100,0 | OK |
+| `TypPacjentaId` | 100,0 | 100,0 | OK |
 | `TypSzkolyId` | 0,0 | 0,0 | PUSTE |
 | `UlicaSzkoly` | 0,0 | 0,0 | PUSTE |
 
@@ -57,21 +57,21 @@ Stare pola: 15, Nowe pola: 16
 ### Wypelnienie pol
 | Pole | Stare % | Nowe % | Status |
 |------|---------|--------|--------|
-| `Data` | 100,0 | 0,0 | BRAK DANYCH |
+| `Data` | 100,0 | 98,9 | OK |
 | `IdImport` | 100,0 | 100,0 | OK |
 | `InstalacjaId` | 0,0 | 0,0 | PUSTE |
 | `JednostkaId` | 0,0 | 0,0 | PUSTE |
 | `JednostkaIdImport` | 0,0 | 0,0 | PUSTE |
 | `LimitRozmiaruMB` | 0,0 | 0,0 | PUSTE |
-| `NazwaPliku` | 100,0 | 0,0 | BRAK DANYCH |
+| `NazwaPliku` | 100,0 | 14,1 | DUZA ZMIANA |
 | `Opis` | 45,3 | 0,0 | BRAK DANYCH |
-| `PacjentId` | 0,0 | 0,0 | PUSTE |
-| `PacjentIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PacjentPesel` | 97,5 | 0,0 | BRAK DANYCH |
-| `Sciezka` | 100,0 | 0,0 | BRAK DANYCH |
-| `SciezkaBazowa` | 0,0 | 0,0 | PUSTE |
+| `PacjentId` | 0,0 | 98,9 | NOWE DANE |
+| `PacjentIdImport` | 100,0 | 98,2 | OK |
+| `PacjentPesel` | 97,5 | 88,9 | zmiana |
+| `Sciezka` | 100,0 | 98,0 | OK |
+| `SciezkaBazowa` | 0,0 | 98,0 | NOWE DANE |
 | `TypPliku` | 100,0 | 0,0 | BRAK DANYCH |
-| `WizytaIdImport` | 40,7 | 0,0 | BRAK DANYCH |
+| `WizytaIdImport` | 40,7 | 98,9 | DUZA ZMIANA |
 
 ## dokumenty_uprawniajace.csv
 Stare pola: 22, Nowe pola: 22
@@ -80,25 +80,25 @@ Stare pola: 22, Nowe pola: 22
 | Pole | Stare % | Nowe % | Status |
 |------|---------|--------|--------|
 | `DataDo` | 0,0 | 0,0 | PUSTE |
-| `DataOd` | 0,4 | 0,0 | BRAK DANYCH |
+| `DataOd` | 0,4 | 0,4 | OK |
 | `DataWystawienia` | 5,0 | 0,0 | BRAK DANYCH |
 | `EwusId` | 0,0 | 0,0 | PUSTE |
 | `IdImport` | 100,0 | 100,0 | OK |
 | `InstalacjaId` | 0,0 | 0,0 | PUSTE |
 | `InstytucjaWystawiajaca` | 0,0 | 0,0 | PUSTE |
-| `KodDokumentu` | 100,0 | 0,0 | BRAK DANYCH |
+| `KodDokumentu` | 100,0 | 100,0 | OK |
 | `KodInstytucjiWystawiajacej` | 4,2 | 0,0 | BRAK DANYCH |
 | `KodOddzialuNFZ` | 0,0 | 0,0 | PUSTE |
-| `KodUprawnienia` | 100,0 | 0,0 | BRAK DANYCH |
-| `NazwaDokumentu` | 1,0 | 0,0 | BRAK DANYCH |
+| `KodUprawnienia` | 100,0 | 100,0 | OK |
+| `NazwaDokumentu` | 1,0 | 0,9 | OK |
 | `NazwaInstytucjiWystawiajacej` | 0,2 | 0,0 | BRAK DANYCH |
-| `NIP` | 0,3 | 99,6 | DUZA ZMIANA |
-| `Numer` | 9,2 | 0,0 | BRAK DANYCH |
+| `NIP` | 0,3 | 0,3 | OK |
+| `Numer` | 9,2 | 9,4 | OK |
 | `PacjentId` | 0,0 | 0,0 | PUSTE |
-| `PacjentIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PacjentPesel` | 98,6 | 0,0 | BRAK DANYCH |
+| `PacjentIdImport` | 100,0 | 100,0 | OK |
+| `PacjentPesel` | 98,6 | 98,6 | OK |
 | `PeselOpiekuna` | 0,0 | 0,0 | PUSTE |
-| `PodstawaOswiadczenia` | 89,9 | 0,0 | BRAK DANYCH |
+| `PodstawaOswiadczenia` | 89,9 | 100,0 | zmiana |
 | `RodzajZezwoleniaLubOchrony` | 3,8 | 0,0 | BRAK DANYCH |
 | `TypOswiadczenia` | 0,0 | 0,0 | PUSTE |
 
@@ -119,18 +119,18 @@ Stare pola: 23, Nowe pola: 23
 ### Wypelnienie pol
 | Pole | Stare % | Nowe % | Status |
 |------|---------|--------|--------|
-| `BadaniePrzedmiotowe` | 20,3 | 0,0 | BRAK DANYCH |
-| `DataAutoryzacji` | 100,0 | 0,0 | BRAK DANYCH |
-| `DataWystawienia` | 100,0 | 0,0 | BRAK DANYCH |
-| `IdImport` | 100,0 | 100,0 | OK |
-| `IdImportPrefix` | 100,0 | 0,0 | BRAK DANYCH |
-| `Inne` | 9,3 | 0,0 | BRAK DANYCH |
-| `InstalacjaId` | 0,0 | 0,0 | PUSTE |
+| `BadaniePrzedmiotowe` | 20,3 | 2,9 | zmiana |
+| `DataAutoryzacji` | 100,0 | 20,7 | DUZA ZMIANA |
+| `DataWystawienia` | 100,0 | 20,8 | DUZA ZMIANA |
+| `IdImport` | 100,0 | 22,0 | DUZA ZMIANA |
+| `IdImportPrefix` | 100,0 | 21,0 | DUZA ZMIANA |
+| `Inne` | 9,3 | 4,9 | OK |
+| `InstalacjaId` | 0,0 | 68,0 | NOWE DANE |
 | `NiezdolnoscDo` | 0,0 | 0,0 | PUSTE |
 | `NiezdolnoscOd` | 0,0 | 0,0 | PUSTE |
-| `PracownikWystawiajacyIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PracownikWystawiajacyNpwz` | 99,4 | 0,0 | BRAK DANYCH |
-| `PracownikWystawiajacyPesel` | 76,0 | 0,0 | BRAK DANYCH |
+| `PracownikWystawiajacyIdImport` | 100,0 | 20,6 | DUZA ZMIANA |
+| `PracownikWystawiajacyNpwz` | 99,4 | 20,6 | DUZA ZMIANA |
+| `PracownikWystawiajacyPesel` | 76,0 | 20,6 | DUZA ZMIANA |
 | `ProceduryICD9` | 35,4 | 0,0 | BRAK DANYCH |
 | `PrzebiegLeczenia` | 19,3 | 0,0 | BRAK DANYCH |
 | `PrzyjmowaneLeki` | 0,0 | 0,0 | PUSTE |
@@ -138,10 +138,10 @@ Stare pola: 23, Nowe pola: 23
 | `RozpoznanieGlowneICD10` | 35,8 | 0,0 | BRAK DANYCH |
 | `RozpoznanieOpisowe` | 26,1 | 0,0 | BRAK DANYCH |
 | `RozpoznanieWspolistniejaceICD10` | 5,1 | 0,0 | BRAK DANYCH |
-| `WizytaIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `Wywiad` | 34,2 | 0,0 | BRAK DANYCH |
+| `WizytaIdImport` | 100,0 | 20,6 | DUZA ZMIANA |
+| `Wywiad` | 34,2 | 14,3 | zmiana |
 | `Zabiegi` | 35,4 | 0,0 | BRAK DANYCH |
-| `Zalecenia` | 58,1 | 0,0 | BRAK DANYCH |
+| `Zalecenia` | 58,1 | 2,2 | DUZA ZMIANA |
 
 ## pacjenci.csv
 Stare pola: 68, Nowe pola: 68
@@ -219,46 +219,27 @@ Stare pola: 68, Nowe pola: 68
 | `WojewodztwoZamieszkanie` | 95,0 | 94,4 | OK |
 
 ## pracownicy.csv
-Stare pola: 16, Nowe pola: 23
-
-### Usuniete pola
-- `DrugieImie` (wypelnienie: 0,0%)
-- `NIP` (wypelnienie: 0,0%)
-- `Plec` (wypelnienie: 0,0%)
-- `NumerPWZ` (wypelnienie: 57,0%)
-- `TytulNaukowy` (wypelnienie: 3,1%)
-- `Specjalizacja` (wypelnienie: 0,0%)
-- `Login` (wypelnienie: 0,0%)
-- `CzyAktywny` (wypelnienie: 100,0%)
-
-### Nowe pola
-- `NPWZ` (wypelnienie: 0,0%)
-- `TytulNaukowyId` (wypelnienie: 0,0%)
-- `TytulNaukowyNazwa` (wypelnienie: 0,0%)
-- `TypPersoneluId` (wypelnienie: 0,0%)
-- `SpecjalizacjeIds` (wypelnienie: 0,0%)
-- `PersonelKierujacy` (wypelnienie: 0,0%)
-- `Konto` (wypelnienie: 0,0%)
-- `KontoLogin` (wypelnienie: 0,0%)
-- `NieWymagajZmianyHasla` (wypelnienie: 0,0%)
-- `PracownikNiemedyczny` (wypelnienie: 0,0%)
-- `SprawdzUnikalnoscPesel` (wypelnienie: 0,0%)
-- `SprawdzUnikalnoscNpwz` (wypelnienie: 0,0%)
-- `SprawdzUnikalnoscLoginu` (wypelnienie: 0,0%)
-- `ZachowajIdentyfikator` (wypelnienie: 0,0%)
-- `Usunieto` (wypelnienie: 0,0%)
+Stare pola: 16, Nowe pola: 16
 
 ### Wypelnienie pol
 | Pole | Stare % | Nowe % | Status |
 |------|---------|--------|--------|
-| `Email` | 82,9 | 0,0 | BRAK DANYCH |
+| `CzyAktywny` | 100,0 | 100,0 | OK |
+| `DrugieImie` | 0,0 | 0,0 | PUSTE |
+| `Email` | 82,9 | 83,4 | OK |
 | `IdImport` | 100,0 | 100,0 | OK |
-| `Imie` | 99,5 | 0,0 | BRAK DANYCH |
+| `Imie` | 99,5 | 99,5 | OK |
 | `InstalacjaId` | 0,0 | 0,0 | PUSTE |
-| `Nazwisko` | 99,5 | 0,0 | BRAK DANYCH |
-| `Pesel` | 88,1 | 100,0 | zmiana |
-| `Telefon` | 86,5 | 95,0 | zmiana |
-| `TypPersoneluNFZ` | 72,0 | 0,0 | BRAK DANYCH |
+| `Login` | 0,0 | 0,0 | PUSTE |
+| `Nazwisko` | 99,5 | 99,5 | OK |
+| `NIP` | 0,0 | 0,0 | PUSTE |
+| `NumerPWZ` | 57,0 | 57,8 | OK |
+| `Pesel` | 88,1 | 88,4 | OK |
+| `Plec` | 0,0 | 0,0 | PUSTE |
+| `Specjalizacja` | 0,0 | 0,0 | PUSTE |
+| `Telefon` | 86,5 | 86,9 | OK |
+| `TypPersoneluNFZ` | 72,0 | 77,4 | zmiana |
+| `TytulNaukowy` | 3,1 | 3,5 | OK |
 
 ## stale_choroby_pacjenta.csv
 Stare pola: 7, Nowe pola: 7
@@ -266,10 +247,10 @@ Stare pola: 7, Nowe pola: 7
 ### Wypelnienie pol
 | Pole | Stare % | Nowe % | Status |
 |------|---------|--------|--------|
-| `ICD10` | 100,0 | 0,0 | BRAK DANYCH |
+| `ICD10` | 100,0 | 100,0 | OK |
 | `InstalacjaId` | 0,0 | 0,0 | PUSTE |
 | `NumerChoroby` | 0,0 | 100,0 | NOWE DANE |
-| `Opis` | 100,0 | 0,0 | BRAK DANYCH |
+| `Opis` | 100,0 | 100,0 | OK |
 | `PacjentId` | 0,0 | 0,0 | PUSTE |
 | `PacjentIdImport` | 100,0 | 100,0 | OK |
 | `PacjentPesel` | 100,0 | 100,0 | OK |
@@ -282,17 +263,17 @@ Stare pola: 13, Nowe pola: 13
 |------|---------|--------|--------|
 | `DataZakonczenia` | 0,0 | 0,0 | PUSTE |
 | `DataZalecenia` | 100,0 | 0,0 | BRAK DANYCH |
-| `Dawkowanie` | 99,9 | 0,0 | BRAK DANYCH |
-| `Ilosc` | 100,0 | 0,0 | BRAK DANYCH |
+| `Dawkowanie` | 99,9 | 100,0 | OK |
+| `Ilosc` | 100,0 | 99,8 | OK |
 | `InstalacjaId` | 0,0 | 0,0 | PUSTE |
-| `KodKreskowy` | 99,1 | 0,0 | BRAK DANYCH |
-| `KodOdplatnosci` | 99,9 | 0,0 | BRAK DANYCH |
+| `KodKreskowy` | 99,1 | 96,7 | OK |
+| `KodOdplatnosci` | 99,9 | 99,9 | OK |
 | `PacjentId` | 0,0 | 0,0 | PUSTE |
 | `PacjentIdImport` | 100,0 | 100,0 | OK |
 | `PacjentPesel` | 99,9 | 99,9 | OK |
 | `PracownikId` | 0,0 | 0,0 | PUSTE |
 | `PracownikIdImport` | 0,0 | 0,0 | PUSTE |
-| `RodzajIlosci` | 100,0 | 0,0 | BRAK DANYCH |
+| `RodzajIlosci` | 100,0 | 100,0 | OK |
 
 ## szczepienia.csv
 Stare pola: 16, Nowe pola: 16
@@ -300,21 +281,21 @@ Stare pola: 16, Nowe pola: 16
 ### Wypelnienie pol
 | Pole | Stare % | Nowe % | Status |
 |------|---------|--------|--------|
-| `CzyZKalendarza` | 100,0 | 0,0 | BRAK DANYCH |
-| `DataPodania` | 100,0 | 0,0 | BRAK DANYCH |
-| `DataWaznosci` | 54,9 | 0,0 | BRAK DANYCH |
-| `Dawka` | 100,0 | 0,0 | BRAK DANYCH |
+| `CzyZKalendarza` | 100,0 | 100,0 | OK |
+| `DataPodania` | 100,0 | 100,0 | OK |
+| `DataWaznosci` | 54,9 | 62,4 | zmiana |
+| `Dawka` | 100,0 | 56,8 | DUZA ZMIANA |
 | `DrogaPodaniaId` | 0,0 | 0,0 | PUSTE |
 | `IdImport` | 100,0 | 100,0 | OK |
 | `InstalacjaId` | 0,0 | 0,0 | PUSTE |
-| `MiejscePodania` | 53,5 | 0,0 | BRAK DANYCH |
-| `Nazwa` | 100,0 | 0,0 | BRAK DANYCH |
-| `NrSerii` | 100,0 | 0,0 | BRAK DANYCH |
-| `PacjentIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PacjentPesel` | 100,0 | 0,0 | BRAK DANYCH |
-| `PracownikIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PracownikNPWZ` | 100,0 | 0,0 | BRAK DANYCH |
-| `PracownikPesel` | 85,5 | 0,0 | BRAK DANYCH |
+| `MiejscePodania` | 53,5 | 60,2 | zmiana |
+| `Nazwa` | 100,0 | 100,0 | OK |
+| `NrSerii` | 100,0 | 100,0 | OK |
+| `PacjentIdImport` | 100,0 | 100,0 | OK |
+| `PacjentPesel` | 100,0 | 100,0 | OK |
+| `PracownikIdImport` | 100,0 | 100,0 | OK |
+| `PracownikNPWZ` | 100,0 | 100,0 | OK |
+| `PracownikPesel` | 85,5 | 100,0 | zmiana |
 | `SzczepienieId` | 0,0 | 0,0 | PUSTE |
 
 ## wizyty.csv
@@ -323,37 +304,37 @@ Stare pola: 33, Nowe pola: 33
 ### Wypelnienie pol
 | Pole | Stare % | Nowe % | Status |
 |------|---------|--------|--------|
-| `CzasDo` | 100,0 | 0,0 | BRAK DANYCH |
-| `CzasOd` | 100,0 | 0,0 | BRAK DANYCH |
-| `DataDo` | 100,0 | 0,0 | BRAK DANYCH |
-| `DataOd` | 100,0 | 0,0 | BRAK DANYCH |
-| `DataUtworzenia` | 100,0 | 0,0 | BRAK DANYCH |
-| `Dodatkowy` | 100,0 | 0,0 | BRAK DANYCH |
+| `CzasDo` | 100,0 | 100,0 | OK |
+| `CzasOd` | 100,0 | 100,0 | OK |
+| `DataDo` | 100,0 | 100,0 | OK |
+| `DataOd` | 100,0 | 100,0 | OK |
+| `DataUtworzenia` | 100,0 | 100,0 | OK |
+| `Dodatkowy` | 100,0 | 100,0 | OK |
 | `DokumentSkierowujacyIdImportu` | 0,0 | 0,0 | PUSTE |
 | `IdImport` | 100,0 | 100,0 | OK |
 | `InstalacjaId` | 0,0 | 0,0 | PUSTE |
 | `JednostkaId` | 0,0 | 0,0 | PUSTE |
-| `JednostkaIdImport` | 100,0 | 0,0 | BRAK DANYCH |
+| `JednostkaIdImport` | 100,0 | 100,0 | OK |
 | `JednostkaRozliczeniowaId` | 0,0 | 0,0 | PUSTE |
 | `JednostkaRozliczeniowaIdImportu` | 0,0 | 0,0 | PUSTE |
 | `KodSwiadczeniaNFZ` | 0,0 | 0,0 | PUSTE |
 | `KodUprawnieniaPacjenta` | 0,6 | 0,0 | BRAK DANYCH |
 | `Komentarz` | 0,0 | 0,0 | PUSTE |
-| `NFZ` | 100,0 | 0,0 | BRAK DANYCH |
-| `NieRozliczaj` | 100,0 | 0,0 | BRAK DANYCH |
+| `NFZ` | 100,0 | 100,0 | OK |
+| `NieRozliczaj` | 100,0 | 100,0 | OK |
 | `PacjentId` | 0,0 | 0,0 | PUSTE |
-| `PacjentIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PacjentPesel` | 99,6 | 0,0 | BRAK DANYCH |
+| `PacjentIdImport` | 100,0 | 100,0 | OK |
+| `PacjentPesel` | 99,6 | 98,4 | OK |
 | `PlatnikIdImportu` | 0,0 | 0,0 | PUSTE |
 | `PracownikId` | 0,0 | 0,0 | PUSTE |
-| `PracownikIdImport` | 100,0 | 0,0 | BRAK DANYCH |
-| `PracownikNPWZ` | 99,4 | 0,0 | BRAK DANYCH |
-| `PracownikPesel` | 76,0 | 0,0 | BRAK DANYCH |
+| `PracownikIdImport` | 100,0 | 100,0 | OK |
+| `PracownikNPWZ` | 99,4 | 100,0 | OK |
+| `PracownikPesel` | 76,0 | 100,0 | DUZA ZMIANA |
 | `ProceduryICD9` | 35,4 | 0,0 | BRAK DANYCH |
 | `RozpoznaniaICD10` | 35,8 | 0,0 | BRAK DANYCH |
-| `Status` | 100,0 | 0,0 | BRAK DANYCH |
+| `Status` | 100,0 | 100,0 | OK |
 | `TrybDalszegoLeczenia` | 0,0 | 0,0 | PUSTE |
-| `TrybPrzyjecia` | 100,0 | 0,0 | BRAK DANYCH |
-| `TypWizyty` | 100,0 | 0,0 | BRAK DANYCH |
+| `TrybPrzyjecia` | 100,0 | 100,0 | OK |
+| `TypWizyty` | 100,0 | 100,0 | OK |
 | `ZasobIdImport` | 0,0 | 0,0 | PUSTE |
 

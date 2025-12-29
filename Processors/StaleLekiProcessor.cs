@@ -17,6 +17,7 @@ public class StaleLekiProcessor : IModelProcessor
     public string XmlFileName => "gabinet_patientpermanentdrug.xml";
 
     private Dictionary<string, string>? _patientPeselCache;
+    private Dictionary<string, string>? _verEanCache;
 
     public CsvGenerationResult Process(string dataEtap1Path, string dataEtap2Path, ModelMapping mapping)
     {
@@ -30,8 +31,11 @@ public class StaleLekiProcessor : IModelProcessor
         {
             // 1. Zaladuj cache PESEL pacjentow
             LoadPatientPeselCache(dataEtap1Path);
+            
+            // 2. Zaladuj cache kodow kreskowych z gabinet_ver.xml
+            LoadVerEanCache(dataEtap1Path);
 
-            // 2. Znajdz plik XML
+            // 3. Znajdz plik XML
             var xmlPath = Path.Combine(dataEtap1Path, "data_full", "gabinet_patientpermanentdrug.xml");
             if (!File.Exists(xmlPath))
             {
@@ -41,7 +45,7 @@ public class StaleLekiProcessor : IModelProcessor
 
             Console.WriteLine($"  Plik zrodlowy: gabinet_patientpermanentdrug.xml");
 
-            // 3. Wczytaj dane z XML
+            // 4. Wczytaj dane z XML
             var records = LoadXmlRecords(xmlPath);
             result.SourceRecords = records.Count;
             Console.WriteLine($"  Rekordy zrodlowe: {records.Count}");
@@ -52,7 +56,7 @@ public class StaleLekiProcessor : IModelProcessor
                 return result;
             }
 
-            // 4. Generuj CSV
+            // 5. Generuj CSV
             Directory.CreateDirectory(dataEtap2Path);
             var csvPath = Path.Combine(dataEtap2Path, "stale_leki_pacjenta.csv");
             using var writer = new StreamWriter(csvPath, false, new UTF8Encoding(true));
@@ -72,20 +76,28 @@ public class StaleLekiProcessor : IModelProcessor
                     pesel ??= "";
                 }
 
+                // Pobierz kod kreskowy z gabinet_ver przez relacje drug
+                var drugId = record.GetValueOrDefault("drug", "");
+                var kodKreskowy = "";
+                if (!string.IsNullOrEmpty(drugId) && _verEanCache != null)
+                {
+                    _verEanCache.TryGetValue(drugId, out kodKreskowy);
+                    kodKreskowy ??= "";
+                }
+
                 var instalacjaId = "";
                 var pacjentId = "";
                 var pacjentIdImport = patientId;
                 var pracownikId = "";
-                var pracownikIdImport = record.GetValueOrDefault("doctor", "");
-                var kodKreskowy = EscapeCsvField(record.GetValueOrDefault("barcode", ""));
-                var dataZalecenia = record.GetValueOrDefault("date_from", "");
-                var dataZakonczenia = record.GetValueOrDefault("date_to", "");
-                var dawkowanie = EscapeCsvField(record.GetValueOrDefault("dosage", ""));
-                var ilosc = record.GetValueOrDefault("quantity", "");
-                var rodzajIlosci = record.GetValueOrDefault("quantity_type", "");
-                var kodOdplatnosci = record.GetValueOrDefault("refund_code", "");
+                var pracownikIdImport = "";
+                var dataZalecenia = record.GetValueOrDefault("date", ""); // lub "visit_date"
+                var dataZakonczenia = "";
+                var dawkowanie = EscapeCsvField(record.GetValueOrDefault("dosation", ""));
+                var ilosc = record.GetValueOrDefault("recommendation", "");
+                var rodzajIlosci = record.GetValueOrDefault("is_part_of_box", "") == "True" ? "opakowanie" : "sztuki";
+                var kodOdplatnosci = record.GetValueOrDefault("payment", "");
 
-                writer.WriteLine($"{instalacjaId};{pacjentId};{pacjentIdImport};{pesel};{pracownikId};{pracownikIdImport};{kodKreskowy};{dataZalecenia};{dataZakonczenia};{dawkowanie};{ilosc};{rodzajIlosci};{kodOdplatnosci}");
+                writer.WriteLine($"{instalacjaId};{pacjentId};{pacjentIdImport};{pesel};{pracownikId};{pracownikIdImport};{EscapeCsvField(kodKreskowy)};{dataZalecenia};{dataZakonczenia};{dawkowanie};{ilosc};{rodzajIlosci};{kodOdplatnosci}");
                 processedCount++;
             }
 
@@ -115,31 +127,84 @@ public class StaleLekiProcessor : IModelProcessor
             return;
         }
 
-        var doc = XDocument.Load(patientPath);
-        var root = doc.Root;
-        if (root == null) return;
-
-        foreach (var obj in root.Elements("object"))
+        using var stream = File.OpenRead(patientPath);
+        using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
+        
+        while (reader.Read())
         {
-            var pk = obj.Attribute("pk")?.Value;
-            if (string.IsNullOrEmpty(pk)) continue;
-
-            var pesel = "";
-            foreach (var field in obj.Elements("field"))
+            if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name == "object")
             {
-                var name = field.Attribute("name")?.Value;
-                if (name == "pesel")
+                var pk = reader.GetAttribute("pk");
+                if (string.IsNullOrEmpty(pk)) continue;
+
+                var pesel = "";
+                using var objReader = reader.ReadSubtree();
+                while (objReader.Read())
                 {
-                    pesel = field.Value?.Trim() ?? "";
-                    if (pesel == "<None></None>" || pesel == "None")
-                        pesel = "";
-                    break;
+                    if (objReader.NodeType == System.Xml.XmlNodeType.Element && objReader.Name == "field")
+                    {
+                        var name = objReader.GetAttribute("name");
+                        if (name == "pesel")
+                        {
+                            pesel = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                            if (pesel == "None") pesel = "";
+                            break;
+                        }
+                    }
                 }
+                _patientPeselCache[pk] = pesel;
             }
-            _patientPeselCache[pk] = pesel;
         }
 
         Console.WriteLine($"  Zaladowano PESEL dla {_patientPeselCache.Count} pacjentow");
+    }
+
+    private void LoadVerEanCache(string dataEtap1Path)
+    {
+        var verPath = Path.Combine(dataEtap1Path, "data_full", "gabinet_ver.xml");
+        _verEanCache = new Dictionary<string, string>();
+
+        if (!File.Exists(verPath))
+        {
+            Console.WriteLine("  UWAGA: Brak pliku gabinet_ver.xml - KodKreskowy nie bedzie wypelniony");
+            return;
+        }
+
+        Console.WriteLine($"  Ladowanie gabinet_ver.xml (duzy plik ~935MB)...");
+        
+        using var stream = File.OpenRead(verPath);
+        using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
+        
+        while (reader.Read())
+        {
+            if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name == "object")
+            {
+                var pk = reader.GetAttribute("pk");
+                if (string.IsNullOrEmpty(pk)) continue;
+
+                var ean13 = "";
+                using var objReader = reader.ReadSubtree();
+                while (objReader.Read())
+                {
+                    if (objReader.NodeType == System.Xml.XmlNodeType.Element && objReader.Name == "field")
+                    {
+                        var name = objReader.GetAttribute("name");
+                        if (name == "ean13")
+                        {
+                            ean13 = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                            if (ean13 == "None") ean13 = "";
+                            break;
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(ean13))
+                {
+                    _verEanCache[pk] = ean13;
+                }
+            }
+        }
+
+        Console.WriteLine($"  Zaladowano {_verEanCache.Count} kodow kreskowych");
     }
 
     private List<Dictionary<string, string>> LoadXmlRecords(string xmlPath)
@@ -167,7 +232,7 @@ public class StaleLekiProcessor : IModelProcessor
                 if (!string.IsNullOrEmpty(name))
                 {
                     var value = field.Value?.Trim() ?? "";
-                    if (value == "<None></None>" || value == "None")
+                    if (value == "<None></None>" || value == "None" || value.Contains("<None"))
                         value = "";
                     record[name] = value;
                 }

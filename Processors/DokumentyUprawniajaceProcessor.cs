@@ -1,51 +1,44 @@
 using System.Text;
-using System.Xml.Linq;
 using MyDr_Import.Models;
 using MyDr_Import.Services;
 
 namespace MyDr_Import.Processors;
 
 /// <summary>
-/// Procesor dla modelu STALE_CHOROBY_PACJENTA
-/// Zrodlo: gabinet_recognition.xml
-/// Cel: stale_choroby_pacjenta.csv
-/// Dodaje pole PacjentPesel poprzez dolaczenie danych z gabinet_patient.xml
+/// Procesor dla modelu DOKUMENTY_UPRAWNIAJACE
+/// Zrodlo: gabinet_insurancedocuments.xml
+/// Cel: dokumenty_uprawniajace.csv
 /// </summary>
-public class StaleChorobyProcessor : IModelProcessor
+public class DokumentyUprawniajaceProcessor : IModelProcessor
 {
-    public string ModelName => "stale_choroby_pacjenta";
-    public string XmlFileName => "gabinet_recognition.xml";
+    public string ModelName => "dokumenty_uprawniajace";
+    public string XmlFileName => "gabinet_insurancedocuments.xml";
 
     private Dictionary<string, string>? _patientPeselCache;
-    private Dictionary<string, (string code, string descr)>? _icd10Cache;
+    private Dictionary<string, string>? _insurancePatientCache;
 
     public CsvGenerationResult Process(string dataEtap1Path, string dataEtap2Path, ModelMapping mapping)
     {
         var result = new CsvGenerationResult
         {
-            ModelName = "stale_choroby_pacjenta",
-            TargetTable = "stale_choroby_pacjenta"
+            ModelName = "dokumenty_uprawniajace",
+            TargetTable = "dokumenty_uprawniajace"
         };
 
         try
         {
-            // 1. Zaladuj cache PESEL pacjentow
             LoadPatientPeselCache(dataEtap1Path);
-            
-            // 2. Zaladuj cache ICD10 (kod i opis)
-            LoadIcd10Cache(dataEtap1Path);
+            LoadInsurancePatientCache(dataEtap1Path);
 
-            // 3. Znajdz plik XML
-            var xmlPath = Path.Combine(dataEtap1Path, "data_full", "gabinet_recognition.xml");
+            var xmlPath = Path.Combine(dataEtap1Path, "data_full", XmlFileName);
             if (!File.Exists(xmlPath))
             {
-                result.Error = $"Nie znaleziono pliku XML: gabinet_recognition.xml";
+                result.Error = $"Nie znaleziono pliku XML: {XmlFileName}";
                 return result;
             }
 
-            Console.WriteLine($"  Plik zrodlowy: gabinet_recognition.xml");
+            Console.WriteLine($"  Plik zrodlowy: {XmlFileName}");
 
-            // 4. Wczytaj dane z XML
             var records = LoadXmlRecords(xmlPath);
             result.SourceRecords = records.Count;
             Console.WriteLine($"  Rekordy zrodlowe: {records.Count}");
@@ -56,19 +49,25 @@ public class StaleChorobyProcessor : IModelProcessor
                 return result;
             }
 
-            // 5. Generuj CSV
             Directory.CreateDirectory(dataEtap2Path);
-            var csvPath = Path.Combine(dataEtap2Path, "stale_choroby_pacjenta.csv");
+            var csvPath = Path.Combine(dataEtap2Path, "dokumenty_uprawniajace.csv");
             using var writer = new StreamWriter(csvPath, false, new UTF8Encoding(true));
 
             // Naglowek zgodny z old_etap2
-            writer.WriteLine("InstalacjaId;PacjentId;PacjentIdImport;PacjentPesel;ICD10;NumerChoroby;Opis");
+            writer.WriteLine("InstalacjaId;IdImport;KodDokumentu;KodUprawnienia;NazwaDokumentu;PacjentId;PacjentIdImport;PacjentPesel;KodOddzialuNFZ;NIP;DataOd;DataDo;DataWystawienia;KodInstytucjiWystawiajacej;NazwaInstytucjiWystawiajacej;Numer;TypOswiadczenia;PodstawaOswiadczenia;PeselOpiekuna;RodzajZezwoleniaLubOchrony;InstytucjaWystawiajaca;EwusId");
 
-            // Wiersze danych
             int processedCount = 0;
             foreach (var record in records)
             {
-                var patientId = record.GetValueOrDefault("patient", "");
+                // Pobierz patient przez insurance relation
+                var insuranceId = record.GetValueOrDefault("insurance", "");
+                var patientId = "";
+                if (!string.IsNullOrEmpty(insuranceId) && _insurancePatientCache != null)
+                {
+                    _insurancePatientCache.TryGetValue(insuranceId, out patientId);
+                    patientId ??= "";
+                }
+                
                 var pesel = "";
                 if (!string.IsNullOrEmpty(patientId) && _patientPeselCache != null)
                 {
@@ -76,22 +75,24 @@ public class StaleChorobyProcessor : IModelProcessor
                     pesel ??= "";
                 }
 
-                // Pobierz ICD10 kod i opis z cache (icd10 w recognition to pk do gabinet_icd10)
-                var icd10Pk = record.GetValueOrDefault("icd10", "");
-                var icd10Code = "";
-                var icd10Descr = "";
-                if (!string.IsNullOrEmpty(icd10Pk) && _icd10Cache != null && _icd10Cache.TryGetValue(icd10Pk, out var icd10Data))
-                {
-                    icd10Code = icd10Data.code;
-                    icd10Descr = icd10Data.descr;
-                }
+                var idImport = record.GetValueOrDefault("pk", "");
+                var kodDokumentu = record.GetValueOrDefault("document_type", "OS");
+                var kodUprawnienia = record.GetValueOrDefault("entitlement_code", "U");
+                var nazwaDokumentu = Escape(record.GetValueOrDefault("document_name", ""));
+                var kodOddzialuNfz = record.GetValueOrDefault("nfz_branch", "");
+                var nip = record.GetValueOrDefault("nip", "");
+                var dataOd = record.GetValueOrDefault("valid_from", "");
+                var dataDo = record.GetValueOrDefault("valid_to", "");
+                var dataWystawienia = record.GetValueOrDefault("issue_date", "");
+                var kodInstytucji = record.GetValueOrDefault("institution_code", "");
+                var nazwaInstytucji = Escape(record.GetValueOrDefault("institution_name", ""));
+                var numer = record.GetValueOrDefault("document_number", "");
+                var typOswiadczenia = record.GetValueOrDefault("statement_type", "");
+                var podstawaOswiadczenia = record.GetValueOrDefault("statement_basis", "1");
+                var peselOpiekuna = "";
+                var rodzajZezwolenia = record.GetValueOrDefault("permit_type", "");
 
-                var instalacjaId = "";
-                var pacjentId = "";
-                var pacjentIdImport = patientId;
-                var numerChoroby = record.GetValueOrDefault("pk", "");
-
-                writer.WriteLine($"{instalacjaId};{pacjentId};{pacjentIdImport};{pesel};{EscapeCsvField(icd10Code)};{numerChoroby};{EscapeCsvField(icd10Descr)}");
+                writer.WriteLine($";{idImport};{kodDokumentu};{kodUprawnienia};{nazwaDokumentu};;{patientId};{pesel};{kodOddzialuNfz};{nip};{dataOd};{dataDo};{dataWystawienia};{kodInstytucji};{nazwaInstytucji};{numer};{typOswiadczenia};{podstawaOswiadczenia};{peselOpiekuna};{rodzajZezwolenia};;");
                 processedCount++;
             }
 
@@ -115,11 +116,7 @@ public class StaleChorobyProcessor : IModelProcessor
         var patientPath = Path.Combine(dataEtap1Path, "data_full", "gabinet_patient.xml");
         _patientPeselCache = new Dictionary<string, string>();
 
-        if (!File.Exists(patientPath))
-        {
-            Console.WriteLine("  UWAGA: Brak pliku gabinet_patient.xml - PESEL nie bedzie wypelniony");
-            return;
-        }
+        if (!File.Exists(patientPath)) return;
 
         using var stream = File.OpenRead(patientPath);
         using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
@@ -141,7 +138,7 @@ public class StaleChorobyProcessor : IModelProcessor
                         if (name == "pesel")
                         {
                             pesel = objReader.ReadElementContentAsString()?.Trim() ?? "";
-                            if (pesel == "<None></None>" || pesel == "None") pesel = "";
+                            if (pesel == "None") pesel = "";
                             break;
                         }
                     }
@@ -149,24 +146,17 @@ public class StaleChorobyProcessor : IModelProcessor
                 _patientPeselCache[pk] = pesel;
             }
         }
-
         Console.WriteLine($"  Zaladowano PESEL dla {_patientPeselCache.Count} pacjentow");
     }
 
-    private void LoadIcd10Cache(string dataEtap1Path)
+    private void LoadInsurancePatientCache(string dataEtap1Path)
     {
-        var icd10Path = Path.Combine(dataEtap1Path, "data_full", "gabinet_icd10.xml");
-        _icd10Cache = new Dictionary<string, (string code, string descr)>();
+        var insurancePath = Path.Combine(dataEtap1Path, "data_full", "gabinet_insurance.xml");
+        _insurancePatientCache = new Dictionary<string, string>();
 
-        if (!File.Exists(icd10Path))
-        {
-            Console.WriteLine("  UWAGA: Brak pliku gabinet_icd10.xml - ICD10 nie bedzie wypelniony");
-            return;
-        }
+        if (!File.Exists(insurancePath)) return;
 
-        Console.WriteLine($"  Ladowanie gabinet_icd10.xml (duzy plik)...");
-        
-        using var stream = File.OpenRead(icd10Path);
+        using var stream = File.OpenRead(insurancePath);
         using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
         
         while (reader.Read())
@@ -176,39 +166,31 @@ public class StaleChorobyProcessor : IModelProcessor
                 var pk = reader.GetAttribute("pk");
                 if (string.IsNullOrEmpty(pk)) continue;
 
-                var code = "";
-                var descr = "";
+                var patientId = "";
                 using var objReader = reader.ReadSubtree();
                 while (objReader.Read())
                 {
                     if (objReader.NodeType == System.Xml.XmlNodeType.Element && objReader.Name == "field")
                     {
                         var name = objReader.GetAttribute("name");
-                        if (name == "code")
+                        if (name == "patient")
                         {
-                            code = objReader.ReadElementContentAsString()?.Trim() ?? "";
-                        }
-                        else if (name == "descr")
-                        {
-                            descr = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                            patientId = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                            if (patientId == "None" || patientId.Contains("<None")) patientId = "";
+                            break;
                         }
                     }
                 }
-                if (!string.IsNullOrEmpty(code))
-                {
-                    _icd10Cache[pk] = (code, descr);
-                }
+                if (!string.IsNullOrEmpty(patientId))
+                    _insurancePatientCache[pk] = patientId;
             }
         }
-
-        Console.WriteLine($"  Zaladowano {_icd10Cache.Count} kodow ICD10");
+        Console.WriteLine($"  Zaladowano {_insurancePatientCache.Count} relacji insurance->patient");
     }
 
     private List<Dictionary<string, string>> LoadXmlRecords(string xmlPath)
     {
         var records = new List<Dictionary<string, string>>();
-        
-        Console.WriteLine($"  Ladowanie {Path.GetFileName(xmlPath)} (duzy plik)...");
         
         using var stream = File.OpenRead(xmlPath);
         using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
@@ -219,10 +201,7 @@ public class StaleChorobyProcessor : IModelProcessor
             {
                 var record = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
                 var pk = reader.GetAttribute("pk");
-                if (!string.IsNullOrEmpty(pk))
-                {
-                    record["pk"] = pk;
-                }
+                if (!string.IsNullOrEmpty(pk)) record["pk"] = pk;
 
                 using var objReader = reader.ReadSubtree();
                 while (objReader.Read())
@@ -233,33 +212,22 @@ public class StaleChorobyProcessor : IModelProcessor
                         if (!string.IsNullOrEmpty(name))
                         {
                             var value = objReader.ReadElementContentAsString()?.Trim() ?? "";
-                            if (value == "<None></None>" || value == "None" || value.Contains("<None"))
-                                value = "";
+                            if (value == "None" || value == "<None></None>" || value.Contains("<None")) value = "";
                             record[name] = value;
                         }
                     }
                 }
-
-                if (record.Count > 0)
-                {
-                    records.Add(record);
-                }
+                if (record.Count > 0) records.Add(record);
             }
         }
-
         return records;
     }
 
-    private string EscapeCsvField(string value)
+    private string Escape(string value)
     {
-        if (string.IsNullOrEmpty(value))
-            return "";
-
+        if (string.IsNullOrEmpty(value)) return "";
         if (value.Contains('"') || value.Contains(';') || value.Contains('\n') || value.Contains('\r'))
-        {
             return "\"" + value.Replace("\"", "\"\"") + "\"";
-        }
-
         return value;
     }
 }

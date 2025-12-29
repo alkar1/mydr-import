@@ -144,6 +144,10 @@ Pliki wyjściowe CSV generowane przez procesory:
 
 ### 4.2 KARTY WIZYT (`karty_wizyt.csv`)
 
+> **⚠️ UWAGA:** Pola medyczne (Wywiad, BadaniePrzedmiotowe, Zalecenia, RozpoznaniaICD10, ProceduryICD9) wymagają
+> join z dodatkowymi modelami XML: `gabinet_visitnotes.xml`, `gabinet_recognition.xml`, `gabinet_medicalprocedure.xml`.
+> Aktualnie te pola mają niski fill rate (~20%) z powodu braku pełnej implementacji joinów.
+
 | Pole docelowe | Źródło | Transformacja |
 |---------------|--------|---------------|
 | `InstalacjaId` | - | `null` |
@@ -194,8 +198,8 @@ Pliki wyjściowe CSV generowane przez procesory:
 | `ImieOjca` | **BRAK W XML** | Puste |
 | `NIP` | `employer_nip` | Bezpośrednio |
 | `Plec` | `pesel` | **Wyliczyć z PESEL** (patrz 6.4) |
-| `Email` | **BRAK W XML** | Puste |
-| `Telefon` | **BRAK W XML** | Puste |
+| `Email` | `email` | Bezpośrednio (3.7% wypełnione) |
+| `Telefon` | `telephone` | Bezpośrednio (96% wypełnione) |
 | `TelefonDodatkowy` | `second_telephone` | Bezpośrednio |
 | `NumerDokumentuTozsamosci` | `identity_num` | Bezpośrednio |
 | `TypDokumentuTozsamosci` | `identity_type` | Mapowanie (patrz 5.4) |
@@ -277,9 +281,9 @@ Pliki wyjściowe CSV generowane przez procesory:
 | `PacjentPesel` | `patient.pesel` | Lookup |
 | `PracownikId` | - | `null` |
 | `PracownikIdImport` | - | `null` |
-| `KodKreskowy` | `ver.ean13` lub `composition` | Lookup przez drug_id, fallback na composition |
-| `DataZalecenia` | - | Aktualny timestamp |
-| `DataZakonczenia` | - | `null` |
+| `KodKreskowy` | `ver.ean13` | Lookup przez `patientpermanentdrug.drug` → `gabinet_ver.xml` |
+| `DataZalecenia` | **BRAK W XML** | Puste (pole `date_from` nie jest eksportowane) |
+| `DataZakonczenia` | **BRAK W XML** | Puste |
 | `Dawkowanie` | `patientpermanentdrug.recommendation` | Bezpośrednio |
 | `Ilosc` | `patientpermanentdrug.dosation` | Parsuj liczbę |
 | `RodzajIlosci` | `patientpermanentdrug.dosation` | Mapowanie jednostki (patrz 5.7) |
@@ -317,15 +321,18 @@ Pliki wyjściowe CSV generowane przez procesory:
 
 ### 4.8 DOKUMENTY UPRAWNIAJĄCE (`dokumenty_uprawniajace.csv`)
 
+> **⚠️ UWAGA:** Dane pacjenta wymagają double lookup:
+> `insurancedocuments.insurance` → `gabinet_insurance.xml` → `insurance.patient` → `gabinet_patient.xml`
+
 | Pole docelowe | Źródło | Transformacja |
 |---------------|--------|---------------|
 | `InstalacjaId` | - | `null` |
 | `IdImport` | `insurancedocuments.id` | Bezpośrednio |
 | `KodDokumentu` | `insurancedocuments.permission_basis` | Mapowanie (patrz 5.8) |
-| `KodUprawnienia` | `insurance.permissions_title` | Lookup |
+| `KodUprawnienia` | `insurance.permissions_title` | Lookup przez insurance |
 | `NazwaDokumentu` | `insurancedocuments.document_name` | Bezpośrednio |
-| `PacjentIdImport` | `insurance.patient` | Lookup |
-| `PacjentPesel` | `patient.pesel` | Lookup |
+| `PacjentIdImport` | `insurance.patient` | Double lookup: insurancedocuments→insurance→patient |
+| `PacjentPesel` | `patient.pesel` | Triple lookup: insurancedocuments→insurance→patient→pesel |
 | `KodOddzialuNFZ` | `insurance.id_nfz` | Lookup |
 | `DataOd` | `insurancedocuments.valid_from` | Format daty |
 | `DataDo` | `insurancedocuments.valid_to` | Format daty |
@@ -349,15 +356,16 @@ Pliki wyjściowe CSV generowane przez procesory:
 
 ### 4.10 CHOROBY PRZEWLEKŁE (`stale_choroby_pacjenta.csv`)
 
+> **⚠️ UWAGA:** Źródłem danych jest `gabinet_recognition.xml` (rozpoznania) z lookup do `gabinet_icd10.xml` dla kodów i opisów ICD10.
+
 | Pole docelowe | Źródło | Transformacja |
 |---------------|--------|---------------|
 | `InstalacjaId` | - | Puste |
-| `PacjentIdImport` | `genericmedicaldata.patient` | Bezpośrednio |
-| `PacjentPesel` | `patient.pesel` | Lookup |
-| `ICD10` | `genericmedicaldata.icd10` | Bezpośrednio |
-| `Opis` | `genericmedicaldata.description` | Bezpośrednio |
-
-**Filtr:** `type_of_data == "chronic"`
+| `PacjentIdImport` | `recognition.patient` | Bezpośrednio |
+| `PacjentPesel` | `patient.pesel` | Lookup z gabinet_patient.xml |
+| `ICD10` | `icd10.code` | Lookup przez `recognition.icd10` → `gabinet_icd10.xml` |
+| `NumerChoroby` | `recognition.pk` | Bezpośrednio |
+| `Opis` | `icd10.descr` | Lookup przez `recognition.icd10` → `gabinet_icd10.xml` |
 
 ### 4.11 SZCZEPIENIA (`szczepienia.csv`)
 

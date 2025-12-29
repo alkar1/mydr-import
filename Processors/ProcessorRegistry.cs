@@ -18,9 +18,13 @@ public static class ProcessorRegistry
         Register(new JednostkiProcessor());
         Register(new StaleChorobyProcessor());
         Register(new StaleLekiProcessor());
-        // Dodaj kolejne procesory tutaj:
-        // Register(new WizytyProcessor());
-        // Register(new LekarzeProcessor());
+        Register(new SzczepieniaProcessor());
+        Register(new DeklaracjePozProcessor());
+        Register(new WizytyProcessor());
+        Register(new KartyWizytProcessor());
+        Register(new DokumentacjaZalacznikiProcessor());
+        Register(new PracownicyProcessor());
+        Register(new DokumentyUprawniajaceProcessor());
     }
 
     public static void Register(IModelProcessor processor)
