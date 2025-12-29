@@ -46,6 +46,8 @@ public class PacjenciProcessor : BaseModelProcessor
         // Identyfikator
         { "IdImport", "pk" },
         { "Pesel", "pesel" },
+        { "Imie", "name" },
+        { "Nazwisko", "surname" },
         
         // Dane osobowe dostepne w gabinet.patient
         // UWAGA: Imie i Nazwisko NIE SA dostepne w eksporcie XML!
@@ -55,6 +57,8 @@ public class PacjenciProcessor : BaseModelProcessor
         
         // Kontakt - UWAGA: telephone i email NIE SA dostepne w gabinet.patient!
         // second_telephone jest dostepny ale tylko 1.5% wypelnione
+        { "Telefon", "telephone" },
+        { "Email", "email" },
         { "TelefonDodatkowy", "second_telephone" },
         
         // Dokumenty
