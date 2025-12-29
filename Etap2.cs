@@ -1,4 +1,5 @@
 using MyDr_Import.Models;
+using MyDr_Import.Processors;
 using MyDr_Import.Services;
 
 namespace MyDr_Import;
@@ -14,7 +15,7 @@ public static class Etap2
     // Sciezka do arkuszy mapowan
     private static readonly string MappingsFolderPath = @"C:\Users\alfred\NC\PROJ\OPTIMED\baza_plikimigracyjne";
 
-    public static int Run(string dataEtap1Path, string? specificModel = null)
+    public static int Run(string dataEtap1Path, string? specificModel = null, bool generateCsv = false)
     {
         Console.WriteLine(new string('=', 80));
         Console.WriteLine("ETAP 2: PRZYGOTOWANIE DO MIGRACJI");
@@ -137,6 +138,13 @@ public static class Etap2
             SaveMappingsReport(mappingsOutputPath, mappings, results);
             Console.WriteLine($"\nZapisano raport mapowan: {mappingsOutputPath}");
 
+            // 7. Generuj CSV jesli wymagane (lub dla --model)
+            if (generateCsv || !string.IsNullOrEmpty(specificModel))
+            {
+                var dataEtap2Path = Path.Combine(Path.GetDirectoryName(dataEtap1Path) ?? ".", "data_etap2");
+                GenerateCsvFiles(dataEtap1Path, dataEtap2Path, mappings);
+            }
+
             Console.WriteLine();
             Console.WriteLine(new string('=', 80));
             Console.WriteLine("ETAP 2 ZAKONCZONY!");
@@ -163,6 +171,49 @@ public static class Etap2
             if (File.Exists(path)) return path;
         }
         return null;
+    }
+
+    private static void GenerateCsvFiles(string dataEtap1Path, string dataEtap2Path, List<ModelMapping> mappings)
+    {
+        Console.WriteLine();
+        Console.WriteLine(new string('=', 80));
+        Console.WriteLine("GENEROWANIE PLIKOW CSV");
+        Console.WriteLine(new string('=', 80));
+        Console.WriteLine($"Folder wyjsciowy: {dataEtap2Path}");
+        Console.WriteLine($"Zarejestrowane procesory: {string.Join(", ", ProcessorRegistry.GetRegisteredModels())}");
+        Console.WriteLine();
+
+        var results = new List<CsvGenerationResult>();
+
+        foreach (var mapping in mappings)
+        {
+            // Uzyj ProcessorRegistry - automatycznie wybiera dedykowany procesor lub generyczny
+            var result = ProcessorRegistry.ProcessModel(dataEtap1Path, dataEtap2Path, mapping);
+            results.Add(result);
+
+            if (!result.IsSuccess)
+            {
+                Console.WriteLine($"  [BLAD] {result.Error}");
+            }
+        }
+
+        // Podsumowanie
+        Console.WriteLine();
+        Console.WriteLine(new string('-', 60));
+        Console.WriteLine("PODSUMOWANIE GENEROWANIA CSV:");
+        var successCount = results.Count(r => r.IsSuccess);
+        var totalRecords = results.Sum(r => r.OutputRecords);
+        Console.WriteLine($"  Plikow wygenerowanych: {successCount}/{results.Count}");
+        Console.WriteLine($"  Laczna liczba rekordow: {totalRecords}");
+
+        if (results.Any(r => !r.IsSuccess))
+        {
+            Console.WriteLine("  Bledy:");
+            foreach (var r in results.Where(r => !r.IsSuccess))
+            {
+                Console.WriteLine($"    - {r.ModelName}: {r.Error}");
+            }
+        }
     }
 
     private static void SaveMappingsReport(string path, List<ModelMapping> mappings, List<MappingValidationResult> results)

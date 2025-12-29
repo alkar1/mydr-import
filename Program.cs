@@ -23,7 +23,11 @@ class Program
         {
             xmlFilePath = Path.Combine(dataPath, "gabinet_export.xml");
         }
-        if (!File.Exists(xmlFilePath))
+
+        // Jesli --model bez --etap1, nie wymaga pliku XML (dane juz sa w data_etap1)
+        bool requiresXmlFile = startFromEtap1 || string.IsNullOrEmpty(specificModel);
+        
+        if (requiresXmlFile && !File.Exists(xmlFilePath))
         {
             Console.WriteLine("Blad: Plik nie istnieje: " + xmlFilePath);
             Console.WriteLine();
@@ -31,9 +35,6 @@ class Program
             Console.WriteLine("  --etap1        Wymusza rozpoczecie od etapu 1 (analiza XML)");
             Console.WriteLine("  --model=nazwa  Testuje tylko wybrany arkusz mapowania (np. --model=pacjenci)");
             Console.WriteLine("                 Bez --etap1 program zaczyna od etapu 2");
-            Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
-            Console.ReadLine();
-
             return 1;
         }
 
@@ -61,8 +62,6 @@ class Program
             result = Etap1.Run(xmlFilePath, dataEtap1Path);
             if (result != 0)
             {
-                Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
-                Console.ReadLine();
                 return result;
             }
         }
@@ -79,9 +78,6 @@ class Program
         {
             Console.WriteLine("WSZYSTKIE ETAPY ZAKONCZONE POMYSLNIE!");
         }
-
-        Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
-        Console.ReadLine();
 
         return result;
     }
