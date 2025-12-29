@@ -4,39 +4,67 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.nfzservicereport" pk="74991">
+    <field name="contract" rel="ManyToOneRel" to="gabinet.nfzcontract">&lt;None&gt;&lt;/None&gt;</field>
     <field name="creation_date" type="DateTimeField">2023-01-23T14:30:13.970454</field>
     <field name="date_active" type="DateField">2023-01-23</field>
+    <field name="gen_nr" type="IntegerField">1100</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">266252</field>
     <field name="nfz_contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="note" type="TextField">2022-10-01 - 2022-10-31</field>
     <field name="previous" rel="ManyToOneRel" to="gabinet.nfzservicereport">&lt;None&gt;&lt;/None&gt;</field>
     <field name="price_sum" type="DecimalField">0.00</field>
+    <field name="report_file" type="FileField">swiad/2023/01/23/SWIAD061_200705_POZ_03_2022_21540_1100.SWX</field>
+    <field name="state" type="CharField">N</field>
+    <field name="version" type="IntegerField">1</field>
+    <field name="visit_count" type="IntegerField">4529</field>
   </object>
   <object model="gabinet.nfzservicereport" pk="75002">
+    <field name="contract" rel="ManyToOneRel" to="gabinet.nfzcontract">&lt;None&gt;&lt;/None&gt;</field>
     <field name="creation_date" type="DateTimeField">2023-01-23T15:06:14.442206</field>
     <field name="date_active" type="DateField">2023-01-23</field>
+    <field name="gen_nr" type="IntegerField">1101</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">266253</field>
     <field name="nfz_contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="note" type="TextField">2022-11-01 - 2022-11-30</field>
     <field name="previous" rel="ManyToOneRel" to="gabinet.nfzservicereport">&lt;None&gt;&lt;/None&gt;</field>
     <field name="price_sum" type="DecimalField">0.00</field>
+    <field name="report_file" type="FileField">swiad/2023/01/23/SWIAD061_200705_POZ_03_2022_21540_1101.SWX</field>
+    <field name="state" type="CharField">N</field>
+    <field name="version" type="IntegerField">1</field>
+    <field name="visit_count" type="IntegerField">4759</field>
   </object>
   <object model="gabinet.nfzservicereport" pk="81232">
+    <field name="contract" rel="ManyToOneRel" to="gabinet.nfzcontract">&lt;None&gt;&lt;/None&gt;</field>
     <field name="creation_date" type="DateTimeField">2023-03-15T19:27:03.714121</field>
     <field name="date_active" type="DateField">2023-03-15</field>
+    <field name="gen_nr" type="IntegerField">1103</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">&lt;None&gt;&lt;/None&gt;</field>
     <field name="nfz_contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="note" type="TextField">2022-10-01 - 2022-10-31</field>
     <field name="previous" rel="ManyToOneRel" to="gabinet.nfzservicereport">&lt;None&gt;&lt;/None&gt;</field>
     <field name="price_sum" type="DecimalField">0.00</field>
+    <field name="report_file" type="FileField">swiad/2023/03/15/SWIAD061_200705_POZ_03_2022_21540_1103.SWX</field>
+    <field name="state" type="CharField">X</field>
+    <field name="version" type="IntegerField">1</field>
+    <field name="visit_count" type="IntegerField">4529</field>
   </object>
   <object model="gabinet.nfzservicereport" pk="204502">
+    <field name="contract" rel="ManyToOneRel" to="gabinet.nfzcontract">&lt;None&gt;&lt;/None&gt;</field>
     <field name="creation_date" type="DateTimeField">2025-12-05T10:13:18.927842</field>
     <field name="date_active" type="DateField">2025-12-05</field>
+    <field name="gen_nr" type="IntegerField">1190</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">679377</field>
     <field name="nfz_contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="note" type="TextField">2025-11-01 - 2025-11-30</field>
     <field name="previous" rel="ManyToOneRel" to="gabinet.nfzservicereport">&lt;None&gt;&lt;/None&gt;</field>
     <field name="price_sum" type="DecimalField">0.00</field>
+    <field name="report_file" type="FileField">swiad/2025/12/05/SWIAD061_200705_POZ_03_2025_21540_1190.SWX</field>
+    <field name="state" type="CharField">N</field>
+    <field name="version" type="IntegerField">1</field>
+    <field name="visit_count" type="IntegerField">2594</field>
   </object>
 </objects>

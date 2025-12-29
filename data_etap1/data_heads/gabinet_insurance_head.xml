@@ -4,35 +4,59 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.insurance" pk="150740517">
+    <field name="credentials" rel="ManyToOneRel" to="gabinet.ewuscredentials">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date" type="DateTimeField">2025-05-13T12:32:09.090581</field>
     <field name="form" rel="ManyToOneRel" to="forms_designer.form">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="id_nfz" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="insurance_kind" type="SmallIntegerField">2</field>
+    <field name="insurance_state" type="NullBooleanField">True</field>
     <field name="insurance_valid_from" type="DateField">2025-05-13</field>
+    <field name="insurance_valid_to" type="DateField">2025-05-13</field>
     <field name="nfz_pesel" type="CharField"></field>
     <field name="note" type="TextField"></field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44638616</field>
+    <field name="permissions_title" type="CharField">U</field>
   </object>
   <object model="gabinet.insurance" pk="150740051">
+    <field name="credentials" rel="ManyToOneRel" to="gabinet.ewuscredentials">101507</field>
+    <field name="date" type="DateTimeField">2025-05-13T12:29:09.576415</field>
     <field name="form" rel="ManyToOneRel" to="forms_designer.form">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="id_nfz" type="CharField">L0625M00503572390</field>
     <field name="insurance_kind" type="SmallIntegerField">0</field>
+    <field name="insurance_state" type="NullBooleanField">False</field>
     <field name="insurance_valid_from" type="DateField">2025-05-13</field>
+    <field name="insurance_valid_to" type="DateField">2025-05-13</field>
     <field name="nfz_pesel" type="CharField">25250900748</field>
     <field name="note" type="TextField">Brak PESELu w bazie CWU</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44638616</field>
+    <field name="permissions_title" type="CharField">U</field>
   </object>
   <object model="gabinet.insurance" pk="151078131">
+    <field name="credentials" rel="ManyToOneRel" to="gabinet.ewuscredentials">101507</field>
+    <field name="date" type="DateTimeField">2025-05-15T21:02:12.255616</field>
     <field name="form" rel="ManyToOneRel" to="forms_designer.form">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="id_nfz" type="CharField">L0625M00504333081</field>
     <field name="insurance_kind" type="SmallIntegerField">0</field>
+    <field name="insurance_state" type="NullBooleanField">True</field>
     <field name="insurance_valid_from" type="DateField">2025-05-15</field>
+    <field name="insurance_valid_to" type="DateField">2025-05-15</field>
     <field name="nfz_pesel" type="CharField">25250900748</field>
     <field name="note" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44638616</field>
+    <field name="permissions_title" type="CharField">U</field>
   </object>
   <object model="gabinet.insurance" pk="174042198">
+    <field name="credentials" rel="ManyToOneRel" to="gabinet.ewuscredentials">101507</field>
+    <field name="date" type="DateTimeField">2025-11-07T09:35:51.165349</field>
     <field name="form" rel="ManyToOneRel" to="forms_designer.form">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="id_nfz" type="CharField">L0625M01102071555</field>
     <field name="insurance_kind" type="SmallIntegerField">0</field>
+    <field name="insurance_state" type="NullBooleanField">True</field>
     <field name="insurance_valid_from" type="DateField">2025-11-07</field>
+    <field name="insurance_valid_to" type="DateField">2025-11-07</field>
     <field name="nfz_pesel" type="CharField">48041604261</field>
     <field name="note" type="TextField"></field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23668166</field>
+    <field name="permissions_title" type="CharField">U</field>
   </object>
 </objects>

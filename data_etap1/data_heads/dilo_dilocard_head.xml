@@ -6,37 +6,61 @@
   <object model="dilo.dilocard" pk="12223">
     <field name="cancel_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="card_status" type="CharField">active</field>
+    <field name="closing_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="creation_date" type="DateField">2022-10-10</field>
+    <field name="current_stage" rel="ManyToOneRel" to="dilo.dilostage">12205</field>
     <field name="fake" type="BooleanField">False</field>
+    <field name="initial_recognition" rel="ManyToOneRel" to="gabinet.icd10">11760</field>
     <field name="initialization_scenario" type="CharField">WK-POZ-P</field>
     <field name="issuing_doctor" rel="ManyToOneRel" to="gabinet.person">84435</field>
+    <field name="next_stage_place_code_viii" type="CharField">1640</field>
+    <field name="number" type="CharField">22102749278</field>
+    <field name="operator" rel="ManyToOneRel" to="gabinet.person">84435</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23659937</field>
   </object>
   <object model="dilo.dilocard" pk="12176">
     <field name="cancel_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="card_status" type="CharField">active</field>
+    <field name="closing_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="creation_date" type="DateField">2022-10-07</field>
+    <field name="current_stage" rel="ManyToOneRel" to="dilo.dilostage">12158</field>
     <field name="fake" type="BooleanField">False</field>
+    <field name="initial_recognition" rel="ManyToOneRel" to="gabinet.icd10">11764</field>
     <field name="initialization_scenario" type="CharField">WK-POZ-P</field>
     <field name="issuing_doctor" rel="ManyToOneRel" to="gabinet.person">84435</field>
+    <field name="next_stage_place_code_viii" type="CharField">1640</field>
+    <field name="number" type="CharField">22102730760</field>
+    <field name="operator" rel="ManyToOneRel" to="gabinet.person">84435</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23668440</field>
   </object>
   <object model="dilo.dilocard" pk="12490">
     <field name="cancel_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="card_status" type="CharField">active</field>
+    <field name="closing_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="creation_date" type="DateField">2022-10-24</field>
+    <field name="current_stage" rel="ManyToOneRel" to="dilo.dilostage">12472</field>
     <field name="fake" type="BooleanField">False</field>
+    <field name="initial_recognition" rel="ManyToOneRel" to="gabinet.icd10">11710</field>
     <field name="initialization_scenario" type="CharField">WK-POZ-P</field>
     <field name="issuing_doctor" rel="ManyToOneRel" to="gabinet.person">84480</field>
+    <field name="next_stage_place_code_viii" type="CharField">1130</field>
+    <field name="number" type="CharField">22102902871</field>
+    <field name="operator" rel="ManyToOneRel" to="gabinet.person">84480</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23661342</field>
   </object>
   <object model="dilo.dilocard" pk="43925">
     <field name="cancel_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="card_status" type="CharField">active</field>
+    <field name="closing_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="creation_date" type="DateField">2025-11-27</field>
+    <field name="current_stage" rel="ManyToOneRel" to="dilo.dilostage">43907</field>
     <field name="fake" type="BooleanField">False</field>
+    <field name="initial_recognition" rel="ManyToOneRel" to="gabinet.icd10">11685</field>
     <field name="initialization_scenario" type="CharField">WK-POZ-P</field>
     <field name="issuing_doctor" rel="ManyToOneRel" to="gabinet.person">84459</field>
+    <field name="next_stage_place_code_viii" type="CharField">1500</field>
+    <field name="number" type="CharField">25115328812</field>
+    <field name="operator" rel="ManyToOneRel" to="gabinet.person">84459</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">31890755</field>
   </object>
 </objects>

@@ -5,18 +5,26 @@
 <objects>
   <object model="gabinet.medicalprocedure" pk="77345623">
     <field name="count" type="PositiveIntegerField">1</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">8178</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">174901157</field>
   </object>
   <object model="gabinet.medicalprocedure" pk="77589080">
     <field name="count" type="PositiveIntegerField">1</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">8178</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">174766041</field>
   </object>
   <object model="gabinet.medicalprocedure" pk="77590995">
     <field name="count" type="PositiveIntegerField">1</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">8178</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175016136</field>
   </object>
   <object model="gabinet.medicalprocedure" pk="180108354">
     <field name="count" type="PositiveIntegerField">1</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">8178</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">380859277</field>
   </object>
 </objects>

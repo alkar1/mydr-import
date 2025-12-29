@@ -4,21 +4,29 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.privateservicespackage" pk="9115180">
+    <field name="date" type="DateField">2023-11-17</field>
+    <field name="device_rent" rel="OneToOneRel" to="gabinet.devicerent">&lt;None&gt;&lt;/None&gt;</field>
     <field name="has_dirty_commissions" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">30134708</field>
     <field name="visit" rel="OneToOneRel" to="gabinet.visit">275732353</field>
   </object>
   <object model="gabinet.privateservicespackage" pk="12314765">
+    <field name="date" type="DateField">2024-08-21</field>
+    <field name="device_rent" rel="OneToOneRel" to="gabinet.devicerent">&lt;None&gt;&lt;/None&gt;</field>
     <field name="has_dirty_commissions" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">39495387</field>
     <field name="visit" rel="OneToOneRel" to="gabinet.visit">308268750</field>
   </object>
   <object model="gabinet.privateservicespackage" pk="5472050">
+    <field name="date" type="DateField">2022-10-28</field>
+    <field name="device_rent" rel="OneToOneRel" to="gabinet.devicerent">&lt;None&gt;&lt;/None&gt;</field>
     <field name="has_dirty_commissions" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23664125</field>
     <field name="visit" rel="OneToOneRel" to="gabinet.visit">213427686</field>
   </object>
   <object model="gabinet.privateservicespackage" pk="18776173">
+    <field name="date" type="DateField">2025-09-30</field>
+    <field name="device_rent" rel="OneToOneRel" to="gabinet.devicerent">&lt;None&gt;&lt;/None&gt;</field>
     <field name="has_dirty_commissions" type="NullBooleanField">False</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">38807145</field>
     <field name="visit" rel="OneToOneRel" to="gabinet.visit">370228551</field>

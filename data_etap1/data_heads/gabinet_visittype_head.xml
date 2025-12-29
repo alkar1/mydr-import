@@ -4,35 +4,55 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.visittype" pk="249391">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="icd9_list" rel="ManyToManyRel" to="gabinet.icd9"></field>
     <field name="name" type="CharField">Bilans 60+</field>
     <field name="preferred_prod_code" type="CharField"></field>
+    <field name="private_services" rel="ManyToManyRel" to="gabinet.privateservice"></field>
+    <field name="reception_mode_choice" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="require_declaration" type="BooleanField">True</field>
     <field name="require_referral" type="BooleanField">False</field>
     <field name="services" rel="ManyToManyRel" to="gabinet.service"></field>
     <field name="state" type="BooleanField">True</field>
+    <field name="visit_type_duration" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
   </object>
   <object model="gabinet.visittype" pk="180730">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="icd9_list" rel="ManyToManyRel" to="gabinet.icd9"></field>
     <field name="name" type="CharField">Porada lekarza POZ</field>
     <field name="preferred_prod_code" type="CharField"></field>
+    <field name="private_services" rel="ManyToManyRel" to="gabinet.privateservice"></field>
+    <field name="reception_mode_choice" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="require_declaration" type="BooleanField">False</field>
     <field name="require_referral" type="BooleanField">False</field>
     <field name="services" rel="ManyToManyRel" to="gabinet.service">&lt;object pk=&quot;795940&quot;&gt;&lt;/object&gt;</field>
     <field name="state" type="BooleanField">True</field>
+    <field name="visit_type_duration" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
   </object>
   <object model="gabinet.visittype" pk="180727">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="icd9_list" rel="ManyToManyRel" to="gabinet.icd9"></field>
     <field name="name" type="CharField">Wizyta patronażowa pielęgniarki POZ</field>
     <field name="preferred_prod_code" type="CharField"></field>
+    <field name="private_services" rel="ManyToManyRel" to="gabinet.privateservice"></field>
+    <field name="reception_mode_choice" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="require_declaration" type="BooleanField">False</field>
     <field name="require_referral" type="BooleanField">False</field>
     <field name="services" rel="ManyToManyRel" to="gabinet.service">&lt;object pk=&quot;795979&quot;&gt;&lt;/object&gt;</field>
     <field name="state" type="BooleanField">True</field>
+    <field name="visit_type_duration" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
   </object>
   <object model="gabinet.visittype" pk="249389">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="icd9_list" rel="ManyToManyRel" to="gabinet.icd9"></field>
     <field name="name" type="CharField">Bilans 20-59 lat</field>
     <field name="preferred_prod_code" type="CharField"></field>
+    <field name="private_services" rel="ManyToManyRel" to="gabinet.privateservice"></field>
+    <field name="reception_mode_choice" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="require_declaration" type="BooleanField">True</field>
     <field name="require_referral" type="BooleanField">False</field>
     <field name="services" rel="ManyToManyRel" to="gabinet.service"></field>
     <field name="state" type="BooleanField">True</field>
+    <field name="visit_type_duration" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
   </object>
 </objects>

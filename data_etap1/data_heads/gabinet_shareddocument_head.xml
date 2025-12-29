@@ -6,16 +6,25 @@
   <object model="gabinet.shareddocument" pk="657">
     <field name="description" type="CharField">Deklaracja do położnej POZ pusta</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file" type="FileField">shared_documents/2022/10/11/Dekl._do_położnej_PUSTA.pdf</field>
     <field name="file_size" type="BigIntegerField">417765</field>
+    <field name="uploaded_date" type="DateTimeField">2022-10-11T16:01:44.359847</field>
+    <field name="uploader" rel="ManyToOneRel" to="gabinet.person">84515</field>
   </object>
   <object model="gabinet.shareddocument" pk="656">
     <field name="description" type="CharField">Deklaracja do pielęgniarki POZ pusta</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file" type="FileField">shared_documents/2022/10/11/Dekl._do_pielęgniarki_PUSTA.pdf</field>
     <field name="file_size" type="BigIntegerField">396732</field>
+    <field name="uploaded_date" type="DateTimeField">2022-10-11T16:01:23.434979</field>
+    <field name="uploader" rel="ManyToOneRel" to="gabinet.person">84515</field>
   </object>
   <object model="gabinet.shareddocument" pk="655">
     <field name="description" type="CharField">Deklaracja do lekarza POZ pusta</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file" type="FileField">shared_documents/2022/10/11/Dekl._do_lekarza_PUSTA.pdf</field>
     <field name="file_size" type="BigIntegerField">400594</field>
+    <field name="uploaded_date" type="DateTimeField">2022-10-11T16:00:51.590308</field>
+    <field name="uploader" rel="ManyToOneRel" to="gabinet.person">84515</field>
   </object>
 </objects>

@@ -4,23 +4,35 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.personalsequence" pk="12220140">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">170343</field>
     <field name="quantity" type="IntegerField">0</field>
     <field name="text" type="TextField">pacjent(ka) nie zgłosił(a) się na wizytę</field>
+    <field name="type" type="CharField">interview</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype"></field>
   </object>
   <object model="gabinet.personalsequence" pk="12220141">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">170343</field>
     <field name="quantity" type="IntegerField">0</field>
     <field name="text" type="TextField">zgłosił(a) się celem wykonania okresowych badań kontrolnych</field>
+    <field name="type" type="CharField">interview</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype"></field>
   </object>
   <object model="gabinet.personalsequence" pk="12220142">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">170343</field>
     <field name="quantity" type="IntegerField">0</field>
     <field name="text" type="TextField">zgłosił(a) się celem wykonania badań kontrolnych</field>
+    <field name="type" type="CharField">interview</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype"></field>
   </object>
   <object model="gabinet.personalsequence" pk="10818041">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">152965</field>
     <field name="quantity" type="IntegerField">0</field>
     <field name="text" type="TextField">przepona ustawiona prawidłowo</field>
+    <field name="type" type="CharField">imaging_test</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype"></field>
   </object>
 </objects>

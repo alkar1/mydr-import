@@ -8,6 +8,11 @@
     <field name="date" type="DateTimeField">2022-05-31T10:20:35</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
     <field name="from_state" type="CharField">Zakończona</field>
+    <field name="note" type="TextField"></field>
+    <field name="origin" type="CharField">MYDR</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">83156</field>
+    <field name="show_in_feed" type="NullBooleanField">False</field>
+    <field name="to_state" type="CharField">W trakcie</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175034050</field>
   </object>
   <object model="gabinet.visitnotes" pk="25018448">
@@ -15,6 +20,11 @@
     <field name="date" type="DateTimeField">2022-05-31T13:19:14</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
     <field name="from_state" type="CharField">Zaplanowana</field>
+    <field name="note" type="TextField"></field>
+    <field name="origin" type="CharField">MYDR</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">83156</field>
+    <field name="show_in_feed" type="NullBooleanField">False</field>
+    <field name="to_state" type="CharField">W trakcie</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">178278655</field>
   </object>
   <object model="gabinet.visitnotes" pk="25267350">
@@ -22,6 +32,11 @@
     <field name="date" type="DateTimeField">2022-06-01T13:46:28</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
     <field name="from_state" type="CharField">Zakończona</field>
+    <field name="note" type="TextField"></field>
+    <field name="origin" type="CharField">MYDR</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">83156</field>
+    <field name="show_in_feed" type="NullBooleanField">False</field>
+    <field name="to_state" type="CharField">W trakcie</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175004141</field>
   </object>
   <object model="gabinet.visitnotes" pk="568100359">
@@ -29,6 +44,11 @@
     <field name="date" type="DateTimeField">2025-12-08T18:04:48</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="from_state" type="CharField">W trakcie</field>
+    <field name="note" type="TextField"></field>
+    <field name="origin" type="CharField">MYDR</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84433</field>
+    <field name="show_in_feed" type="NullBooleanField">False</field>
+    <field name="to_state" type="CharField">Zakończona</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">381777641</field>
   </object>
 </objects>

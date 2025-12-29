@@ -5,18 +5,26 @@
 <objects>
   <object model="gabinet.tile" pk="1558226">
     <field name="col" type="IntegerField">0</field>
+    <field name="profile" rel="ManyToOneRel" to="gabinet.profile">170103</field>
+    <field name="row" type="IntegerField">0</field>
     <field name="tile_id" type="CharField">tile-cal-visit</field>
   </object>
   <object model="gabinet.tile" pk="1558227">
     <field name="col" type="IntegerField">1</field>
+    <field name="profile" rel="ManyToOneRel" to="gabinet.profile">170103</field>
+    <field name="row" type="IntegerField">0</field>
     <field name="tile_id" type="CharField">tile-visits</field>
   </object>
   <object model="gabinet.tile" pk="1558228">
     <field name="col" type="IntegerField">2</field>
+    <field name="profile" rel="ManyToOneRel" to="gabinet.profile">170103</field>
+    <field name="row" type="IntegerField">0</field>
     <field name="tile_id" type="CharField">tile-vis-not-scheduled</field>
   </object>
   <object model="gabinet.tile" pk="1560623">
     <field name="col" type="IntegerField">4</field>
+    <field name="profile" rel="ManyToOneRel" to="gabinet.profile">170522</field>
+    <field name="row" type="IntegerField">0</field>
     <field name="tile_id" type="CharField">tile-recipe-orders</field>
   </object>
 </objects>

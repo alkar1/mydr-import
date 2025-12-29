@@ -5,108 +5,207 @@
 <objects>
   <object model="gabinet.visit" pk="363610776">
     <field name="cancelled_patient_info" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="confirmed" type="BooleanField">False</field>
+    <field name="continuation_mode_choice" type="CharField"></field>
+    <field name="covid_form_completed" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="created" type="DateTimeField">2025-08-26T09:19:32.553523</field>
+    <field name="created_by_patient" type="BooleanField">False</field>
     <field name="created_by_plugin" type="BooleanField">False</field>
     <field name="creator" rel="ManyToOneRel" to="auth.user">&lt;None&gt;&lt;/None&gt;</field>
     <field name="date" type="DateField">2025-08-26</field>
+    <field name="dental_note" type="TextField"></field>
     <field name="doctor" rel="ManyToOneRel" to="gabinet.person">84537</field>
     <field name="ec_enabled" type="NullBooleanField">True</field>
+    <field name="ereferral" rel="ManyToOneRel" to="ereferral.receivedereferral">&lt;None&gt;&lt;/None&gt;</field>
     <field name="evisit" type="BooleanField">False</field>
+    <field name="examination" type="TextField"></field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="interview" type="TextField"></field>
+    <field name="is_ghost_visit" type="NullBooleanField">False</field>
     <field name="known_collisions" rel="ManyToManyRel" to="gabinet.visit"></field>
     <field name="last_revision" type="DateTimeField">2025-08-27T02:03:04.842871</field>
+    <field name="loyalty_program_discount" type="DecimalField">0.00</field>
     <field name="more_info" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="note" type="TextField"></field>
     <field name="note_postvisit" type="TextField"></field>
     <field name="office" rel="ManyToOneRel" to="gabinet.office">44728</field>
+    <field name="origin" type="CharField">QCK</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23668137</field>
+    <field name="patient_absent" type="NullBooleanField">False</field>
+    <field name="periodic_visit" rel="ManyToOneRel" to="gabinet.periodicvisit">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="prescription_visit" type="NullBooleanField">False</field>
     <field name="reception_mode_choice" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="recognition_description" type="TextField"></field>
+    <field name="recommendation" type="TextField"></field>
     <field name="referral" rel="ManyToOneRel" to="gabinet.specialvisitreferral">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="referral_needed" type="BooleanField">False</field>
+    <field name="revision_no" type="PositiveIntegerField">11</field>
     <field name="schedule" rel="ManyToOneRel" to="schedule.scheduleelement">&lt;None&gt;&lt;/None&gt;</field>
     <field name="send_patient_notification" type="NullBooleanField">False</field>
     <field name="signature" rel="OneToOneRel" to="gabinet.visitsignature">&lt;None&gt;&lt;/None&gt;</field>
     <field name="specialty" rel="ManyToOneRel" to="gabinet.specialty">1390983</field>
+    <field name="state" type="CharField">Archiwalna</field>
     <field name="terapy" type="TextField"></field>
+    <field name="timeFrom" type="TimeField">09:15:00</field>
     <field name="timeTo" type="TimeField">09:20:00</field>
     <field name="using_loyalty_program_discount" type="BooleanField">False</field>
+    <field name="visit_kind" type="CharField">Prywatna</field>
+    <field name="visit_type" rel="ManyToManyRel" to="gabinet.visittype"></field>
     <field name="waiting" type="CharField"></field>
     <field name="zm_reference_val" type="BigIntegerField">289497695970690048</field>
   </object>
   <object model="gabinet.visit" pk="258125694">
     <field name="cancelled_patient_info" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="confirmed" type="BooleanField">False</field>
+    <field name="continuation_mode_choice" type="CharField"></field>
+    <field name="covid_form_completed" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="created" type="DateTimeField">2023-07-28T12:02:02.834486</field>
+    <field name="created_by_patient" type="BooleanField">False</field>
     <field name="created_by_plugin" type="BooleanField">False</field>
     <field name="creator" rel="ManyToOneRel" to="auth.user">&lt;None&gt;&lt;/None&gt;</field>
     <field name="date" type="DateField">2023-08-10</field>
+    <field name="dental_note" type="TextField"></field>
     <field name="doctor" rel="ManyToOneRel" to="gabinet.person">105725</field>
     <field name="ec_enabled" type="NullBooleanField">True</field>
+    <field name="ereferral" rel="ManyToOneRel" to="ereferral.receivedereferral">&lt;None&gt;&lt;/None&gt;</field>
     <field name="evisit" type="BooleanField">False</field>
+    <field name="examination" type="TextField"></field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="interview" type="TextField"></field>
+    <field name="is_ghost_visit" type="NullBooleanField">False</field>
+    <field name="known_collisions" rel="ManyToManyRel" to="gabinet.visit"></field>
     <field name="last_revision" type="DateTimeField">2023-07-28T12:02:02.834528</field>
+    <field name="loyalty_program_discount" type="DecimalField">0.00</field>
     <field name="more_info" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="note" type="TextField"></field>
     <field name="note_postvisit" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="office" rel="ManyToOneRel" to="gabinet.office">52101</field>
+    <field name="origin" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">32758837</field>
+    <field name="patient_absent" type="NullBooleanField">False</field>
+    <field name="periodic_visit" rel="ManyToOneRel" to="gabinet.periodicvisit">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="prescription_visit" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="reception_mode_choice" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="recognition_description" type="TextField"></field>
+    <field name="recommendation" type="TextField"></field>
     <field name="referral" rel="ManyToOneRel" to="gabinet.specialvisitreferral">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="referral_needed" type="BooleanField">False</field>
+    <field name="revision_no" type="PositiveIntegerField">1</field>
     <field name="schedule" rel="ManyToOneRel" to="schedule.scheduleelement">&lt;None&gt;&lt;/None&gt;</field>
     <field name="send_patient_notification" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="signature" rel="OneToOneRel" to="gabinet.visitsignature">&lt;None&gt;&lt;/None&gt;</field>
     <field name="specialty" rel="ManyToOneRel" to="gabinet.specialty">1533972</field>
+    <field name="state" type="CharField">Anulowana</field>
     <field name="terapy" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="timeFrom" type="TimeField">13:00:00</field>
     <field name="timeTo" type="TimeField">13:45:00</field>
     <field name="using_loyalty_program_discount" type="BooleanField">False</field>
+    <field name="visit_kind" type="CharField">Prywatna</field>
+    <field name="visit_type" rel="ManyToManyRel" to="gabinet.visittype">&lt;object pk=&quot;203028&quot;&gt;&lt;/object&gt;</field>
     <field name="waiting" type="CharField"></field>
     <field name="zm_reference_val" type="BigIntegerField">0</field>
   </object>
   <object model="gabinet.visit" pk="357474568">
     <field name="cancelled_patient_info" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="confirmed" type="BooleanField">False</field>
+    <field name="continuation_mode_choice" type="CharField"></field>
+    <field name="covid_form_completed" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="created" type="DateTimeField">2025-08-01T12:35:07.033753</field>
+    <field name="created_by_patient" type="BooleanField">False</field>
     <field name="created_by_plugin" type="BooleanField">False</field>
     <field name="creator" rel="ManyToOneRel" to="auth.user">&lt;None&gt;&lt;/None&gt;</field>
     <field name="date" type="DateField">2025-08-08</field>
+    <field name="dental_note" type="TextField"></field>
     <field name="doctor" rel="ManyToOneRel" to="gabinet.person">84536</field>
     <field name="ec_enabled" type="NullBooleanField">True</field>
+    <field name="ereferral" rel="ManyToOneRel" to="ereferral.receivedereferral">&lt;None&gt;&lt;/None&gt;</field>
     <field name="evisit" type="BooleanField">False</field>
+    <field name="examination" type="TextField"></field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="interview" type="TextField"></field>
+    <field name="is_ghost_visit" type="NullBooleanField">False</field>
+    <field name="known_collisions" rel="ManyToManyRel" to="gabinet.visit"></field>
     <field name="last_revision" type="DateTimeField">2025-08-01T12:35:07.033785</field>
+    <field name="loyalty_program_discount" type="DecimalField">0.00</field>
     <field name="more_info" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="note" type="TextField"></field>
     <field name="note_postvisit" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="office" rel="ManyToOneRel" to="gabinet.office">43911</field>
+    <field name="origin" type="CharField">CAL</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">26499672</field>
+    <field name="patient_absent" type="NullBooleanField">False</field>
+    <field name="periodic_visit" rel="ManyToOneRel" to="gabinet.periodicvisit">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="prescription_visit" type="NullBooleanField">False</field>
     <field name="reception_mode_choice" type="CharField"></field>
     <field name="recognition_description" type="TextField"></field>
+    <field name="recommendation" type="TextField"></field>
     <field name="referral" rel="ManyToOneRel" to="gabinet.specialvisitreferral">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="referral_needed" type="BooleanField">False</field>
+    <field name="revision_no" type="PositiveIntegerField">1</field>
     <field name="schedule" rel="ManyToOneRel" to="schedule.scheduleelement">&lt;None&gt;&lt;/None&gt;</field>
     <field name="send_patient_notification" type="NullBooleanField">True</field>
     <field name="signature" rel="OneToOneRel" to="gabinet.visitsignature">&lt;None&gt;&lt;/None&gt;</field>
     <field name="specialty" rel="ManyToOneRel" to="gabinet.specialty">1390928</field>
+    <field name="state" type="CharField">Anulowana</field>
     <field name="terapy" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="timeFrom" type="TimeField">08:30:00</field>
     <field name="timeTo" type="TimeField">08:45:00</field>
     <field name="using_loyalty_program_discount" type="BooleanField">False</field>
+    <field name="visit_kind" type="CharField">NFZ</field>
+    <field name="visit_type" rel="ManyToManyRel" to="gabinet.visittype">&lt;object pk=&quot;180730&quot;&gt;&lt;/object&gt;</field>
     <field name="waiting" type="CharField"></field>
     <field name="zm_reference_val" type="BigIntegerField">0</field>
   </object>
   <object model="gabinet.visit" pk="382123557">
     <field name="cancelled_patient_info" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="confirmed" type="BooleanField">False</field>
+    <field name="continuation_mode_choice" type="CharField"></field>
+    <field name="covid_form_completed" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="created" type="DateTimeField">2025-12-05T17:09:42.143210</field>
+    <field name="created_by_patient" type="BooleanField">False</field>
     <field name="created_by_plugin" type="BooleanField">False</field>
     <field name="creator" rel="ManyToOneRel" to="auth.user">&lt;None&gt;&lt;/None&gt;</field>
     <field name="date" type="DateField">2025-12-05</field>
+    <field name="dental_note" type="TextField"></field>
     <field name="doctor" rel="ManyToOneRel" to="gabinet.person">170762</field>
     <field name="ec_enabled" type="NullBooleanField">True</field>
+    <field name="ereferral" rel="ManyToOneRel" to="ereferral.receivedereferral">&lt;None&gt;&lt;/None&gt;</field>
     <field name="evisit" type="BooleanField">False</field>
+    <field name="examination" type="TextField"></field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="interview" type="TextField">Pacjent prosi o przepisanie leków:
 1. Lacipil®: tabl. powl., 4 mg / 3 op. po 28 szt. 
 </field>
+    <field name="is_ghost_visit" type="NullBooleanField">False</field>
+    <field name="known_collisions" rel="ManyToManyRel" to="gabinet.visit"></field>
     <field name="last_revision" type="DateTimeField">2025-12-06T11:12:37.207458</field>
+    <field name="loyalty_program_discount" type="DecimalField">0.00</field>
     <field name="more_info" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="note" type="TextField"></field>
     <field name="note_postvisit" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="office" rel="ManyToOneRel" to="gabinet.office">43908</field>
+    <field name="origin" type="CharField">QCK</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23654211</field>
+    <field name="patient_absent" type="NullBooleanField">False</field>
+    <field name="periodic_visit" rel="ManyToOneRel" to="gabinet.periodicvisit">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="prescription_visit" type="NullBooleanField">False</field>
     <field name="reception_mode_choice" type="CharField"></field>
     <field name="recognition_description" type="TextField"></field>
+    <field name="recommendation" type="TextField"></field>
     <field name="referral" rel="ManyToOneRel" to="gabinet.specialvisitreferral">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="referral_needed" type="BooleanField">False</field>
+    <field name="revision_no" type="PositiveIntegerField">8</field>
     <field name="schedule" rel="ManyToOneRel" to="schedule.scheduleelement">&lt;None&gt;&lt;/None&gt;</field>
     <field name="send_patient_notification" type="NullBooleanField">False</field>
     <field name="signature" rel="OneToOneRel" to="gabinet.visitsignature">&lt;None&gt;&lt;/None&gt;</field>
     <field name="specialty" rel="ManyToOneRel" to="gabinet.specialty">1390956</field>
+    <field name="state" type="CharField">Archiwalna</field>
     <field name="terapy" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="timeFrom" type="TimeField">17:45:00</field>
     <field name="timeTo" type="TimeField">18:00:00</field>
     <field name="using_loyalty_program_discount" type="BooleanField">False</field>
+    <field name="visit_kind" type="CharField">NFZ</field>
+    <field name="visit_type" rel="ManyToManyRel" to="gabinet.visittype">&lt;object pk=&quot;188737&quot;&gt;&lt;/object&gt;</field>
     <field name="waiting" type="CharField"></field>
     <field name="zm_reference_val" type="BigIntegerField">298686319553457152</field>
   </object>

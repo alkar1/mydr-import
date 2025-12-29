@@ -4,79 +4,147 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.department" pk="39593">
+    <field name="active" type="BooleanField">False</field>
+    <field name="calendar_color" type="CharField">#ff9804</field>
     <field name="city" type="CharField">Kraków</field>
     <field name="code_5" type="CharField">01</field>
+    <field name="contract_files" rel="ManyToManyRel" to="gabinet.nfzcontractfile"></field>
     <field name="country" type="CharField">POLSKA</field>
+    <field name="default_nfz" type="CharField">X</field>
+    <field name="default_reception_mode" type="CharField">X</field>
     <field name="default_teryt" rel="ManyToOneRel" to="gabinet.teryt">&lt;None&gt;&lt;/None&gt;</field>
     <field name="default_visit_kind" type="CharField">Prywatna</field>
     <field name="department_code" type="CharField"></field>
+    <field name="departmental_code_7" type="CharField">004</field>
     <field name="departmental_code_8" type="CharField">9450</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="flat_number" type="CharField">U1</field>
+    <field name="house_number" type="CharField">25B</field>
     <field name="imported_id" type="CharField"></field>
     <field name="kids_allowed" type="BooleanField">False</field>
+    <field name="location" rel="ManyToOneRel" to="user_activity.location">22160</field>
+    <field name="mus_code" type="CharField">001</field>
     <field name="name" type="CharField">Gabinet zabiegowy</field>
     <field name="nfz_contracts" rel="ManyToManyRel" to="nfz.nfzcontract"></field>
+    <field name="nip" type="CharField">6793060743</field>
+    <field name="postal_code" type="CharField">30-438</field>
+    <field name="province" type="CharField">Mazowieckie</field>
     <field name="recipe_provider" type="CharField">Dane z placówki</field>
     <field name="regon" type="CharField">12149738900027</field>
     <field name="service_type" type="CharField">01</field>
     <field name="street" type="CharField">Borkowska</field>
+    <field name="telephone" type="CharField">000000000</field>
+    <field name="visit_time" type="IntegerField">15</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype">&lt;object pk=&quot;187944&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187945&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187946&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187947&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;188265&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;188737&quot;&gt;&lt;/object&gt;</field>
+    <field name="work_from" type="TimeField">08:00:00</field>
     <field name="work_to" type="TimeField">17:00:00</field>
   </object>
   <object model="gabinet.department" pk="39595">
+    <field name="active" type="BooleanField">True</field>
+    <field name="calendar_color" type="CharField">#ff9804</field>
     <field name="city" type="CharField">Kraków</field>
     <field name="code_5" type="CharField">01</field>
+    <field name="contract_files" rel="ManyToManyRel" to="gabinet.nfzcontractfile"></field>
     <field name="country" type="CharField">POLSKA</field>
+    <field name="default_nfz" type="CharField">06</field>
+    <field name="default_reception_mode" type="CharField">X</field>
     <field name="default_teryt" rel="ManyToOneRel" to="gabinet.teryt">20102</field>
     <field name="default_visit_kind" type="CharField">Prywatna</field>
     <field name="department_code" type="CharField"></field>
+    <field name="departmental_code_7" type="CharField">004</field>
     <field name="departmental_code_8" type="CharField">9450</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="flat_number" type="CharField">U1</field>
+    <field name="house_number" type="CharField">25B</field>
     <field name="imported_id" type="CharField"></field>
     <field name="kids_allowed" type="BooleanField">False</field>
+    <field name="location" rel="ManyToOneRel" to="user_activity.location">22160</field>
+    <field name="mus_code" type="CharField">001</field>
     <field name="name" type="CharField">Gabinet zabiegowy PRV</field>
     <field name="nfz_contracts" rel="ManyToManyRel" to="nfz.nfzcontract"></field>
+    <field name="nip" type="CharField">6793060743</field>
+    <field name="postal_code" type="CharField">30-438</field>
+    <field name="province" type="CharField">Małopolskie</field>
     <field name="recipe_provider" type="CharField">Dane z placówki</field>
     <field name="regon" type="CharField">12149738900027</field>
     <field name="service_type" type="CharField">01</field>
     <field name="street" type="CharField">Borkowska</field>
+    <field name="telephone" type="CharField">123070221</field>
+    <field name="visit_time" type="IntegerField">15</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype">&lt;object pk=&quot;187947&quot;&gt;&lt;/object&gt;</field>
+    <field name="work_from" type="TimeField">08:00:00</field>
     <field name="work_to" type="TimeField">17:00:00</field>
   </object>
   <object model="gabinet.department" pk="38484">
+    <field name="active" type="BooleanField">False</field>
+    <field name="calendar_color" type="CharField">#ff9804</field>
     <field name="city" type="CharField">Kraków</field>
     <field name="code_5" type="CharField"></field>
+    <field name="contract_files" rel="ManyToManyRel" to="gabinet.nfzcontractfile"></field>
     <field name="country" type="CharField">POLSKA</field>
+    <field name="default_nfz" type="CharField">X</field>
+    <field name="default_reception_mode" type="CharField">X</field>
     <field name="default_teryt" rel="ManyToOneRel" to="gabinet.teryt">&lt;None&gt;&lt;/None&gt;</field>
     <field name="default_visit_kind" type="CharField">X</field>
     <field name="department_code" type="CharField"></field>
+    <field name="departmental_code_7" type="CharField"></field>
     <field name="departmental_code_8" type="CharField"></field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="flat_number" type="CharField"></field>
+    <field name="house_number" type="CharField">25B</field>
     <field name="imported_id" type="CharField"></field>
     <field name="kids_allowed" type="BooleanField">False</field>
+    <field name="location" rel="ManyToOneRel" to="user_activity.location">22160</field>
+    <field name="mus_code" type="CharField">001</field>
     <field name="name" type="CharField">Oddział domyślny</field>
     <field name="nfz_contracts" rel="ManyToManyRel" to="nfz.nfzcontract"></field>
+    <field name="nip" type="CharField"></field>
+    <field name="postal_code" type="CharField">30-438</field>
+    <field name="province" type="CharField">Małopolskie</field>
     <field name="recipe_provider" type="CharField">Dane z placówki</field>
     <field name="regon" type="CharField">12149738900027</field>
     <field name="service_type" type="CharField">01</field>
     <field name="street" type="CharField">Borkowska</field>
+    <field name="telephone" type="CharField">123070221</field>
+    <field name="visit_time" type="IntegerField">15</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype">&lt;object pk=&quot;180814&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;180880&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;180881&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;180882&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;180883&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187944&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187945&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187946&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187947&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;188265&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;188737&quot;&gt;&lt;/object&gt;</field>
+    <field name="work_from" type="TimeField">08:00:00</field>
     <field name="work_to" type="TimeField">17:00:00</field>
   </object>
   <object model="gabinet.department" pk="38927">
+    <field name="active" type="BooleanField">False</field>
+    <field name="calendar_color" type="CharField">#ff9804</field>
     <field name="city" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="code_5" type="CharField"></field>
+    <field name="contract_files" rel="ManyToManyRel" to="gabinet.nfzcontractfile"></field>
     <field name="country" type="CharField">POLSKA</field>
+    <field name="default_nfz" type="CharField">X</field>
+    <field name="default_reception_mode" type="CharField">X</field>
     <field name="default_teryt" rel="ManyToOneRel" to="gabinet.teryt">&lt;None&gt;&lt;/None&gt;</field>
     <field name="default_visit_kind" type="CharField">X</field>
     <field name="department_code" type="CharField"></field>
+    <field name="departmental_code_7" type="CharField"></field>
     <field name="departmental_code_8" type="CharField"></field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="flat_number" type="CharField"></field>
+    <field name="house_number" type="CharField"></field>
     <field name="imported_id" type="CharField"></field>
     <field name="kids_allowed" type="BooleanField">False</field>
+    <field name="location" rel="ManyToOneRel" to="user_activity.location">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="mus_code" type="CharField">001</field>
     <field name="name" type="CharField">Wyniki badań laboratoryjnych</field>
     <field name="nfz_contracts" rel="ManyToManyRel" to="nfz.nfzcontract"></field>
+    <field name="nip" type="CharField"></field>
+    <field name="postal_code" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="province" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="recipe_provider" type="CharField">Dane z placówki</field>
     <field name="regon" type="CharField">12149738900027</field>
     <field name="service_type" type="CharField">01</field>
     <field name="street" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="telephone" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="visit_time" type="IntegerField">15</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype">&lt;object pk=&quot;180814&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;180880&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;180881&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;180882&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;180883&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187944&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187945&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187946&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;187947&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;188265&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;188737&quot;&gt;&lt;/object&gt;</field>
+    <field name="work_from" type="TimeField">08:00:00</field>
     <field name="work_to" type="TimeField">17:00:00</field>
   </object>
 </objects>

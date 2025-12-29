@@ -7,20 +7,32 @@
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="is_spec_doctor" type="BooleanField">False</field>
+    <field name="name" type="CharField">Pielęgniarka anestezjologiczna</field>
+    <field name="state" type="BooleanField">False</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype"></field>
   </object>
   <object model="gabinet.specialty" pk="1390981">
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="is_spec_doctor" type="BooleanField">False</field>
+    <field name="name" type="CharField">Pielęgniarka chirurgiczna</field>
+    <field name="state" type="BooleanField">False</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype"></field>
   </object>
   <object model="gabinet.specialty" pk="1390982">
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="is_spec_doctor" type="BooleanField">False</field>
+    <field name="name" type="CharField">Pielęgniarka geriatryczna</field>
+    <field name="state" type="BooleanField">False</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype"></field>
   </object>
   <object model="gabinet.specialty" pk="1723744">
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="is_spec_doctor" type="BooleanField">True</field>
+    <field name="name" type="CharField">Dietetyk</field>
+    <field name="state" type="BooleanField">True</field>
+    <field name="visit_types" rel="ManyToManyRel" to="gabinet.visittype">&lt;object pk=&quot;242573&quot;&gt;&lt;/object&gt;</field>
   </object>
 </objects>

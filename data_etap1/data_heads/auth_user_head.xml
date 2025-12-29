@@ -6,17 +6,25 @@
   <object model="auth.user" pk="46097716">
     <field name="email" type="CharField">gabrielaapostoluk@wp.pl</field>
     <field name="first_name" type="CharField">Gabriela</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="last_name" type="CharField">Apostoluk</field>
   </object>
   <object model="auth.user" pk="46606287">
     <field name="email" type="CharField">magda.gozdzialska@gmail.com</field>
     <field name="first_name" type="CharField">Magdalena</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="last_name" type="CharField">Goździalska</field>
   </object>
   <object model="auth.user" pk="23732803">
     <field name="email" type="CharField"></field>
     <field name="first_name" type="CharField">Monika</field>
+    <field name="is_active" type="BooleanField">False</field>
+    <field name="last_name" type="CharField">Połcik</field>
   </object>
   <object model="auth.user" pk="46210085">
     <field name="email" type="CharField">krembiasz@gmail.com</field>
     <field name="first_name" type="CharField">Krzysztof</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="last_name" type="CharField">Rembiasz</field>
   </object>
 </objects>

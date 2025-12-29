@@ -1,6 +1,6 @@
 ﻿================================================================================
   RAPORT STRUKTURY XML: gabinet_export.xml
-  Data: 2025-12-29 13:49:37
+  Data: 2025-12-29 18:39:41
 ================================================================================
 
 Calkowita liczba typow obiektow: 60
@@ -12,11 +12,17 @@ SZCZEGOLY OBIEKTOW (posortowane wg liczby rekordow):
 
 Model: gabinet.recognition  (Rozpoznanie - Diagnoza na wizycie (ICD-10, typ))
   Liczba rekordow: 992 503
-  Liczba pol: 3
+  Liczba pol: 5
   Pola:
     - date (DateField)
       Wypelnienie: 992 503 (100,0%)
       Przyklady: 2025-05-15, 2025-08-20, 2015-02-17
+    - icd10 () -> gabinet.icd10
+      Wypelnienie: 992 503 (100,0%)
+      Przyklady: 24050, 24048, 23573
+    - patient () -> gabinet.patient
+      Wypelnienie: 992 503 (100,0%)
+      Przyklady: 44638616, 23654538, 23664125
     - type (CharField)
       Wypelnienie: 992 503 (100,0%)
       Przyklady: nieprzewlekłe główne, przewlekłe towarzyszące, przewlekłe główne
@@ -26,8 +32,14 @@ Model: gabinet.recognition  (Rozpoznanie - Diagnoza na wizycie (ICD-10, typ))
 
 Model: gabinet.icd10  (Kod ICD-10 - Słownik ICD-10 z kodami, opisami, flagami raka/ostrych)
   Liczba rekordow: 992 503
-  Liczba pol: 9
+  Liczba pol: 18
   Pola:
+    - abbr (TextField)
+      Wypelnienie: 992 503 (8,9%)
+      Przyklady: RzZJ, HAV, HBV
+    - aoslist () -> gabinet.nfzaoslisticd10
+      Wypelnienie: 992 503 (1,6%)
+      Przyklady: <object pk="4"></object>, <object pk="1"></object><ob..., <object pk="2"></object>
     - code (TextField)
       Wypelnienie: 992 503 (100,0%)
       Przyklady: A00, A00.0, A00.9
@@ -40,25 +52,46 @@ Model: gabinet.icd10  (Kod ICD-10 - Słownik ICD-10 z kodami, opisami, flagami r
     - descr (TextField)
       Wypelnienie: 992 503 (100,0%)
       Przyklady: Choroba zakaźna wywołana pr..., Cholera wywołana przez Vibr..., Cholera, nieokreślona
+    - descr2 (TextField)
+      Wypelnienie: 992 503 (3,5%)
+      Przyklady: Jeżeli zaburzenie ma charak..., Należy użyć dodatkowych kod..., Użyj dodatkowego zewnętrzeg...
     - descr3 (TextField)
       Wypelnienie: 992 503 (47,7%)
       Przyklady: Cholera klasyczna, Zakażenia wywołane przez Sa..., Zapalenie jelit wywołane pr...
+    - disease_group (TextField)
+      Wypelnienie: 992 503 (51,0%)
+      Przyklady: Salmonelloza, Jersinioza, Chlamydioza
     - disease_kind (TextField)
       Wypelnienie: 992 503 (61,7%)
       Przyklady: Choroba bakteryjna, Choroba wywołana przez pier..., Choroba wirusowa
     - is_cancer (BooleanField)
       Wypelnienie: 992 503 (100,0%)
       Przyklady: False, True
+    - is_chuk (BooleanField)
+      Wypelnienie: 992 503 (100,0%)
+      Przyklady: False, True
     - is_immediate (BooleanField)
       Wypelnienie: 992 503 (100,0%)
       Przyklady: False, True
+    - is_infectious (BooleanField)
+      Wypelnienie: 992 503 (100,0%)
+      Przyklady: True, False
+    - is_nfz_recognized (BooleanField)
+      Wypelnienie: 992 503 (100,0%)
+      Przyklady: True, False
+    - name_latin (TextField)
+      Wypelnienie: 992 503 (20,0%)
+      Przyklady: Cholerae, Typhus abdominalis, Gastroenteritis acuta Salmo...
     - special (TextField)
       Wypelnienie: 992 503 (62,7%)
       Przyklady: Choroby zakaźne, Choroby pasożytnicze, Onkologia
+    - zlk_code (TextField)
+      Wypelnienie: 992 503 (100,0%)
+      Przyklady: 27827, 27828, 27830
 
 Model: gabinet.visitnotes  (Historia wizyty - Log zmian statusu wizyty)
   Liczba rekordow: 913 366
-  Liczba pol: 5
+  Liczba pol: 10
   Pola:
     - action_type (CharField)
       Wypelnienie: 913 366 (20,5%)
@@ -72,32 +105,65 @@ Model: gabinet.visitnotes  (Historia wizyty - Log zmian statusu wizyty)
     - from_state (CharField)
       Wypelnienie: 913 366 (81,2%)
       Przyklady: Zakończona, Zaplanowana, W trakcie
+    - note (TextField)
+      Wypelnienie: 913 366 (52,4%)
+      Przyklady: test, ..., .
+    - origin (CharField)
+      Wypelnienie: 913 366 (100,0%)
+      Przyklady: MYDR, PAT
+    - person () -> gabinet.person
+      Wypelnienie: 913 366 (72,2%)
+      Przyklady: 83156, 85947, 84510
+    - show_in_feed (NullBooleanField)
+      Wypelnienie: 913 366 (100,0%)
+      Przyklady: False, True
+    - to_state (CharField)
+      Wypelnienie: 913 366 (100,0%)
+      Przyklady: W trakcie, Anulowana, Zaplanowana i opłacona
     - visit () -> gabinet.visit
       Wypelnienie: 913 366 (100,0%)
       Przyklady: 175034050, 178278655, 175004141
 
 Model: gabinet.ver  (Słownik leków VER - Wersja leku z BLOZ (nazwa, dawka))
   Liczba rekordow: 756 950
-  Liczba pol: 9
+  Liczba pol: 18
   Pola:
+    - are_minor_values_up_to_date (BooleanField)
+      Wypelnienie: 756 950 (100,0%)
+      Przyklady: False, True
     - bloz7 (TextField)
       Wypelnienie: 756 950 (93,5%)
       Przyklady: 8045511, 5888901, 3683914
+    - box (TextField)
+      Wypelnienie: 756 950 (100,0%)
+      Przyklady: 14 szt., 10 szt., 24 szt.
+    - box_value (IntegerField)
+      Wypelnienie: 756 950 (100,0%)
+      Przyklady: 14, 10, 24
     - dose (TextField)
       Wypelnienie: 756 950 (96,8%)
       Przyklady: 500 mg, 600 mg, 400 mg
     - dose_value (FloatField)
       Wypelnienie: 756 950 (100,0%)
       Przyklady: 500.0, 600.0, 400.0
+    - ean13 (TextField)
+      Wypelnienie: 756 950 (100,0%)
+      Przyklady: 5909991030117, 5909990691012, 5909990970032
     - group_id (IntegerField)
       Wypelnienie: 756 950 (100,0%)
       Przyklady: 25956915, 25966062, 25988153
     - is_up_to_date (BooleanField)
       Wypelnienie: 756 950 (100,0%)
       Przyklady: False, True
+    - kind (TextField)
+      Wypelnienie: 756 950 (100,0%)
+      Przyklady: tabl. powl., tabl. mus., tabl. draż.
     - name_html (TextField)
       Wypelnienie: 756 950 (100,0%)
       Przyklady: Klarmin&lt;sup&gt;®&lt;/sup..., ACC&lt;sup&gt;®&lt;/sup&gt;..., Ibuprom&lt;sup&gt;®&lt;/sup...
+    - name_text (TextField)
+      Wypelnienie: 756 950 (100,0%)
+      Przyklady: Klarmin®, ACC® Optima, Ibuprom® Max
     - nw_version_id (IntegerField)
       Wypelnienie: 756 950 (99,8%)
       Przyklady: 3213937, 16636517, 27707278
@@ -107,20 +173,46 @@ Model: gabinet.ver  (Słownik leków VER - Wersja leku z BLOZ (nazwa, dawka))
     - register_date (TextField)
       Wypelnienie: 756 950 (29,5%)
       Przyklady: 2012-10-12, 2008-01-28, 2009-01-19
+    - register_id (IntegerField)
+      Wypelnienie: 756 950 (100,0%)
+      Przyklady: 1, 2, 3
+    - route_id (IntegerField)
+      Wypelnienie: 756 950 (10,7%)
+      Przyklady: 4, 11, 1
+    - status_id (IntegerField)
+      Wypelnienie: 756 950 (100,0%)
+      Przyklady: 10, 17, 20088172
 
 Model: gabinet.recipedrug  (Pozycja recepty - Lek na recepcie (dawka, ilość))
   Liczba rekordow: 754 227
-  Liczba pol: 7
+  Liczba pol: 14
   Pola:
+    - _custom_name (CharField)
+      Wypelnienie: 754 227 (0,0%)
+    - composition (TextField)
+      Wypelnienie: 754 227 (8,3%)
+      Przyklady: Clarinase - tabl. 5 mg + 12..., Nystatyna - granulat do prz..., Mucosolvan - syrop 30 mg/5 ...
     - dosation (CharField)
       Wypelnienie: 754 227 (100,0%)
       Przyklady: 1.0 op., 2.0 op., 4.0 op.
     - dosation_custom_drug (CharField)
       Wypelnienie: 754 227 (0,0%)
       Przyklady: {"text": "NaCl", "number": ..., {"text": "", "number": ""}, {"text": "pi\u0119\u0107 gr...
+    - dosation_in_words (CharField)
+      Wypelnienie: 754 227 (0,5%)
+      Przyklady: siedem i pół miligrama subs..., piętnaście miligramów subst..., trzysta miligramów substanc...
     - drug () -> gabinet.ver
       Wypelnienie: 754 227 (91,7%)
       Przyklady: 26336412, 26101553, 26101233
+    - is_part_of_box (BooleanField)
+      Wypelnienie: 754 227 (100,0%)
+      Przyklady: False, True
+    - patient () -> gabinet.patient
+      Wypelnienie: 754 227 (100,0%)
+      Przyklady: 23660443, 23667981, 23665657
+    - payment (CharField)
+      Wypelnienie: 754 227 (100,0%)
+      Przyklady: 100%, R, 30%
     - prescribed_place (CharField)
       Wypelnienie: 754 227 (33,7%)
       Przyklady: S, P, R
@@ -130,17 +222,33 @@ Model: gabinet.recipedrug  (Pozycja recepty - Lek na recepcie (dawka, ilość))
     - recommendation (CharField)
       Wypelnienie: 754 227 (100,0%)
       Przyklady: 1x1.0, 2x1.0, 2 tbl rano
+    - search_phrase (CharField)
+      Wypelnienie: 754 227 (9,9%)
+      Przyklady: acard, alpragen, zaldiar
     - visit_date (DateField)
       Wypelnienie: 754 227 (100,0%)
       Przyklady: 2011-09-14, 2011-09-16, 2011-09-21
 
 Model: gabinet.visit  (Wizyta - Rekord wizyty (data, pacjent, lekarz))
   Liczba rekordow: 696 727
-  Liczba pol: 25
+  Liczba pol: 49
   Pola:
     - cancelled_patient_info (CharField)
       Wypelnienie: 696 727 (0,0%)
       Przyklady: Pacjent nie pojawił się, Pacjent odwołał w ostatniej...
+    - confirmed (BooleanField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: False, True
+    - continuation_mode_choice (CharField)
+      Wypelnienie: 696 727 (0,0%)
+    - covid_form_completed (DateTimeField)
+      Wypelnienie: 696 727 (0,0%)
+    - created (DateTimeField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: 2025-08-26T09:19:32.553523, 2023-07-28T12:02:02.834486, 2025-08-01T12:35:07.033753
+    - created_by_patient (BooleanField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: False
     - created_by_plugin (BooleanField)
       Wypelnienie: 696 727 (100,0%)
       Przyklady: False
@@ -149,41 +257,84 @@ Model: gabinet.visit  (Wizyta - Rekord wizyty (data, pacjent, lekarz))
     - date (DateField)
       Wypelnienie: 696 727 (100,0%)
       Przyklady: 2025-08-26, 2023-08-10, 2025-08-08
+    - dental_note (TextField)
+      Wypelnienie: 696 727 (0,0%)
     - doctor () -> gabinet.person
       Wypelnienie: 696 727 (100,0%)
       Przyklady: 84537, 105725, 84536
     - ec_enabled (NullBooleanField)
       Wypelnienie: 696 727 (100,0%)
       Przyklady: True
+    - ereferral () -> ereferral.receivedereferral
+      Wypelnienie: 696 727 (0,0%)
     - evisit (BooleanField)
       Wypelnienie: 696 727 (100,0%)
       Przyklady: False, True
+    - examination (TextField)
+      Wypelnienie: 696 727 (47,8%)
+      Przyklady: niebadana rozmowa z siostra..., MINI COG - SKAN W DOKUMETNA..., 36,6 C
+węzły niepowiększone...
+    - facility () -> gabinet.facility
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: 21540
     - interview (TextField)
       Wypelnienie: 696 727 (70,1%)
       Przyklady: Rozmowa z siostra panią Rze..., Wizyta z córla
 1/ Dosniła R..., Wizyta pierwszorazowa. Pacj...
+    - is_ghost_visit (NullBooleanField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: False, True
     - known_collisions () -> gabinet.visit
       Wypelnienie: 696 727 (0,0%)
     - last_revision (DateTimeField)
       Wypelnienie: 696 727 (100,0%)
       Przyklady: 2025-08-27T02:03:04.842871, 2023-07-28T12:02:02.834528, 2025-08-01T12:35:07.033785
+    - loyalty_program_discount (DecimalField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: 0.00
     - more_info (TextField)
       Wypelnienie: 696 727 (0,0%)
+    - note (TextField)
+      Wypelnienie: 696 727 (31,0%)
+      Przyklady: holterRR zdjęcie- opieka ko..., doniesie 2015 o rak trzonu ..., szczepienie
     - note_postvisit (TextField)
       Wypelnienie: 696 727 (0,0%)
       Przyklady: inhalacje, kontrola w środę, kontrola w piątek
     - office () -> gabinet.office
       Wypelnienie: 696 727 (100,0%)
       Przyklady: 44728, 52101, 43911
+    - origin (CharField)
+      Wypelnienie: 696 727 (11,8%)
+      Przyklady: QCK, CAL, MOB
+    - patient () -> gabinet.patient
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: 23668137, 32758837, 26499672
+    - patient_absent (NullBooleanField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: False, True
+    - periodic_visit () -> gabinet.periodicvisit
+      Wypelnienie: 696 727 (0,0%)
+    - prescription_visit (NullBooleanField)
+      Wypelnienie: 696 727 (10,4%)
+      Przyklady: False, True
     - reception_mode_choice (CharField)
       Wypelnienie: 696 727 (12,6%)
       Przyklady: 2, 13, 4
     - recognition_description (TextField)
       Wypelnienie: 696 727 (46,2%)
       Przyklady: Zmiana w postaci guzka pier..., Obrzęk limfatyczny podudzia..., Atopowe zapalenie skóry (tw...
+    - recommendation (TextField)
+      Wypelnienie: 696 727 (70,0%)
+      Przyklady: niewielkie zwiększenie dawk..., badania laboratyjne i RTG i..., przyjmowanie płynów 2,5-3l ...
     - referral () -> gabinet.specialvisitreferral
       Wypelnienie: 696 727 (0,8%)
       Przyklady: 6785359, 6784834, 6785824
+    - referral_needed (BooleanField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: False, True
+    - revision_no (PositiveIntegerField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: 11, 1, 22
     - schedule () -> schedule.scheduleelement
       Wypelnienie: 696 727 (0,0%)
     - send_patient_notification (NullBooleanField)
@@ -195,14 +346,26 @@ Model: gabinet.visit  (Wizyta - Rekord wizyty (data, pacjent, lekarz))
     - specialty () -> gabinet.specialty
       Wypelnienie: 696 727 (28,4%)
       Przyklady: 1390983, 1533972, 1390928
+    - state (CharField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: Archiwalna, Anulowana, Zaplanowana
     - terapy (TextField)
       Wypelnienie: 696 727 (0,0%)
+    - timeFrom (TimeField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: 09:15:00, 13:00:00, 08:30:00
     - timeTo (TimeField)
       Wypelnienie: 696 727 (100,0%)
       Przyklady: 09:20:00, 13:45:00, 08:45:00
     - using_loyalty_program_discount (BooleanField)
       Wypelnienie: 696 727 (100,0%)
       Przyklady: False
+    - visit_kind (CharField)
+      Wypelnienie: 696 727 (100,0%)
+      Przyklady: Prywatna, NFZ, X
+    - visit_type () -> gabinet.visittype
+      Wypelnienie: 696 727 (27,3%)
+      Przyklady: <object pk="203028"></object>, <object pk="180730"></object>, <object pk="180883"></object>
     - waiting (CharField)
       Wypelnienie: 696 727 (0,0%)
       Przyklady: DAY
@@ -212,18 +375,24 @@ Model: gabinet.visit  (Wizyta - Rekord wizyty (data, pacjent, lekarz))
 
 Model: gabinet.medicalprocedure  (Procedura medyczna - Słownik procedur, kodów NFZ, punktów)
   Liczba rekordow: 653 130
-  Liczba pol: 2
+  Liczba pol: 4
   Pola:
     - count (PositiveIntegerField)
       Wypelnienie: 653 130 (100,0%)
       Przyklady: 1, 2, 7
+    - facility () -> gabinet.facility
+      Wypelnienie: 653 130 (8,1%)
+      Przyklady: 21540
+    - icd9 () -> gabinet.icd9
+      Wypelnienie: 653 130 (100,0%)
+      Przyklady: 8178, 8091, 13
     - visit () -> gabinet.visit
       Wypelnienie: 653 130 (100,0%)
       Przyklady: 174901157, 174766041, 175016136
 
 Model: gabinet.icd9  (Kod ICD-9 - Słownik procedur ICD-9-CM (starszy system dla raportów))
   Liczba rekordow: 653 130
-  Liczba pol: 5
+  Liczba pol: 9
   Pola:
     - aoslist () -> gabinet.nfzaoslisticd9
       Wypelnienie: 653 130 (17,1%)
@@ -231,39 +400,75 @@ Model: gabinet.icd9  (Kod ICD-9 - Słownik procedur ICD-9-CM (starszy system dla
     - code (TextField)
       Wypelnienie: 653 130 (100,0%)
       Przyklady: 89.00, 88.761, A01
+    - date_valid_from (DateField)
+      Wypelnienie: 653 130 (100,0%)
+      Przyklady: 2008-07-01, 2016-07-01, 2016-01-01
     - date_valid_to (DateField)
       Wypelnienie: 653 130 (0,0%)
+    - icd9_status (CharField)
+      Wypelnienie: 653 130 (100,0%)
+      Przyklady: A
+    - level (IntegerField)
+      Wypelnienie: 653 130 (100,0%)
+      Przyklady: 2, 3, 1
     - parent_code (TextField)
       Wypelnienie: 653 130 (100,0%)
       Przyklady: 89.0, 88.76, A
     - rank (IntegerField)
       Wypelnienie: 653 130 (100,0%)
       Przyklady: 0, 2, 4
+    - title (TextField)
+      Wypelnienie: 653 130 (100,0%)
+      Przyklady: Porada lekarska, konsultacj..., USG brzucha i przestrzeni z..., Badanie ogólne moczu (profil)
 
 Model: gabinet.recipe  (Recepta - Nagłówek recepty (numer, data, wystawiający))
   Liczba rekordow: 357 582
-  Liczba pol: 10
+  Liczba pol: 20
   Pola:
     - date (DateTimeField)
       Wypelnienie: 357 582 (100,0%)
       Przyklady: 2011-09-20T00:00:00, 2011-12-20T00:00:00, 2011-12-06T00:00:00
+    - delivery_date (DateTimeField)
+      Wypelnienie: 357 582 (79,4%)
+      Przyklady: 2011-09-20T00:00:00, 2011-12-20T00:00:00, 2011-12-06T00:00:00
     - expiration_365 (BooleanField)
+      Wypelnienie: 357 582 (100,0%)
+      Przyklady: False, True
+    - has_child_right (BooleanField)
       Wypelnienie: 357 582 (100,0%)
       Przyklady: False, True
     - has_pregnant_right (BooleanField)
       Wypelnienie: 357 582 (100,0%)
       Przyklady: False, True
+    - has_senior_right (BooleanField)
+      Wypelnienie: 357 582 (100,0%)
+      Przyklady: False, True
     - identity_num (CharField)
       Wypelnienie: 357 582 (0,0%)
       Przyklady: 80040000012360607398, FE935495, 0004276346
+    - identity_type (CharField)
+      Wypelnienie: 357 582 (0,0%)
+      Przyklady: ekuz, passport
     - is_electronic_draft (BooleanField)
       Wypelnienie: 357 582 (100,0%)
       Przyklady: False, True
+    - nfz (CharField)
+      Wypelnienie: 357 582 (100,0%)
+      Przyklady: X, 06, 13
     - nurse_recipe_type (CharField)
       Wypelnienie: 357 582 (0,0%)
+    - patient (TextField)
+      Wypelnienie: 357 582 (100,0%)
+      Przyklady: Estera Adler-Baryła
+Borkows..., Przemysław Stachurski
+Borko..., Krystyna Zaczyńska
+Św. Wawr...
     - pesel (CharField)
       Wypelnienie: 357 582 (99,8%)
       Przyklady: 87082616329, 04253005735, 52080507368
+    - prescriber () -> gabinet.person
+      Wypelnienie: 357 582 (17,7%)
+      Przyklady: 84433, 101857, 84461
     - provider (TextField)
       Wypelnienie: 357 582 (100,0%)
       Przyklady: Placowka
@@ -275,20 +480,44 @@ REGON:
     - recipe_number () -> gabinet.recipenumber
       Wypelnienie: 357 582 (39,0%)
       Przyklady: 30262971, 30368073, 30343289
+    - rights (CharField)
+      Wypelnienie: 357 582 (100,0%)
+      Przyklady: X, ZK, IB
+    - state (IntegerField)
+      Wypelnienie: 357 582 (100,0%)
+      Przyklady: 3
     - type (CharField)
       Wypelnienie: 357 582 (100,0%)
       Przyklady: Rp, Rpw, Rpz
+    - visit () -> gabinet.visit
+      Wypelnienie: 357 582 (100,0%)
+      Przyklady: 174766041, 175016136, 174764990
 
 Model: gabinet.insurance  (Ubezpieczenie - Słownik rodzajów ubezpieczeń / uprawnień NFZ)
   Liczba rekordow: 353 064
-  Liczba pol: 6
+  Liczba pol: 12
   Pola:
+    - credentials () -> gabinet.ewuscredentials
+      Wypelnienie: 353 064 (99,7%)
+      Przyklady: 101507
+    - date (DateTimeField)
+      Wypelnienie: 353 064 (100,0%)
+      Przyklady: 2025-05-13T12:32:09.090581, 2025-05-13T12:29:09.576415, 2025-05-15T21:02:12.255616
     - form () -> forms_designer.form
       Wypelnienie: 353 064 (0,0%)
+    - id_nfz (CharField)
+      Wypelnienie: 353 064 (99,7%)
+      Przyklady: L0625M00503572390, L0625M00504333081, L0625M00804500338
     - insurance_kind (SmallIntegerField)
       Wypelnienie: 353 064 (100,0%)
       Przyklady: 2, 0, 26
+    - insurance_state (NullBooleanField)
+      Wypelnienie: 353 064 (100,0%)
+      Przyklady: True, False
     - insurance_valid_from (DateField)
+      Wypelnienie: 353 064 (100,0%)
+      Przyklady: 2025-05-13, 2025-05-15, 2025-08-18
+    - insurance_valid_to (DateField)
       Wypelnienie: 353 064 (100,0%)
       Przyklady: 2025-05-13, 2025-05-15, 2025-08-18
     - nfz_pesel (CharField)
@@ -300,10 +529,13 @@ Model: gabinet.insurance  (Ubezpieczenie - Słownik rodzajów ubezpieczeń / upr
     - patient () -> gabinet.patient
       Wypelnienie: 353 064 (100,0%)
       Przyklady: 44638616, 23659633, 23654538
+    - permissions_title (CharField)
+      Wypelnienie: 353 064 (100,0%)
+      Przyklady: U, UA, UE
 
 Model: nfz.attachednfzservice  (Dołączona usługa NFZ - Usługa NFZ dołączona do kontraktu lub raportu)
   Liczba rekordow: 195 133
-  Liczba pol: 10
+  Liczba pol: 19
   Pola:
     - identifier (IntegerField)
       Wypelnienie: 195 133 (100,0%)
@@ -313,9 +545,20 @@ Model: nfz.attachednfzservice  (Dołączona usługa NFZ - Usługa NFZ dołączon
       Przyklady: False
     - jgp_tariff (DecimalField)
       Wypelnienie: 195 133 (0,0%)
+    - location (CharField)
+      Wypelnienie: 195 133 (0,0%)
+    - nfz_state (CharField)
+      Wypelnienie: 195 133 (100,0%)
+      Przyklady: D, C, E
+    - non_deleted (NullBooleanField)
+      Wypelnienie: 195 133 (100,0%)
+      Przyklady: True
     - package_code (CharField)
       Wypelnienie: 195 133 (100,0%)
       Przyklady: 01.0010.994.01, 01.0032.147.01, 01.0010.108.11
+    - package_name (CharField)
+      Wypelnienie: 195 133 (99,5%)
+      Przyklady: ŚWIADCZENIA LEKARZA POZ - P..., ŚWIADCZENIA PIELĘGNIARKI POZ, ŚWIADCZENIA LEKARZA POZ UDZ...
     - quantity (DecimalField)
       Wypelnienie: 195 133 (100,0%)
       Przyklady: 1.0000, 2.0000, 3.0000
@@ -324,6 +567,17 @@ Model: nfz.attachednfzservice  (Dołączona usługa NFZ - Usługa NFZ dołączon
       Przyklady: 5.01.00.0000001, 5.01.00.0000026, 5.01.00.0000027
     - service_date_from (DateField)
       Wypelnienie: 195 133 (0,0%)
+    - service_date_to (DateField)
+      Wypelnienie: 195 133 (0,0%)
+    - service_name (CharField)
+      Wypelnienie: 195 133 (100,0%)
+      Przyklady: PORADA LEKARSKA ZWIĄZANA Z ..., ŚWIADCZENIA PIELĘGNIARKI PO..., ŚWIADCZENIA PIELĘGNIARKI PO...
+    - service_plan () -> nfz.nfzserviceplan
+      Wypelnienie: 195 133 (100,0%)
+      Przyklady: 13064664, 13064666, 13064668
+    - service_type (CharField)
+      Wypelnienie: 195 133 (100,0%)
+      Przyklady: 01
     - special_settlement_codes () -> nfz.specialsettlementcode
       Wypelnienie: 195 133 (0,0%)
     - version_number (IntegerField)
@@ -332,33 +586,59 @@ Model: nfz.attachednfzservice  (Dołączona usługa NFZ - Usługa NFZ dołączon
     - visit () -> gabinet.visit
       Wypelnienie: 195 133 (100,0%)
       Przyklady: 210369948, 210371422, 218202445
+    - was_student (BooleanField)
+      Wypelnienie: 195 133 (100,0%)
+      Przyklady: False
 
 Model: gabinet.nfzservicereportserviceset  (Zestaw usług w raporcie NFZ - Zbiór usług w raporcie do NFZ)
   Liczba rekordow: 167 016
-  Liczba pol: 6
+  Liczba pol: 12
   Pola:
+    - connected_nfz_contracts () -> nfz.nfzcontract
+      Wypelnienie: 167 016 (23,5%)
+      Przyklady: <object pk="35358"></object>, <object pk="36866"></object>
+    - date (DateField)
+      Wypelnienie: 167 016 (100,0%)
+      Przyklady: 2022-10-03, 2022-01-20, 2022-10-04
     - is_deleted (BooleanField)
       Wypelnienie: 167 016 (100,0%)
       Przyklady: False
+    - last_imported_version (IntegerField)
+      Wypelnienie: 167 016 (100,0%)
+      Przyklady: 0, 12, 14
     - last_reported_version (IntegerField)
       Wypelnienie: 167 016 (100,0%)
       Przyklady: 12, 0, 14
     - patient () -> gabinet.patient
       Wypelnienie: 167 016 (100,0%)
       Przyklady: 23653256, 23666737, 23654987
+    - prepared_for_swx (NullBooleanField)
+      Wypelnienie: 167 016 (100,0%)
+      Przyklady: False, True
     - service_set_billing_version (IntegerField)
       Wypelnienie: 167 016 (100,0%)
       Przyklady: 12, 1, 13
+    - service_set_version (IntegerField)
+      Wypelnienie: 167 016 (100,0%)
+      Przyklady: 13, 1, 15
     - updated_id (CharField)
       Wypelnienie: 167 016 (0,0%)
+    - visit () -> gabinet.visit
+      Wypelnienie: 167 016 (100,0%)
+      Przyklady: 209886844, 175027469, 209949217
     - xml_data (TextField)
       Wypelnienie: 167 016 (100,0%)
       Przyklady: &lt;zestaw-swiadczen id-zes..., &lt;zestaw-swiadczen id-zes..., &lt;zestaw-swiadczen id-zes...
 
 Model: gabinet.recipenumber  (Numer recepty - Sekwencja numerów recept)
   Liczba rekordow: 139 374
-  Liczba pol: 2
+  Liczba pol: 4
   Pola:
+    - department () -> gabinet.department
+      Wypelnienie: 139 374 (0,0%)
+    - is_used (BooleanField)
+      Wypelnienie: 139 374 (100,0%)
+      Przyklady: True
     - number (CharField)
       Wypelnienie: 139 374 (100,0%)
       Przyklady: 0206000000000195404283, 0206000000000195410680, 0206010000009610321388
@@ -368,26 +648,47 @@ Model: gabinet.recipenumber  (Numer recepty - Sekwencja numerów recept)
 
 Model: gabinet.documents  (Dokumenty - Ogólne dokumenty medyczne przypisane do pacjenta lub wizyty)
   Liczba rekordow: 96 324
-  Liczba pol: 8
+  Liczba pol: 15
   Pola:
+    - created_by_patient (BooleanField)
+      Wypelnienie: 96 324 (100,0%)
+      Przyklady: False
     - is_browseable (BooleanField)
       Wypelnienie: 96 324 (100,0%)
       Przyklady: False, True
+    - is_deleteable (BooleanField)
+      Wypelnienie: 96 324 (100,0%)
+      Przyklady: True
+    - is_ready_to_edm_share (BooleanField)
+      Wypelnienie: 96 324 (100,0%)
+      Przyklady: True, False
     - is_shared (BooleanField)
       Wypelnienie: 96 324 (100,0%)
       Przyklady: False
     - is_signed (BooleanField)
       Wypelnienie: 96 324 (100,0%)
       Przyklady: True, False
+    - note (TextField)
+      Wypelnienie: 96 324 (29,5%)
+      Przyklady: Poradnia kardiologiczna 12-..., Dokumentacja, Informacje o wizycie
     - original_filename (CharField)
       Wypelnienie: 96 324 (100,0%)
       Przyklady: 357749029.xml, 381243986.xml, 381239950.xml
+    - patient () -> gabinet.patient
+      Wypelnienie: 96 324 (99,7%)
+      Przyklady: 23662661, 23654176, 48649002
     - person () -> gabinet.person
       Wypelnienie: 96 324 (100,0%)
       Przyklady: 84536, 171654, 84509
     - type () -> gabinet.documenttype
       Wypelnienie: 96 324 (36,0%)
       Przyklady: 108414, 112719, 112721
+    - uploaded_date (DateTimeField)
+      Wypelnienie: 96 324 (100,0%)
+      Przyklady: 2025-08-16T16:33:12.919607, 2025-11-19T22:31:40.960621, 2025-11-19T22:31:51.374030
+    - uploaded_file (FileField)
+      Wypelnienie: 96 324 (100,0%)
+      Przyklady: documents/2025/08/16/357749..., documents/2025/11/19/381243..., documents/2025/11/19/381239...
     - uploaded_file_size (BigIntegerField)
       Wypelnienie: 96 324 (100,0%)
       Przyklady: 17477, 84794, 89257
@@ -397,7 +698,7 @@ Model: gabinet.documents  (Dokumenty - Ogólne dokumenty medyczne przypisane do 
 
 Model: gabinet.address  (Adres - Dane adresowe osoby lub placówki)
   Liczba rekordow: 67 191
-  Liczba pol: 4
+  Liczba pol: 7
   Pola:
     - city (CharField)
       Wypelnienie: 67 191 (60,2%)
@@ -408,17 +709,35 @@ Model: gabinet.address  (Adres - Dane adresowe osoby lub placówki)
     - flat_number (CharField)
       Wypelnienie: 67 191 (37,6%)
       Przyklady: 6, 9, 18
+    - postal_code (CharField)
+      Wypelnienie: 67 191 (60,1%)
+      Przyklady: 32-031, 32-020, 30-437
+    - province (CharField)
+      Wypelnienie: 67 191 (59,9%)
+      Przyklady: Małopolskie, Zachodniopomorskie, Podkarpackie
     - street (CharField)
       Wypelnienie: 67 191 (58,8%)
       Przyklady: Osiedlowa, Bodzanów, Forteczna
+    - street_number (CharField)
+      Wypelnienie: 67 191 (60,2%)
+      Przyklady: 8, 245, 114
 
 Model: gabinet.genericmedicaldata  (Ogólne dane medyczne - Podstawowe dane zdrowotne pacjenta (np. alergie, wywiad))
   Liczba rekordow: 54 945
-  Liczba pol: 3
+  Liczba pol: 6
   Pola:
+    - date (DateField)
+      Wypelnienie: 54 945 (100,0%)
+      Przyklady: 2025-12-08, 2025-12-07, 2025-12-06
     - date_to (DateField)
       Wypelnienie: 54 945 (2,0%)
       Przyklady: 2025-08-25, 2025-07-01, 2025-02-10
+    - description (TextField)
+      Wypelnienie: 54 945 (100,0%)
+      Przyklady: [NFZ-tyton] - 1, [NFZ-tyton] - 11, [NFZ-tyton] - 2
+    - icd10 (CharField)
+      Wypelnienie: 54 945 (83,0%)
+      Przyklady: F84.0, E66, J45
     - patient () -> gabinet.patient
       Wypelnienie: 54 945 (100,0%)
       Przyklady: 23662383, 23660487, 23663303
@@ -428,11 +747,14 @@ Model: gabinet.genericmedicaldata  (Ogólne dane medyczne - Podstawowe dane zdro
 
 Model: gabinet.vaccination  (Szczepienie - Rekord szczepienia (data, szczepionka))
   Liczba rekordow: 48 048
-  Liczba pol: 15
+  Liczba pol: 29
   Pola:
     - current_hash (CharField)
       Wypelnienie: 48 048 (5,2%)
       Przyklady: d5729d898bd347637f8c289a89b..., a1a6c2ba866c1c4740a74917e44..., de0ab6c0e48b3833ea784afa8f9...
+    - datetime (DateTimeField)
+      Wypelnienie: 48 048 (100,0%)
+      Przyklady: 2022-09-27T00:00:00, 2023-10-02T15:30:00, 2024-09-27T17:21:00
     - department () -> gabinet.department
       Wypelnienie: 48 048 (7,1%)
       Przyklady: 38922, 38921, 38924
@@ -442,6 +764,9 @@ Model: gabinet.vaccination  (Szczepienie - Rekord szczepienia (data, szczepionka
     - drug (CharField)
       Wypelnienie: 48 048 (100,0%)
       Przyklady: p/grypie VAXIGRIP TETRA, VaxigripTetra 2023/2024 (in..., VaxigripTetra 2024/2025 (in...
+    - drug_ver () -> gabinet.ver
+      Wypelnienie: 48 048 (19,3%)
+      Przyklady: 26537744, 26540254, 26521343
     - ean_override (CharField)
       Wypelnienie: 48 048 (0,1%)
       Przyklady: 49021303998, 88030417993, 68060212944
@@ -454,31 +779,75 @@ Model: gabinet.vaccination  (Szczepienie - Rekord szczepienia (data, szczepionka
     - funding_source (SmallIntegerField)
       Wypelnienie: 48 048 (100,0%)
       Przyklady: 8, 0, 1
+    - icd9_code () -> gabinet.icd9
+      Wypelnienie: 48 048 (25,9%)
+      Przyklady: <object pk="9597"></object>, <object pk="9594"></object>, <object pk="10031"></object>
+    - icd9_text (CharField)
+      Wypelnienie: 48 048 (0,0%)
+    - note (TextField)
+      Wypelnienie: 48 048 (0,0%)
+      Przyklady: BRAK UWAG, ZASZCZEPIONO  INFLUVAC TETRA
+    - number_of_dose (IntegerField)
+      Wypelnienie: 48 048 (100,0%)
+      Przyklady: 1, 2, 3
     - patient () -> gabinet.patient
       Wypelnienie: 48 048 (100,0%)
       Przyklady: 23658234, 23666855, 23661336
+    - person () -> gabinet.person
+      Wypelnienie: 48 048 (100,0%)
+      Przyklady: 84545, 84459, 84470
+    - qualification () -> gabinet.vaccinationqualification
+      Wypelnienie: 48 048 (19,3%)
+      Przyklady: 635502, 912639, 441054
     - status (BooleanField)
       Wypelnienie: 48 048 (100,0%)
       Przyklady: True
     - total_number_of_dose_string (CharField)
       Wypelnienie: 48 048 (7,1%)
       Przyklady: 3, przypominająca, 2
+    - type () -> gabinet.vaccinationtype
+      Wypelnienie: 48 048 (0,0%)
+    - vaccination_area (CharField)
+      Wypelnienie: 48 048 (100,0%)
+      Przyklady: Brak informacji, Iniekcja domięśniowa, Podanie doustne
+    - vaccination_kind (CharField)
+      Wypelnienie: 48 048 (100,0%)
+      Przyklady: Z kalendarza szczepień
     - vaccination_site (CharField)
       Wypelnienie: 48 048 (16,0%)
       Przyklady: Lewe ramię, Lewe udo, Prawe ramię
     - vaccinations_schedule () -> gabinet.vaccinationsschedule
+      Wypelnienie: 48 048 (25,1%)
+      Przyklady: <object pk="3598"></object>, <object pk="10184"></object>, <object pk="22"></object>
+    - vaccinator (CharField)
       Wypelnienie: 48 048 (0,0%)
+      Przyklady: renata skwara, małgorzata Jochymek, KOSTRZ RENATA
     - vaccine_maker (CharField)
       Wypelnienie: 48 048 (94,2%)
       Przyklady: ,, Sanofi Pasteur, HEXACIME
+    - vaccine_series (CharField)
+      Wypelnienie: 48 048 (100,0%)
+      Przyklady: W3E021V, X3E721V, Y3D213V
+    - zm_hash (CharField)
+      Wypelnienie: 48 048 (4,8%)
+      Przyklady: d5729d898bd347637f8c289a89b..., a1a6c2ba866c1c4740a74917e44..., de0ab6c0e48b3833ea784afa8f9...
     - zm_reference_val (BigIntegerField)
       Wypelnienie: 48 048 (100,0%)
       Przyklady: 0, 287193062545865728, 287193149172915200
 
 Model: gabinet.patientpermanentdrug  (Stały lek pacjenta - Lista leków stałych (przewlekłych) pacjenta)
   Liczba rekordow: 33 615
-  Liczba pol: 5
+  Liczba pol: 10
   Pola:
+    - comment (CharField)
+      Wypelnienie: 33 615 (0,1%)
+      Przyklady: wstrzymano w dniu 5.12.2024r., 1-0-0tabl., 2 x w tyg.
+    - composition (TextField)
+      Wypelnienie: 33 615 (3,3%)
+      Przyklady: Parafini liq.20,0; 3% Solut..., Pradaxa - kapsułki twarde 1..., Espiro - tabletki powlekane...
+    - dosation (CharField)
+      Wypelnienie: 33 615 (100,0%)
+      Przyklady: 1.0 op., 1 op., 3 op.
     - dosation_in_words (CharField)
       Wypelnienie: 33 615 (0,5%)
       Przyklady: trzysta miligramów substanc..., sto miligramów substancji b..., sto pięćdziesiąt miligramów...
@@ -488,20 +857,32 @@ Model: gabinet.patientpermanentdrug  (Stały lek pacjenta - Lista leków stałyc
     - is_part_of_box (BooleanField)
       Wypelnienie: 33 615 (100,0%)
       Przyklady: False, True
+    - patient () -> gabinet.patient
+      Wypelnienie: 33 615 (100,0%)
+      Przyklady: 23664125, 23664098, 30134708
     - payment (CharField)
       Wypelnienie: 33 615 (99,9%)
       Przyklady: R, 30%, 100%
+    - recommendation (CharField)
+      Wypelnienie: 33 615 (99,8%)
+      Przyklady: 1x1.0, 3x1, 1x1
     - recommendation_technical_str (TextField)
       Wypelnienie: 33 615 (7,4%)
       Przyklady: 1 * 1/1d $ szt., 1 * 1/2d $ szt., 1-1-0 $ szt.
 
 Model: gabinet.nfzdeclaration  (Deklaracja NFZ - Deklaracja wyboru POZ dla NFZ)
   Liczba rekordow: 30 924
-  Liczba pol: 7
+  Liczba pol: 13
   Pola:
     - creation_date (DateField)
       Wypelnienie: 30 924 (100,0%)
       Przyklady: 2025-05-13, 2021-04-21, 2014-03-26
+    - deletion_date (DateField)
+      Wypelnienie: 30 924 (20,3%)
+      Przyklady: 2025-03-31, 2025-02-25, 2024-03-20
+    - department () -> gabinet.department
+      Wypelnienie: 30 924 (100,0%)
+      Przyklady: 38926, 38920, 38918
     - note (CharField)
       Wypelnienie: 30 924 (0,5%)
       Przyklady: eDeklaracja 23190786-8892-4..., eDeklaracja 09324c7e-0ee1-4..., eDeklaracja 50ddd9f7-5cc1-4...
@@ -511,26 +892,49 @@ Model: gabinet.nfzdeclaration  (Deklaracja NFZ - Deklaracja wyboru POZ dla NFZ)
     - personnel () -> gabinet.person
       Wypelnienie: 30 924 (100,0%)
       Przyklady: 84444, 84523, 84433
+    - prof_fluor (CharField)
+      Wypelnienie: 30 924 (0,0%)
     - school_kind (CharField)
+      Wypelnienie: 30 924 (0,0%)
+    - school_regon (CharField)
       Wypelnienie: 30 924 (0,0%)
     - state (CharField)
       Wypelnienie: 30 924 (100,0%)
       Przyklady: P, U, N
     - typ_szkoly_plat (CharField)
       Wypelnienie: 30 924 (0,0%)
+    - type (CharField)
+      Wypelnienie: 30 924 (100,0%)
+      Przyklady: O, L, P
+    - ward_type (CharField)
+      Wypelnienie: 30 924 (0,0%)
+      Przyklady: -
 
 Model: gabinet.imagingtest  (Badanie obrazowe - Wyniki badań obrazowych (RTG, USG, MRI itp.))
   Liczba rekordow: 27 735
-  Liczba pol: 6
+  Liczba pol: 11
   Pola:
+    - attachment_url (TextField)
+      Wypelnienie: 27 735 (0,0%)
     - attachments () -> gabinet.documents
       Wypelnienie: 27 735 (11,7%)
       Przyklady: <object pk="6221854"></object>, <object pk="6218254"></object>, <object pk="6219667"></object>
     - date (DateTimeField)
       Wypelnienie: 27 735 (100,0%)
       Przyklady: 2016-08-31T00:00:00, 2015-06-17T00:00:00, 2015-02-27T00:00:00
+    - examination (TextField)
+      Wypelnienie: 27 735 (95,2%)
+      Przyklady: kartoteka, opia testowy
+opia testowy
+o..., kartoteka-
+    - examination_type (CharField)
+      Wypelnienie: 27 735 (100,0%)
+      Przyklady: RTG klatki piersiowej P-A +..., USG brzucha i przestrzeni z..., RTG stawu łokciowego P
     - external_request () -> external_labs.externallabexaminationsrequest
       Wypelnienie: 27 735 (0,0%)
+    - hl7 () -> gabinet.documents
+      Wypelnienie: 27 735 (18,6%)
+      Przyklady: 7998059, 8036962, 28218652
     - icd9 () -> gabinet.icd9
       Wypelnienie: 27 735 (36,9%)
       Przyklady: 3995, 7885, 8091
@@ -540,11 +944,17 @@ Model: gabinet.imagingtest  (Badanie obrazowe - Wyniki badań obrazowych (RTG, U
     - person () -> gabinet.person
       Wypelnienie: 27 735 (100,0%)
       Przyklady: 84449, 84435, 84459
+    - visit () -> gabinet.visit
+      Wypelnienie: 27 735 (81,7%)
+      Przyklady: 175189444, 175180866, 175182820
 
 Model: gabinet.patient  (Pacjent - Dane pacjenta (rozszerzenie osoby o dane medyczne))
   Liczba rekordow: 22 397
-  Liczba pol: 26
+  Liczba pol: 52
   Pola:
+    - absences_count (PositiveIntegerField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: 0, 1, 2
     - active (BooleanField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: True, False
@@ -554,48 +964,93 @@ Model: gabinet.patient  (Pacjent - Dane pacjenta (rozszerzenie osoby o dane medy
     - cancelled_visits_count (PositiveIntegerField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: 0, 1, 2
+    - card_id (CharField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: 4478456203348, 2372380909915, 3962625309724
     - country (CharField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: PL, TH, UA
+    - data_processing_agreement (BooleanField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: False, True
+    - date_of_birth (DateField)
+      Wypelnienie: 22 397 (90,7%)
+      Przyklady: 2025-05-09, 1984-08-19, 1966-08-08
     - dead () -> gabinet.patientdead
       Wypelnienie: 22 397 (0,0%)
       Przyklady: 170074
     - debt (DecimalField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: 0.00, 7.00, 274.00
+    - email (CharField)
+      Wypelnienie: 22 397 (4,5%)
+      Przyklady: dawidm1212@gmail.com, alicjatylus@wp.pl, piatyzerodziewiaty@gmail.com
     - employer_address () -> gabinet.address
       Wypelnienie: 22 397 (100,0%)
       Przyklady: 162204546, 92423082, 146009874
+    - employer_name (CharField)
+      Wypelnienie: 22 397 (0,1%)
+      Przyklady: czynny(a) zawodowo, sklep delikatesy pod Rogatk..., Jordan Sp. z o.o.
     - employer_nip (CharField)
       Wypelnienie: 22 397 (0,2%)
       Przyklady: 7372053574, 6762466266, 7952226844
     - facility () -> gabinet.facility
       Wypelnienie: 22 397 (100,0%)
       Przyklady: 21540
+    - ice_auth_signed_date (DateField)
+      Wypelnienie: 22 397 (1,7%)
+      Przyklady: 2025-05-13, 2024-03-12, 2024-02-29
     - identity_num (CharField)
       Wypelnienie: 22 397 (6,1%)
       Przyklady: RR2653886, AVA212378, AZU394159
+    - identity_type (CharField)
+      Wypelnienie: 22 397 (6,3%)
+      Przyklady: residence_card, others, id_card
+    - internal_card_id (CharField)
+      Wypelnienie: 22 397 (0,0%)
+      Przyklady: 123892320, 6, 1
     - is_active (BooleanField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: False, True
     - is_ice_auth_signed (NullBooleanField)
       Wypelnienie: 22 397 (2,6%)
       Przyklady: True, False
+    - is_refugee (BooleanField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: False, True
     - is_self_registered (BooleanField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: False, True
+    - is_trusted (BooleanField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: True, False
+    - loyalty_program_points (DecimalField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: 0.00
     - maiden_name (CharField)
       Wypelnienie: 22 397 (6,4%)
       Przyklady: Kozakiewicz, Prorok, Hojda
+    - name (CharField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: Lena, Paweł, Andrzej
     - nfz (CharField)
       Wypelnienie: 22 397 (99,6%)
       Przyklady: 06, X, 16
     - nobody_ice_authorized (BooleanField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: False, True
+    - nobody_ice_authorized_date (DateField)
+      Wypelnienie: 22 397 (0,8%)
+      Przyklady: 2025-08-25, 2025-03-04, 2025-09-08
     - notification_email (BooleanField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: False, True
+    - notification_sms (BooleanField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: False, True
+    - occupation (CharField)
+      Wypelnienie: 22 397 (0,1%)
+      Przyklady: wokalista, studentka rzezby i instrukt..., student wydziału aktorsko-w...
     - occupation_code (CharField)
       Wypelnienie: 22 397 (0,0%)
     - pesel (CharField)
@@ -604,9 +1059,18 @@ Model: gabinet.patient  (Pacjent - Dane pacjenta (rozszerzenie osoby o dane medy
     - place_of_birth (CharField)
       Wypelnienie: 22 397 (6,7%)
       Przyklady: Tajlandia, KRAKÓW, Bodzanów
+    - possess_immunization_card (BooleanField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: False, True
+    - registration_address () -> gabinet.address
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: 162204545, 92423081, 146009872
     - residence_address () -> gabinet.address
       Wypelnienie: 22 397 (100,0%)
       Przyklady: 162204544, 92423080, 146009873
+    - rights (CharField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: X, ZK, IB
     - rights_document_info (CharField)
       Wypelnienie: 22 397 (0,1%)
       Przyklady: Legitymacja Honorowego Dawc..., Legitymacja nr 36 300/25, NR 34 705/24
@@ -619,13 +1083,34 @@ Model: gabinet.patient  (Pacjent - Dane pacjenta (rozszerzenie osoby o dane medy
     - second_telephone (CharField)
       Wypelnienie: 22 397 (1,5%)
       Przyklady: 122781199, 575522873, 501963211
+    - sex (CharField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: Kobieta, Mężczyzna, Nieznana
+    - supervisor () -> gabinet.custodian
+      Wypelnienie: 22 397 (15,4%)
+      Przyklady: 3025393, 1795274, 1812704
+    - surname (CharField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: Suchan, Gieniec, Bielach
     - takes_part_in_loyalty_program (BooleanField)
       Wypelnienie: 22 397 (100,0%)
       Przyklady: True
+    - telephone (CharField)
+      Wypelnienie: 22 397 (96,8%)
+      Przyklady: 502493670, 795719958, 506099149
+    - teryt () -> gabinet.teryt
+      Wypelnienie: 22 397 (89,6%)
+      Przyklady: 19895, 20099, 20098
+    - user () -> auth.user
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: 44784562, 23723809, 39626253
+    - zm_reference_val (BigIntegerField)
+      Wypelnienie: 22 397 (100,0%)
+      Przyklady: 280201107901291520, 2683356282, 0
 
 Model: gabinet.attachedprivateservice  (Dołączona usługa prywatna - Usługa prywatna dołączona do wizyty lub pakietu)
   Liczba rekordow: 18 455
-  Liczba pol: 4
+  Liczba pol: 8
   Pola:
     - base_price (DecimalField)
       Wypelnienie: 18 455 (100,0%)
@@ -633,23 +1118,50 @@ Model: gabinet.attachedprivateservice  (Dołączona usługa prywatna - Usługa p
     - commission () -> gabinet.servicegroupcommission
       Wypelnienie: 18 455 (78,6%)
       Przyklady: 1777280, 1782517, 1796354
+    - discount (DecimalField)
+      Wypelnienie: 18 455 (100,0%)
+      Przyklady: 0.00
     - invoice () -> gabinet.invoice
       Wypelnienie: 18 455 (1,6%)
       Przyklady: 819689, 627977, 1023248
+    - package () -> gabinet.privateservicespackage
+      Wypelnienie: 18 455 (98,2%)
+      Przyklady: 17110772, 18007142, 14292849
+    - quantity (SmallIntegerField)
+      Wypelnienie: 18 455 (100,0%)
+      Przyklady: 1, 2, 3
     - service () -> gabinet.privateservice
       Wypelnienie: 18 455 (100,0%)
       Przyklady: 213607, 212961, 212989
+    - visit_type () -> gabinet.visittype
+      Wypelnienie: 18 455 (0,0%)
+      Przyklady: 180814
 
 Model: gabinet.incaseofemergency  (Kontakt w nagłych wypadkach - Dane ICE – kontakt w razie wypadku)
   Liczba rekordow: 17 485
-  Liczba pol: 8
+  Liczba pol: 16
   Pola:
+    - affinity (CharField)
+      Wypelnienie: 17 485 (4,7%)
+      Przyklady: MATKA, ojciec, żona
     - city (CharField)
       Wypelnienie: 17 485 (87,4%)
       Przyklady: NOWY SĄCZ, Bodzanów, Bilczyce
     - conditions (BooleanField)
       Wypelnienie: 17 485 (100,0%)
       Przyklady: True, False
+    - country (CharField)
+      Wypelnienie: 17 485 (6,4%)
+      Przyklady: POLSKA, Polska, pol
+    - date (DateField)
+      Wypelnienie: 17 485 (100,0%)
+      Przyklady: 2025-05-13, 2022-10-03, 2023-03-10
+    - documents (BooleanField)
+      Wypelnienie: 17 485 (100,0%)
+      Przyklady: True, False
+    - first_name (CharField)
+      Wypelnienie: 17 485 (80,4%)
+      Przyklady: JUSTYNA, Jachimczak, Patrycja
     - flat_number (CharField)
       Wypelnienie: 17 485 (28,2%)
       Przyklady: 48, 55, 5
@@ -662,17 +1174,28 @@ Model: gabinet.incaseofemergency  (Kontakt w nagłych wypadkach - Dane ICE – k
     - patient () -> gabinet.patient
       Wypelnienie: 17 485 (100,0%)
       Przyklady: 44638871, 23664098, 30134708
+    - phone (CharField)
+      Wypelnienie: 17 485 (70,9%)
+      Przyklady: 508866855, 668829185, 728415153
+    - postal_code (CharField)
+      Wypelnienie: 17 485 (51,1%)
+      Przyklady: 33-300, 32-420, 32-020
     - recipes_and_referrals (BooleanField)
       Wypelnienie: 17 485 (100,0%)
       Przyklady: True, False
     - street (CharField)
       Wypelnienie: 17 485 (48,6%)
       Przyklady: JAMNICKA, Bilczyce, Obozowa
+    - street_number (CharField)
+      Wypelnienie: 17 485 (52,6%)
+      Przyklady: 119, 187, 21
 
 Model: gabinet.personalsequence  (Sekwencja osobista - Sekwencja numeracyjna dla dokumentów osobistych (np. numer recepty))
   Liczba rekordow: 15 281
-  Liczba pol: 3
+  Liczba pol: 6
   Pola:
+    - facility () -> gabinet.facility
+      Wypelnienie: 15 281 (0,0%)
     - person () -> gabinet.person
       Wypelnienie: 15 281 (100,0%)
       Przyklady: 170343, 84440, 171654
@@ -682,10 +1205,16 @@ Model: gabinet.personalsequence  (Sekwencja osobista - Sekwencja numeracyjna dla
     - text (TextField)
       Wypelnienie: 15 281 (100,0%)
       Przyklady: pacjent(ka) nie zgłosił(a) ..., zgłosił(a) się celem wykona..., zgłosił(a) się celem wykona...
+    - type (CharField)
+      Wypelnienie: 15 281 (100,0%)
+      Przyklady: interview, examination, imaging_test
+    - visit_types () -> gabinet.visittype
+      Wypelnienie: 15 281 (0,2%)
+      Przyklady: <object pk="188737"></object>, <object pk="180730"></object>, <object pk="180883"></object>
 
 Model: ezwolnienia.esickleave  (e-Zwolnienie - Elektroniczne zwolnienie lekarskie (e-ZLA))
   Liczba rekordow: 14 541
-  Liczba pol: 10
+  Liczba pol: 20
   Pola:
     - azla_id (CharField)
       Wypelnienie: 14 541 (0,8%)
@@ -696,12 +1225,21 @@ Model: ezwolnienia.esickleave  (e-Zwolnienie - Elektroniczne zwolnienie lekarski
     - cancellation () -> ezwolnienia.esickleavecancellation
       Wypelnienie: 14 541 (0,8%)
       Przyklady: 32811, 32857, 34759
+    - cancelled () -> ezwolnienia.esickleave
+      Wypelnienie: 14 541 (0,6%)
+      Przyklady: 3355155, 3359313, 3516075
     - common () -> ezwolnienia.esickleavecommon
       Wypelnienie: 14 541 (100,0%)
       Przyklady: 3162740, 3153629, 3155771
+    - copy_id (CharField)
+      Wypelnienie: 14 541 (100,0%)
+      Przyklady: 261671689, 261170168, 261315570
     - date_from (DateField)
       Wypelnienie: 14 541 (100,0%)
       Przyklady: 2022-10-04, 2022-10-03, 2022-10-06
+    - date_to (DateField)
+      Wypelnienie: 14 541 (100,0%)
+      Przyklady: 2022-10-07, 2022-10-11, 2022-10-05
     - do_not_notify_payer (BooleanField)
       Wypelnienie: 14 541 (100,0%)
       Przyklady: False, True
@@ -710,23 +1248,52 @@ Model: ezwolnienia.esickleave  (e-Zwolnienie - Elektroniczne zwolnienie lekarski
       Przyklady: 261671688, 261170167, 261315569
     - hospital_date_from (DateField)
       Wypelnienie: 14 541 (0,0%)
+    - hospital_date_to (DateField)
+      Wypelnienie: 14 541 (0,0%)
+    - is_backward (BooleanField)
+      Wypelnienie: 14 541 (100,0%)
+      Przyklady: False, True
     - number_zla (CharField)
       Wypelnienie: 14 541 (100,0%)
       Przyklady: 8856262, 9087419, 9019624
+    - payer_has_pue (NullBooleanField)
+      Wypelnienie: 14 541 (100,0%)
+      Przyklady: True, False
     - payer_id (CharField)
       Wypelnienie: 14 541 (99,7%)
       Przyklady: 9442256043, 6772075248, 6851610635
+    - payer_id_type (CharField)
+      Wypelnienie: 14 541 (99,7%)
+      Przyklady: 1, 2
+    - payer_name (CharField)
+      Wypelnienie: 14 541 (99,5%)
+      Przyklady: Pakamet, Sp Zoz Mswia W Krakowie, Sail System
+    - requires_upp (BooleanField)
+      Wypelnienie: 14 541 (100,0%)
+      Przyklady: True
+    - series_zla (CharField)
+      Wypelnienie: 14 541 (100,0%)
+      Przyklady: ZN, ZM, ZL
 
 Model: ezwolnienia.esickleavecommon  (Wspólne dane e-Zwolnienia - Wspólne pola dla zwolnień lekarskich (np. dane pacjenta, lekarza))
   Liczba rekordow: 13 424
-  Liczba pol: 14
+  Liczba pol: 28
   Pola:
+    - code_1 (CharField)
+      Wypelnienie: 13 424 (5,3%)
+      Przyklady: A, B, C
     - code_2 (CharField)
       Wypelnienie: 13 424 (0,2%)
       Przyklady: B, A
+    - code_3 (CharField)
+      Wypelnienie: 13 424 (0,0%)
+      Przyklady: C, B
     - code_4 (CharField)
       Wypelnienie: 13 424 (0,0%)
       Przyklady: B
+    - creator () -> auth.user
+      Wypelnienie: 13 424 (100,0%)
+      Przyklady: 23732824, 26493191, 23732886
     - date_of_birth (DateField)
       Wypelnienie: 13 424 (99,8%)
       Przyklady: 1994-09-06, 1981-07-02, 1970-10-15
@@ -739,34 +1306,67 @@ Model: ezwolnienia.esickleavecommon  (Wspólne dane e-Zwolnienia - Wspólne pola
     - doctor_name (CharField)
       Wypelnienie: 13 424 (100,0%)
       Przyklady: Kinga, Nikoleta, Agnieszka
+    - doctor_pwz (CharField)
+      Wypelnienie: 13 424 (100,0%)
+      Przyklady: 3629329, 3596722, 9065523
+    - doctor_surname (CharField)
+      Wypelnienie: 13 424 (100,0%)
+      Przyklady: Żarów-Skorupa, Kaszuba, Bialik-Partyka
+    - explanation (CharField)
+      Wypelnienie: 13 424 (0,4%)
+      Przyklady: Błąd w wysłaniu zwolnienie ..., Pacjent nie miał możliwości..., Pacjent nie miał możliwości...
     - facility_address () -> ezwolnienia.address
       Wypelnienie: 13 424 (100,0%)
       Przyklady: 6325018, 6306795, 6311080
     - facility_nip (CharField)
       Wypelnienie: 13 424 (100,0%)
       Przyklady: 6793060743, 8722131833, 9441800059
+    - facility_short_name (CharField)
+      Wypelnienie: 13 424 (100,0%)
+      Przyklady: Centrum Medyczne 4M, Poradnia Lekarza Poz Borkowska, Poradnia Lekarza Poz Bodzanów
     - insurer (CharField)
       Wypelnienie: 13 424 (100,0%)
       Przyklady: 1, 3, 2
+    - is_care_leave (BooleanField)
+      Wypelnienie: 13 424 (100,0%)
+      Przyklady: True, False
     - is_in_non_hospital (BooleanField)
       Wypelnienie: 13 424 (100,0%)
       Przyklady: False, True
+    - name (CharField)
+      Wypelnienie: 13 424 (100,0%)
+      Przyklady: Paweł, Anna, Jacek
+    - passport_number (CharField)
+      Wypelnienie: 13 424 (0,5%)
+      Przyklady: EMN878257, EK3676761, FN982315
     - patient_address () -> ezwolnienia.address
       Wypelnienie: 13 424 (100,0%)
       Przyklady: 6325019, 6306796, 6311081
+    - pesel (CharField)
+      Wypelnienie: 13 424 (99,6%)
+      Przyklady: 94090610034, 81070209603, 70101510713
+    - recommendation (CharField)
+      Wypelnienie: 13 424 (100,0%)
+      Przyklady: 2, 1
+    - signing_time (DateTimeField)
+      Wypelnienie: 13 424 (100,0%)
+      Przyklady: 2022-10-04T08:26:29.078802, 2022-10-03T06:56:45.432619, 2022-10-03T09:37:24.426119
     - surname (CharField)
       Wypelnienie: 13 424 (100,0%)
       Przyklady: Kotarba, Lelek-Boligłowa, Kwilarz
     - under_care_date_of_birth (DateField)
       Wypelnienie: 13 424 (22,5%)
       Przyklady: 2021-02-19, 2017-11-23, 2016-09-20
+    - under_care_id (CharField)
+      Wypelnienie: 13 424 (22,5%)
+      Przyklady: 1, 2, 3
     - visit () -> gabinet.visit
       Wypelnienie: 13 424 (100,0%)
       Przyklady: 210109551, 209975704, 210031104
 
 Model: nfz.nfzserviceplan  (Plan usług NFZ - Planowanie usług w kontrakcie NFZ)
   Liczba rekordow: 13 265
-  Liczba pol: 9
+  Liczba pol: 17
   Pola:
     - additional_data (CharField)
       Wypelnienie: 13 265 (100,0%)
@@ -774,15 +1374,33 @@ Model: nfz.nfzserviceplan  (Plan usług NFZ - Planowanie usług w kontrakcie NFZ
     - contract () -> nfz.nfzcontract
       Wypelnienie: 13 265 (100,0%)
       Przyklady: 31558, 34198, 36866
+    - date (DateField)
+      Wypelnienie: 13 265 (100,0%)
+      Przyklady: 2022-07-01, 2022-01-01, 2022-02-01
+    - department_code (CharField)
+      Wypelnienie: 13 265 (83,0%)
+      Przyklady: 64919, 102267, 151006
     - facility () -> gabinet.facility
       Wypelnienie: 13 265 (100,0%)
       Przyklady: 21540
+    - id_pakietu (IntegerField)
+      Wypelnienie: 13 265 (98,5%)
+      Przyklady: 294833, 323768, 323769
+    - identifier (IntegerField)
+      Wypelnienie: 13 265 (100,0%)
+      Przyklady: 1, 2, 3
+    - limit_department (DecimalField)
+      Wypelnienie: 13 265 (100,0%)
+      Przyklady: 0.0000, 1610.0000, 2893.0000
     - limit_package (DecimalField)
       Wypelnienie: 13 265 (100,0%)
       Przyklady: 4142.0000, 0.0000, 6320.0000
     - package_code (CharField)
       Wypelnienie: 13 265 (100,0%)
       Przyklady: 01.0010.119.11, 19.0319.801.02, 19.0319.803.02
+    - package_name (CharField)
+      Wypelnienie: 13 265 (100,0%)
+      Przyklady: BUDŻET POWIERZONY DIAGNOSTY..., SZCZEPIENIE PRZECIWKO SARS-..., SZCZEPIENIE PRZECIWKO SARS-...
     - rsm (BooleanField)
       Wypelnienie: 13 265 (100,0%)
       Przyklady: False, True
@@ -792,14 +1410,25 @@ Model: nfz.nfzserviceplan  (Plan usług NFZ - Planowanie usług w kontrakcie NFZ
     - service_name (CharField)
       Wypelnienie: 13 265 (83,0%)
       Przyklady: IMMUNOGLOBULINY E SWOISTE (..., WITAMINA B12, ANTYGEN H.PYLORI W KALE - T...
+    - unit_price (DecimalField)
+      Wypelnienie: 13 265 (100,0%)
+      Przyklady: 1.0000, 61.2400, 141.0000
     - unit_type (CharField)
       Wypelnienie: 13 265 (100,0%)
       Przyklady: PUNKT ROZLICZENIOWY, RYCZAŁT, KAPITACJA
+    - weight (DecimalField)
+      Wypelnienie: 13 265 (100,0%)
+      Przyklady: 0.0000, 112.2600, 24.1500
 
 Model: gabinet.privateservicespackage  (Pakiet usług prywatnych - Pakiet usług prywatnych (np. abonament))
   Liczba rekordow: 13 207
-  Liczba pol: 3
+  Liczba pol: 5
   Pola:
+    - date (DateField)
+      Wypelnienie: 13 207 (100,0%)
+      Przyklady: 2023-11-17, 2024-08-21, 2022-10-28
+    - device_rent () -> gabinet.devicerent
+      Wypelnienie: 13 207 (0,0%)
     - has_dirty_commissions (NullBooleanField)
       Wypelnienie: 13 207 (8,9%)
       Przyklady: False
@@ -812,56 +1441,92 @@ Model: gabinet.privateservicespackage  (Pakiet usług prywatnych - Pakiet usług
 
 Model: gabinet.patientnote  (Notatka pacjenta - Wolny tekst notatki przypisany do pacjenta)
   Liczba rekordow: 5 178
-  Liczba pol: 4
+  Liczba pol: 7
   Pola:
+    - addition_date (DateField)
+      Wypelnienie: 5 178 (100,0%)
+      Przyklady: 2022-05-07, 2025-11-18, 2023-04-21
     - author () -> gabinet.person
       Wypelnienie: 5 178 (44,9%)
       Przyklady: 84459, 84485, 84480
+    - is_important (BooleanField)
+      Wypelnienie: 5 178 (100,0%)
+      Przyklady: False, True
     - is_medical_data (NullBooleanField)
       Wypelnienie: 5 178 (100,0%)
       Przyklady: False, True
     - patient () -> gabinet.patient
       Wypelnienie: 5 178 (100,0%)
       Przyklady: 23659601, 23662254, 29339629
+    - text (TextField)
+      Wypelnienie: 5 178 (100,0%)
+      Przyklady: PRACOWNIA ANALITYCZNA, TEST..., ZAŚWIADCZENIE LEKARSKIE, SCORE2 12% - ryzyko bardzo ...
     - title (CharField)
       Wypelnienie: 5 178 (100,0%)
       Przyklady: Inne, Ryzyko SN, 2019-06-28 14:06:43
 
 Model: gabinet.teryt  (TERYT - Kod terytorialny (miejscowość, gmina))
   Liczba rekordow: 3 290
-  Liczba pol: 3
+  Liczba pol: 5
   Pola:
     - kolce_miejscowosc (CharField)
       Wypelnienie: 3 290 (94,6%)
       Przyklady: Pod Wielkolasem, Dobrowola, Jacnia
+    - latitude (DecimalField)
+      Wypelnienie: 3 290 (96,5%)
+      Przyklady: 51.47244444, 51.70933824, 50.59347701
     - longitude (DecimalField)
       Wypelnienie: 3 290 (96,5%)
       Przyklady: 22.27706944, 22.20707516, 23.20324713
     - name (CharField)
       Wypelnienie: 3 290 (100,0%)
       Przyklady: Abramów, Adamów, Adamówka
+    - number (CharField)
+      Wypelnienie: 3 290 (100,0%)
+      Przyklady: 0608022, 0611032, 0620012
 
 Model: gabinet.custodian  (Opiekun - Osoba opiekująca się pacjentem (np. rodzic, prawny opiekun))
   Liczba rekordow: 2 749
-  Liczba pol: 4
+  Liczba pol: 8
   Pola:
+    - address () -> gabinet.address
+      Wypelnienie: 2 749 (30,8%)
+      Przyklady: 162468541, 105365857, 135358933
     - date_of_birth (DateField)
       Wypelnienie: 2 749 (14,1%)
       Przyklady: 1987-03-21, 1983-09-29, 1969-06-15
     - identity_num (CharField)
       Wypelnienie: 2 749 (1,6%)
       Przyklady: GM110329, GC622568, G0195655
+    - identity_type (CharField)
+      Wypelnienie: 2 749 (1,6%)
+      Przyklady: passport, others, id_card
     - name (CharField)
       Wypelnienie: 2 749 (14,1%)
       Przyklady: Paulina, Michał, Zdzisław
+    - person () -> gabinet.patient
+      Wypelnienie: 2 749 (85,9%)
+      Przyklady: 44720358, 23659283, 26555550
     - pesel (CharField)
       Wypelnienie: 2 749 (14,2%)
       Przyklady: 87032114969, 83092902692, 69061512637
+    - surname (CharField)
+      Wypelnienie: 2 749 (14,1%)
+      Przyklady: Caputa, Kuzera, Gruca
 
 Model: gabinet.insurancedocuments  (Dokumenty ubezpieczeniowe - Dokumenty potwierdzające ubezpieczenie (np. legitymacja))
   Liczba rekordow: 983
-  Liczba pol: 9
+  Liczba pol: 18
   Pola:
+    - competent_institution (CharField)
+      Wypelnienie: 983 (4,7%)
+      Przyklady: 108310400, 107299005, 500001
+    - country (CharField)
+      Wypelnienie: 983 (4,7%)
+      Przyklady: DE, PL, AT
+    - document_name (CharField)
+      Wypelnienie: 983 (0,9%)
+      Przyklady: ORZECZENIE LEKARZA ORZECZNI..., Zaświadczenie o przedłożeni..., Zaświadczenie z rejestru Pesel
     - document_number (CharField)
       Wypelnienie: 983 (9,4%)
       Przyklady: 80276001290067561724, 80276001240037802404, 80380000300327745611
@@ -874,31 +1539,59 @@ Model: gabinet.insurancedocuments  (Dokumenty ubezpieczeniowe - Dokumenty potwie
     - issuing_authority (CharField)
       Wypelnienie: 983 (0,2%)
       Przyklady: prezydent miasta
+    - medical_certificate_pwz (CharField)
+      Wypelnienie: 983 (0,0%)
+    - nip (CharField)
+      Wypelnienie: 983 (0,3%)
+      Przyklady: 6762607287, 6782748246
     - pensioner_card_issuer (CharField)
       Wypelnienie: 983 (0,1%)
       Przyklady: ZUS
     - permission_basis (PositiveIntegerField)
       Wypelnienie: 983 (89,8%)
       Przyklady: 1, 9, 10
+    - permission_type (CharField)
+      Wypelnienie: 983 (3,6%)
+      Przyklady: Dostęp do rynku pracy, ZEZWOLENIE NA POBYT CZASOWY, dostęp do rynku pracy
     - personal_number (CharField)
       Wypelnienie: 983 (4,7%)
       Przyklady: R721668780, N757057889, KRNLBT75M63Z127K
+    - receive_date (DateField)
+      Wypelnienie: 983 (100,0%)
+      Przyklady: 2025-10-02, 2022-10-21, 2022-10-18
     - set_date (DateField)
       Wypelnienie: 983 (4,7%)
       Przyklady: 2023-07-24, 2023-12-11, 2022-11-22
     - uploaded_file (FileField)
       Wypelnienie: 983 (8,4%)
       Przyklady: documents/2023/01/25/Oswiad..., documents/2023/01/25/Oswiad..., documents/2025/09/02/202509...
+    - uploader () -> gabinet.person
+      Wypelnienie: 983 (100,0%)
+      Przyklady: 142419, 84435, 84451
+    - valid_from (DateField)
+      Wypelnienie: 983 (0,4%)
+      Przyklady: 1992-09-14, 1992-07-24, 2025-01-01
 
 Model: gabinet.personalstencil  (Szablon osobisty - Szablon dokumentów osobistych lekarza (np. pieczątka))
   Liczba rekordow: 972
-  Liczba pol: 4
+  Liczba pol: 8
   Pola:
     - facility () -> gabinet.facility
       Wypelnienie: 972 (0,0%)
+    - icd10 () -> gabinet.icd10
+      Wypelnienie: 972 (0,0%)
+    - icd9 () -> gabinet.icd9
+      Wypelnienie: 972 (0,9%)
+      Przyklady: 7885, 8091, 3994
     - icd9_text (TextField)
       Wypelnienie: 972 (0,9%)
       Przyklady: 87.440 - RTG klatki piersiowej, 88.761 - USG brzucha i prze..., 44.16 - Gastroskopia diagno...
+    - name (CharField)
+      Wypelnienie: 972 (100,0%)
+      Przyklady: zalecenia zap oskrzeli, infekcja kataralna, szablon patronażowy
+    - person () -> gabinet.person
+      Wypelnienie: 972 (100,0%)
+      Przyklady: 84440, 84536, 84435
     - text (TextField)
       Wypelnienie: 972 (100,0%)
       Przyklady: Klacid 2x 4ml  co 12h przez..., Nurofen 3x 2,5 ml co 8 h pr..., W badaniu fizykalnym: na sk...
@@ -908,14 +1601,22 @@ Model: gabinet.personalstencil  (Szablon osobisty - Szablon dokumentów osobisty
 
 Model: gabinet.privateservice  (Usługa prywatna - Usługa odpłatna poza NFZ)
   Liczba rekordow: 941
-  Liczba pol: 6
+  Liczba pol: 11
   Pola:
     - active (BooleanField)
       Wypelnienie: 941 (100,0%)
       Przyklady: True, False
+    - category () -> gabinet.privateservicecategory
+      Wypelnienie: 941 (32,4%)
+      Przyklady: 3660, 4286, 3661
+    - facility () -> gabinet.facility
+      Wypelnienie: 941 (100,0%)
+      Przyklady: 21540
     - index (CharField)
       Wypelnienie: 941 (29,8%)
       Przyklady: 378, 406, 704
+    - insurer () -> gabinet.insurer
+      Wypelnienie: 941 (0,0%)
     - insurer_service_code (CharField)
       Wypelnienie: 941 (0,0%)
     - is_active_for_all (BooleanField)
@@ -924,41 +1625,67 @@ Model: gabinet.privateservice  (Usługa prywatna - Usługa odpłatna poza NFZ)
     - is_deleted (BooleanField)
       Wypelnienie: 941 (100,0%)
       Przyklady: False, True
+    - name (CharField)
+      Wypelnienie: 941 (100,0%)
+      Przyklady: Mycoplasma pneumoniae IgG, ..., Krztusiec (Bordetella pertu..., Panel alergenów - mieszany ...
+    - price (DecimalField)
+      Wypelnienie: 941 (100,0%)
+      Przyklady: 166.00, 72.50, 222.50
     - vat (IntegerField)
       Wypelnienie: 941 (0,1%)
       Przyklady: 0
 
 Model: gabinet.tile  (Kafel - Element UI / dashboard (np. kafelki w interfejsie))
   Liczba rekordow: 672
-  Liczba pol: 2
+  Liczba pol: 4
   Pola:
     - col (IntegerField)
       Wypelnienie: 672 (100,0%)
       Przyklady: 0, 1, 2
+    - profile () -> gabinet.profile
+      Wypelnienie: 672 (100,0%)
+      Przyklady: 170103, 171414, 84562
+    - row (IntegerField)
+      Wypelnienie: 672 (100,0%)
+      Przyklady: 0
     - tile_id (CharField)
       Wypelnienie: 672 (100,0%)
       Przyklady: tile-cal-visit, tile-visits, tile-vis-not-scheduled
 
 Model: gabinet.personalvisitstencil  (Szablon wizyty osobistej - Szablon dla wizyt osobistych lekarza)
   Liczba rekordow: 388
-  Liczba pol: 5
+  Liczba pol: 10
   Pola:
     - examination () -> gabinet.personalstencil
       Wypelnienie: 388 (44,6%)
       Przyklady: 171644, 171957, 172061
     - facility () -> gabinet.facility
       Wypelnienie: 388 (0,0%)
+    - interview () -> gabinet.personalstencil
+      Wypelnienie: 388 (48,2%)
+      Przyklady: 172113, 171722, 171890
     - name (CharField)
       Wypelnienie: 388 (100,0%)
       Przyklady: przeziębienie duże dziecko, szablon patronażowy, biegunka zalecenia
+    - person () -> gabinet.person
+      Wypelnienie: 388 (100,0%)
+      Przyklady: 84440, 84459, 84435
     - recognition () -> gabinet.personalstencil
       Wypelnienie: 388 (0,0%)
+    - recognition_description (TextField)
+      Wypelnienie: 388 (0,0%)
+    - recognitions () -> gabinet.recognition
+      Wypelnienie: 388 (0,5%)
+      Przyklady: <object pk="313824646"></ob..., <object pk="313824641"></ob...
+    - recommendation () -> gabinet.personalstencil
+      Wypelnienie: 388 (49,2%)
+      Przyklady: 172040, 172112, 172007
     - therapy () -> gabinet.personalstencil
       Wypelnienie: 388 (0,0%)
 
 Model: auth.user  (Użytkownik - Konto użytkownika systemu (loginy, role, hasła))
   Liczba rekordow: 199
-  Liczba pol: 2
+  Liczba pol: 4
   Pola:
     - email (CharField)
       Wypelnienie: 199 (83,4%)
@@ -966,34 +1693,65 @@ Model: auth.user  (Użytkownik - Konto użytkownika systemu (loginy, role, hasł
     - first_name (CharField)
       Wypelnienie: 199 (99,5%)
       Przyklady: Gabriela, Magdalena, Monika
+    - is_active (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: True, False
+    - last_name (CharField)
+      Wypelnienie: 199 (99,5%)
+      Przyklady: Apostoluk, Goździalska, Połcik
 
 Model: gabinet.person  (Osoba - Bazowy model dla pacjentów, lekarzy, personelu (PESEL, dane kontaktowe))
   Liczba rekordow: 199
-  Liczba pol: 17
+  Liczba pol: 33
   Pola:
     - academic_degree (CharField)
       Wypelnienie: 199 (3,5%)
       Przyklady: lekarz, mgr specjalista, Mgr pielęgniarstwa
+    - admin_user_type (CharField)
+      Wypelnienie: 199 (0,5%)
+      Przyklady: 1
     - available_services () -> gabinet.privateservice
-      Wypelnienie: 199 (2,5%)
-      Przyklady: <object pk="212617"></objec...
+      Wypelnienie: 199 (12,6%)
+      Przyklady: <object pk="212617"></objec..., <object pk="212928"></objec...
+    - close_visit_assistants () -> gabinet.person
+      Wypelnienie: 199 (0,0%)
     - commission_group () -> gabinet.commissiongroup
       Wypelnienie: 199 (99,5%)
       Przyklady: 22587
     - confirmed (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: True, False
-    - default_specialty () -> gabinet.specialty
+    - created_by_external_user () -> external_api.externalapiuser
       Wypelnienie: 199 (0,0%)
+    - default_specialty () -> gabinet.specialty
+      Wypelnienie: 199 (25,1%)
+      Przyklady: <object pk="1390956"></object>, <object pk="1390928"></object>, <object pk="1390983"></object>
+    - description (TextField)
+      Wypelnienie: 199 (0,0%)
+    - erased (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: False, True
+    - facility () -> gabinet.facility
+      Wypelnienie: 199 (100,0%)
+      Przyklady: 21540
     - hubspot_id (BigIntegerField)
       Wypelnienie: 199 (7,0%)
       Przyklady: 172446505609, 1522440633, 1764885808
+    - image (FileField)
+      Wypelnienie: 199 (1,5%)
+      Przyklady: persons/eaCjENKJZhkW.jpg, persons/HsatdnTFSOMU.jpg, persons/olIdfydOGxVs.jpg
     - is_facility_owner (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: False, True
+    - is_therapist (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: False, True
     - languages (ArrayField)
       Wypelnienie: 199 (100,0%)
       Przyklady: [], ["pl"], ["pl", "en"]
+    - last_2fa_login_device (CharField)
+      Wypelnienie: 199 (35,2%)
+      Przyklady: auth_2fa.smsdevice/159347, auth_2fa.smsdevice/160658, auth_2fa.smsdevice/84515
     - password_exp (DateTimeField)
       Wypelnienie: 199 (100,0%)
       Przyklady: 2025-08-24T08:18:17.319332, 2025-09-11T14:52:03.320716, 2022-06-06T06:29:58.519082
@@ -1003,15 +1761,35 @@ Model: gabinet.person  (Osoba - Bazowy model dla pacjentów, lekarzy, personelu 
     - privacy_policy_timestamp (DateTimeField)
       Wypelnienie: 199 (49,7%)
       Przyklady: 2025-07-25T08:18:17.659767, 2025-08-12T14:52:04.249520, 2023-04-05T08:06:17.792400
+    - profession_code (CharField)
+      Wypelnienie: 199 (77,4%)
+      Przyklady: 11, 19, 18
+    - profile () -> gabinet.profile
+      Wypelnienie: 199 (100,0%)
+      Przyklady: 170103, 171414, 84466
     - pwz (CharField)
       Wypelnienie: 199 (57,8%)
       Przyklady: 3879349, 2501834, 7190649
+    - recipe_assistants () -> gabinet.person
+      Wypelnienie: 199 (0,0%)
+    - reward_points_spent (IntegerField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: 0
     - skip_2fa (NullBooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: False
+    - specialty () -> gabinet.specialty
+      Wypelnienie: 199 (30,7%)
+      Przyklady: <object pk="1390956"></object>, <object pk="1390928"></object>, <object pk="1390954"></obje...
     - tags () -> gabinet.persontags
       Wypelnienie: 199 (17,6%)
       Przyklady: 24454, 13903, 13883
+    - telephone (CharField)
+      Wypelnienie: 199 (86,9%)
+      Przyklady: 787627753, 501534130, 123070221
+    - two_factor_required (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: False, True
     - user () -> auth.user
       Wypelnienie: 199 (100,0%)
       Przyklady: 46097716, 46606287, 23732803
@@ -1023,18 +1801,35 @@ Model: gabinet.person  (Osoba - Bazowy model dla pacjentów, lekarzy, personelu 
 
 Model: gabinet.profile  (Profil - Profil użytkownika lub placówki (ustawienia personalne))
   Liczba rekordow: 199
-  Liczba pol: 15
+  Liczba pol: 29
   Pola:
+    - active_departments () -> gabinet.department
+      Wypelnienie: 199 (99,5%)
+      Przyklady: <object pk="39595"></object..., <object pk="38918"></object..., <object pk="39593"></object...
     - actual_department () -> gabinet.department
       Wypelnienie: 199 (21,6%)
       Przyklady: 38918, 38919, 38924
     - calendar_color (CharField)
       Wypelnienie: 199 (100,0%)
       Przyklady: #ff9804, #04F1FF, #05F0F5
+    - can_copy_from_all_visits (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: False, True
+    - current_departmental_tag (CharField)
+      Wypelnienie: 199 (0,0%)
+    - dentition_clear (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: True
     - dentition_extended (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: True
     - department_telephone_preference (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: True, False
+    - dp_widget_selected_login_flow (SmallIntegerField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: 2, 0
+    - has_edu_notification (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: True, False
     - is_aptego_on (BooleanField)
@@ -1046,6 +1841,12 @@ Model: gabinet.profile  (Profil - Profil użytkownika lub placówki (ustawienia 
     - mobile_access (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: True
+    - news (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: True, False
+    - select_only_single_tooth (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: False
     - send_password_notifications (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: False, True
@@ -1055,14 +1856,33 @@ Model: gabinet.profile  (Profil - Profil użytkownika lub placówki (ustawienia 
     - send_patient_visit_notifications_push (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: False
+    - send_visit_notifications (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: False
+    - send_visit_notifications_push (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: False
+    - sequence_separator (CharField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: n
+    - session_time (CharField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: 120, 10, 60
     - show_cancelled_visits (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: True, False
     - show_confirmations (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: False
+    - show_public_education_leaflets (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: True, False
+    - show_registration_date (BooleanField)
+      Wypelnienie: 199 (100,0%)
+      Przyklady: False, True
     - tags () -> bot.tag
-      Wypelnienie: 199 (0,0%)
+      Wypelnienie: 199 (37,2%)
+      Przyklady: <object pk="14577"></object..., <object pk="14949"></object...
     - tooltips (BooleanField)
       Wypelnienie: 199 (100,0%)
       Przyklady: True
@@ -1072,12 +1892,23 @@ Model: gabinet.profile  (Profil - Profil użytkownika lub placówki (ustawienia 
 
 Model: gabinet.recipepreferences  (Preferencje recept - Ustawienia domyślne dla recept (np. refundacja))
   Liczba rekordow: 198
-  Liczba pol: 17
+  Liczba pol: 34
   Pola:
+    - academic_degree (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: False
+    - address (CharField)
+      Wypelnienie: 198 (0,0%)
     - barcode_height (SmallIntegerField)
       Wypelnienie: 198 (100,0%)
       Przyklady: 14
+    - borders (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: True
     - default_365_days (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: False
+    - department_name (BooleanField)
       Wypelnienie: 198 (100,0%)
       Przyklady: False
     - departmental_codes (BooleanField)
@@ -1086,15 +1917,33 @@ Model: gabinet.recipepreferences  (Preferencje recept - Ustawienia domyślne dla
     - drugs_height (SmallIntegerField)
       Wypelnienie: 198 (100,0%)
       Przyklady: 97
+    - ds_required (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: False
+    - footer_height (SmallIntegerField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: 34
     - header_font_size (DecimalField)
       Wypelnienie: 198 (100,0%)
       Przyklady: 7.0
+    - header_height (SmallIntegerField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: 41
     - header_text (CharField)
       Wypelnienie: 198 (0,0%)
+    - info (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: True
     - margin_bottom (SmallIntegerField)
       Wypelnienie: 198 (100,0%)
       Przyklady: 5
+    - margin_left (SmallIntegerField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: 5
     - margin_right (SmallIntegerField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: 5
+    - margin_top (SmallIntegerField)
       Wypelnienie: 198 (100,0%)
       Przyklady: 5
     - nip (BooleanField)
@@ -1106,18 +1955,39 @@ Model: gabinet.recipepreferences  (Preferencje recept - Ustawienia domyślne dla
     - patient_address (BooleanField)
       Wypelnienie: 198 (100,0%)
       Przyklady: True
+    - patient_birth_date (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: False
+    - patient_height (SmallIntegerField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: 28
+    - patient_pesel (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: True
     - person () -> gabinet.person
       Wypelnienie: 198 (100,0%)
       Przyklady: 170343, 171654, 84440
     - recipe_control (BooleanField)
       Wypelnienie: 198 (100,0%)
       Przyklady: True
+    - recipe_height (SmallIntegerField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: 210
     - recipe_width (SmallIntegerField)
       Wypelnienie: 198 (100,0%)
       Przyklady: 99
+    - registry_number (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: False
     - right_col_width (SmallIntegerField)
       Wypelnienie: 198 (100,0%)
       Przyklady: 21
+    - rp_height (SmallIntegerField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: 6
+    - set_number_manually (BooleanField)
+      Wypelnienie: 198 (100,0%)
+      Przyklady: False
     - telephone_number (BooleanField)
       Wypelnienie: 198 (100,0%)
       Przyklady: False, True
@@ -1127,7 +1997,7 @@ Model: gabinet.recipepreferences  (Preferencje recept - Ustawienia domyślne dla
 
 Model: dilo.dilocard  (Karta DILO - Karta Diagnostyki i Leczenia Onkologicznego (DiLO) – ścieżka onkologiczna)
   Liczba rekordow: 158
-  Liczba pol: 7
+  Liczba pol: 13
   Pola:
     - cancel_reason (CharField)
       Wypelnienie: 158 (13,3%)
@@ -1135,16 +2005,33 @@ Model: dilo.dilocard  (Karta DILO - Karta Diagnostyki i Leczenia Onkologicznego 
     - card_status (CharField)
       Wypelnienie: 158 (100,0%)
       Przyklady: active, canceled
+    - closing_reason (CharField)
+      Wypelnienie: 158 (0,0%)
     - creation_date (DateField)
       Wypelnienie: 158 (100,0%)
       Przyklady: 2022-10-10, 2022-10-07, 2022-10-24
+    - current_stage () -> dilo.dilostage
+      Wypelnienie: 158 (100,0%)
+      Przyklady: 12205, 12158, 12472
     - fake (BooleanField)
       Wypelnienie: 158 (100,0%)
       Przyklady: False, True
+    - initial_recognition () -> gabinet.icd10
+      Wypelnienie: 158 (100,0%)
+      Przyklady: 11760, 11764, 11710
     - initialization_scenario (CharField)
       Wypelnienie: 158 (100,0%)
       Przyklady: WK-POZ-P, WK-POZ-R
     - issuing_doctor () -> gabinet.person
+      Wypelnienie: 158 (100,0%)
+      Przyklady: 84435, 84480, 84507
+    - next_stage_place_code_viii (CharField)
+      Wypelnienie: 158 (96,2%)
+      Przyklady: 1640, 1130, 4050
+    - number (CharField)
+      Wypelnienie: 158 (100,0%)
+      Przyklady: 22102749278, 22102730760, 22102902871
+    - operator () -> gabinet.person
       Wypelnienie: 158 (100,0%)
       Przyklady: 84435, 84480, 84507
     - patient () -> gabinet.patient
@@ -1153,31 +2040,59 @@ Model: dilo.dilocard  (Karta DILO - Karta Diagnostyki i Leczenia Onkologicznego 
 
 Model: gabinet.nfzdeklreportfeedback  (Feedback raportu deklaracji NFZ - Odpowiedź/zwrotka z NFZ na raport deklaracji)
   Liczba rekordow: 116
-  Liczba pol: 2
+  Liczba pol: 4
   Pola:
     - dekl_feedback_file (FileField)
       Wypelnienie: 116 (100,0%)
       Przyklady: nfz_messages/2023/01/06/c3f..., nfz_messages/2024/01/06/0f8..., nfz_messages/2023/04/06/458...
+    - generation_id (IntegerField)
+      Wypelnienie: 116 (100,0%)
+      Przyklady: 282817, 297393, 286482
     - generation_time (DateTimeField)
       Wypelnienie: 116 (100,0%)
       Przyklady: 2023-01-05T19:30:12, 2024-01-05T15:33:41, 2023-04-06T08:03:32
+    - type (CharField)
+      Wypelnienie: 116 (100,0%)
+      Przyklady: P_ODB, P_DEK, Z_WDP
 
 Model: gabinet.invoice  (Faktura - Faktura za usługi prywatne lub rozliczenia)
   Liczba rekordow: 113
-  Liczba pol: 12
+  Liczba pol: 24
   Pola:
     - bill_waiver (CharField)
       Wypelnienie: 113 (100,0%)
       Przyklady: 19
+    - buyer (TextField)
+      Wypelnienie: 113 (100,0%)
+      Przyklady: Halina Góral
+PESEL: 5508100..., Maria Kamińska
+PESEL: 12292..., Daria Gryla
+PESEL: 98100604...
     - closed (BooleanField)
       Wypelnienie: 113 (100,0%)
       Przyklady: True, False
+    - contractor () -> gabinet.invoicecontractor
+      Wypelnienie: 113 (5,3%)
+      Przyklady: 13852, 14211
     - corrected_invoice () -> gabinet.invoice
       Wypelnienie: 113 (8,8%)
       Przyklady: 419604, 419600, 578400
+    - correction (BooleanField)
+      Wypelnienie: 113 (100,0%)
+      Przyklady: False, True
     - facility () -> gabinet.facility
       Wypelnienie: 113 (100,0%)
       Przyklady: 21540
+    - insurer () -> gabinet.insurer
+      Wypelnienie: 113 (0,0%)
+    - invoice_number (CharField)
+      Wypelnienie: 113 (94,7%)
+      Przyklady: 11/1/2025, 13/1/2025, 12/1/2025
+    - invoice_sign (CharField)
+      Wypelnienie: 113 (0,0%)
+    - is_paid (IntegerField)
+      Wypelnienie: 113 (100,0%)
+      Przyklady: 1, 0
     - issue_date (DateField)
       Wypelnienie: 113 (100,0%)
       Przyklady: 2025-01-07, 2025-08-19, 2022-10-19
@@ -1189,22 +2104,37 @@ Model: gabinet.invoice  (Faktura - Faktura za usługi prywatne lub rozliczenia)
     - notes (TextField)
       Wypelnienie: 113 (2,7%)
       Przyklady: świadczenie medyczne wykona..., Centrum Placówek Opiekuńczo..., Centrum Placówek Opiekuńczo...
+    - number_formula (CharField)
+      Wypelnienie: 113 (100,0%)
+      Przyklady: n/m/yyyy
     - number_template () -> gabinet.numbertemplate
       Wypelnienie: 113 (92,0%)
       Przyklady: 6054
     - package () -> gabinet.privateservicespackage
       Wypelnienie: 113 (94,7%)
       Przyklady: 14292834, 14292900, 14292849
+    - patient () -> gabinet.patient
+      Wypelnienie: 113 (94,7%)
+      Przyklady: 23667936, 41668701, 34006500
     - payment_date (DateField)
       Wypelnienie: 113 (100,0%)
       Przyklady: 2025-01-07, 2025-08-19, 2022-10-19
+    - payment_method (CharField)
+      Wypelnienie: 113 (100,0%)
+      Przyklady: Gotówka, Karta, Przelew
     - provider (TextField)
       Wypelnienie: 113 (100,0%)
       Przyklady: Centrum Medyczne 4M Sp. z o...
+    - service_date (DateField)
+      Wypelnienie: 113 (100,0%)
+      Przyklady: 2025-01-07, 2025-08-19, 2022-10-19
+    - signer (CharField)
+      Wypelnienie: 113 (100,0%)
+      Przyklady: Anita Spytek, Kinga Pustuła, Anna Piszczek
 
 Model: ezwolnienia.esickleavecancellation  (Anulowanie e-Zwolnienia - Anulowanie elektronicznego zwolnienia lekarskiego)
   Liczba rekordow: 110
-  Liczba pol: 5
+  Liczba pol: 9
   Pola:
     - additional_info (TextField)
       Wypelnienie: 110 (30,0%)
@@ -1212,6 +2142,9 @@ Model: ezwolnienia.esickleavecancellation  (Anulowanie e-Zwolnienia - Anulowanie
     - cancellation_date (DateField)
       Wypelnienie: 110 (100,0%)
       Przyklady: 2023-04-05, 2023-12-14, 2024-05-10
+    - cancellation_description (CharField)
+      Wypelnienie: 110 (100,0%)
+      Przyklady: błąd w danych dotyczących n..., błąd w danych płatnika składek, inny powód
     - cancellation_reason (CharField)
       Wypelnienie: 110 (100,0%)
       Przyklady: N, P, I
@@ -1221,17 +2154,31 @@ Model: ezwolnienia.esickleavecancellation  (Anulowanie e-Zwolnienia - Anulowanie
     - is_notification_sent (BooleanField)
       Wypelnienie: 110 (100,0%)
       Przyklady: True, False
+    - is_patient_notified (BooleanField)
+      Wypelnienie: 110 (100,0%)
+      Przyklady: False
+    - place (CharField)
+      Wypelnienie: 110 (93,6%)
+      Przyklady: Wieliczka, Kraków, Kraków-Podgórze
+    - visit_of_issue () -> gabinet.visit
+      Wypelnienie: 110 (100,0%)
+      Przyklady: 243341989, 279755036, 296508690
 
 Model: gabinet.nfzservicereport  (Raport usług NFZ - Raport świadczonych usług do NFZ)
   Liczba rekordow: 92
-  Liczba pol: 7
+  Liczba pol: 14
   Pola:
+    - contract () -> gabinet.nfzcontract
+      Wypelnienie: 92 (0,0%)
     - creation_date (DateTimeField)
       Wypelnienie: 92 (100,0%)
       Przyklady: 2023-01-23T14:30:13.970454, 2023-01-23T15:06:14.442206, 2023-03-15T19:27:03.714121
     - date_active (DateField)
       Wypelnienie: 92 (100,0%)
       Przyklady: 2023-01-23, 2023-03-15, 2023-04-26
+    - gen_nr (IntegerField)
+      Wypelnienie: 92 (100,0%)
+      Przyklady: 1100, 1101, 1103
     - is_deleted (BooleanField)
       Wypelnienie: 92 (100,0%)
       Przyklady: False
@@ -1241,15 +2188,30 @@ Model: gabinet.nfzservicereport  (Raport usług NFZ - Raport świadczonych usłu
     - nfz_contract () -> nfz.nfzcontract
       Wypelnienie: 92 (100,0%)
       Przyklady: 31558, 32699, 35358
+    - note (TextField)
+      Wypelnienie: 92 (100,0%)
+      Przyklady: 2022-10-01 - 2022-10-31, 2022-11-01 - 2022-11-30, 2022-12-01 - 2022-12-20
     - previous () -> gabinet.nfzservicereport
       Wypelnienie: 92 (0,0%)
     - price_sum (DecimalField)
       Wypelnienie: 92 (100,0%)
       Przyklady: 0.00
+    - report_file (FileField)
+      Wypelnienie: 92 (100,0%)
+      Przyklady: swiad/2023/01/23/SWIAD061_2..., swiad/2023/01/23/SWIAD061_2..., swiad/2023/03/15/SWIAD061_2...
+    - state (CharField)
+      Wypelnienie: 92 (100,0%)
+      Przyklady: N, X, P
+    - version (IntegerField)
+      Wypelnienie: 92 (100,0%)
+      Przyklady: 1
+    - visit_count (IntegerField)
+      Wypelnienie: 92 (100,0%)
+      Przyklady: 4529, 4759, 3564
 
 Model: gabinet.specialty  (Specjalizacja - Specjalizacja lekarska (np. rodzinna, pediatria))
   Liczba rekordow: 67
-  Liczba pol: 3
+  Liczba pol: 6
   Pola:
     - facility () -> gabinet.facility
       Wypelnienie: 67 (100,0%)
@@ -1260,21 +2222,35 @@ Model: gabinet.specialty  (Specjalizacja - Specjalizacja lekarska (np. rodzinna,
     - is_spec_doctor (BooleanField)
       Wypelnienie: 67 (100,0%)
       Przyklady: False, True
+    - name (CharField)
+      Wypelnienie: 67 (100,0%)
+      Przyklady: Pielęgniarka anestezjologiczna, Pielęgniarka chirurgiczna, Pielęgniarka geriatryczna
+    - state (BooleanField)
+      Wypelnienie: 67 (100,0%)
+      Przyklady: False, True
+    - visit_types () -> gabinet.visittype
+      Wypelnienie: 67 (9,0%)
+      Przyklady: <object pk="180730"></object>, <object pk="242573"></object>
 
 Model: gabinet.dispanserygroup  (Grupa dyspanseryjna - Grupa pacjentów pod stałą opieką (dyspanseryzacja, np. cukrzyca))
   Liczba rekordow: 41
-  Liczba pol: 2
+  Liczba pol: 4
   Pola:
     - facility () -> gabinet.facility
       Wypelnienie: 41 (100,0%)
       Przyklady: 21540
+    - icd10 () -> gabinet.icd10
+      Wypelnienie: 41 (0,0%)
+    - name (CharField)
+      Wypelnienie: 41 (100,0%)
+      Przyklady: Alergie - dychawica oskrzelowa, Alergie pokarmowe, Alergie skórne
     - type (CharField)
       Wypelnienie: 41 (100,0%)
       Przyklady: C, A
 
 Model: gabinet.nfzdeklreport  (Raport deklaracji NFZ - Raport zbiorczy deklaracji POZ do NFZ)
   Liczba rekordow: 39
-  Liczba pol: 8
+  Liczba pol: 16
   Pola:
     - confirmation_feedback () -> gabinet.nfzdeklreportfeedback
       Wypelnienie: 39 (100,0%)
@@ -1282,11 +2258,26 @@ Model: gabinet.nfzdeklreport  (Raport deklaracji NFZ - Raport zbiorczy deklaracj
     - confirmed (BooleanField)
       Wypelnienie: 39 (100,0%)
       Przyklady: False
+    - creation_date (DateTimeField)
+      Wypelnienie: 39 (100,0%)
+      Przyklady: 2024-03-07T11:31:13.639634, 2025-10-07T12:07:28.309885, 2024-09-06T16:05:32.536135
+    - date_active (DateField)
+      Wypelnienie: 39 (100,0%)
+      Przyklady: 2024-03-01, 2025-10-01, 2024-09-01
+    - declarations_count (IntegerField)
+      Wypelnienie: 39 (100,0%)
+      Przyklady: 25729, 24553, 26806
     - facility () -> gabinet.facility
       Wypelnienie: 39 (100,0%)
       Przyklady: 21540
+    - file_confirmation_feedback () -> gabinet.nfzdeklreportfeedback
+      Wypelnienie: 39 (100,0%)
+      Przyklady: 70539, 107955, 81289
     - filter_text (TextField)
       Wypelnienie: 39 (0,0%)
+    - mail_reporting_message () -> gabinet.nfzmailreportingmessage
+      Wypelnienie: 39 (100,0%)
+      Przyklady: 418627, 653351, 490407
     - non_deleted (NullBooleanField)
       Wypelnienie: 39 (100,0%)
       Przyklady: True
@@ -1296,28 +2287,49 @@ Model: gabinet.nfzdeklreport  (Raport deklaracji NFZ - Raport zbiorczy deklaracj
     - state (CharField)
       Wypelnienie: 39 (100,0%)
       Przyklady: Z, PT
+    - statement () -> gabinet.nfzdeklreportstatement
+      Wypelnienie: 39 (100,0%)
+      Przyklady: 42297, 64373, 48480
+    - verification_feedback () -> gabinet.nfzdeklreportfeedback
+      Wypelnienie: 39 (97,4%)
+      Przyklady: 70963, 108461, 82092
+    - verified (BooleanField)
+      Wypelnienie: 39 (100,0%)
+      Przyklady: False
     - version (IntegerField)
       Wypelnienie: 39 (100,0%)
       Przyklady: 1
 
 Model: nfz.nfzcontractfile  (Plik kontraktu NFZ - Załącznik do kontraktu NFZ)
   Liczba rekordow: 35
-  Liczba pol: 3
+  Liczba pol: 6
   Pola:
     - contract () -> nfz.nfzcontract
       Wypelnienie: 35 (100,0%)
       Przyklady: 36866, 35358, 32699
+    - contract_file (FileField)
+      Wypelnienie: 35 (100,0%)
+      Przyklady: nfz_contract_file/2025/12/0..., nfz_contract_file/2025/11/2..., nfz_contract_file/2025/10/2...
     - created (DateTimeField)
       Wypelnienie: 35 (100,0%)
       Przyklady: 2025-12-05T16:56:49.407534, 2025-11-20T09:48:28.677737, 2025-10-24T07:24:35.332335
+    - gen_number (IntegerField)
+      Wypelnienie: 35 (100,0%)
+      Przyklady: 460590, 459339, 458467
     - gen_time (DateTimeField)
       Wypelnienie: 35 (100,0%)
       Przyklady: 2025-12-05T15:55:33, 2025-11-19T13:58:04, 2025-10-23T19:15:21
+    - version (CharField)
+      Wypelnienie: 35 (100,0%)
+      Przyklady: 4.1, 4.0
 
 Model: gabinet.visittype  (Typ wizyty - Typ wizyty (np. POZ, specjalistyczna, domowa))
   Liczba rekordow: 30
-  Liczba pol: 6
+  Liczba pol: 11
   Pola:
+    - facility () -> gabinet.facility
+      Wypelnienie: 30 (100,0%)
+      Przyklady: 21540
     - icd9_list () -> gabinet.icd9
       Wypelnienie: 30 (0,0%)
     - name (CharField)
@@ -1325,6 +2337,15 @@ Model: gabinet.visittype  (Typ wizyty - Typ wizyty (np. POZ, specjalistyczna, do
       Przyklady: Bilans 60+, Porada lekarza POZ, Wizyta patronażowa pielęgni...
     - preferred_prod_code (CharField)
       Wypelnienie: 30 (0,0%)
+    - private_services () -> gabinet.privateservice
+      Wypelnienie: 30 (3,3%)
+      Przyklady: <object pk="212619"></object>
+    - reception_mode_choice (CharField)
+      Wypelnienie: 30 (3,3%)
+      Przyklady: 13
+    - require_declaration (BooleanField)
+      Wypelnienie: 30 (100,0%)
+      Przyklady: True, False
     - require_referral (BooleanField)
       Wypelnienie: 30 (100,0%)
       Przyklady: False
@@ -1334,21 +2355,29 @@ Model: gabinet.visittype  (Typ wizyty - Typ wizyty (np. POZ, specjalistyczna, do
     - state (BooleanField)
       Wypelnienie: 30 (100,0%)
       Przyklady: True, False
+    - visit_type_duration (IntegerField)
+      Wypelnienie: 30 (13,3%)
+      Przyklady: 45, 60, 30
 
 Model: gabinet.office  (Gabinet / pokój - Lokalizacja wewnątrz placówki (np. gabinet nr 1))
   Liczba rekordow: 27
-  Liczba pol: 2
+  Liczba pol: 4
   Pola:
     - active (BooleanField)
       Wypelnienie: 27 (100,0%)
       Przyklady: False, True
+    - department () -> gabinet.department
+      Wypelnienie: 27 (100,0%)
+      Przyklady: 38918, 38920, 38922
+    - imported_id (CharField)
+      Wypelnienie: 27 (0,0%)
     - name (CharField)
       Wypelnienie: 27 (100,0%)
       Przyklady: badania analityczne, Bodzanów 2, Bodzanów Pielęgniarka
 
 Model: gabinet.documenttype  (Typ dokumentu - Kategoria dokumentów (np. skierowanie, wynik badań))
   Liczba rekordow: 16
-  Liczba pol: 2
+  Liczba pol: 3
   Pola:
     - facility () -> gabinet.facility
       Wypelnienie: 16 (100,0%)
@@ -1356,20 +2385,38 @@ Model: gabinet.documenttype  (Typ dokumentu - Kategoria dokumentów (np. skierow
     - is_active (BooleanField)
       Wypelnienie: 16 (100,0%)
       Przyklady: True
+    - name (CharField)
+      Wypelnienie: 16 (100,0%)
+      Przyklady: Ekg, INNE, BADANIE
 
 Model: gabinet.department  (Oddział / komórka - Struktura organizacyjna placówki (np. POZ, pediatria))
   Liczba rekordow: 14
-  Liczba pol: 17
+  Liczba pol: 34
   Pola:
+    - active (BooleanField)
+      Wypelnienie: 14 (100,0%)
+      Przyklady: False, True
+    - calendar_color (CharField)
+      Wypelnienie: 14 (100,0%)
+      Przyklady: #ff9804, #57E121, #F2C227
     - city (CharField)
       Wypelnienie: 14 (92,9%)
       Przyklady: Kraków, Kraków-Podgórze, Kraków-Śródmieście
     - code_5 (CharField)
       Wypelnienie: 14 (78,6%)
       Przyklady: 01, 02, 03
+    - contract_files () -> gabinet.nfzcontractfile
+      Wypelnienie: 14 (64,3%)
+      Przyklady: <object pk="25117"></object...
     - country (CharField)
       Wypelnienie: 14 (100,0%)
       Przyklady: POLSKA
+    - default_nfz (CharField)
+      Wypelnienie: 14 (100,0%)
+      Przyklady: X, 06
+    - default_reception_mode (CharField)
+      Wypelnienie: 14 (92,9%)
+      Przyklady: X
     - default_teryt () -> gabinet.teryt
       Wypelnienie: 14 (78,6%)
       Przyklady: 20102, 20101, 20089
@@ -1379,22 +2426,47 @@ Model: gabinet.department  (Oddział / komórka - Struktura organizacyjna placó
     - department_code (CharField)
       Wypelnienie: 14 (64,3%)
       Przyklady: 64919, 102267, 151006
+    - departmental_code_7 (CharField)
+      Wypelnienie: 14 (78,6%)
+      Przyklady: 004, 001, 015
     - departmental_code_8 (CharField)
       Wypelnienie: 14 (78,6%)
       Przyklady: 9450, 0010, 0032
+    - facility () -> gabinet.facility
+      Wypelnienie: 14 (100,0%)
+      Przyklady: 21540
     - flat_number (CharField)
       Wypelnienie: 14 (35,7%)
       Przyklady: U1
+    - house_number (CharField)
+      Wypelnienie: 14 (92,9%)
+      Przyklady: 25B, 17, 412
     - imported_id (CharField)
       Wypelnienie: 14 (0,0%)
     - kids_allowed (BooleanField)
       Wypelnienie: 14 (100,0%)
       Przyklady: False, True
+    - location () -> user_activity.location
+      Wypelnienie: 14 (92,9%)
+      Przyklady: 22160, 22526, 21816
+    - mus_code (CharField)
+      Wypelnienie: 14 (100,0%)
+      Przyklady: 001
     - name (CharField)
       Wypelnienie: 14 (100,0%)
       Przyklady: Gabinet zabiegowy, Gabinet zabiegowy PRV, Oddział domyślny
     - nfz_contracts () -> nfz.nfzcontract
-      Wypelnienie: 14 (0,0%)
+      Wypelnienie: 14 (64,3%)
+      Przyklady: <object pk="31558"></object...
+    - nip (CharField)
+      Wypelnienie: 14 (78,6%)
+      Przyklady: 6793060743
+    - postal_code (CharField)
+      Wypelnienie: 14 (92,9%)
+      Przyklady: 30-438, 31-141, 32-020
+    - province (CharField)
+      Wypelnienie: 14 (92,9%)
+      Przyklady: Mazowieckie, Małopolskie
     - recipe_provider (CharField)
       Wypelnienie: 14 (100,0%)
       Przyklady: Dane z placówki, Dane z oddziału
@@ -1407,35 +2479,64 @@ Model: gabinet.department  (Oddział / komórka - Struktura organizacyjna placó
     - street (CharField)
       Wypelnienie: 14 (71,4%)
       Przyklady: Borkowska, Krowoderska
+    - telephone (CharField)
+      Wypelnienie: 14 (92,9%)
+      Przyklady: 000000000, 123070221, 12 307 02 21
+    - visit_time (IntegerField)
+      Wypelnienie: 14 (100,0%)
+      Przyklady: 15, 10, 45
+    - visit_types () -> gabinet.visittype
+      Wypelnienie: 14 (100,0%)
+      Przyklady: <object pk="187944"></objec..., <object pk="187947"></object>, <object pk="180814"></objec...
+    - work_from (TimeField)
+      Wypelnienie: 14 (100,0%)
+      Przyklady: 08:00:00, 10:00:00
     - work_to (TimeField)
       Wypelnienie: 14 (100,0%)
       Przyklady: 17:00:00, 18:00:00, 20:00:00
 
 Model: nfz.nfzcontract  (Kontrakt NFZ - Umowa z NFZ na świadczenia)
   Liczba rekordow: 6
-  Liczba pol: 6
+  Liczba pol: 12
   Pola:
+    - active_from (DateField)
+      Wypelnienie: 6 (100,0%)
+      Przyklady: 2022-01-01, 2023-01-01, 2024-01-01
     - active_to (DateField)
       Wypelnienie: 6 (100,0%)
       Przyklady: 2022-12-31, 2023-12-31, 2024-12-31
+    - code (CharField)
+      Wypelnienie: 6 (100,0%)
+      Przyklady: 061/200705/POZ/03/2022, 061/200705/POZ/03/2023, 061/200705/COV/2023/S
     - delegation_settling (CharField)
       Wypelnienie: 6 (100,0%)
       Przyklady: 0006
+    - deletion_time (DateTimeField)
+      Wypelnienie: 6 (0,0%)
     - facility () -> gabinet.facility
       Wypelnienie: 6 (100,0%)
       Przyklady: 21540
     - is_deleted (BooleanField)
       Wypelnienie: 6 (100,0%)
       Przyklady: False
+    - nfz_department (CharField)
+      Wypelnienie: 6 (100,0%)
+      Przyklady: 06
+    - owner_name (CharField)
+      Wypelnienie: 6 (100,0%)
+      Przyklady: Centrum Medyczne 4M spółka ...
     - primal_code (CharField)
       Wypelnienie: 6 (0,0%)
+    - provider_code (CharField)
+      Wypelnienie: 6 (100,0%)
+      Przyklady: 061/200705
     - service_type (CharField)
       Wypelnienie: 6 (100,0%)
       Przyklady: 01, 19
 
 Model: gabinet.shareddocument  (Dokument współdzielony - Dokument udostępniony między pacjentami/placówkami)
   Liczba rekordow: 3
-  Liczba pol: 3
+  Liczba pol: 6
   Pola:
     - description (CharField)
       Wypelnienie: 3 (100,0%)
@@ -1443,13 +2544,22 @@ Model: gabinet.shareddocument  (Dokument współdzielony - Dokument udostępnion
     - facility () -> gabinet.facility
       Wypelnienie: 3 (100,0%)
       Przyklady: 21540
+    - file (FileField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: shared_documents/2022/10/11..., shared_documents/2022/10/11..., shared_documents/2022/10/11...
     - file_size (BigIntegerField)
       Wypelnienie: 3 (100,0%)
       Przyklady: 417765, 396732, 400594
+    - uploaded_date (DateTimeField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: 2022-10-11T16:01:44.359847, 2022-10-11T16:01:23.434979, 2022-10-11T16:00:51.590308
+    - uploader () -> gabinet.person
+      Wypelnienie: 3 (100,0%)
+      Przyklady: 84515
 
 Model: gabinet.footer  (Stopka - Stopka dokumentów/wydruków (np. dane placówki w footerze recepty))
   Liczba rekordow: 3
-  Liczba pol: 15
+  Liczba pol: 29
   Pola:
     - city (BooleanField)
       Wypelnienie: 3 (100,0%)
@@ -1457,18 +2567,41 @@ Model: gabinet.footer  (Stopka - Stopka dokumentów/wydruków (np. dane placówk
     - code_1 (BooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: True
+    - code_5 (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
     - custom_content_enabled (NullBooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: False
+    - custom_content_left (TextField)
+      Wypelnienie: 3 (0,0%)
     - custom_content_right (TextField)
       Wypelnienie: 3 (0,0%)
+    - data_from_department (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
+    - date (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
     - department_code (BooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: True
+    - email (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: False
     - facility () -> gabinet.facility
       Wypelnienie: 3 (100,0%)
       Przyklady: 21540
     - facility_address (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
+    - facility_name (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
+    - facility_nip (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
+    - facility_regon (BooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: True
     - facility_tel (BooleanField)
@@ -1477,18 +2610,36 @@ Model: gabinet.footer  (Stopka - Stopka dokumentów/wydruków (np. dane placówk
     - font_size (PositiveIntegerField)
       Wypelnienie: 3 (100,0%)
       Przyklady: 11
+    - footer_type (CharField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: footer_docs, footer_patient_card, footer_forms
+    - form_number (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: False
     - logo (BooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: True, False
+    - nfz_contract_nr (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
     - nfz_primal_code (BooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: False
     - on_top (BooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: True, False
+    - patient_data (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: False
+    - registry_number (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
     - rodo (BooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: False
+    - show_pagenum (BooleanField)
+      Wypelnienie: 3 (100,0%)
+      Przyklady: True
     - time (BooleanField)
       Wypelnienie: 3 (100,0%)
       Przyklady: False
@@ -1498,12 +2649,29 @@ Model: gabinet.footer  (Stopka - Stopka dokumentów/wydruków (np. dane placówk
 
 Model: gabinet.sickleave  (Zwolnienie lekarskie - Starszy model zwolnienia (przed e-ZLA))
   Liczba rekordow: 2
-  Liczba pol: 20
+  Liczba pol: 40
   Pola:
+    - cancel_xml (TextField)
+      Wypelnienie: 2 (0,0%)
+    - code_1 (CharField)
+      Wypelnienie: 2 (0,0%)
     - code_2 (CharField)
+      Wypelnienie: 2 (0,0%)
+    - code_3 (CharField)
       Wypelnienie: 2 (0,0%)
     - code_4 (CharField)
       Wypelnienie: 2 (0,0%)
+    - copy_id (IntegerField)
+      Wypelnienie: 2 (0,0%)
+    - date_from (DateField)
+      Wypelnienie: 2 (100,0%)
+      Przyklady: 2022-10-17, 2024-11-18
+    - date_of_birth (DateField)
+      Wypelnienie: 2 (100,0%)
+      Przyklady: 1968-11-26
+    - date_of_issue (DateField)
+      Wypelnienie: 2 (100,0%)
+      Przyklady: 2022-10-17, 2024-11-19
     - date_to (DateField)
       Wypelnienie: 2 (100,0%)
       Przyklady: 2022-10-21, 2024-11-22
@@ -1515,11 +2683,21 @@ Model: gabinet.sickleave  (Zwolnienie lekarskie - Starszy model zwolnienia (prze
     - employer_nip (CharField)
       Wypelnienie: 2 (100,0%)
       Przyklady: 4930261168
+    - esick_leave (CharField)
+      Wypelnienie: 2 (100,0%)
+      Przyklady: NORMAL
     - explanation (CharField)
+      Wypelnienie: 2 (0,0%)
+    - for_canceled () -> gabinet.sickleave
       Wypelnienie: 2 (0,0%)
     - for_previous () -> gabinet.sickleave
       Wypelnienie: 2 (0,0%)
+    - guardian_address () -> gabinet.address
+      Wypelnienie: 2 (100,0%)
+      Przyklady: 105207061, 151234508
     - hospital_date_from (DateField)
+      Wypelnienie: 2 (0,0%)
+    - hospital_date_to (DateField)
       Wypelnienie: 2 (0,0%)
     - hospital_stay_days (IntegerField)
       Wypelnienie: 2 (0,0%)
@@ -1529,6 +2707,24 @@ Model: gabinet.sickleave  (Zwolnienie lekarskie - Starszy model zwolnienia (prze
     - is_leave_for_patient (BooleanField)
       Wypelnienie: 2 (100,0%)
       Przyklady: True
+    - name (CharField)
+      Wypelnienie: 2 (100,0%)
+      Przyklady: Bożena
+    - number_zla (CharField)
+      Wypelnienie: 2 (0,0%)
+    - passport_number (CharField)
+      Wypelnienie: 2 (50,0%)
+      Przyklady: 68112603281
+    - patient () -> gabinet.patient
+      Wypelnienie: 2 (100,0%)
+      Przyklady: 23661249
+    - payer_data (CharField)
+      Wypelnienie: 2 (100,0%)
+      Przyklady: Ecard, Ecard,
+    - payer_has_pue (NullBooleanField)
+      Wypelnienie: 2 (0,0%)
+    - payer_id (CharField)
+      Wypelnienie: 2 (0,0%)
     - payer_id_type (CharField)
       Wypelnienie: 2 (0,0%)
     - payer_name (CharField)
@@ -1536,12 +2732,17 @@ Model: gabinet.sickleave  (Zwolnienie lekarskie - Starszy model zwolnienia (prze
     - pesel (CharField)
       Wypelnienie: 2 (100,0%)
       Przyklady: 68112603281
+    - recommendation (CharField)
+      Wypelnienie: 2 (100,0%)
+      Przyklady: 2
     - series_zla (CharField)
       Wypelnienie: 2 (0,0%)
     - surname (CharField)
       Wypelnienie: 2 (100,0%)
       Przyklady: Ficek
     - under_care_date_of_birth (DateField)
+      Wypelnienie: 2 (0,0%)
+    - under_care_id (CharField)
       Wypelnienie: 2 (0,0%)
     - visit () -> gabinet.visit
       Wypelnienie: 2 (100,0%)
@@ -1551,12 +2752,29 @@ Model: gabinet.sickleave  (Zwolnienie lekarskie - Starszy model zwolnienia (prze
 
 Model: gabinet.facility  (Placówka - Instancja gabinetu/przychodni – ustawienia systemowe (NFZ ID, regon, godziny))
   Liczba rekordow: 1
-  Liczba pol: 48
+  Liczba pol: 96
   Pola:
     - accept_two_visits_same_day (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
+    - accept_two_visits_same_day_for_facility (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: True
+    - access_token (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: dfe798817b9ceeeb46a21c15db2...
+    - account_number (CharField)
+      Wypelnienie: 1 (0,0%)
+    - always_save_recipe_number (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
+    - archive_visits_days (IntegerField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 1
     - archive_visits_facility (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
+    - are_fixtures_loaded (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: False
     - based_on_contact () -> gabinet.contact
@@ -1564,17 +2782,31 @@ Model: gabinet.facility  (Placówka - Instancja gabinetu/przychodni – ustawien
       Przyklady: 32641
     - bdo_number (CharField)
       Wypelnienie: 1 (0,0%)
+    - block_invalid_nfz_visit (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: True
+    - block_invalid_private_services_for_department (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
     - block_invalid_services_for_department (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
     - canceled_visits_hour (PositiveIntegerField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 1
+    - city (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: Kraków
     - code_1 (CharField)
+      Wypelnienie: 1 (0,0%)
+    - competition_code (CharField)
       Wypelnienie: 1 (0,0%)
     - competition_code_link () -> competition_code.competitioncode
       Wypelnienie: 1 (100,0%)
       Przyklady: 208
+    - country (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: POLSKA
     - created_at (DateField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 2022-04-13
@@ -1588,21 +2820,45 @@ Model: gabinet.facility  (Placówka - Instancja gabinetu/przychodni – ustawien
     - data_migration_agreement_date (DateTimeField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 2022-07-08T18:19:33.699259
+    - data_migration_agreement_person () -> gabinet.person
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 83156
     - default_invoices_provider () -> gabinet.invoiceprovider
       Wypelnienie: 1 (0,0%)
+    - default_nfz (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 06
     - default_reception_mode (CharField)
       Wypelnienie: 1 (0,0%)
     - default_teryt () -> gabinet.teryt
       Wypelnienie: 1 (100,0%)
       Przyklady: 20098
+    - default_visit_kind (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: NFZ
+    - device_rent_threshold (TimeField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 16:00:00
     - disabled_generated_groups (ArrayField)
       Wypelnienie: 1 (0,0%)
+    - docplanner_copilot_enabled (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
     - email (CharField)
       Wypelnienie: 1 (100,0%)
       Przyklady: borkowska@poz4m.pl
+    - encrypt_documents_for_patients (NullBooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
     - encrypt_ereferrals (NullBooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: False
+    - encrypt_invoices (NullBooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
+    - flat_number (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: U1
     - freemium_start_day (DateField)
       Wypelnienie: 1 (0,0%)
     - house_number (CharField)
@@ -1611,42 +2867,105 @@ Model: gabinet.facility  (Placówka - Instancja gabinetu/przychodni – ustawien
     - image (FileField)
       Wypelnienie: 1 (100,0%)
       Przyklady: facilities/pobrane_mZ4rA4e.png
+    - implementation_finished (NullBooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
+    - instructor_competition_code () -> competition_code.competitioncode
+      Wypelnienie: 1 (0,0%)
     - insurances_automatic_check (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
     - invited_by () -> gabinet.person
       Wypelnienie: 1 (0,0%)
+    - invoice_default_bill_waiver (CharField)
+      Wypelnienie: 1 (0,0%)
     - invoice_signer (CharField)
       Wypelnienie: 1 (0,0%)
+    - is_locked (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
     - last_minute_cancellation_threshold (PositiveIntegerField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 3
     - location () -> user_activity.location
       Wypelnienie: 1 (100,0%)
       Przyklady: 22160
+    - long_absence_time (PositiveIntegerField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 30
     - max_number_of_hours_for_implementation (IntegerField)
       Wypelnienie: 1 (0,0%)
+    - max_total_files_size (BigIntegerField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 33685664497
+    - medical_entity_type (IntegerField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 1
+    - mydr_integration_enabled (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: True
+    - name (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: Centrum Medyczne 4M Sp. z o...
     - netsuite_customer_id (CharField)
       Wypelnienie: 1 (100,0%)
       Przyklady: md_CrmCustomer_21540_679306...
     - nfz_short_system_id (CharField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 12023447
+    - nfz_system_id (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 12023447-UH2UDLCUZ18FED7RP4ZH
+    - nip (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 6793060743
     - no_receipt_duplicates (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
+    - no_show_threshold (PositiveIntegerField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 3
     - omit_non_working_days (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
+    - only_facility_dispansery_groups (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
+    - packet_active (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
+    - parent_facility () -> gabinet.facility
+      Wypelnienie: 1 (0,0%)
     - patient_list_declaration_diabetes (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: False
     - patient_list_declaration_doctor (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
+    - patient_list_declaration_hiv (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
     - patient_list_declaration_midwife (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
+    - patient_list_declaration_nurse (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: True
+    - patient_list_declaration_school (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
+    - patient_plugin_search_no (IntegerField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 4
+    - patient_visit_approval (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: A
+    - payu_invoice_data_from_facility (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: True
+    - personal_data_agreement_consent () -> gabinet.consent
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 33884
     - postal_code (CharField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 30-438
@@ -1665,12 +2984,27 @@ Model: gabinet.facility  (Placówka - Instancja gabinetu/przychodni – ustawien
     - rodo_consent () -> gabinet.consent
       Wypelnienie: 1 (100,0%)
       Przyklady: 33885
+    - show_hiredoc_tile (NullBooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: True
+    - street (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: Borkowska
     - strict_schedules_control (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: False
     - subscription_price_group (IntegerField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 1
+    - take_visits_in_future (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False
+    - telephone (CharField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: +48123074445
+    - terms_of_use_consent () -> gabinet.consent
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 73895
     - unlimited_sms_packet_enabled (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
@@ -1680,25 +3014,34 @@ Model: gabinet.facility  (Placówka - Instancja gabinetu/przychodni – ustawien
     - work_from (TimeField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 08:00:00
+    - work_to (TimeField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 21:00:00
     - www_address (CharField)
       Wypelnienie: 1 (0,0%)
     - zl_integration_for_free_enabled (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
+    - zl_migration_enabled (NullBooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: True
 
 Model: gabinet.patientdead  (Zgon pacjenta - Data i przyczyna zgonu)
   Liczba rekordow: 1
-  Liczba pol: 2
+  Liczba pol: 3
   Pola:
     - cause (TextField)
       Wypelnienie: 1 (0,0%)
     - date (DateField)
       Wypelnienie: 1 (100,0%)
       Przyklady: 2024-10-03
+    - hour (TimeField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: 12:51:00
 
 Model: gabinet.printingsettings  (Ustawienia drukowania - Konfiguracja wydruków (np. usługi prywatne))
   Liczba rekordow: 1
-  Liczba pol: 2
+  Liczba pol: 3
   Pola:
     - facility () -> gabinet.facility
       Wypelnienie: 1 (100,0%)
@@ -1706,3 +3049,6 @@ Model: gabinet.printingsettings  (Ustawienia drukowania - Konfiguracja wydruków
     - show_private_services (BooleanField)
       Wypelnienie: 1 (100,0%)
       Przyklady: True
+    - wrapping (BooleanField)
+      Wypelnienie: 1 (100,0%)
+      Przyklady: False

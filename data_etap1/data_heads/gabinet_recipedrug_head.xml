@@ -4,39 +4,67 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.recipedrug" pk="152022688">
+    <field name="_custom_name" type="CharField"></field>
+    <field name="composition" type="TextField"></field>
     <field name="dosation" type="CharField">1.0 op.</field>
     <field name="dosation_custom_drug" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="dosation_in_words" type="CharField"></field>
     <field name="drug" rel="ManyToOneRel" to="gabinet.ver">26336412</field>
+    <field name="is_part_of_box" type="BooleanField">False</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23660443</field>
+    <field name="payment" type="CharField">100%</field>
     <field name="prescribed_place" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="recipe" rel="ManyToOneRel" to="gabinet.recipe">75217341</field>
     <field name="recommendation" type="CharField">1x1.0</field>
+    <field name="search_phrase" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="visit_date" type="DateField">2011-09-14</field>
   </object>
   <object model="gabinet.recipedrug" pk="152022689">
+    <field name="_custom_name" type="CharField"></field>
+    <field name="composition" type="TextField">Clarinase - tabl. 5 mg + 120 mg; á 10 tabl.</field>
     <field name="dosation" type="CharField">1.0 op.</field>
     <field name="dosation_custom_drug" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="dosation_in_words" type="CharField"></field>
     <field name="drug" rel="ManyToOneRel" to="gabinet.ver">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_part_of_box" type="BooleanField">False</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23667981</field>
+    <field name="payment" type="CharField">100%</field>
     <field name="prescribed_place" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="recipe" rel="ManyToOneRel" to="gabinet.recipe">75217340</field>
     <field name="recommendation" type="CharField">2x1.0</field>
+    <field name="search_phrase" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="visit_date" type="DateField">2011-09-16</field>
   </object>
   <object model="gabinet.recipedrug" pk="152022690">
+    <field name="_custom_name" type="CharField"></field>
+    <field name="composition" type="TextField"></field>
     <field name="dosation" type="CharField">1.0 op.</field>
     <field name="dosation_custom_drug" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="dosation_in_words" type="CharField"></field>
     <field name="drug" rel="ManyToOneRel" to="gabinet.ver">26101553</field>
+    <field name="is_part_of_box" type="BooleanField">False</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23667981</field>
+    <field name="payment" type="CharField">100%</field>
     <field name="prescribed_place" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="recipe" rel="ManyToOneRel" to="gabinet.recipe">75217340</field>
     <field name="recommendation" type="CharField">2 tbl rano</field>
+    <field name="search_phrase" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="visit_date" type="DateField">2011-09-16</field>
   </object>
   <object model="gabinet.recipedrug" pk="395811318">
+    <field name="_custom_name" type="CharField"></field>
+    <field name="composition" type="TextField"></field>
     <field name="dosation" type="CharField">2 op.</field>
     <field name="dosation_custom_drug" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="dosation_in_words" type="CharField"></field>
     <field name="drug" rel="ManyToOneRel" to="gabinet.ver">15552820</field>
+    <field name="is_part_of_box" type="BooleanField">False</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23654568</field>
+    <field name="payment" type="CharField">R</field>
     <field name="prescribed_place" type="CharField">L</field>
     <field name="recipe" rel="ManyToOneRel" to="gabinet.recipe">197300971</field>
     <field name="recommendation" type="CharField">1x2</field>
+    <field name="search_phrase" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="visit_date" type="DateField">2025-12-08</field>
   </object>
 </objects>

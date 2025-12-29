@@ -6,22 +6,34 @@
   <object model="gabinet.icd9" pk="8178">
     <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd9"></field>
     <field name="code" type="TextField">89.00</field>
+    <field name="date_valid_from" type="DateField">2008-07-01</field>
     <field name="date_valid_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9_status" type="CharField">A</field>
+    <field name="level" type="IntegerField">2</field>
     <field name="parent_code" type="TextField">89.0</field>
     <field name="rank" type="IntegerField">0</field>
+    <field name="title" type="TextField">Porada lekarska, konsultacja, asysta</field>
   </object>
   <object model="gabinet.icd9" pk="8178">
     <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd9"></field>
     <field name="code" type="TextField">89.00</field>
+    <field name="date_valid_from" type="DateField">2008-07-01</field>
     <field name="date_valid_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9_status" type="CharField">A</field>
+    <field name="level" type="IntegerField">2</field>
     <field name="parent_code" type="TextField">89.0</field>
     <field name="rank" type="IntegerField">0</field>
+    <field name="title" type="TextField">Porada lekarska, konsultacja, asysta</field>
   </object>
   <object model="gabinet.icd9" pk="8178">
     <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd9"></field>
     <field name="code" type="TextField">89.00</field>
+    <field name="date_valid_from" type="DateField">2008-07-01</field>
     <field name="date_valid_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9_status" type="CharField">A</field>
+    <field name="level" type="IntegerField">2</field>
     <field name="parent_code" type="TextField">89.0</field>
     <field name="rank" type="IntegerField">0</field>
+    <field name="title" type="TextField">Porada lekarska, konsultacja, asysta</field>
   </object>
 </objects>

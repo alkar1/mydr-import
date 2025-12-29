@@ -4,66 +4,126 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.profile" pk="170103">
+    <field name="active_departments" rel="ManyToManyRel" to="gabinet.department">&lt;object pk=&quot;39595&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38919&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38920&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38918&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38921&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38922&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38923&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38925&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38924&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38926&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;45825&quot;&gt;&lt;/object&gt;</field>
     <field name="actual_department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
     <field name="calendar_color" type="CharField">#ff9804</field>
+    <field name="can_copy_from_all_visits" type="BooleanField">False</field>
+    <field name="current_departmental_tag" type="CharField"></field>
+    <field name="dentition_clear" type="BooleanField">True</field>
     <field name="dentition_extended" type="BooleanField">True</field>
     <field name="department_telephone_preference" type="BooleanField">True</field>
+    <field name="dp_widget_selected_login_flow" type="SmallIntegerField">2</field>
+    <field name="has_edu_notification" type="BooleanField">True</field>
     <field name="is_aptego_on" type="BooleanField">True</field>
     <field name="ml_generate_recipes_samples" type="BooleanField">True</field>
     <field name="mobile_access" type="BooleanField">True</field>
+    <field name="news" type="BooleanField">True</field>
+    <field name="select_only_single_tooth" type="BooleanField">False</field>
     <field name="send_password_notifications" type="BooleanField">False</field>
     <field name="send_patient_visit_notifications" type="BooleanField">False</field>
     <field name="send_patient_visit_notifications_push" type="BooleanField">False</field>
+    <field name="send_visit_notifications" type="BooleanField">False</field>
+    <field name="send_visit_notifications_push" type="BooleanField">False</field>
+    <field name="sequence_separator" type="CharField">n</field>
+    <field name="session_time" type="CharField">120</field>
     <field name="show_cancelled_visits" type="BooleanField">True</field>
     <field name="show_confirmations" type="BooleanField">False</field>
+    <field name="show_public_education_leaflets" type="BooleanField">True</field>
+    <field name="show_registration_date" type="BooleanField">False</field>
+    <field name="tags" rel="ManyToManyRel" to="bot.tag">&lt;object pk=&quot;14577&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14766&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14948&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14949&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14950&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14951&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14952&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14980&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14987&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14988&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14989&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14990&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14992&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14996&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14997&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14998&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14999&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15001&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15002&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15003&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15004&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15005&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15006&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15189&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15190&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15191&quot;&gt;&lt;/object&gt;</field>
     <field name="tooltips" type="BooleanField">True</field>
     <field name="visit_patient_notification" type="BooleanField">True</field>
   </object>
   <object model="gabinet.profile" pk="171414">
+    <field name="active_departments" rel="ManyToManyRel" to="gabinet.department">&lt;object pk=&quot;38918&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38919&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38920&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38921&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38922&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38923&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38924&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38925&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38926&quot;&gt;&lt;/object&gt;</field>
     <field name="actual_department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
     <field name="calendar_color" type="CharField">#ff9804</field>
+    <field name="can_copy_from_all_visits" type="BooleanField">True</field>
+    <field name="current_departmental_tag" type="CharField"></field>
+    <field name="dentition_clear" type="BooleanField">True</field>
     <field name="dentition_extended" type="BooleanField">True</field>
     <field name="department_telephone_preference" type="BooleanField">True</field>
+    <field name="dp_widget_selected_login_flow" type="SmallIntegerField">2</field>
+    <field name="has_edu_notification" type="BooleanField">True</field>
     <field name="is_aptego_on" type="BooleanField">True</field>
     <field name="ml_generate_recipes_samples" type="BooleanField">True</field>
     <field name="mobile_access" type="BooleanField">True</field>
+    <field name="news" type="BooleanField">True</field>
+    <field name="select_only_single_tooth" type="BooleanField">False</field>
     <field name="send_password_notifications" type="BooleanField">False</field>
     <field name="send_patient_visit_notifications" type="BooleanField">False</field>
     <field name="send_patient_visit_notifications_push" type="BooleanField">False</field>
+    <field name="send_visit_notifications" type="BooleanField">False</field>
+    <field name="send_visit_notifications_push" type="BooleanField">False</field>
+    <field name="sequence_separator" type="CharField">n</field>
+    <field name="session_time" type="CharField">120</field>
     <field name="show_cancelled_visits" type="BooleanField">False</field>
     <field name="show_confirmations" type="BooleanField">False</field>
+    <field name="show_public_education_leaflets" type="BooleanField">True</field>
+    <field name="show_registration_date" type="BooleanField">False</field>
+    <field name="tags" rel="ManyToManyRel" to="bot.tag">&lt;object pk=&quot;14577&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14766&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14948&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14949&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14950&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14951&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14952&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14980&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14987&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14988&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14989&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14990&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14992&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14996&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14997&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14998&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14999&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15001&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15002&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15003&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15004&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15005&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15006&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15189&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15190&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15191&quot;&gt;&lt;/object&gt;</field>
     <field name="tooltips" type="BooleanField">True</field>
     <field name="visit_patient_notification" type="BooleanField">True</field>
   </object>
   <object model="gabinet.profile" pk="84466">
+    <field name="active_departments" rel="ManyToManyRel" to="gabinet.department">&lt;object pk=&quot;39595&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38919&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38920&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38918&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38921&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38922&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38923&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38925&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38924&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38926&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;45825&quot;&gt;&lt;/object&gt;</field>
     <field name="actual_department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
     <field name="calendar_color" type="CharField">#ff9804</field>
+    <field name="can_copy_from_all_visits" type="BooleanField">False</field>
+    <field name="current_departmental_tag" type="CharField"></field>
+    <field name="dentition_clear" type="BooleanField">True</field>
     <field name="dentition_extended" type="BooleanField">True</field>
     <field name="department_telephone_preference" type="BooleanField">True</field>
+    <field name="dp_widget_selected_login_flow" type="SmallIntegerField">2</field>
+    <field name="has_edu_notification" type="BooleanField">False</field>
     <field name="is_aptego_on" type="BooleanField">True</field>
     <field name="ml_generate_recipes_samples" type="BooleanField">True</field>
     <field name="mobile_access" type="BooleanField">True</field>
+    <field name="news" type="BooleanField">True</field>
+    <field name="select_only_single_tooth" type="BooleanField">False</field>
     <field name="send_password_notifications" type="BooleanField">False</field>
     <field name="send_patient_visit_notifications" type="BooleanField">False</field>
     <field name="send_patient_visit_notifications_push" type="BooleanField">False</field>
+    <field name="send_visit_notifications" type="BooleanField">False</field>
+    <field name="send_visit_notifications_push" type="BooleanField">False</field>
+    <field name="sequence_separator" type="CharField">n</field>
+    <field name="session_time" type="CharField">10</field>
     <field name="show_cancelled_visits" type="BooleanField">True</field>
     <field name="show_confirmations" type="BooleanField">False</field>
+    <field name="show_public_education_leaflets" type="BooleanField">True</field>
+    <field name="show_registration_date" type="BooleanField">False</field>
+    <field name="tags" rel="ManyToManyRel" to="bot.tag"></field>
     <field name="tooltips" type="BooleanField">True</field>
     <field name="visit_patient_notification" type="BooleanField">True</field>
   </object>
   <object model="gabinet.profile" pk="170522">
+    <field name="active_departments" rel="ManyToManyRel" to="gabinet.department">&lt;object pk=&quot;38918&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38919&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38920&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38921&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38922&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38923&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38924&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38925&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;38926&quot;&gt;&lt;/object&gt;</field>
     <field name="actual_department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
     <field name="calendar_color" type="CharField">#ff9804</field>
+    <field name="can_copy_from_all_visits" type="BooleanField">True</field>
+    <field name="current_departmental_tag" type="CharField"></field>
+    <field name="dentition_clear" type="BooleanField">True</field>
     <field name="dentition_extended" type="BooleanField">True</field>
     <field name="department_telephone_preference" type="BooleanField">True</field>
+    <field name="dp_widget_selected_login_flow" type="SmallIntegerField">2</field>
+    <field name="has_edu_notification" type="BooleanField">True</field>
     <field name="is_aptego_on" type="BooleanField">True</field>
     <field name="ml_generate_recipes_samples" type="BooleanField">True</field>
     <field name="mobile_access" type="BooleanField">True</field>
+    <field name="news" type="BooleanField">True</field>
+    <field name="select_only_single_tooth" type="BooleanField">False</field>
     <field name="send_password_notifications" type="BooleanField">False</field>
     <field name="send_patient_visit_notifications" type="BooleanField">False</field>
     <field name="send_patient_visit_notifications_push" type="BooleanField">False</field>
+    <field name="send_visit_notifications" type="BooleanField">False</field>
+    <field name="send_visit_notifications_push" type="BooleanField">False</field>
+    <field name="sequence_separator" type="CharField">n</field>
+    <field name="session_time" type="CharField">120</field>
     <field name="show_cancelled_visits" type="BooleanField">False</field>
     <field name="show_confirmations" type="BooleanField">False</field>
+    <field name="show_public_education_leaflets" type="BooleanField">True</field>
+    <field name="show_registration_date" type="BooleanField">False</field>
+    <field name="tags" rel="ManyToManyRel" to="bot.tag">&lt;object pk=&quot;14577&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14766&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14948&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14949&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14950&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14951&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14952&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14980&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14987&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14988&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14989&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14990&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14992&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14996&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14997&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14998&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;14999&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15001&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15002&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15003&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15004&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15005&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15006&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15189&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15190&quot;&gt;&lt;/object&gt;&lt;object pk=&quot;15191&quot;&gt;&lt;/object&gt;</field>
     <field name="tooltips" type="BooleanField">True</field>
     <field name="visit_patient_notification" type="BooleanField">True</field>
   </object>

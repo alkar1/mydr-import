@@ -4,78 +4,146 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.recipepreferences" pk="144067">
+    <field name="academic_degree" type="BooleanField">False</field>
+    <field name="address" type="CharField"></field>
     <field name="barcode_height" type="SmallIntegerField">14</field>
+    <field name="borders" type="BooleanField">True</field>
     <field name="default_365_days" type="BooleanField">False</field>
+    <field name="department_name" type="BooleanField">False</field>
     <field name="departmental_codes" type="BooleanField">False</field>
     <field name="drugs_height" type="SmallIntegerField">97</field>
+    <field name="ds_required" type="BooleanField">False</field>
+    <field name="footer_height" type="SmallIntegerField">34</field>
     <field name="header_font_size" type="DecimalField">7.0</field>
+    <field name="header_height" type="SmallIntegerField">41</field>
     <field name="header_text" type="CharField"></field>
+    <field name="info" type="BooleanField">True</field>
     <field name="margin_bottom" type="SmallIntegerField">5</field>
+    <field name="margin_left" type="SmallIntegerField">5</field>
     <field name="margin_right" type="SmallIntegerField">5</field>
+    <field name="margin_top" type="SmallIntegerField">5</field>
     <field name="nip" type="BooleanField">False</field>
     <field name="office_name" type="BooleanField">False</field>
     <field name="patient_address" type="BooleanField">True</field>
+    <field name="patient_birth_date" type="BooleanField">False</field>
+    <field name="patient_height" type="SmallIntegerField">28</field>
+    <field name="patient_pesel" type="BooleanField">True</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">170343</field>
     <field name="recipe_control" type="BooleanField">True</field>
+    <field name="recipe_height" type="SmallIntegerField">210</field>
     <field name="recipe_width" type="SmallIntegerField">99</field>
+    <field name="registry_number" type="BooleanField">False</field>
     <field name="right_col_width" type="SmallIntegerField">21</field>
+    <field name="rp_height" type="SmallIntegerField">6</field>
+    <field name="set_number_manually" type="BooleanField">False</field>
     <field name="telephone_number" type="BooleanField">False</field>
     <field name="text" type="BooleanField">True</field>
   </object>
   <object model="gabinet.recipepreferences" pk="145306">
+    <field name="academic_degree" type="BooleanField">False</field>
+    <field name="address" type="CharField"></field>
     <field name="barcode_height" type="SmallIntegerField">14</field>
+    <field name="borders" type="BooleanField">True</field>
     <field name="default_365_days" type="BooleanField">False</field>
+    <field name="department_name" type="BooleanField">False</field>
     <field name="departmental_codes" type="BooleanField">False</field>
     <field name="drugs_height" type="SmallIntegerField">97</field>
+    <field name="ds_required" type="BooleanField">False</field>
+    <field name="footer_height" type="SmallIntegerField">34</field>
     <field name="header_font_size" type="DecimalField">7.0</field>
+    <field name="header_height" type="SmallIntegerField">41</field>
     <field name="header_text" type="CharField"></field>
+    <field name="info" type="BooleanField">True</field>
     <field name="margin_bottom" type="SmallIntegerField">5</field>
+    <field name="margin_left" type="SmallIntegerField">5</field>
     <field name="margin_right" type="SmallIntegerField">5</field>
+    <field name="margin_top" type="SmallIntegerField">5</field>
     <field name="nip" type="BooleanField">False</field>
     <field name="office_name" type="BooleanField">False</field>
     <field name="patient_address" type="BooleanField">True</field>
+    <field name="patient_birth_date" type="BooleanField">False</field>
+    <field name="patient_height" type="SmallIntegerField">28</field>
+    <field name="patient_pesel" type="BooleanField">True</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">171654</field>
     <field name="recipe_control" type="BooleanField">True</field>
+    <field name="recipe_height" type="SmallIntegerField">210</field>
     <field name="recipe_width" type="SmallIntegerField">99</field>
+    <field name="registry_number" type="BooleanField">False</field>
     <field name="right_col_width" type="SmallIntegerField">21</field>
+    <field name="rp_height" type="SmallIntegerField">6</field>
+    <field name="set_number_manually" type="BooleanField">False</field>
     <field name="telephone_number" type="BooleanField">False</field>
     <field name="text" type="BooleanField">True</field>
   </object>
   <object model="gabinet.recipepreferences" pk="84123">
+    <field name="academic_degree" type="BooleanField">False</field>
+    <field name="address" type="CharField"></field>
     <field name="barcode_height" type="SmallIntegerField">14</field>
+    <field name="borders" type="BooleanField">True</field>
     <field name="default_365_days" type="BooleanField">False</field>
+    <field name="department_name" type="BooleanField">False</field>
     <field name="departmental_codes" type="BooleanField">False</field>
     <field name="drugs_height" type="SmallIntegerField">97</field>
+    <field name="ds_required" type="BooleanField">False</field>
+    <field name="footer_height" type="SmallIntegerField">34</field>
     <field name="header_font_size" type="DecimalField">7.0</field>
+    <field name="header_height" type="SmallIntegerField">41</field>
     <field name="header_text" type="CharField"></field>
+    <field name="info" type="BooleanField">True</field>
     <field name="margin_bottom" type="SmallIntegerField">5</field>
+    <field name="margin_left" type="SmallIntegerField">5</field>
     <field name="margin_right" type="SmallIntegerField">5</field>
+    <field name="margin_top" type="SmallIntegerField">5</field>
     <field name="nip" type="BooleanField">False</field>
     <field name="office_name" type="BooleanField">False</field>
     <field name="patient_address" type="BooleanField">True</field>
+    <field name="patient_birth_date" type="BooleanField">False</field>
+    <field name="patient_height" type="SmallIntegerField">28</field>
+    <field name="patient_pesel" type="BooleanField">True</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">84440</field>
     <field name="recipe_control" type="BooleanField">True</field>
+    <field name="recipe_height" type="SmallIntegerField">210</field>
     <field name="recipe_width" type="SmallIntegerField">99</field>
+    <field name="registry_number" type="BooleanField">False</field>
     <field name="right_col_width" type="SmallIntegerField">21</field>
+    <field name="rp_height" type="SmallIntegerField">6</field>
+    <field name="set_number_manually" type="BooleanField">False</field>
     <field name="telephone_number" type="BooleanField">True</field>
     <field name="text" type="BooleanField">True</field>
   </object>
   <object model="gabinet.recipepreferences" pk="144465">
+    <field name="academic_degree" type="BooleanField">False</field>
+    <field name="address" type="CharField"></field>
     <field name="barcode_height" type="SmallIntegerField">14</field>
+    <field name="borders" type="BooleanField">True</field>
     <field name="default_365_days" type="BooleanField">False</field>
+    <field name="department_name" type="BooleanField">False</field>
     <field name="departmental_codes" type="BooleanField">False</field>
     <field name="drugs_height" type="SmallIntegerField">97</field>
+    <field name="ds_required" type="BooleanField">False</field>
+    <field name="footer_height" type="SmallIntegerField">34</field>
     <field name="header_font_size" type="DecimalField">7.0</field>
+    <field name="header_height" type="SmallIntegerField">41</field>
     <field name="header_text" type="CharField"></field>
+    <field name="info" type="BooleanField">True</field>
     <field name="margin_bottom" type="SmallIntegerField">5</field>
+    <field name="margin_left" type="SmallIntegerField">5</field>
     <field name="margin_right" type="SmallIntegerField">5</field>
+    <field name="margin_top" type="SmallIntegerField">5</field>
     <field name="nip" type="BooleanField">False</field>
     <field name="office_name" type="BooleanField">False</field>
     <field name="patient_address" type="BooleanField">True</field>
+    <field name="patient_birth_date" type="BooleanField">False</field>
+    <field name="patient_height" type="SmallIntegerField">28</field>
+    <field name="patient_pesel" type="BooleanField">True</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">170762</field>
     <field name="recipe_control" type="BooleanField">True</field>
+    <field name="recipe_height" type="SmallIntegerField">210</field>
     <field name="recipe_width" type="SmallIntegerField">99</field>
+    <field name="registry_number" type="BooleanField">False</field>
     <field name="right_col_width" type="SmallIntegerField">21</field>
+    <field name="rp_height" type="SmallIntegerField">6</field>
+    <field name="set_number_manually" type="BooleanField">False</field>
     <field name="telephone_number" type="BooleanField">False</field>
     <field name="text" type="BooleanField">True</field>
   </object>

@@ -4,22 +4,34 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.genericmedicaldata" pk="7234991">
+    <field name="date" type="DateField">2025-12-08</field>
     <field name="date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="description" type="TextField">[NFZ-tyton] - 1</field>
+    <field name="icd10" type="CharField"></field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23662383</field>
     <field name="type_of_data" type="CharField">addictions</field>
   </object>
   <object model="gabinet.genericmedicaldata" pk="7235726">
+    <field name="date" type="DateField">2025-12-08</field>
     <field name="date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="description" type="TextField">[NFZ-tyton] - 1</field>
+    <field name="icd10" type="CharField"></field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23660487</field>
     <field name="type_of_data" type="CharField">addictions</field>
   </object>
   <object model="gabinet.genericmedicaldata" pk="7236375">
+    <field name="date" type="DateField">2025-12-08</field>
     <field name="date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="description" type="TextField">[NFZ-tyton] - 1</field>
+    <field name="icd10" type="CharField"></field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23663303</field>
     <field name="type_of_data" type="CharField">addictions</field>
   </object>
   <object model="gabinet.genericmedicaldata" pk="6666630">
+    <field name="date" type="DateField">1980-08-25</field>
     <field name="date_to" type="DateField">2000-08-25</field>
+    <field name="description" type="TextField">[NFZ-tyton] - 2</field>
+    <field name="icd10" type="CharField"></field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23662142</field>
     <field name="type_of_data" type="CharField">addictions</field>
   </object>

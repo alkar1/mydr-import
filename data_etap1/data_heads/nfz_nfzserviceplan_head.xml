@@ -6,45 +6,77 @@
   <object model="nfz.nfzserviceplan" pk="13065995">
     <field name="additional_data" type="CharField">SLPIPWYK      </field>
     <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="date" type="DateField">2022-07-01</field>
+    <field name="department_code" type="CharField"></field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="id_pakietu" type="IntegerField">294833</field>
+    <field name="identifier" type="IntegerField">1</field>
+    <field name="limit_department" type="DecimalField">0.0000</field>
     <field name="limit_package" type="DecimalField">4142.0000</field>
     <field name="package_code" type="CharField">01.0010.119.11</field>
+    <field name="package_name" type="CharField">BUDŻET POWIERZONY DIAGNOSTYCZNY</field>
     <field name="rsm" type="BooleanField">False</field>
     <field name="service_code" type="CharField"></field>
     <field name="service_name" type="CharField"></field>
+    <field name="unit_price" type="DecimalField">1.0000</field>
     <field name="unit_type" type="CharField">PUNKT ROZLICZENIOWY</field>
+    <field name="weight" type="DecimalField">0.0000</field>
   </object>
   <object model="nfz.nfzserviceplan" pk="14561084">
     <field name="additional_data" type="CharField">RNPIPWYK      </field>
     <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">34198</field>
+    <field name="date" type="DateField">2022-01-01</field>
+    <field name="department_code" type="CharField"></field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="id_pakietu" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="identifier" type="IntegerField">1</field>
+    <field name="limit_department" type="DecimalField">0.0000</field>
     <field name="limit_package" type="DecimalField">0.0000</field>
     <field name="package_code" type="CharField">19.0319.801.02</field>
+    <field name="package_name" type="CharField">SZCZEPIENIE PRZECIWKO SARS-COV-2 W PUNKCIE SZCZEPIEŃ BEZ TRANSPORTU PACJENTA</field>
     <field name="rsm" type="BooleanField">False</field>
     <field name="service_code" type="CharField"></field>
     <field name="service_name" type="CharField"></field>
+    <field name="unit_price" type="DecimalField">61.2400</field>
     <field name="unit_type" type="CharField">PUNKT ROZLICZENIOWY</field>
+    <field name="weight" type="DecimalField">0.0000</field>
   </object>
   <object model="nfz.nfzserviceplan" pk="14561085">
     <field name="additional_data" type="CharField">RNPIPWYK      </field>
     <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">34198</field>
+    <field name="date" type="DateField">2022-02-01</field>
+    <field name="department_code" type="CharField"></field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="id_pakietu" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="identifier" type="IntegerField">1</field>
+    <field name="limit_department" type="DecimalField">0.0000</field>
     <field name="limit_package" type="DecimalField">0.0000</field>
     <field name="package_code" type="CharField">19.0319.801.02</field>
+    <field name="package_name" type="CharField">SZCZEPIENIE PRZECIWKO SARS-COV-2 W PUNKCIE SZCZEPIEŃ BEZ TRANSPORTU PACJENTA</field>
     <field name="rsm" type="BooleanField">False</field>
     <field name="service_code" type="CharField"></field>
     <field name="service_name" type="CharField"></field>
+    <field name="unit_price" type="DecimalField">61.2400</field>
     <field name="unit_type" type="CharField">PUNKT ROZLICZENIOWY</field>
+    <field name="weight" type="DecimalField">0.0000</field>
   </object>
   <object model="nfz.nfzserviceplan" pk="19209511">
     <field name="additional_data" type="CharField">SNPIPWYKNPK1PA</field>
     <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="date" type="DateField">2025-12-01</field>
+    <field name="department_code" type="CharField">151006</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="id_pakietu" type="IntegerField">323894</field>
+    <field name="identifier" type="IntegerField">1</field>
+    <field name="limit_department" type="DecimalField">0.0000</field>
     <field name="limit_package" type="DecimalField">0.0000</field>
     <field name="package_code" type="CharField">01.0010.131.11</field>
+    <field name="package_name" type="CharField">BADANIE PRZESIEWOWE W KIERUNKU HIPERCHOLESTEROLEMII RODZINNEJ ZREALIZOWANE W RAMACH BILANSU 6-LATKA - LIPIDOGRAM</field>
     <field name="rsm" type="BooleanField">True</field>
     <field name="service_code" type="CharField">5.01.00.0000302</field>
     <field name="service_name" type="CharField">LIPIDOGRAM - BADANIE PRZESIEWOWE W KIERUNKU HIPERCHOLESTEROLEMII RODZINNEJ ZREALIZOWANE W RAMACH BILANSU 6-LATKA</field>
+    <field name="unit_price" type="DecimalField">24.9000</field>
     <field name="unit_type" type="CharField">PORADA</field>
+    <field name="weight" type="DecimalField">1.0000</field>
   </object>
 </objects>

@@ -6,41 +6,73 @@
   <object model="gabinet.nfzdeklreport" pk="300136">
     <field name="confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">70540</field>
     <field name="confirmed" type="BooleanField">False</field>
+    <field name="creation_date" type="DateTimeField">2024-03-07T11:31:13.639634</field>
+    <field name="date_active" type="DateField">2024-03-01</field>
+    <field name="declarations_count" type="IntegerField">25729</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file_confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">70539</field>
     <field name="filter_text" type="TextField"></field>
+    <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">418627</field>
     <field name="non_deleted" type="NullBooleanField">True</field>
     <field name="report_file" type="FileField">dekl/2024/03/07/DEKL_061_200705_POZ_03_2024_300136.PDX</field>
     <field name="state" type="CharField">Z</field>
+    <field name="statement" rel="ManyToOneRel" to="gabinet.nfzdeklreportstatement">42297</field>
+    <field name="verification_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">70963</field>
+    <field name="verified" type="BooleanField">False</field>
     <field name="version" type="IntegerField">1</field>
   </object>
   <object model="gabinet.nfzdeklreport" pk="327442">
     <field name="confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">107956</field>
     <field name="confirmed" type="BooleanField">False</field>
+    <field name="creation_date" type="DateTimeField">2025-10-07T12:07:28.309885</field>
+    <field name="date_active" type="DateField">2025-10-01</field>
+    <field name="declarations_count" type="IntegerField">24553</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file_confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">107955</field>
     <field name="filter_text" type="TextField"></field>
+    <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">653351</field>
     <field name="non_deleted" type="NullBooleanField">True</field>
     <field name="report_file" type="FileField">dekl/2025/10/07/DEKL_061_200705_POZ_03_2025_327442.PDX</field>
     <field name="state" type="CharField">Z</field>
+    <field name="statement" rel="ManyToOneRel" to="gabinet.nfzdeklreportstatement">64373</field>
+    <field name="verification_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">108461</field>
+    <field name="verified" type="BooleanField">False</field>
     <field name="version" type="IntegerField">1</field>
   </object>
   <object model="gabinet.nfzdeklreport" pk="307453">
     <field name="confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">81290</field>
     <field name="confirmed" type="BooleanField">False</field>
+    <field name="creation_date" type="DateTimeField">2024-09-06T16:05:32.536135</field>
+    <field name="date_active" type="DateField">2024-09-01</field>
+    <field name="declarations_count" type="IntegerField">26806</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file_confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">81289</field>
     <field name="filter_text" type="TextField"></field>
+    <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">490407</field>
     <field name="non_deleted" type="NullBooleanField">True</field>
     <field name="report_file" type="FileField">dekl/2024/09/06/DEKL_061_200705_POZ_03_2024_307453.PDX</field>
     <field name="state" type="CharField">Z</field>
+    <field name="statement" rel="ManyToOneRel" to="gabinet.nfzdeklreportstatement">48480</field>
+    <field name="verification_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">82092</field>
+    <field name="verified" type="BooleanField">False</field>
     <field name="version" type="IntegerField">1</field>
   </object>
   <object model="gabinet.nfzdeklreport" pk="321641">
     <field name="confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">99649</field>
     <field name="confirmed" type="BooleanField">False</field>
+    <field name="creation_date" type="DateTimeField">2025-06-05T14:14:08.998153</field>
+    <field name="date_active" type="DateField">2025-06-01</field>
+    <field name="declarations_count" type="IntegerField">24591</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file_confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">99648</field>
     <field name="filter_text" type="TextField"></field>
+    <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">600699</field>
     <field name="non_deleted" type="NullBooleanField">True</field>
     <field name="report_file" type="FileField">dekl/2025/06/05/DEKL_061_200705_POZ_03_2025_321641.PDX</field>
     <field name="state" type="CharField">Z</field>
+    <field name="statement" rel="ManyToOneRel" to="gabinet.nfzdeklreportstatement">59639</field>
+    <field name="verification_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">100219</field>
+    <field name="verified" type="BooleanField">False</field>
     <field name="version" type="IntegerField">1</field>
   </object>
 </objects>

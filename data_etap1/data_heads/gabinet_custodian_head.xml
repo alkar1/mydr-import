@@ -4,27 +4,43 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.custodian" pk="3033624">
+    <field name="address" rel="OneToOneRel" to="gabinet.address">162468541</field>
     <field name="date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="identity_num" type="CharField"></field>
+    <field name="identity_type" type="CharField"></field>
     <field name="name" type="CharField"></field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.patient">44720358</field>
     <field name="pesel" type="CharField"></field>
+    <field name="surname" type="CharField"></field>
   </object>
   <object model="gabinet.custodian" pk="1523280">
+    <field name="address" rel="OneToOneRel" to="gabinet.address">&lt;None&gt;&lt;/None&gt;</field>
     <field name="date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="identity_num" type="CharField"></field>
+    <field name="identity_type" type="CharField"></field>
     <field name="name" type="CharField"></field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.patient">23659283</field>
     <field name="pesel" type="CharField"></field>
+    <field name="surname" type="CharField"></field>
   </object>
   <object model="gabinet.custodian" pk="1511948">
+    <field name="address" rel="OneToOneRel" to="gabinet.address">105365857</field>
     <field name="date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="identity_num" type="CharField"></field>
+    <field name="identity_type" type="CharField"></field>
     <field name="name" type="CharField"></field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.patient">26555550</field>
     <field name="pesel" type="CharField"></field>
+    <field name="surname" type="CharField"></field>
   </object>
   <object model="gabinet.custodian" pk="1521834">
+    <field name="address" rel="OneToOneRel" to="gabinet.address">&lt;None&gt;&lt;/None&gt;</field>
     <field name="date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="identity_num" type="CharField"></field>
+    <field name="identity_type" type="CharField"></field>
     <field name="name" type="CharField"></field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.patient">23664049</field>
     <field name="pesel" type="CharField"></field>
+    <field name="surname" type="CharField"></field>
   </object>
 </objects>

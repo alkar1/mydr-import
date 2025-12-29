@@ -5,67 +5,126 @@
 <objects>
   <object model="gabinet.vaccination" pk="1195746">
     <field name="current_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="datetime" type="DateTimeField">2022-09-27T00:00:00</field>
     <field name="department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
     <field name="dose" type="CharField"></field>
     <field name="drug" type="CharField">p/grypie VAXIGRIP TETRA</field>
+    <field name="drug_ver" rel="ManyToOneRel" to="gabinet.ver">&lt;None&gt;&lt;/None&gt;</field>
     <field name="ean_override" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="expiration_date" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="external" type="BooleanField">False</field>
     <field name="funding_source" type="SmallIntegerField">8</field>
+    <field name="icd9_code" rel="ManyToManyRel" to="gabinet.icd9"></field>
+    <field name="icd9_text" type="CharField"></field>
+    <field name="note" type="TextField"></field>
+    <field name="number_of_dose" type="IntegerField">1</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23658234</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84545</field>
+    <field name="qualification" rel="ManyToOneRel" to="gabinet.vaccinationqualification">&lt;None&gt;&lt;/None&gt;</field>
     <field name="status" type="BooleanField">True</field>
     <field name="total_number_of_dose_string" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="type" rel="ManyToOneRel" to="gabinet.vaccinationtype">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="vaccination_area" type="CharField">Brak informacji</field>
+    <field name="vaccination_kind" type="CharField">Z kalendarza szczepień</field>
     <field name="vaccination_site" type="CharField"></field>
     <field name="vaccinations_schedule" rel="ManyToManyRel" to="gabinet.vaccinationsschedule"></field>
+    <field name="vaccinator" type="CharField"></field>
     <field name="vaccine_maker" type="CharField">,</field>
+    <field name="vaccine_series" type="CharField">W3E021V</field>
+    <field name="zm_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="zm_reference_val" type="BigIntegerField">0</field>
   </object>
   <object model="gabinet.vaccination" pk="1650398">
     <field name="current_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="datetime" type="DateTimeField">2023-10-02T15:30:00</field>
     <field name="department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
     <field name="dose" type="CharField">1</field>
     <field name="drug" type="CharField">VaxigripTetra 2023/2024 (inj. [zaw.], 0,5 ml, 1 amp.-strzyk. 0,5 ml (+ igła))</field>
+    <field name="drug_ver" rel="ManyToOneRel" to="gabinet.ver">26537744</field>
     <field name="ean_override" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="expiration_date" type="DateField">2024-05-31</field>
     <field name="external" type="BooleanField">False</field>
     <field name="funding_source" type="SmallIntegerField">8</field>
+    <field name="icd9_code" rel="ManyToManyRel" to="gabinet.icd9">&lt;object pk=&quot;9597&quot;&gt;&lt;/object&gt;</field>
+    <field name="icd9_text" type="CharField"></field>
+    <field name="note" type="TextField"></field>
+    <field name="number_of_dose" type="IntegerField">1</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23666855</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84459</field>
+    <field name="qualification" rel="ManyToOneRel" to="gabinet.vaccinationqualification">635502</field>
     <field name="status" type="BooleanField">True</field>
     <field name="total_number_of_dose_string" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="type" rel="ManyToOneRel" to="gabinet.vaccinationtype">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="vaccination_area" type="CharField">Iniekcja domięśniowa</field>
+    <field name="vaccination_kind" type="CharField">Z kalendarza szczepień</field>
     <field name="vaccination_site" type="CharField">Lewe ramię</field>
+    <field name="vaccinations_schedule" rel="ManyToManyRel" to="gabinet.vaccinationsschedule">&lt;object pk=&quot;3598&quot;&gt;&lt;/object&gt;</field>
+    <field name="vaccinator" type="CharField"></field>
     <field name="vaccine_maker" type="CharField">Sanofi Pasteur</field>
+    <field name="vaccine_series" type="CharField">X3E721V</field>
+    <field name="zm_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="zm_reference_val" type="BigIntegerField">0</field>
   </object>
   <object model="gabinet.vaccination" pk="2000078">
     <field name="current_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="datetime" type="DateTimeField">2024-09-27T17:21:00</field>
     <field name="department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
     <field name="dose" type="CharField">1</field>
     <field name="drug" type="CharField">VaxigripTetra 2024/2025 (inj. [zaw.], 0,5 ml, 1 amp.-strzyk. 0,5 ml (+ igła))</field>
+    <field name="drug_ver" rel="ManyToOneRel" to="gabinet.ver">26540254</field>
     <field name="ean_override" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="expiration_date" type="DateField">2025-04-30</field>
     <field name="external" type="BooleanField">False</field>
     <field name="funding_source" type="SmallIntegerField">8</field>
+    <field name="icd9_code" rel="ManyToManyRel" to="gabinet.icd9">&lt;object pk=&quot;9597&quot;&gt;&lt;/object&gt;</field>
+    <field name="icd9_text" type="CharField"></field>
+    <field name="note" type="TextField"></field>
+    <field name="number_of_dose" type="IntegerField">1</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23661336</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84459</field>
+    <field name="qualification" rel="ManyToOneRel" to="gabinet.vaccinationqualification">912639</field>
     <field name="status" type="BooleanField">True</field>
     <field name="total_number_of_dose_string" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="type" rel="ManyToOneRel" to="gabinet.vaccinationtype">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="vaccination_area" type="CharField">Iniekcja domięśniowa</field>
+    <field name="vaccination_kind" type="CharField">Z kalendarza szczepień</field>
     <field name="vaccination_site" type="CharField">Lewe ramię</field>
+    <field name="vaccinations_schedule" rel="ManyToManyRel" to="gabinet.vaccinationsschedule">&lt;object pk=&quot;10184&quot;&gt;&lt;/object&gt;</field>
+    <field name="vaccinator" type="CharField"></field>
     <field name="vaccine_maker" type="CharField">Sanofi Pasteur</field>
+    <field name="vaccine_series" type="CharField">Y3D213V</field>
+    <field name="zm_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="zm_reference_val" type="BigIntegerField">0</field>
   </object>
   <object model="gabinet.vaccination" pk="2653039">
     <field name="current_hash" type="CharField">879fd4c26a621b7c6d81c044c8179f9a</field>
+    <field name="datetime" type="DateTimeField">2025-11-24T12:24:00</field>
     <field name="department" rel="ManyToOneRel" to="gabinet.department">38921</field>
     <field name="dose" type="CharField"></field>
     <field name="drug" type="CharField">Influvac Tetra 2025/2026 (inj. dom./podsk. [zaw.], 60 µg HA/0,5ml, 1 amp.-strzyk. 0,5 ml (+ igła))</field>
+    <field name="drug_ver" rel="ManyToOneRel" to="gabinet.ver">26542343</field>
     <field name="ean_override" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="expiration_date" type="DateField">2026-04-30</field>
     <field name="external" type="BooleanField">False</field>
     <field name="funding_source" type="SmallIntegerField">7</field>
+    <field name="icd9_code" rel="ManyToManyRel" to="gabinet.icd9">&lt;object pk=&quot;9597&quot;&gt;&lt;/object&gt;</field>
+    <field name="icd9_text" type="CharField"></field>
+    <field name="note" type="TextField"></field>
+    <field name="number_of_dose" type="IntegerField">1</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44790192</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">106233</field>
+    <field name="qualification" rel="ManyToOneRel" to="gabinet.vaccinationqualification">1455496</field>
     <field name="status" type="BooleanField">True</field>
     <field name="total_number_of_dose_string" type="CharField">1</field>
+    <field name="type" rel="ManyToOneRel" to="gabinet.vaccinationtype">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="vaccination_area" type="CharField">Iniekcja domięśniowa</field>
+    <field name="vaccination_kind" type="CharField">Z kalendarza szczepień</field>
     <field name="vaccination_site" type="CharField">Lewe ramię</field>
+    <field name="vaccinations_schedule" rel="ManyToManyRel" to="gabinet.vaccinationsschedule">&lt;object pk=&quot;16661&quot;&gt;&lt;/object&gt;</field>
+    <field name="vaccinator" type="CharField"></field>
     <field name="vaccine_maker" type="CharField">Viatris Healthcare Limited</field>
+    <field name="vaccine_series" type="CharField">L13A</field>
+    <field name="zm_hash" type="CharField">879fd4c26a621b7c6d81c044c8179f9a</field>
     <field name="zm_reference_val" type="BigIntegerField">297603783754554368</field>
   </object>
 </objects>

@@ -4,46 +4,86 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.sickleave" pk="536303">
+    <field name="cancel_xml" type="TextField"></field>
+    <field name="code_1" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="code_2" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="code_3" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="code_4" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="copy_id" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date_from" type="DateField">2022-10-17</field>
+    <field name="date_of_birth" type="DateField">1968-11-26</field>
+    <field name="date_of_issue" type="DateField">2022-10-17</field>
     <field name="date_to" type="DateField">2022-10-21</field>
     <field name="disease_number" type="TextField">J06-Ostre zakażenie górnych dróg oddechowych o umiejscowieniu mnogim nieokreślonym</field>
     <field name="doc_id" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="employer_nip" type="CharField">4930261168</field>
+    <field name="esick_leave" type="CharField">NORMAL</field>
     <field name="explanation" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="for_canceled" rel="ManyToOneRel" to="gabinet.sickleave">&lt;None&gt;&lt;/None&gt;</field>
     <field name="for_previous" rel="ManyToOneRel" to="gabinet.sickleave">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="guardian_address" rel="OneToOneRel" to="gabinet.address">105207061</field>
     <field name="hospital_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hospital_date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="hospital_stay_days" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="insurer" type="CharField">4</field>
     <field name="is_leave_for_patient" type="BooleanField">True</field>
+    <field name="name" type="CharField">Bożena</field>
+    <field name="number_zla" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="passport_number" type="CharField">68112603281</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23661249</field>
+    <field name="payer_data" type="CharField">Ecard</field>
+    <field name="payer_has_pue" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="payer_id" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="payer_id_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="payer_name" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="pesel" type="CharField">68112603281</field>
+    <field name="recommendation" type="CharField">2</field>
     <field name="series_zla" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="surname" type="CharField">Ficek</field>
     <field name="under_care_date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="under_care_id" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">212190736</field>
     <field name="xml" type="TextField"></field>
   </object>
   <object model="gabinet.sickleave" pk="574844">
+    <field name="cancel_xml" type="TextField"></field>
+    <field name="code_1" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="code_2" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="code_3" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="code_4" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="copy_id" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date_from" type="DateField">2024-11-18</field>
+    <field name="date_of_birth" type="DateField">1968-11-26</field>
+    <field name="date_of_issue" type="DateField">2024-11-19</field>
     <field name="date_to" type="DateField">2024-11-22</field>
     <field name="disease_number" type="TextField">A09 - Biegunka i zapalenie żołądkowo-jelitowe o przypuszczalnie zakaźnej etiologii</field>
     <field name="doc_id" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="employer_nip" type="CharField">4930261168</field>
+    <field name="esick_leave" type="CharField">NORMAL</field>
     <field name="explanation" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="for_canceled" rel="ManyToOneRel" to="gabinet.sickleave">&lt;None&gt;&lt;/None&gt;</field>
     <field name="for_previous" rel="ManyToOneRel" to="gabinet.sickleave">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="guardian_address" rel="OneToOneRel" to="gabinet.address">151234508</field>
     <field name="hospital_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hospital_date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="hospital_stay_days" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="insurer" type="CharField">4</field>
     <field name="is_leave_for_patient" type="BooleanField">True</field>
+    <field name="name" type="CharField">Bożena</field>
+    <field name="number_zla" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="passport_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23661249</field>
+    <field name="payer_data" type="CharField">Ecard,</field>
+    <field name="payer_has_pue" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="payer_id" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="payer_id_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="payer_name" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="pesel" type="CharField">68112603281</field>
+    <field name="recommendation" type="CharField">2</field>
     <field name="series_zla" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="surname" type="CharField">Ficek</field>
     <field name="under_care_date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="under_care_id" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">321244676</field>
     <field name="xml" type="TextField"></field>
   </object>

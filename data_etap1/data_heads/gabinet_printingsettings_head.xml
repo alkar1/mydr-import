@@ -6,5 +6,6 @@
   <object model="gabinet.printingsettings" pk="21468">
     <field name="facility" rel="OneToOneRel" to="gabinet.facility">21540</field>
     <field name="show_private_services" type="BooleanField">True</field>
+    <field name="wrapping" type="BooleanField">False</field>
   </object>
 </objects>

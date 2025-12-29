@@ -4,47 +4,83 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.icd10" pk="10001">
+    <field name="abbr" type="TextField"></field>
+    <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd10"></field>
     <field name="code" type="TextField">A00</field>
     <field name="common" type="TextField"></field>
     <field name="common_type" type="CharField">nieprzewlekłe główne</field>
     <field name="descr" type="TextField">Choroba zakaźna wywołana przez Vibrio cholerae [cholera]</field>
+    <field name="descr2" type="TextField"></field>
     <field name="descr3" type="TextField"></field>
+    <field name="disease_group" type="TextField"></field>
     <field name="disease_kind" type="TextField">Choroba bakteryjna</field>
     <field name="is_cancer" type="BooleanField">False</field>
+    <field name="is_chuk" type="BooleanField">False</field>
     <field name="is_immediate" type="BooleanField">False</field>
+    <field name="is_infectious" type="BooleanField">True</field>
+    <field name="is_nfz_recognized" type="BooleanField">True</field>
+    <field name="name_latin" type="TextField">Cholerae</field>
     <field name="special" type="TextField">Choroby zakaźne</field>
+    <field name="zlk_code" type="TextField">27827</field>
   </object>
   <object model="gabinet.icd10" pk="10001">
+    <field name="abbr" type="TextField"></field>
+    <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd10"></field>
     <field name="code" type="TextField">A00</field>
     <field name="common" type="TextField"></field>
     <field name="common_type" type="CharField">nieprzewlekłe główne</field>
     <field name="descr" type="TextField">Choroba zakaźna wywołana przez Vibrio cholerae [cholera]</field>
+    <field name="descr2" type="TextField"></field>
     <field name="descr3" type="TextField"></field>
+    <field name="disease_group" type="TextField"></field>
     <field name="disease_kind" type="TextField">Choroba bakteryjna</field>
     <field name="is_cancer" type="BooleanField">False</field>
+    <field name="is_chuk" type="BooleanField">False</field>
     <field name="is_immediate" type="BooleanField">False</field>
+    <field name="is_infectious" type="BooleanField">True</field>
+    <field name="is_nfz_recognized" type="BooleanField">True</field>
+    <field name="name_latin" type="TextField">Cholerae</field>
     <field name="special" type="TextField">Choroby zakaźne</field>
+    <field name="zlk_code" type="TextField">27827</field>
   </object>
   <object model="gabinet.icd10" pk="10001">
+    <field name="abbr" type="TextField"></field>
+    <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd10"></field>
     <field name="code" type="TextField">A00</field>
     <field name="common" type="TextField"></field>
     <field name="common_type" type="CharField">nieprzewlekłe główne</field>
     <field name="descr" type="TextField">Choroba zakaźna wywołana przez Vibrio cholerae [cholera]</field>
+    <field name="descr2" type="TextField"></field>
     <field name="descr3" type="TextField"></field>
+    <field name="disease_group" type="TextField"></field>
     <field name="disease_kind" type="TextField">Choroba bakteryjna</field>
     <field name="is_cancer" type="BooleanField">False</field>
+    <field name="is_chuk" type="BooleanField">False</field>
     <field name="is_immediate" type="BooleanField">False</field>
+    <field name="is_infectious" type="BooleanField">True</field>
+    <field name="is_nfz_recognized" type="BooleanField">True</field>
+    <field name="name_latin" type="TextField">Cholerae</field>
     <field name="special" type="TextField">Choroby zakaźne</field>
+    <field name="zlk_code" type="TextField">27827</field>
   </object>
   <object model="gabinet.icd10" pk="24232">
+    <field name="abbr" type="TextField"></field>
+    <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd10"></field>
     <field name="code" type="TextField">Z98.8</field>
     <field name="common" type="TextField"></field>
     <field name="common_type" type="CharField">nieprzewlekłe główne</field>
     <field name="descr" type="TextField">Inne określone stany po zabiegach chirurgicznych</field>
+    <field name="descr2" type="TextField"></field>
     <field name="descr3" type="TextField"></field>
+    <field name="disease_group" type="TextField"></field>
     <field name="disease_kind" type="TextField"></field>
     <field name="is_cancer" type="BooleanField">False</field>
+    <field name="is_chuk" type="BooleanField">False</field>
     <field name="is_immediate" type="BooleanField">False</field>
+    <field name="is_infectious" type="BooleanField">False</field>
+    <field name="is_nfz_recognized" type="BooleanField">True</field>
+    <field name="name_latin" type="TextField"></field>
     <field name="special" type="TextField"></field>
+    <field name="zlk_code" type="TextField">46570</field>
   </object>
 </objects>

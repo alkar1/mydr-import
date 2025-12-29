@@ -4,43 +4,75 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.incaseofemergency" pk="1545623">
+    <field name="affinity" type="CharField">MATKA</field>
     <field name="city" type="CharField">NOWY SĄCZ</field>
     <field name="conditions" type="BooleanField">True</field>
+    <field name="country" type="CharField">POLSKA</field>
+    <field name="date" type="DateField">2025-05-13</field>
+    <field name="documents" type="BooleanField">True</field>
+    <field name="first_name" type="CharField">JUSTYNA</field>
     <field name="flat_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="identity_num" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="last_name" type="CharField">NAJDUCH</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44638871</field>
+    <field name="phone" type="CharField">508866855</field>
+    <field name="postal_code" type="CharField">33-300</field>
     <field name="recipes_and_referrals" type="BooleanField">True</field>
     <field name="street" type="CharField">JAMNICKA</field>
+    <field name="street_number" type="CharField">119</field>
   </object>
   <object model="gabinet.incaseofemergency" pk="515386">
+    <field name="affinity" type="CharField"></field>
     <field name="city" type="CharField">Bodzanów</field>
     <field name="conditions" type="BooleanField">True</field>
+    <field name="country" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date" type="DateField">2022-10-03</field>
+    <field name="documents" type="BooleanField">True</field>
+    <field name="first_name" type="CharField">Jachimczak</field>
     <field name="flat_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="identity_num" type="CharField"></field>
     <field name="last_name" type="CharField">Elżbieta</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23664098</field>
+    <field name="phone" type="CharField">668829185</field>
+    <field name="postal_code" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="recipes_and_referrals" type="BooleanField">False</field>
     <field name="street" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="street_number" type="CharField">187</field>
   </object>
   <object model="gabinet.incaseofemergency" pk="782600">
+    <field name="affinity" type="CharField"></field>
     <field name="city" type="CharField">Bilczyce</field>
     <field name="conditions" type="BooleanField">True</field>
+    <field name="country" type="CharField">Polska</field>
+    <field name="date" type="DateField">2023-03-10</field>
+    <field name="documents" type="BooleanField">True</field>
+    <field name="first_name" type="CharField">Patrycja</field>
     <field name="flat_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="identity_num" type="CharField">90041201009</field>
     <field name="last_name" type="CharField">Wilczek</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">30134708</field>
+    <field name="phone" type="CharField">728415153</field>
+    <field name="postal_code" type="CharField">32-420</field>
     <field name="recipes_and_referrals" type="BooleanField">True</field>
     <field name="street" type="CharField">Bilczyce</field>
+    <field name="street_number" type="CharField">21</field>
   </object>
   <object model="gabinet.incaseofemergency" pk="520230">
+    <field name="affinity" type="CharField"></field>
     <field name="city" type="CharField">Babińskiego 29  </field>
     <field name="conditions" type="BooleanField">True</field>
+    <field name="country" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date" type="DateField">2022-10-03</field>
+    <field name="documents" type="BooleanField">True</field>
+    <field name="first_name" type="CharField">MAŁGORZATA</field>
     <field name="flat_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="identity_num" type="CharField">61052510460</field>
     <field name="last_name" type="CharField">POPIOŁEK</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23654116</field>
+    <field name="phone" type="CharField">889744234</field>
+    <field name="postal_code" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="recipes_and_referrals" type="BooleanField">False</field>
     <field name="street" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="street_number" type="CharField">27\3A</field>
   </object>
 </objects>

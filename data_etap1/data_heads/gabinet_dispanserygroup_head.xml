@@ -5,18 +5,26 @@
 <objects>
   <object model="gabinet.dispanserygroup" pk="2782">
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="icd10" rel="ManyToManyRel" to="gabinet.icd10"></field>
+    <field name="name" type="CharField">Alergie - dychawica oskrzelowa</field>
     <field name="type" type="CharField">C</field>
   </object>
   <object model="gabinet.dispanserygroup" pk="2783">
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="icd10" rel="ManyToManyRel" to="gabinet.icd10"></field>
+    <field name="name" type="CharField">Alergie pokarmowe</field>
     <field name="type" type="CharField">C</field>
   </object>
   <object model="gabinet.dispanserygroup" pk="2784">
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="icd10" rel="ManyToManyRel" to="gabinet.icd10"></field>
+    <field name="name" type="CharField">Alergie skórne</field>
     <field name="type" type="CharField">C</field>
   </object>
   <object model="gabinet.dispanserygroup" pk="2822">
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="icd10" rel="ManyToManyRel" to="gabinet.icd10"></field>
+    <field name="name" type="CharField">Zniekształcenie kręgosłupa</field>
     <field name="type" type="CharField">C</field>
   </object>
 </objects>

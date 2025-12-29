@@ -5,22 +5,34 @@
 <objects>
   <object model="nfz.nfzcontractfile" pk="119371">
     <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="contract_file" type="FileField">nfz_contract_file/2025/12/05/061_200705_POZ_03_2025_14_202512051555.xml</field>
     <field name="created" type="DateTimeField">2025-12-05T16:56:49.407534</field>
+    <field name="gen_number" type="IntegerField">460590</field>
     <field name="gen_time" type="DateTimeField">2025-12-05T15:55:33</field>
+    <field name="version" type="CharField">4.1</field>
   </object>
   <object model="nfz.nfzcontractfile" pk="118860">
     <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="contract_file" type="FileField">nfz_contract_file/2025/11/20/061_200705_POZ_03_2025_13_202511191358.xml</field>
     <field name="created" type="DateTimeField">2025-11-20T09:48:28.677737</field>
+    <field name="gen_number" type="IntegerField">459339</field>
     <field name="gen_time" type="DateTimeField">2025-11-19T13:58:04</field>
+    <field name="version" type="CharField">4.1</field>
   </object>
   <object model="nfz.nfzcontractfile" pk="118011">
     <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="contract_file" type="FileField">nfz_contract_file/2025/10/24/061_200705_POZ_03_2025_12_202510231915.xml</field>
     <field name="created" type="DateTimeField">2025-10-24T07:24:35.332335</field>
+    <field name="gen_number" type="IntegerField">458467</field>
     <field name="gen_time" type="DateTimeField">2025-10-23T19:15:21</field>
+    <field name="version" type="CharField">4.1</field>
   </object>
   <object model="nfz.nfzcontractfile" pk="85335">
     <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="contract_file" type="FileField">nfz_contract_file/2022/12/25/061_200705_POZ_03_2022_5_202205041330_dJs1L6l.umx</field>
     <field name="created" type="DateTimeField">2022-05-31T00:15:31.137868</field>
+    <field name="gen_number" type="IntegerField">349898</field>
     <field name="gen_time" type="DateTimeField">2022-05-04T13:30:35</field>
+    <field name="version" type="CharField">4.0</field>
   </object>
 </objects>

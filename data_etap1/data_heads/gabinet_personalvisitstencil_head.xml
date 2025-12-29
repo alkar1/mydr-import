@@ -6,29 +6,49 @@
   <object model="gabinet.personalvisitstencil" pk="8908">
     <field name="examination" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="interview" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
     <field name="name" type="CharField">przeziębienie duże dziecko</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84440</field>
     <field name="recognition" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="recognition_description" type="TextField"></field>
+    <field name="recognitions" rel="ManyToManyRel" to="gabinet.recognition"></field>
+    <field name="recommendation" rel="ManyToOneRel" to="gabinet.personalstencil">172040</field>
     <field name="therapy" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
   </object>
   <object model="gabinet.personalvisitstencil" pk="8649">
     <field name="examination" rel="ManyToOneRel" to="gabinet.personalstencil">171644</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="interview" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
     <field name="name" type="CharField">szablon patronażowy</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84440</field>
     <field name="recognition" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="recognition_description" type="TextField"></field>
+    <field name="recognitions" rel="ManyToManyRel" to="gabinet.recognition"></field>
+    <field name="recommendation" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
     <field name="therapy" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
   </object>
   <object model="gabinet.personalvisitstencil" pk="8666">
     <field name="examination" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="interview" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
     <field name="name" type="CharField">biegunka zalecenia</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84440</field>
     <field name="recognition" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="recognition_description" type="TextField"></field>
+    <field name="recognitions" rel="ManyToManyRel" to="gabinet.recognition"></field>
+    <field name="recommendation" rel="ManyToOneRel" to="gabinet.personalstencil">172112</field>
     <field name="therapy" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
   </object>
   <object model="gabinet.personalvisitstencil" pk="12514">
     <field name="examination" rel="ManyToOneRel" to="gabinet.personalstencil">256231</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="interview" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
     <field name="name" type="CharField">Ucho - badanie otoskopowe 2</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84543</field>
     <field name="recognition" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="recognition_description" type="TextField"></field>
+    <field name="recognitions" rel="ManyToManyRel" to="gabinet.recognition"></field>
+    <field name="recommendation" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
     <field name="therapy" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
   </object>
 </objects>

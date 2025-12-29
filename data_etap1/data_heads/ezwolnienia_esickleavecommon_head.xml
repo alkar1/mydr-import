@@ -4,67 +4,123 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="ezwolnienia.esickleavecommon" pk="3162740">
+    <field name="code_1" type="CharField"></field>
     <field name="code_2" type="CharField"></field>
+    <field name="code_3" type="CharField"></field>
     <field name="code_4" type="CharField"></field>
+    <field name="creator" rel="ManyToOneRel" to="auth.user">23732824</field>
     <field name="date_of_birth" type="DateField">1994-09-06</field>
     <field name="date_of_issue" type="DateField">2022-10-04</field>
     <field name="disease_number" type="CharField">J06</field>
     <field name="doctor_name" type="CharField">Kinga</field>
+    <field name="doctor_pwz" type="CharField">3629329</field>
+    <field name="doctor_surname" type="CharField">Żarów-Skorupa</field>
+    <field name="explanation" type="CharField"></field>
     <field name="facility_address" rel="OneToOneRel" to="ezwolnienia.address">6325018</field>
     <field name="facility_nip" type="CharField">6793060743</field>
+    <field name="facility_short_name" type="CharField">Centrum Medyczne 4M</field>
     <field name="insurer" type="CharField">1</field>
+    <field name="is_care_leave" type="BooleanField">True</field>
     <field name="is_in_non_hospital" type="BooleanField">False</field>
+    <field name="name" type="CharField">Paweł</field>
+    <field name="passport_number" type="CharField"></field>
     <field name="patient_address" rel="OneToOneRel" to="ezwolnienia.address">6325019</field>
+    <field name="pesel" type="CharField">94090610034</field>
+    <field name="recommendation" type="CharField">2</field>
+    <field name="signing_time" type="DateTimeField">2022-10-04T08:26:29.078802</field>
     <field name="surname" type="CharField">Kotarba</field>
     <field name="under_care_date_of_birth" type="DateField">2021-02-19</field>
+    <field name="under_care_id" type="CharField">1</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">210109551</field>
   </object>
   <object model="ezwolnienia.esickleavecommon" pk="3153629">
+    <field name="code_1" type="CharField"></field>
     <field name="code_2" type="CharField"></field>
+    <field name="code_3" type="CharField"></field>
     <field name="code_4" type="CharField"></field>
+    <field name="creator" rel="ManyToOneRel" to="auth.user">26493191</field>
     <field name="date_of_birth" type="DateField">1981-07-02</field>
     <field name="date_of_issue" type="DateField">2022-10-03</field>
     <field name="disease_number" type="CharField">Z50</field>
     <field name="doctor_name" type="CharField">Nikoleta</field>
+    <field name="doctor_pwz" type="CharField">3596722</field>
+    <field name="doctor_surname" type="CharField">Kaszuba</field>
+    <field name="explanation" type="CharField"></field>
     <field name="facility_address" rel="OneToOneRel" to="ezwolnienia.address">6306795</field>
     <field name="facility_nip" type="CharField">6793060743</field>
+    <field name="facility_short_name" type="CharField">Poradnia Lekarza Poz Borkowska</field>
     <field name="insurer" type="CharField">1</field>
+    <field name="is_care_leave" type="BooleanField">False</field>
     <field name="is_in_non_hospital" type="BooleanField">False</field>
+    <field name="name" type="CharField">Anna</field>
+    <field name="passport_number" type="CharField"></field>
     <field name="patient_address" rel="OneToOneRel" to="ezwolnienia.address">6306796</field>
+    <field name="pesel" type="CharField">81070209603</field>
+    <field name="recommendation" type="CharField">2</field>
+    <field name="signing_time" type="DateTimeField">2022-10-03T06:56:45.432619</field>
     <field name="surname" type="CharField">Lelek-Boligłowa</field>
     <field name="under_care_date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="under_care_id" type="CharField"></field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">209975704</field>
   </object>
   <object model="ezwolnienia.esickleavecommon" pk="3155771">
+    <field name="code_1" type="CharField"></field>
     <field name="code_2" type="CharField"></field>
+    <field name="code_3" type="CharField"></field>
     <field name="code_4" type="CharField"></field>
+    <field name="creator" rel="ManyToOneRel" to="auth.user">26493191</field>
     <field name="date_of_birth" type="DateField">1970-10-15</field>
     <field name="date_of_issue" type="DateField">2022-10-03</field>
     <field name="disease_number" type="CharField">J00</field>
     <field name="doctor_name" type="CharField">Nikoleta</field>
+    <field name="doctor_pwz" type="CharField">3596722</field>
+    <field name="doctor_surname" type="CharField">Kaszuba</field>
+    <field name="explanation" type="CharField"></field>
     <field name="facility_address" rel="OneToOneRel" to="ezwolnienia.address">6311080</field>
     <field name="facility_nip" type="CharField">6793060743</field>
+    <field name="facility_short_name" type="CharField">Poradnia Lekarza Poz Borkowska</field>
     <field name="insurer" type="CharField">1</field>
+    <field name="is_care_leave" type="BooleanField">False</field>
     <field name="is_in_non_hospital" type="BooleanField">False</field>
+    <field name="name" type="CharField">Jacek</field>
+    <field name="passport_number" type="CharField"></field>
     <field name="patient_address" rel="OneToOneRel" to="ezwolnienia.address">6311081</field>
+    <field name="pesel" type="CharField">70101510713</field>
+    <field name="recommendation" type="CharField">2</field>
+    <field name="signing_time" type="DateTimeField">2022-10-03T09:37:24.426119</field>
     <field name="surname" type="CharField">Kwilarz</field>
     <field name="under_care_date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="under_care_id" type="CharField"></field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">210031104</field>
   </object>
   <object model="ezwolnienia.esickleavecommon" pk="9379983">
+    <field name="code_1" type="CharField"></field>
     <field name="code_2" type="CharField"></field>
+    <field name="code_3" type="CharField"></field>
     <field name="code_4" type="CharField"></field>
+    <field name="creator" rel="ManyToOneRel" to="auth.user">23732822</field>
     <field name="date_of_birth" type="DateField">1988-06-15</field>
     <field name="date_of_issue" type="DateField">2025-12-05</field>
     <field name="disease_number" type="CharField">J10</field>
     <field name="doctor_name" type="CharField">Agnieszka</field>
+    <field name="doctor_pwz" type="CharField">2950503</field>
+    <field name="doctor_surname" type="CharField">Nizińska</field>
+    <field name="explanation" type="CharField"></field>
     <field name="facility_address" rel="OneToOneRel" to="ezwolnienia.address">18759081</field>
     <field name="facility_nip" type="CharField">6793060743</field>
+    <field name="facility_short_name" type="CharField">Poradnia Lekarza Poz</field>
     <field name="insurer" type="CharField">1</field>
+    <field name="is_care_leave" type="BooleanField">False</field>
     <field name="is_in_non_hospital" type="BooleanField">False</field>
+    <field name="name" type="CharField">Katarzyna</field>
+    <field name="passport_number" type="CharField"></field>
     <field name="patient_address" rel="OneToOneRel" to="ezwolnienia.address">18759082</field>
+    <field name="pesel" type="CharField">88061502703</field>
+    <field name="recommendation" type="CharField">2</field>
+    <field name="signing_time" type="DateTimeField">2025-12-05T10:25:56.706244</field>
     <field name="surname" type="CharField">Mikołajczyk</field>
     <field name="under_care_date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="under_care_id" type="CharField"></field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">381831633</field>
   </object>
 </objects>

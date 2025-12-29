@@ -6,29 +6,45 @@
   <object model="ezwolnienia.esickleavecancellation" pk="42946">
     <field name="additional_info" type="TextField"></field>
     <field name="cancellation_date" type="DateField">2023-04-05</field>
+    <field name="cancellation_description" type="CharField">błąd w danych dotyczących niezdolności do pracy</field>
     <field name="cancellation_reason" type="CharField">N</field>
     <field name="creator" rel="ManyToOneRel" to="auth.user">23732842</field>
     <field name="is_notification_sent" type="BooleanField">True</field>
+    <field name="is_patient_notified" type="BooleanField">False</field>
+    <field name="place" type="CharField">Wieliczka</field>
+    <field name="visit_of_issue" rel="ManyToOneRel" to="gabinet.visit">243341989</field>
   </object>
   <object model="ezwolnienia.esickleavecancellation" pk="56315">
     <field name="additional_info" type="TextField"></field>
     <field name="cancellation_date" type="DateField">2023-12-14</field>
+    <field name="cancellation_description" type="CharField">błąd w danych płatnika składek</field>
     <field name="cancellation_reason" type="CharField">P</field>
     <field name="creator" rel="ManyToOneRel" to="auth.user">23732806</field>
     <field name="is_notification_sent" type="BooleanField">True</field>
+    <field name="is_patient_notified" type="BooleanField">False</field>
+    <field name="place" type="CharField">Kraków</field>
+    <field name="visit_of_issue" rel="ManyToOneRel" to="gabinet.visit">279755036</field>
   </object>
   <object model="ezwolnienia.esickleavecancellation" pk="65727">
     <field name="additional_info" type="TextField">Brak symbolu B</field>
     <field name="cancellation_date" type="DateField">2024-05-10</field>
+    <field name="cancellation_description" type="CharField">inny powód</field>
     <field name="cancellation_reason" type="CharField">I</field>
     <field name="creator" rel="ManyToOneRel" to="auth.user">26493436</field>
     <field name="is_notification_sent" type="BooleanField">True</field>
+    <field name="is_patient_notified" type="BooleanField">False</field>
+    <field name="place" type="CharField">Kraków</field>
+    <field name="visit_of_issue" rel="ManyToOneRel" to="gabinet.visit">296508690</field>
   </object>
   <object model="ezwolnienia.esickleavecancellation" pk="94431">
     <field name="additional_info" type="TextField">błąd  w ilości dni zwolnienia</field>
     <field name="cancellation_date" type="DateField">2025-04-07</field>
+    <field name="cancellation_description" type="CharField">błąd w danych dotyczących niezdolności do pracy</field>
     <field name="cancellation_reason" type="CharField">N</field>
     <field name="creator" rel="ManyToOneRel" to="auth.user">26493191</field>
     <field name="is_notification_sent" type="BooleanField">True</field>
+    <field name="is_patient_notified" type="BooleanField">False</field>
+    <field name="place" type="CharField">Kraków-Podgórze</field>
+    <field name="visit_of_issue" rel="ManyToOneRel" to="gabinet.visit">341221810</field>
   </object>
 </objects>

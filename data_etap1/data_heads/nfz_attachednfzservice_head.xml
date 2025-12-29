@@ -7,48 +7,84 @@
     <field name="identifier" type="IntegerField">2</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="jgp_tariff" type="DecimalField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="location" type="CharField"></field>
+    <field name="nfz_state" type="CharField">D</field>
+    <field name="non_deleted" type="NullBooleanField">True</field>
     <field name="package_code" type="CharField">01.0010.994.01</field>
+    <field name="package_name" type="CharField">ŚWIADCZENIA LEKARZA POZ - PORADY ZWIĄZANE Z WYDANIEM KARTY DIAGNOSTYKI I LECZENIA ONKOLOGICZNEGO</field>
     <field name="quantity" type="DecimalField">1.0000</field>
     <field name="service_code" type="CharField">5.01.00.0000001</field>
     <field name="service_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service_date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service_name" type="CharField">PORADA LEKARSKA ZWIĄZANA Z WYDANIEM KARTY DILO</field>
+    <field name="service_plan" rel="ManyToOneRel" to="nfz.nfzserviceplan">13064664</field>
+    <field name="service_type" type="CharField">01</field>
     <field name="special_settlement_codes" rel="ManyToManyRel" to="nfz.specialsettlementcode"></field>
     <field name="version_number" type="IntegerField">1</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">210369948</field>
+    <field name="was_student" type="BooleanField">False</field>
   </object>
   <object model="nfz.attachednfzservice" pk="30449456">
     <field name="identifier" type="IntegerField">2</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="jgp_tariff" type="DecimalField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="location" type="CharField"></field>
+    <field name="nfz_state" type="CharField">D</field>
+    <field name="non_deleted" type="NullBooleanField">True</field>
     <field name="package_code" type="CharField">01.0010.994.01</field>
+    <field name="package_name" type="CharField">ŚWIADCZENIA LEKARZA POZ - PORADY ZWIĄZANE Z WYDANIEM KARTY DIAGNOSTYKI I LECZENIA ONKOLOGICZNEGO</field>
     <field name="quantity" type="DecimalField">1.0000</field>
     <field name="service_code" type="CharField">5.01.00.0000001</field>
     <field name="service_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service_date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service_name" type="CharField">PORADA LEKARSKA ZWIĄZANA Z WYDANIEM KARTY DILO</field>
+    <field name="service_plan" rel="ManyToOneRel" to="nfz.nfzserviceplan">13064664</field>
+    <field name="service_type" type="CharField">01</field>
     <field name="special_settlement_codes" rel="ManyToManyRel" to="nfz.specialsettlementcode"></field>
     <field name="version_number" type="IntegerField">1</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">210371422</field>
+    <field name="was_student" type="BooleanField">False</field>
   </object>
   <object model="nfz.attachednfzservice" pk="32434781">
     <field name="identifier" type="IntegerField">2</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="jgp_tariff" type="DecimalField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="location" type="CharField"></field>
+    <field name="nfz_state" type="CharField">D</field>
+    <field name="non_deleted" type="NullBooleanField">True</field>
     <field name="package_code" type="CharField">01.0010.994.01</field>
+    <field name="package_name" type="CharField">ŚWIADCZENIA LEKARZA POZ - PORADY ZWIĄZANE Z WYDANIEM KARTY DIAGNOSTYKI I LECZENIA ONKOLOGICZNEGO</field>
     <field name="quantity" type="DecimalField">1.0000</field>
     <field name="service_code" type="CharField">5.01.00.0000001</field>
     <field name="service_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service_date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service_name" type="CharField">PORADA LEKARSKA ZWIĄZANA Z WYDANIEM KARTY DILO</field>
+    <field name="service_plan" rel="ManyToOneRel" to="nfz.nfzserviceplan">13064666</field>
+    <field name="service_type" type="CharField">01</field>
     <field name="special_settlement_codes" rel="ManyToManyRel" to="nfz.specialsettlementcode"></field>
     <field name="version_number" type="IntegerField">1</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">218202445</field>
+    <field name="was_student" type="BooleanField">False</field>
   </object>
   <object model="nfz.attachednfzservice" pk="97409177">
     <field name="identifier" type="IntegerField">1</field>
     <field name="is_deleted" type="BooleanField">False</field>
     <field name="jgp_tariff" type="DecimalField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="location" type="CharField"></field>
+    <field name="nfz_state" type="CharField">A</field>
+    <field name="non_deleted" type="NullBooleanField">True</field>
     <field name="package_code" type="CharField">01.0034.010.01</field>
+    <field name="package_name" type="CharField">ŚWIADCZENIA POŁOŻNEJ POZ</field>
     <field name="quantity" type="DecimalField">1.0000</field>
     <field name="service_code" type="CharField">5.01.00.0000294</field>
     <field name="service_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service_date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service_name" type="CharField">PORADA POŁOŻNEJ</field>
+    <field name="service_plan" rel="ManyToOneRel" to="nfz.nfzserviceplan">18856271</field>
+    <field name="service_type" type="CharField">01</field>
     <field name="special_settlement_codes" rel="ManyToManyRel" to="nfz.specialsettlementcode"></field>
     <field name="version_number" type="IntegerField">1</field>
     <field name="visit" rel="ManyToOneRel" to="gabinet.visit">362505089</field>
+    <field name="was_student" type="BooleanField">False</field>
   </object>
 </objects>

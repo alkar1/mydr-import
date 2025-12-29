@@ -4,47 +4,83 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.ver" pk="26104408">
+    <field name="are_minor_values_up_to_date" type="BooleanField">False</field>
     <field name="bloz7" type="TextField">8045511</field>
+    <field name="box" type="TextField">14 szt.</field>
+    <field name="box_value" type="IntegerField">14</field>
     <field name="dose" type="TextField">500 mg</field>
     <field name="dose_value" type="FloatField">500.0</field>
+    <field name="ean13" type="TextField">5909991030117</field>
     <field name="group_id" type="IntegerField">25956915</field>
     <field name="is_up_to_date" type="BooleanField">False</field>
+    <field name="kind" type="TextField">tabl. powl.</field>
     <field name="name_html" type="TextField">Klarmin&amp;lt;sup&amp;gt;®&amp;lt;/sup&amp;gt;</field>
+    <field name="name_text" type="TextField">Klarmin®</field>
     <field name="nw_version_id" type="IntegerField">3213937</field>
     <field name="reg" type="TextField">10301</field>
     <field name="register_date" type="TextField"></field>
+    <field name="register_id" type="IntegerField">1</field>
+    <field name="route_id" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="status_id" type="IntegerField">10</field>
   </object>
   <object model="gabinet.ver" pk="26102158">
+    <field name="are_minor_values_up_to_date" type="BooleanField">False</field>
     <field name="bloz7" type="TextField">5888901</field>
+    <field name="box" type="TextField">10 szt.</field>
+    <field name="box_value" type="IntegerField">10</field>
     <field name="dose" type="TextField">600 mg</field>
     <field name="dose_value" type="FloatField">600.0</field>
+    <field name="ean13" type="TextField">5909990691012</field>
     <field name="group_id" type="IntegerField">25966062</field>
     <field name="is_up_to_date" type="BooleanField">False</field>
+    <field name="kind" type="TextField">tabl. mus.</field>
     <field name="name_html" type="TextField">ACC&amp;lt;sup&amp;gt;®&amp;lt;/sup&amp;gt; Optima</field>
+    <field name="name_text" type="TextField">ACC® Optima</field>
     <field name="nw_version_id" type="IntegerField">16636517</field>
     <field name="reg" type="TextField">6910</field>
     <field name="register_date" type="TextField">2012-10-12</field>
+    <field name="register_id" type="IntegerField">2</field>
+    <field name="route_id" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="status_id" type="IntegerField">17</field>
   </object>
   <object model="gabinet.ver" pk="26120334">
+    <field name="are_minor_values_up_to_date" type="BooleanField">False</field>
     <field name="bloz7" type="TextField">3683914</field>
+    <field name="box" type="TextField">24 szt.</field>
+    <field name="box_value" type="IntegerField">24</field>
     <field name="dose" type="TextField">400 mg</field>
     <field name="dose_value" type="FloatField">400.0</field>
+    <field name="ean13" type="TextField">5909990970032</field>
     <field name="group_id" type="IntegerField">25988153</field>
     <field name="is_up_to_date" type="BooleanField">False</field>
+    <field name="kind" type="TextField">tabl. draż.</field>
     <field name="name_html" type="TextField">Ibuprom&amp;lt;sup&amp;gt;®&amp;lt;/sup&amp;gt; Max</field>
+    <field name="name_text" type="TextField">Ibuprom® Max</field>
     <field name="nw_version_id" type="IntegerField">27707278</field>
     <field name="reg" type="TextField">9700</field>
     <field name="register_date" type="TextField"></field>
+    <field name="register_id" type="IntegerField">1</field>
+    <field name="route_id" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="status_id" type="IntegerField">17</field>
   </object>
   <object model="gabinet.ver" pk="26533202">
+    <field name="are_minor_values_up_to_date" type="BooleanField">False</field>
     <field name="bloz7" type="TextField">8987501</field>
+    <field name="box" type="TextField">1 but. 120 ml</field>
+    <field name="box_value" type="IntegerField">120</field>
     <field name="dose" type="TextField">1 mg/ml</field>
     <field name="dose_value" type="FloatField">1.0</field>
+    <field name="ean13" type="TextField">5909990991921</field>
     <field name="group_id" type="IntegerField">25987061</field>
     <field name="is_up_to_date" type="BooleanField">False</field>
+    <field name="kind" type="TextField">roztw. doust.</field>
     <field name="name_html" type="TextField">Rupafin&amp;lt;sup&amp;gt;®&amp;lt;/sup&amp;gt;</field>
+    <field name="name_text" type="TextField">Rupafin®</field>
     <field name="nw_version_id" type="IntegerField">44650900</field>
     <field name="reg" type="TextField">20340</field>
     <field name="register_date" type="TextField"></field>
+    <field name="register_id" type="IntegerField">1</field>
+    <field name="route_id" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="status_id" type="IntegerField">10</field>
   </object>
 </objects>

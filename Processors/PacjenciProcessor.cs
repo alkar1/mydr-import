@@ -29,6 +29,14 @@ public class PacjenciProcessor : BaseModelProcessor
     private Dictionary<string, Dictionary<string, string>>? _deadCache;       // Zgon pacjenta
     private Dictionary<string, List<string>>? _notesCache;                    // Notatki pacjenta
 
+    // Slownik mapowania typu dokumentu tozsamosci (5.4)
+    private static readonly Dictionary<string, string> DocTypeMap = new(StringComparer.OrdinalIgnoreCase)
+    {
+        { "id_card", "D" },
+        { "passport", "P" },
+        { "driving_license", "PR" }
+    };
+
     /// <summary>
     /// Mapowanie nazw pol z arkusza Excel na nazwy pol XML dla pacjentow
     /// Zrodlo mapowan: data_etap1/xml_structure_summary.json
@@ -63,9 +71,8 @@ public class PacjenciProcessor : BaseModelProcessor
         // Flagi
         { "Aktywny", "is_active" },
         
-        // Adresy zamieszkania (z gabinet.address przez residence_address)
-        { "NrDomuZamieszkanie", "address_house" },
-        { "NrMieszkaniaZamieszkanie", "address_flat" },
+        // Numer pacjenta
+        { "NumerPacjenta", "user" },
     };
 
     public override CsvGenerationResult Process(string dataEtap1Path, string dataEtap2Path, ModelMapping mapping)
@@ -344,6 +351,7 @@ public class PacjenciProcessor : BaseModelProcessor
             }
 
             string? residenceAddressId = null;
+            string? registrationAddressId = null;
 
             // Pobierz wszystkie pola
             foreach (var field in obj.Elements("field"))
@@ -364,33 +372,31 @@ public class PacjenciProcessor : BaseModelProcessor
                 {
                     residenceAddressId = value;
                 }
+                // Zapamietaj ID adresu zameldowania
+                if (name == "registration_address" && !string.IsNullOrEmpty(value))
+                {
+                    registrationAddressId = value;
+                }
             }
 
-            // Dodaj dane adresowe z cache (zamieszkanie)
-            if (!string.IsNullOrEmpty(residenceAddressId) && _addressCache != null && 
-                _addressCache.TryGetValue(residenceAddressId, out var address))
+            // Dodaj dane adresowe z cache (zameldowanie - registration_address)
+            if (!string.IsNullOrEmpty(registrationAddressId) && _addressCache != null && 
+                _addressCache.TryGetValue(registrationAddressId, out var regAddress))
             {
-                if (address.TryGetValue("city", out var city))
-                    record["address_city"] = city;
-                if (address.TryGetValue("street", out var street))
-                {
-                    // Parsuj ulice i numer domu jesli sa razem (np. "Wielicka 15")
-                    var (parsedStreet, parsedHouse) = ParseStreetAndNumber(street);
-                    record["address_street"] = parsedStreet;
-                    if (!string.IsNullOrEmpty(parsedHouse))
-                        record["address_house"] = parsedHouse;
-                }
-                // UWAGA: W danych zrodlowych flat_number czesto zawiera numer DOMU, nie mieszkania
-                // Wstawiamy go do address_house jesli jeszcze pusty
-                if (address.TryGetValue("flat_number", out var flat) && !string.IsNullOrEmpty(flat))
-                {
-                    if (string.IsNullOrEmpty(record.GetValueOrDefault("address_house")))
-                        record["address_house"] = flat;
-                    else
-                        record["address_flat"] = flat; // Jesli mamy juz numer domu, to flat idzie do mieszkania
-                }
-                if (address.TryGetValue("country", out var addrCountry))
-                    record["address_country"] = addrCountry;
+                ExtractAddressFields(regAddress, record, "reg_");
+            }
+
+            // Dodaj dane adresowe z cache (zamieszkanie - residence_address)
+            if (!string.IsNullOrEmpty(residenceAddressId) && _addressCache != null && 
+                _addressCache.TryGetValue(residenceAddressId, out var resAddress))
+            {
+                ExtractAddressFields(resAddress, record, "res_");
+            }
+            // Fallback: jesli brak adresu zamieszkania, uzyj adresu zameldowania
+            else if (!string.IsNullOrEmpty(registrationAddressId) && _addressCache != null && 
+                _addressCache.TryGetValue(registrationAddressId, out var fallbackAddress))
+            {
+                ExtractAddressFields(fallbackAddress, record, "res_");
             }
 
             // Dodaj dane opiekuna (ICE) z cache
@@ -470,22 +476,87 @@ public class PacjenciProcessor : BaseModelProcessor
         // VIP - mapowane z takes_part_in_loyalty_program
         if (sourceField.Equals("VIP", StringComparison.OrdinalIgnoreCase))
         {
-            if (record.TryGetValue("takes_part_in_loyalty_program", out var vip))
+            if (record.TryGetValue("vip", out var vip))
                 return vip.Equals("True", StringComparison.OrdinalIgnoreCase) ? "1" : "0";
             return "0";
         }
 
-        // Pola adresowe - zamieszkanie
-        if (sourceField.Equals("MiejscowoscZamieszkanie", StringComparison.OrdinalIgnoreCase))
-            return record.TryGetValue("address_city", out var v1) ? v1 : "";
-        if (sourceField.Equals("UlicaZamieszkanie", StringComparison.OrdinalIgnoreCase))
-            return record.TryGetValue("address_street", out var v2) ? v2 : "";
-        if (sourceField.Equals("NrDomuZamieszkanie", StringComparison.OrdinalIgnoreCase))
-            return record.TryGetValue("address_house", out var v2h) ? v2h : "";
-        if (sourceField.Equals("NrMieszkaniaZamieszkanie", StringComparison.OrdinalIgnoreCase))
-            return record.TryGetValue("address_flat", out var v3) ? v3 : "";
+        // Uchodzca - z pola is_refugee
+        if (sourceField.Equals("Uchodzca", StringComparison.OrdinalIgnoreCase))
+        {
+            if (record.TryGetValue("is_refugee", out var refugee))
+                return refugee.Equals("True", StringComparison.OrdinalIgnoreCase) ? "1" : "0";
+            return "0";
+        }
+
+        // Wartosci domyslne wg dokumentacji (sekcja 4.3)
+        if (sourceField.Equals("RodzajPacjenta", StringComparison.OrdinalIgnoreCase))
+            return "1"; // osoba fizyczna
+        if (sourceField.Equals("KrajDokumentuTozsamosciKod", StringComparison.OrdinalIgnoreCase))
+            return "PL";
+        if (sourceField.Equals("SprawdzUnikalnoscIdImportu", StringComparison.OrdinalIgnoreCase))
+            return "1";
+        if (sourceField.Equals("SprawdzUnikalnoscPesel", StringComparison.OrdinalIgnoreCase))
+            return "0";
+        if (sourceField.Equals("AktualizujPoPesel", StringComparison.OrdinalIgnoreCase))
+            return "0";
+
+        // UprawnieniePacjenta - z pola rights z usunieciem "X"
+        if (sourceField.Equals("UprawnieniePacjenta", StringComparison.OrdinalIgnoreCase))
+        {
+            if (record.TryGetValue("rights", out var rights) && !string.IsNullOrEmpty(rights))
+            {
+                var cleaned = rights.Replace("X", "").Replace("x", "").Trim();
+                return cleaned;
+            }
+            return "";
+        }
+
+        // TypDokumentuTozsamosci - mapowanie z identity_type
+        if (sourceField.Equals("TypDokumentuTozsamosci", StringComparison.OrdinalIgnoreCase))
+        {
+            if (record.TryGetValue("identity_type", out var idType) && !string.IsNullOrEmpty(idType))
+            {
+                return DocTypeMap.TryGetValue(idType, out var mapped) ? mapped : idType;
+            }
+            return "";
+        }
+
+        // Pola adresowe - zameldowanie (registration_address)
+        if (sourceField.Equals("KrajZameldowanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("reg_country", out var rc) ? MapCountryCode(rc) : "PL";
+        if (sourceField.Equals("WojewodztwoZameldowanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("reg_province", out var rp) ? rp : "";
+        if (sourceField.Equals("KodTerytGminyZameldowanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("reg_teryt", out var rt) ? rt : "";
+        if (sourceField.Equals("MiejscowoscZameldowanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("reg_city", out var rci) ? rci : "";
+        if (sourceField.Equals("KodPocztowyZameldowanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("reg_postal_code", out var rpc) ? rpc : "";
+        if (sourceField.Equals("UlicaZameldowanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("reg_street", out var rs) ? rs : "";
+        if (sourceField.Equals("NrDomuZameldowanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("reg_street_number", out var rsn) ? rsn : "";
+        if (sourceField.Equals("NrMieszkaniaZameldowanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("reg_flat_number", out var rfn) ? rfn : "";
+
+        // Pola adresowe - zamieszkanie (residence_address)
         if (sourceField.Equals("KrajZamieszkanie", StringComparison.OrdinalIgnoreCase))
-            return record.TryGetValue("address_country", out var v4) ? v4 : "";
+            return record.TryGetValue("res_country", out var zc) ? MapCountryCode(zc) : "PL";
+        if (sourceField.Equals("WojewodztwoZamieszkanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("res_province", out var zp) ? zp : "";
+        if (sourceField.Equals("KodTerytGminyZamieszkanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("res_teryt", out var zt) ? zt : "";
+        if (sourceField.Equals("MiejscowoscZamieszkanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("res_city", out var zci) ? zci : "";
+        if (sourceField.Equals("KodPocztowyZamieszkanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("res_postal_code", out var zpc) ? zpc : "";
+        if (sourceField.Equals("UlicaZamieszkanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("res_street", out var zs) ? zs : "";
+        if (sourceField.Equals("NrDomuZamieszkanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("res_street_number", out var zsn) ? zsn : "";
+        if (sourceField.Equals("NrMieszkaniaZamieszkanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("res_flat_number", out var zfn) ? zfn : "";
 
         // Dane opiekuna (ICE - In Case of Emergency)
         if (sourceField.Equals("NazwiskoOpiekuna", StringComparison.OrdinalIgnoreCase))
@@ -583,6 +654,54 @@ public class PacjenciProcessor : BaseModelProcessor
         {
             return "";
         }
+    }
+
+    /// <summary>
+    /// Wyodrebnia pola adresowe i dodaje do rekordu z podanym prefiksem
+    /// </summary>
+    private void ExtractAddressFields(Dictionary<string, string> address, Dictionary<string, string> record, string prefix)
+    {
+        if (address.TryGetValue("city", out var city))
+            record[$"{prefix}city"] = city;
+        if (address.TryGetValue("street", out var street))
+            record[$"{prefix}street"] = street;
+        if (address.TryGetValue("street_number", out var streetNum))
+            record[$"{prefix}street_number"] = streetNum;
+        if (address.TryGetValue("flat_number", out var flatNum))
+            record[$"{prefix}flat_number"] = flatNum;
+        if (address.TryGetValue("postal_code", out var postalCode))
+            record[$"{prefix}postal_code"] = postalCode;
+        if (address.TryGetValue("province", out var province))
+            record[$"{prefix}province"] = province;
+        if (address.TryGetValue("teryt", out var teryt))
+            record[$"{prefix}teryt"] = teryt;
+        if (address.TryGetValue("country", out var country))
+            record[$"{prefix}country"] = country;
+    }
+
+    /// <summary>
+    /// Mapuje kod kraju na format wymagany przez system docelowy
+    /// </summary>
+    private string MapCountryCode(string country)
+    {
+        if (string.IsNullOrEmpty(country))
+            return "PL";
+        
+        // Jesli juz jest kodem ISO, zwroc uppercase
+        if (country.Length == 2)
+            return country.ToUpper();
+        
+        // Mapowanie pelnych nazw na kody
+        return country.ToLower() switch
+        {
+            "polska" => "PL",
+            "poland" => "PL",
+            "niemcy" => "DE",
+            "germany" => "DE",
+            "ukraina" => "UA",
+            "ukraine" => "UA",
+            _ => country.ToUpper()
+        };
     }
 
     /// <summary>

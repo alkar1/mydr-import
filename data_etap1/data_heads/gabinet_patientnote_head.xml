@@ -4,27 +4,39 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.patientnote" pk="1549662">
+    <field name="addition_date" type="DateField">2022-05-07</field>
     <field name="author" rel="ManyToOneRel" to="gabinet.person">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_important" type="BooleanField">False</field>
     <field name="is_medical_data" type="NullBooleanField">False</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23659601</field>
+    <field name="text" type="TextField">PRACOWNIA ANALITYCZNA, TEST:ALERGIA</field>
     <field name="title" type="CharField">Inne</field>
   </object>
   <object model="gabinet.patientnote" pk="1549697">
+    <field name="addition_date" type="DateField">2022-05-07</field>
     <field name="author" rel="ManyToOneRel" to="gabinet.person">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_important" type="BooleanField">False</field>
     <field name="is_medical_data" type="NullBooleanField">False</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23662254</field>
+    <field name="text" type="TextField">ZAŚWIADCZENIE LEKARSKIE</field>
     <field name="title" type="CharField">Inne</field>
   </object>
   <object model="gabinet.patientnote" pk="2947399">
+    <field name="addition_date" type="DateField">2025-11-18</field>
     <field name="author" rel="ManyToOneRel" to="gabinet.person">84459</field>
+    <field name="is_important" type="BooleanField">True</field>
     <field name="is_medical_data" type="NullBooleanField">False</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">29339629</field>
+    <field name="text" type="TextField">SCORE2 12% - ryzyko bardzo duże</field>
     <field name="title" type="CharField">Ryzyko SN</field>
   </object>
   <object model="gabinet.patientnote" pk="2944477">
+    <field name="addition_date" type="DateField">2025-11-10</field>
     <field name="author" rel="ManyToOneRel" to="gabinet.person">85946</field>
+    <field name="is_important" type="BooleanField">False</field>
     <field name="is_medical_data" type="NullBooleanField">False</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23666650</field>
+    <field name="text" type="TextField">W dn 10.11. wizyta odbyta za zgoda lekarza  ( dr Bodziony ) w obecności brata  - bez upoważnienia rodziców. W ciągu dwóch tyg rodzice mają donieść odpowiedni dokument.</field>
     <field name="title" type="CharField">Wizyta w obecności brata</field>
   </object>
 </objects>

@@ -46,6 +46,19 @@ public class XmlStructureAnalyzer
         _fullDataOutputDir = fullDataOutputDir;
         if (_fullDataOutputDir != null)
         {
+            // Usun stary folder jesli istnieje (aby uniknac blokad plikow)
+            if (Directory.Exists(_fullDataOutputDir))
+            {
+                try
+                {
+                    Directory.Delete(_fullDataOutputDir, true);
+                    Console.WriteLine($"Usunieto stary folder: {_fullDataOutputDir}");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Ostrzezenie: Nie mozna usunac starego folderu: {ex.Message}");
+                }
+            }
             Directory.CreateDirectory(_fullDataOutputDir);
             Console.WriteLine($"Zapis pelnych danych do: {_fullDataOutputDir}");
         }
@@ -116,8 +129,19 @@ public class XmlStructureAnalyzer
 
                     if (!string.IsNullOrEmpty(fieldName))
                     {
-                        // Odczytaj wartosc pola
-                        var fieldValue = reader.ReadInnerXml();
+                        // Odczytaj wartosc pola - uzyj ReadSubtree aby nie przeskakiwac elementow
+                        string fieldValue;
+                        if (reader.IsEmptyElement)
+                        {
+                            fieldValue = "";
+                        }
+                        else
+                        {
+                            // Przeczytaj zawartosc bez przeskakiwania dalszych elementow
+                            using var subtree = reader.ReadSubtree();
+                            subtree.Read(); // przejdz do elementu field
+                            fieldValue = subtree.ReadInnerXml();
+                        }
                         currentFields[fieldName] = (fieldValue, fieldType, fieldRel, fieldRelTo);
                     }
                 }

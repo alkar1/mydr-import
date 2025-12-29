@@ -4,35 +4,59 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="nfz.nfzcontract" pk="31558">
+    <field name="active_from" type="DateField">2022-01-01</field>
     <field name="active_to" type="DateField">2022-12-31</field>
+    <field name="code" type="CharField">061/200705/POZ/03/2022</field>
     <field name="delegation_settling" type="CharField">0006</field>
+    <field name="deletion_time" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="is_deleted" type="BooleanField">False</field>
+    <field name="nfz_department" type="CharField">06</field>
+    <field name="owner_name" type="CharField">Centrum Medyczne 4M spółka z ograniczoną odpowiedzialnością</field>
     <field name="primal_code" type="CharField"></field>
+    <field name="provider_code" type="CharField">061/200705</field>
     <field name="service_type" type="CharField">01</field>
   </object>
   <object model="nfz.nfzcontract" pk="32699">
+    <field name="active_from" type="DateField">2023-01-01</field>
     <field name="active_to" type="DateField">2023-12-31</field>
+    <field name="code" type="CharField">061/200705/POZ/03/2023</field>
     <field name="delegation_settling" type="CharField">0006</field>
+    <field name="deletion_time" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="is_deleted" type="BooleanField">False</field>
+    <field name="nfz_department" type="CharField">06</field>
+    <field name="owner_name" type="CharField">Centrum Medyczne 4M spółka z ograniczoną odpowiedzialnością</field>
     <field name="primal_code" type="CharField"></field>
+    <field name="provider_code" type="CharField">061/200705</field>
     <field name="service_type" type="CharField">01</field>
   </object>
   <object model="nfz.nfzcontract" pk="33919">
+    <field name="active_from" type="DateField">2023-01-01</field>
     <field name="active_to" type="DateField">2023-12-31</field>
+    <field name="code" type="CharField">061/200705/COV/2023/S</field>
     <field name="delegation_settling" type="CharField">0006</field>
+    <field name="deletion_time" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="is_deleted" type="BooleanField">False</field>
+    <field name="nfz_department" type="CharField">06</field>
+    <field name="owner_name" type="CharField">Centrum Medyczne 4M spółka z ograniczoną odpowiedzialnością</field>
     <field name="primal_code" type="CharField"></field>
+    <field name="provider_code" type="CharField">061/200705</field>
     <field name="service_type" type="CharField">19</field>
   </object>
   <object model="nfz.nfzcontract" pk="36866">
+    <field name="active_from" type="DateField">2025-01-01</field>
     <field name="active_to" type="DateField">2025-12-31</field>
+    <field name="code" type="CharField">061/200705/POZ/03/2025</field>
     <field name="delegation_settling" type="CharField">0006</field>
+    <field name="deletion_time" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
     <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
     <field name="is_deleted" type="BooleanField">False</field>
+    <field name="nfz_department" type="CharField">06</field>
+    <field name="owner_name" type="CharField">Centrum Medyczne 4M spółka z ograniczoną odpowiedzialnością</field>
     <field name="primal_code" type="CharField"></field>
+    <field name="provider_code" type="CharField">061/200705</field>
     <field name="service_type" type="CharField">01</field>
   </object>
 </objects>

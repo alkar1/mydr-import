@@ -4,35 +4,60 @@
 <!-- Pierwsze 3 rekordy + ostatni rekord -->
 <objects>
   <object model="gabinet.imagingtest" pk="1778507">
+    <field name="attachment_url" type="TextField"></field>
     <field name="attachments" rel="ManyToManyRel" to="gabinet.documents"></field>
     <field name="date" type="DateTimeField">2016-08-31T00:00:00</field>
+    <field name="examination" type="TextField">kartoteka</field>
+    <field name="examination_type" type="CharField">RTG klatki piersiowej P-A + bok L</field>
     <field name="external_request" rel="ManyToOneRel" to="external_labs.externallabexaminationsrequest">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hl7" rel="ManyToOneRel" to="gabinet.documents">&lt;None&gt;&lt;/None&gt;</field>
     <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">&lt;None&gt;&lt;/None&gt;</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23666453</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">84449</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175189444</field>
   </object>
   <object model="gabinet.imagingtest" pk="1774721">
+    <field name="attachment_url" type="TextField"></field>
     <field name="attachments" rel="ManyToManyRel" to="gabinet.documents"></field>
     <field name="date" type="DateTimeField">2015-06-17T00:00:00</field>
+    <field name="examination" type="TextField">opia testowy
+opia testowy
+opia testowy
+v
+opia testowy
+v</field>
+    <field name="examination_type" type="CharField">USG brzucha i przestrzeni zaotrzewnowej (88.761)</field>
     <field name="external_request" rel="ManyToOneRel" to="external_labs.externallabexaminationsrequest">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hl7" rel="ManyToOneRel" to="gabinet.documents">&lt;None&gt;&lt;/None&gt;</field>
     <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">&lt;None&gt;&lt;/None&gt;</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23658924</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">84435</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175180866</field>
   </object>
   <object model="gabinet.imagingtest" pk="1775597">
+    <field name="attachment_url" type="TextField"></field>
     <field name="attachments" rel="ManyToManyRel" to="gabinet.documents"></field>
     <field name="date" type="DateTimeField">2015-02-27T00:00:00</field>
+    <field name="examination" type="TextField">kartoteka-</field>
+    <field name="examination_type" type="CharField">RTG stawu łokciowego P</field>
     <field name="external_request" rel="ManyToOneRel" to="external_labs.externallabexaminationsrequest">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hl7" rel="ManyToOneRel" to="gabinet.documents">&lt;None&gt;&lt;/None&gt;</field>
     <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">&lt;None&gt;&lt;/None&gt;</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23657203</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">84459</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175182820</field>
   </object>
   <object model="gabinet.imagingtest" pk="6155040">
+    <field name="attachment_url" type="TextField"></field>
     <field name="attachments" rel="ManyToManyRel" to="gabinet.documents"></field>
     <field name="date" type="DateTimeField">2025-11-26T09:00:00</field>
+    <field name="examination" type="TextField">Zatoki oboczne nosa: Zatoki oboczne nosa prawidłowo wykształcone. Pogrubienie śluzówki małżowin nosowych Przyścienne zgrubienia śluzówki w zatokach szczękowych Dyskretne przymglenia w zatokach czołowych</field>
+    <field name="examination_type" type="CharField">87.164 - RTG zatok nosa</field>
     <field name="external_request" rel="ManyToOneRel" to="external_labs.externallabexaminationsrequest">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hl7" rel="ManyToOneRel" to="gabinet.documents">&lt;None&gt;&lt;/None&gt;</field>
     <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">7835</field>
     <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23659884</field>
     <field name="person" rel="ManyToOneRel" to="gabinet.person">85946</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">&lt;None&gt;&lt;/None&gt;</field>
   </object>
 </objects>
