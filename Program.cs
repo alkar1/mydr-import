@@ -8,6 +8,13 @@ class Program
         Console.OutputEncoding = Encoding.UTF8;
         Console.WriteLine();
 
+        // Komenda explore - eksploracja duzych plikow XML
+        if (args.Length > 0 && args[0].Equals("explore", StringComparison.OrdinalIgnoreCase))
+        {
+            XmlExplorerCli.Run(args.Skip(1).ToArray());
+            return 0;
+        }
+
         // Parsowanie argumentow
         bool startFromEtap1 = args.Contains("--etap1", StringComparer.OrdinalIgnoreCase);
         string? specificModel = GetArgValue(args, "--model");
