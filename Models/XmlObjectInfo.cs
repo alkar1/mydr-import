@@ -6,6 +6,8 @@ namespace MyDr_Import.Models;
 public class XmlObjectInfo
 {
     public string ModelName { get; set; } = string.Empty;
+    public string PolishModelName => ModelNames.Get(ModelName)?.Nazwa ?? ModelName;
+    public string PolishDescription => ModelNames.Get(ModelName)?.Opis ?? "Brak opisu";
     public long RecordCount { get; set; }
     public Dictionary<string, FieldInfo> Fields { get; set; } = new();
     public long MinPrimaryKey { get; set; } = long.MaxValue;
@@ -43,7 +45,7 @@ public class XmlObjectInfo
     public void PrintSummary()
     {
         Console.WriteLine($"\n{new string('=', 80)}");
-        Console.WriteLine($"MODEL: {ModelName}");
+        Console.WriteLine($"MODEL: {ModelName}  ({PolishModelName} - {PolishDescription})");
         Console.WriteLine($"{new string('=', 80)}");
         Console.WriteLine($"Liczba rekordow: {RecordCount:N0}");
         Console.WriteLine($"Primary Key Range: {MinPrimaryKey:N0} - {MaxPrimaryKey:N0}");
@@ -65,7 +67,7 @@ public class XmlObjectInfo
     public string ToCSVSummary()
     {
         var sb = new System.Text.StringBuilder();
-        sb.AppendLine($"Model,{ModelName}");
+        sb.AppendLine($"Model,{ModelName}  ({PolishModelName} - {PolishDescription})");
         sb.AppendLine($"RecordCount,{RecordCount}");
         sb.AppendLine($"MinPK,{MinPrimaryKey}");
         sb.AppendLine($"MaxPK,{MaxPrimaryKey}");

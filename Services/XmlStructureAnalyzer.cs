@@ -24,6 +24,8 @@ public class XmlStructureAnalyzer
     {
         var objectInfos = new Dictionary<string, XmlObjectInfo>();
         var stopwatch = Stopwatch.StartNew();
+        var lastReportTime = TimeSpan.Zero;
+        var reportInterval = TimeSpan.FromSeconds(30);
         long totalObjects = 0;
         long fileSize = new FileInfo(_filePath).Length;
 
@@ -35,7 +37,7 @@ public class XmlStructureAnalyzer
         var settings = new XmlReaderSettings
         {
             IgnoreWhitespace = true,
-            IgnoreComments = true,
+            //IgnoreComments = true,
             DtdProcessing = DtdProcessing.Ignore
         };
 
@@ -58,6 +60,20 @@ public class XmlStructureAnalyzer
                         SaveObject(objectInfos, currentModel, currentPrimaryKey, currentFields);
                         currentFields.Clear();
                     }
+
+                    //Raport postepu co okreslony czas
+                    if (stopwatch.Elapsed - lastReportTime >= reportInterval)
+                    {
+                        lastReportTime = stopwatch.Elapsed;
+                        double progress = (double)fileStream.Position / fileSize * 100;
+                        double avgSpeed = totalObjects / stopwatch.Elapsed.TotalSeconds;
+
+                        Console.WriteLine($"[{stopwatch.Elapsed:hh\\:mm\\:ss}] " +
+                                        $"Postêp: {progress:F2}% | " +
+                                        $"Obiektów: {totalObjects:N0} | " +
+                                        $"Prêdkoœæ: {avgSpeed:F0} obj/s");
+                    }
+
 
                     // Rozpocznij nowy obiekt
                     currentModel = reader.GetAttribute("model");

@@ -9,57 +9,58 @@ class Program
         Console.OutputEncoding = Encoding.UTF8;
         Console.WriteLine();
 
+        string dataPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "MyDr_data"));
         string xmlFilePath;
-        //folder "data_etap1" jest w katalogu z plikiem zrodlowym program.cs 
-        string dataPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "data_etap1"));
-        Console.WriteLine("folder \"data_etap1\" jest w katalogu dataPath: " + dataPath);
-        Console.WriteLine();
-        
-
         if (args.Length > 0)
         {
             xmlFilePath = args[0];
         }
         else
         {
-            xmlFilePath = Path.Combine(dataPath, "gabinet.xml");
+            xmlFilePath = Path.Combine(dataPath, "gabinet_export.xml");
         }
-
         if (!File.Exists(xmlFilePath))
         {
             Console.WriteLine("Blad: Plik nie istnieje: " + xmlFilePath);
             Console.WriteLine();
             Console.WriteLine("Uzycie: MyDr_Import <sciezka_do_pliku_xml>");
+            Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
+            Console.ReadLine();
+
             return 1;
         }
 
-        CopyXmlHead(xmlFilePath, dataPath);
+        //CopyXmlHead(xmlFilePath, dataPath);
 
-        var outputDir = dataPath;
-         Directory.CreateDirectory(outputDir);
 
-//fukcja listuje pliki z outputDir
-         Console.WriteLine("Zawartosc katalogu outputDir: " + outputDir);
-        var files = Directory.GetFiles(outputDir);
-        foreach (var file in files)
+        //folder "data_etap1" jest w katalogu z plikiem zrodlowym program.cs 
+        string dataEtap1Path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "data_etap1"));
+        Directory.CreateDirectory(dataEtap1Path);
+        //CLEAR OUTPUT DIRECTORY
+        foreach (var file in Directory.GetFiles(dataEtap1Path))
         {
-            Console.WriteLine(" - " + Path.GetFileName(file));
+            //File.Delete(file);
         }
-        Console.WriteLine();    
 
+        Console.WriteLine("folder \"data_etap1\" jest w katalogu dataPath: " + dataEtap1Path);
+        Console.WriteLine();
+        
+        
+        var outputDir = dataEtap1Path;
+
+        //-----------------------------------------
         //if debug - wyjscie z programu przed analiza
         bool isDebug = System.Diagnostics.Debugger.IsAttached;
         if (isDebug)
         {
-            Console.WriteLine("Tryb debugowania - wyjscie z programu przed analiza.");
+            Console.WriteLine("Tryb debugowania");
         }
-
         //wyjscie z programu przed analiza
-        Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
-        Console.ReadLine();
-        Console.WriteLine();
-        return 0;
-        //-------------
+        //Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
+        //Console.ReadLine();
+        //Console.WriteLine();
+        //return 0;
+        //-----------------------------------------
 
 
         Console.WriteLine(new string('=', 80));
@@ -97,6 +98,9 @@ class Program
             Console.WriteLine(new string('=', 80));
             Console.WriteLine();
 
+            Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
+            Console.ReadLine();
+
             return 0;
         }
         catch (Exception ex)
@@ -104,6 +108,8 @@ class Program
             Console.WriteLine();
             Console.WriteLine("Blad podczas analizy: " + ex.Message);
             Console.WriteLine(ex.StackTrace);
+            Console.WriteLine("Nacisnij Enter, aby zakonczyc...");
+            Console.ReadLine();
             return 1;
         }
     }
@@ -152,7 +158,7 @@ class Program
         foreach (var info in objectInfos.Values.OrderByDescending(o => o.RecordCount))
         {
             sb.AppendLine();
-            sb.AppendLine("Model: " + info.ModelName);
+            sb.AppendLine("Model: " + info.ModelName + "  (" + info.PolishModelName + " - " + info.PolishDescription + ")"  );
             sb.AppendLine("  Liczba rekordow: " + info.RecordCount.ToString("N0"));
             sb.AppendLine("  Liczba pol: " + info.Fields.Count);
             sb.AppendLine("  Pola:");
@@ -164,7 +170,7 @@ class Program
                     ? " -> " + fieldInfo.RelationTo 
                     : "";
                 sb.AppendLine("    - " + field.Key + " (" + fieldInfo.Type + ")" + relInfo);
-                sb.AppendLine("      Wypelnienie: " + fieldInfo.OccurrenceCount.ToString("N0") + "/" + info.RecordCount.ToString("N0") + " (" + (100.0 * fieldInfo.OccurrenceCount / info.RecordCount).ToString("F1") + "%)");
+                sb.AppendLine("      Wypelnienie: " + info.RecordCount.ToString("N0") + " (" + (100.0 * fieldInfo.OccurrenceCount / info.RecordCount).ToString("F1") + "%)");
                 if (fieldInfo.SampleValues.Any())
                 {
                     var samples = string.Join(", ", fieldInfo.SampleValues.Take(3).Select(v => 
@@ -193,6 +199,8 @@ class Program
             objects = objectInfos.Values.OrderByDescending(o => o.RecordCount).Select(info => new
             {
                 model = info.ModelName,
+                polishName = info.PolishModelName,
+                description = info.PolishDescription,
                 recordCount = info.RecordCount,
                 fields = info.Fields.OrderBy(f => f.Key).Select(f => new
                 {
@@ -210,10 +218,3 @@ class Program
         File.WriteAllText(filePath, json, Encoding.UTF8);
     }
 }
-
-
-
-
-
-
-
