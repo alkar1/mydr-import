@@ -86,8 +86,12 @@ public class SzczepieniaProcessor : IModelProcessor
                 var nrSerii = record.GetValueOrDefault("vaccine_series", "");
                 var dataPodania = FormatDateTime(record.GetValueOrDefault("datetime", ""));
                 var dataWaznosci = FormatDateTime(record.GetValueOrDefault("expiration_date", ""));
-                var czyZKalendarza = record.GetValueOrDefault("vaccination_kind", "") == "scheduled" ? "1" : "0";
+                var vacKind = record.GetValueOrDefault("vaccination_kind", "").ToLower();
+                var czyZKalendarza = vacKind.Contains("kalendarz") || vacKind == "scheduled" ? "1" : "0";
+                // Dawka: uzyj dose, jesli puste to number_of_dose
                 var dawka = record.GetValueOrDefault("dose", "");
+                if (string.IsNullOrEmpty(dawka))
+                    dawka = record.GetValueOrDefault("number_of_dose", "");
 
                 writer.WriteLine($";{idImport};{patientId};{pesel};{personId};{pracownikNpwz};{pracownikPesel};{nazwa};{miejscePodania};{nrSerii};{dataPodania};{dataWaznosci};;{czyZKalendarza};;{dawka}");
                 processedCount++;

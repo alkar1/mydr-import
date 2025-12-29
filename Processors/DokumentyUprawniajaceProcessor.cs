@@ -83,9 +83,12 @@ public class DokumentyUprawniajaceProcessor : IModelProcessor
                 var nip = record.GetValueOrDefault("nip", "");
                 var dataOd = record.GetValueOrDefault("valid_from", "");
                 var dataDo = record.GetValueOrDefault("valid_to", "");
-                var dataWystawienia = record.GetValueOrDefault("issue_date", "");
-                var kodInstytucji = record.GetValueOrDefault("institution_code", "");
-                var nazwaInstytucji = Escape(record.GetValueOrDefault("institution_name", ""));
+                // XML uses set_date for DataWystawienia, fallback to receive_date
+                var dataWystawienia = record.GetValueOrDefault("set_date", "");
+                if (string.IsNullOrEmpty(dataWystawienia))
+                    dataWystawienia = record.GetValueOrDefault("receive_date", "");
+                var kodInstytucji = record.GetValueOrDefault("competent_institution", "");
+                var nazwaInstytucji = Escape(record.GetValueOrDefault("issuing_authority", ""));
                 var numer = record.GetValueOrDefault("document_number", "");
                 var typOswiadczenia = record.GetValueOrDefault("statement_type", "");
                 var podstawaOswiadczenia = record.GetValueOrDefault("statement_basis", "1");

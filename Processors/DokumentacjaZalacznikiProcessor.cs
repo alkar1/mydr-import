@@ -68,10 +68,23 @@ public class DokumentacjaZalacznikiProcessor : IModelProcessor
                 var idImport = record.GetValueOrDefault("pk", "");
                 var wizytaIdImport = record.GetValueOrDefault("visit", "");
                 var data = FormatDateTime(record.GetValueOrDefault("uploaded_date", ""));
-                var nazwaPliku = Escape(record.GetValueOrDefault("original_filename", ""));
-                var opis = Escape(record.GetValueOrDefault("note", ""));
                 var sciezka = record.GetValueOrDefault("uploaded_file", "");
-                var typPliku = Path.GetExtension(record.GetValueOrDefault("original_filename", "")).TrimStart('.').ToLower();
+                
+                // NazwaPliku: uzyj original_filename, fallback do nazwy z uploaded_file
+                var nazwaPliku = record.GetValueOrDefault("original_filename", "");
+                if (string.IsNullOrEmpty(nazwaPliku) && !string.IsNullOrEmpty(sciezka))
+                    nazwaPliku = Path.GetFileName(sciezka);
+                nazwaPliku = Escape(nazwaPliku);
+                
+                // TypPliku: ekstrahuj rozszerzenie z nazwy pliku lub sciezki
+                var typPliku = "";
+                var fileForExt = record.GetValueOrDefault("original_filename", "");
+                if (string.IsNullOrEmpty(fileForExt)) fileForExt = sciezka;
+                if (!string.IsNullOrEmpty(fileForExt))
+                    typPliku = Path.GetExtension(fileForExt).TrimStart('.').ToLower();
+                
+                // Opis: uzyj note, jesli puste to pusty string (zgodnie ze zrodlem)
+                var opis = Escape(record.GetValueOrDefault("note", ""));
 
                 writer.WriteLine($"{idImport};;;;{patientId};{pesel};{wizytaIdImport};{data};{nazwaPliku};{opis};;{sciezka};{typPliku};;");
                 processedCount++;

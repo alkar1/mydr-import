@@ -16,7 +16,10 @@ public class WizytyProcessor : IModelProcessor
 
     private Dictionary<string, string>? _patientPeselCache;
     private Dictionary<string, (string npwz, string pesel)>? _personCache;
-    private Dictionary<string, (string icd10codes, string icd9codes)>? _visitDiagnosesCache;
+    private Dictionary<string, List<string>>? _visitIcd10Cache;  // visit_id -> list of ICD10 codes
+    private Dictionary<string, List<string>>? _visitIcd9Cache;   // visit_id -> list of ICD9 codes
+    private Dictionary<string, string>? _icd10CodeCache;         // icd10_pk -> code
+    private Dictionary<string, string>? _icd9CodeCache;          // icd9_pk -> code
 
     public CsvGenerationResult Process(string dataEtap1Path, string dataEtap2Path, ModelMapping mapping)
     {
@@ -30,6 +33,10 @@ public class WizytyProcessor : IModelProcessor
         {
             LoadPatientPeselCache(dataEtap1Path);
             LoadPersonCache(dataEtap1Path);
+            LoadIcd10CodeCache(dataEtap1Path);
+            LoadIcd9CodeCache(dataEtap1Path);
+            LoadVisitIcd10Cache(dataEtap1Path);
+            LoadVisitIcd9Cache(dataEtap1Path);
 
             var xmlPath = Path.Combine(dataEtap1Path, "data_full", XmlFileName);
             if (!File.Exists(xmlPath))
@@ -137,7 +144,17 @@ public class WizytyProcessor : IModelProcessor
         var trybPrzyjecia = MapReceptionMode(record.GetValueOrDefault("reception_mode_choice", ""));
         var typWizyty = record.GetValueOrDefault("visit_kind", "") == "followup" ? "2" : "1";
 
-        writer.WriteLine($";{idImport};;{jednostkaIdImport};;{patientId};{pesel};;{doctorId};;{pracownikNpwz};{pracownikPesel};;;;{dataUtworzenia};{dataOd};{dataDo};{czasOd};{czasDo};{status};{nfz};{nieRozliczaj};{dodatkowy};{Escape(komentarz)};{trybPrzyjecia};;{typWizyty};;;;");
+        // Get ICD10 codes for this visit
+        var icd10Codes = "";
+        if (_visitIcd10Cache != null && _visitIcd10Cache.TryGetValue(idImport, out var icd10List))
+            icd10Codes = string.Join(",", icd10List);
+        
+        // Get ICD9 codes for this visit
+        var icd9Codes = "";
+        if (_visitIcd9Cache != null && _visitIcd9Cache.TryGetValue(idImport, out var icd9List))
+            icd9Codes = string.Join(",", icd9List);
+
+        writer.WriteLine($";{idImport};;{jednostkaIdImport};;{patientId};{pesel};;{doctorId};;{pracownikNpwz};{pracownikPesel};;;;{dataUtworzenia};{dataOd};{dataDo};{czasOd};{czasDo};{status};{nfz};{nieRozliczaj};{dodatkowy};{Escape(komentarz)};{trybPrzyjecia};;{typWizyty};;;{icd9Codes};{icd10Codes};");
     }
 
     private string MapVisitState(string state)
@@ -251,5 +268,176 @@ public class WizytyProcessor : IModelProcessor
         if (DateTime.TryParse(value, out var dt))
             return dt.ToString("yyyy-MM-dd HH:mm:ss");
         return value;
+    }
+
+    private void LoadIcd10CodeCache(string dataEtap1Path)
+    {
+        var path = Path.Combine(dataEtap1Path, "data_full", "gabinet_icd10.xml");
+        _icd10CodeCache = new Dictionary<string, string>();
+        if (!File.Exists(path)) return;
+
+        Console.WriteLine("  Ladowanie gabinet_icd10.xml...");
+        using var stream = File.OpenRead(path);
+        using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
+        
+        while (reader.Read())
+        {
+            if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name == "object")
+            {
+                var pk = reader.GetAttribute("pk");
+                if (string.IsNullOrEmpty(pk)) continue;
+                string code = "";
+                using var objReader = reader.ReadSubtree();
+                while (objReader.Read())
+                {
+                    if (objReader.NodeType == System.Xml.XmlNodeType.Element && objReader.Name == "field")
+                    {
+                        var name = objReader.GetAttribute("name");
+                        if (name == "code")
+                        {
+                            code = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                            break;
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(code) && code != "None")
+                    _icd10CodeCache[pk] = code;
+            }
+        }
+        Console.WriteLine($"  Zaladowano {_icd10CodeCache.Count} kodow ICD10");
+    }
+
+    private void LoadIcd9CodeCache(string dataEtap1Path)
+    {
+        var path = Path.Combine(dataEtap1Path, "data_full", "gabinet_icd9.xml");
+        _icd9CodeCache = new Dictionary<string, string>();
+        if (!File.Exists(path)) return;
+
+        Console.WriteLine("  Ladowanie gabinet_icd9.xml...");
+        using var stream = File.OpenRead(path);
+        using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
+        
+        while (reader.Read())
+        {
+            if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name == "object")
+            {
+                var pk = reader.GetAttribute("pk");
+                if (string.IsNullOrEmpty(pk)) continue;
+                string code = "";
+                using var objReader = reader.ReadSubtree();
+                while (objReader.Read())
+                {
+                    if (objReader.NodeType == System.Xml.XmlNodeType.Element && objReader.Name == "field")
+                    {
+                        var name = objReader.GetAttribute("name");
+                        if (name == "code")
+                        {
+                            code = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                            break;
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(code) && code != "None")
+                    _icd9CodeCache[pk] = code;
+            }
+        }
+        Console.WriteLine($"  Zaladowano {_icd9CodeCache.Count} kodow ICD9");
+    }
+
+    private void LoadVisitIcd10Cache(string dataEtap1Path)
+    {
+        var path = Path.Combine(dataEtap1Path, "data_full", "gabinet_recognition.xml");
+        _visitIcd10Cache = new Dictionary<string, List<string>>();
+        if (!File.Exists(path))
+        {
+            Console.WriteLine("  UWAGA: Brak pliku gabinet_recognition.xml");
+            return;
+        }
+
+        Console.WriteLine("  Ladowanie gabinet_recognition.xml (rozpoznania ICD10)...");
+        int totalRecords = 0;
+        int matchedRecords = 0;
+        
+        using var stream = File.OpenRead(path);
+        using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
+        
+        while (reader.Read())
+        {
+            if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name == "object")
+            {
+                totalRecords++;
+                string visitId = "", icd10Id = "";
+                using var objReader = reader.ReadSubtree();
+                while (objReader.Read())
+                {
+                    if (objReader.NodeType == System.Xml.XmlNodeType.Element && objReader.Name == "field")
+                    {
+                        var name = objReader.GetAttribute("name");
+                        if (name == "visit")
+                        {
+                            visitId = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                            if (visitId == "None" || visitId.Contains("<None")) visitId = "";
+                        }
+                        else if (name == "icd10")
+                        {
+                            icd10Id = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                            if (icd10Id == "None" || icd10Id.Contains("<None")) icd10Id = "";
+                        }
+                    }
+                }
+                if (!string.IsNullOrEmpty(visitId) && !string.IsNullOrEmpty(icd10Id) &&
+                    _icd10CodeCache != null && _icd10CodeCache.TryGetValue(icd10Id, out var code))
+                {
+                    matchedRecords++;
+                    if (!_visitIcd10Cache.ContainsKey(visitId))
+                        _visitIcd10Cache[visitId] = new List<string>();
+                    if (!_visitIcd10Cache[visitId].Contains(code))
+                        _visitIcd10Cache[visitId].Add(code);
+                }
+            }
+        }
+        Console.WriteLine($"  Przetworzono {totalRecords} rozpoznan, dopasowano {matchedRecords} do wizyt");
+        Console.WriteLine($"  Zaladowano rozpoznania ICD10 dla {_visitIcd10Cache.Count} wizyt");
+    }
+
+    private void LoadVisitIcd9Cache(string dataEtap1Path)
+    {
+        var path = Path.Combine(dataEtap1Path, "data_full", "gabinet_medicalprocedure.xml");
+        _visitIcd9Cache = new Dictionary<string, List<string>>();
+        if (!File.Exists(path)) return;
+
+        Console.WriteLine("  Ladowanie gabinet_medicalprocedure.xml (procedury ICD9)...");
+        using var stream = File.OpenRead(path);
+        using var reader = System.Xml.XmlReader.Create(stream, new System.Xml.XmlReaderSettings { DtdProcessing = System.Xml.DtdProcessing.Ignore });
+        
+        while (reader.Read())
+        {
+            if (reader.NodeType == System.Xml.XmlNodeType.Element && reader.Name == "object")
+            {
+                string visitId = "", icd9Id = "";
+                using var objReader = reader.ReadSubtree();
+                while (objReader.Read())
+                {
+                    if (objReader.NodeType == System.Xml.XmlNodeType.Element && objReader.Name == "field")
+                    {
+                        var name = objReader.GetAttribute("name");
+                        if (name == "visit")
+                            visitId = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                        else if (name == "icd9")
+                            icd9Id = objReader.ReadElementContentAsString()?.Trim() ?? "";
+                    }
+                }
+                if (!string.IsNullOrEmpty(visitId) && !string.IsNullOrEmpty(icd9Id) && 
+                    visitId != "None" && !visitId.Contains("<None") &&
+                    _icd9CodeCache != null && _icd9CodeCache.TryGetValue(icd9Id, out var code))
+                {
+                    if (!_visitIcd9Cache.ContainsKey(visitId))
+                        _visitIcd9Cache[visitId] = new List<string>();
+                    if (!_visitIcd9Cache[visitId].Contains(code))
+                        _visitIcd9Cache[visitId].Add(code);
+                }
+            }
+        }
+        Console.WriteLine($"  Zaladowano procedury ICD9 dla {_visitIcd9Cache.Count} wizyt");
     }
 }

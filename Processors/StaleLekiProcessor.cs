@@ -90,7 +90,8 @@ public class StaleLekiProcessor : IModelProcessor
                 var pacjentIdImport = patientId;
                 var pracownikId = "";
                 var pracownikIdImport = "";
-                var dataZalecenia = record.GetValueOrDefault("date", ""); // lub "visit_date"
+                // DataZalecenia nie istnieje w XML - uzyj biezacej daty jako domyslnej (zgodnie z old_etap2)
+                var dataZalecenia = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 var dataZakonczenia = "";
                 var dawkowanie = EscapeCsvField(record.GetValueOrDefault("dosation", ""));
                 var ilosc = record.GetValueOrDefault("recommendation", "");

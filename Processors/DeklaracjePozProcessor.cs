@@ -83,7 +83,10 @@ public class DeklaracjePozProcessor : IModelProcessor
                 var profFluor = record.GetValueOrDefault("prof_fluor", "") == "True" ? "1" : "0";
                 var komentarz = EscapeCsvField(record.GetValueOrDefault("note", ""));
 
-                writer.WriteLine($";{idImport};{typDeklaracji};{dataZlozenia};{dataWygasniecia};;{jednostkaIdImport};;{patientId};{pesel};{typPacjentaId};;{personId};{pracownikNpwz};;;;;;;;;;;;;;;;;;{profFluor};{komentarz};");
+                // ProfilaktykaFluorkowa: domyslnie "0" (zgodnie z old_etap2)
+                var profilaktykaFluorkowa = "0";
+                // Fields 14-29 are empty (16 fields = need 17 semicolons between pos 13 and 30)
+                writer.WriteLine($";{idImport};{typDeklaracji};{dataZlozenia};{dataWygasniecia};;{jednostkaIdImport};;{patientId};{pesel};{typPacjentaId};;{personId};{pracownikNpwz};;;;;;;;;;;;;;;;;{profilaktykaFluorkowa};{komentarz};");
                 processedCount++;
             }
 

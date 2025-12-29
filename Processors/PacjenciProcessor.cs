@@ -79,12 +79,32 @@ public class PacjenciProcessor : BaseModelProcessor
         { "NumerPacjenta", "user" },
     };
 
+    // Naglowek CSV zgodny z old_etap2
+    private static readonly string[] CsvHeader = new[]
+    {
+        "InstalacjaId", "IdImport", "UprawnieniePacjentaId", "RodzajPacjenta", "Imie", "Nazwisko",
+        "Pesel", "DataUrodzenia", "CzyUmarl", "DataZgonu", "DrugieImie", "NazwiskoRodowe", "ImieOjca",
+        "NIP", "Plec", "Email", "Telefon", "TelefonDodatkowy", "NumerDokumentuTozsamosci",
+        "TypDokumentuTozsamosci", "KrajDokumentuTozsamosciKod", "NrIdentyfikacyjnyUe", "MiejsceUrodzenia",
+        "KodOddzialuNFZ", "KrajZameldowanie", "WojewodztwoZameldowanie", "KodTerytGminyZameldowanie",
+        "MiejscowoscZameldowanie", "KodMiejscowosciZameldowanie", "KodPocztowyZameldowanie",
+        "UlicaZameldowanie", "NrDomuZameldowanie", "NrMieszkaniaZameldowanie", "DzielnicaZameldowanie",
+        "KrajZamieszkanie", "WojewodztwoZamieszkanie", "KodTerytGminyZamieszkanie", "MiejscowoscZamieszkanie",
+        "KodMiejscowosciZamieszkanie", "KodPocztowyZamieszkanie", "UlicaZamieszkanie", "NrDomuZamieszkanie",
+        "NrMieszkaniaZamieszkanie", "DzielnicaZamieszkanie", "Uwagi", "Uchodzca", "VIP", "UprawnieniePacjenta",
+        "ImieOpiekuna", "NazwiskoOpiekuna", "PlecOpiekuna", "DataUrodzeniaOpiekuna", "PeselOpiekuna",
+        "TelefonOpiekuna", "KrajOpiekuna", "WojewodztwoOpiekuna", "KodGminyOpiekuna", "MiejscowoscOpiekuna",
+        "KodMiejscowosciOpiekuna", "KodPocztowyOpiekuna", "UlicaOpiekuna", "NrDomuOpiekuna", "NrLokaluOpiekuna",
+        "StopienPokrewienstwaOpiekuna", "SprawdzUnikalnoscIdImportu", "SprawdzUnikalnoscPesel",
+        "AktualizujPoPesel", "NumerPacjenta"
+    };
+
     public override CsvGenerationResult Process(string dataEtap1Path, string dataEtap2Path, ModelMapping mapping)
     {
         var result = new CsvGenerationResult
         {
-            ModelName = mapping.SheetName,
-            TargetTable = mapping.TargetTable
+            ModelName = "pacjenci",
+            TargetTable = "pacjenci"
         };
 
         try
@@ -124,27 +144,22 @@ public class PacjenciProcessor : BaseModelProcessor
                 return result;
             }
 
-            // 4. Przygotuj naglowki CSV
-            var validFields = mapping.Fields
-                .Where(f => !string.IsNullOrEmpty(f.SourceField))
-                .ToList();
-
-            // 5. Generuj CSV
+            // 4. Generuj CSV z hardcoded naglowkiem (zgodnie z old_etap2)
             Directory.CreateDirectory(dataEtap2Path);
-            var csvPath = Path.Combine(dataEtap2Path, $"{mapping.SheetName}.csv");
+            var csvPath = Path.Combine(dataEtap2Path, "pacjenci.csv");
             using var writer = new StreamWriter(csvPath, false, new UTF8Encoding(true));
 
-            // Naglowek - nazwy pol z arkusza Excel
-            writer.WriteLine(string.Join(";", validFields.Select(f => EscapeCsvField(f.SourceField))));
+            // Naglowek
+            writer.WriteLine(string.Join(";", CsvHeader));
 
             // Wiersze danych
             int processedCount = 0;
             foreach (var record in records)
             {
                 var row = new List<string>();
-                foreach (var field in validFields)
+                foreach (var fieldName in CsvHeader)
                 {
-                    var value = ExtractFieldValueWithPesel(record, field);
+                    var value = GetFieldValue(record, fieldName);
                     row.Add(EscapeCsvField(value));
                 }
                 writer.WriteLine(string.Join(";", row));
@@ -164,6 +179,88 @@ public class PacjenciProcessor : BaseModelProcessor
         }
 
         return result;
+    }
+
+    private string GetFieldValue(Dictionary<string, string> record, string fieldName)
+    {
+        return fieldName switch
+        {
+            "InstalacjaId" => "",
+            "IdImport" => record.GetValueOrDefault("pk", ""),
+            "UprawnieniePacjentaId" => "",
+            "RodzajPacjenta" => "1",
+            "Imie" => record.GetValueOrDefault("name", ""),
+            "Nazwisko" => record.GetValueOrDefault("surname", ""),
+            "Pesel" => record.GetValueOrDefault("pesel", ""),
+            "DataUrodzenia" => ExtractBirthDateFromPesel(record),
+            "CzyUmarl" => record.TryGetValue("is_dead", out var isDead) && isDead == "1" ? "1" : "0",
+            "DataZgonu" => record.GetValueOrDefault("death_date", ""),
+            "DrugieImie" => record.GetValueOrDefault("second_name", ""),
+            "NazwiskoRodowe" => record.GetValueOrDefault("maiden_name", ""),
+            "ImieOjca" => "",
+            "NIP" => record.GetValueOrDefault("employer_nip", ""),
+            "Plec" => ExtractSexFromPesel(record),
+            "Email" => record.GetValueOrDefault("email", ""),
+            "Telefon" => record.GetValueOrDefault("telephone", ""),
+            "TelefonDodatkowy" => record.GetValueOrDefault("second_telephone", ""),
+            "NumerDokumentuTozsamosci" => record.GetValueOrDefault("identity_num", ""),
+            "TypDokumentuTozsamosci" => MapDocType(record.GetValueOrDefault("identity_type", "")),
+            "KrajDokumentuTozsamosciKod" => "PL",
+            "NrIdentyfikacyjnyUe" => "",
+            "MiejsceUrodzenia" => record.GetValueOrDefault("place_of_birth", ""),
+            "KodOddzialuNFZ" => record.GetValueOrDefault("nfz", ""),
+            "KrajZameldowanie" => MapCountryCode(record.GetValueOrDefault("reg_country", "")),
+            "WojewodztwoZameldowanie" => record.GetValueOrDefault("reg_province", ""),
+            "KodTerytGminyZameldowanie" => record.GetValueOrDefault("reg_teryt", ""),
+            "MiejscowoscZameldowanie" => record.GetValueOrDefault("reg_city", ""),
+            "KodMiejscowosciZameldowanie" => "",
+            "KodPocztowyZameldowanie" => record.GetValueOrDefault("reg_postal_code", ""),
+            "UlicaZameldowanie" => record.GetValueOrDefault("reg_street", ""),
+            "NrDomuZameldowanie" => record.GetValueOrDefault("reg_street_number", ""),
+            "NrMieszkaniaZameldowanie" => record.GetValueOrDefault("reg_flat_number", ""),
+            "DzielnicaZameldowanie" => "",
+            "KrajZamieszkanie" => MapCountryCode(record.GetValueOrDefault("res_country", "")),
+            "WojewodztwoZamieszkanie" => record.GetValueOrDefault("res_province", ""),
+            "KodTerytGminyZamieszkanie" => record.GetValueOrDefault("res_teryt", ""),
+            "MiejscowoscZamieszkanie" => record.GetValueOrDefault("res_city", ""),
+            "KodMiejscowosciZamieszkanie" => "",
+            "KodPocztowyZamieszkanie" => record.GetValueOrDefault("res_postal_code", ""),
+            "UlicaZamieszkanie" => record.GetValueOrDefault("res_street", ""),
+            "NrDomuZamieszkanie" => record.GetValueOrDefault("res_street_number", ""),
+            "NrMieszkaniaZamieszkanie" => record.GetValueOrDefault("res_flat_number", ""),
+            "DzielnicaZamieszkanie" => "",
+            "Uwagi" => record.GetValueOrDefault("notes", ""),
+            "Uchodzca" => record.TryGetValue("is_refugee", out var ref1) && ref1.Equals("True", StringComparison.OrdinalIgnoreCase) ? "1" : "0",
+            "VIP" => record.TryGetValue("vip", out var vip) && vip.Equals("True", StringComparison.OrdinalIgnoreCase) ? "1" : "0",
+            "UprawnieniePacjenta" => record.TryGetValue("rights", out var rights) ? rights.Replace("X", "").Replace("x", "").Trim() : "",
+            "ImieOpiekuna" => record.GetValueOrDefault("ice_first_name", ""),
+            "NazwiskoOpiekuna" => record.GetValueOrDefault("ice_last_name", ""),
+            "PlecOpiekuna" => "",
+            "DataUrodzeniaOpiekuna" => "",
+            "PeselOpiekuna" => record.GetValueOrDefault("ice_identity_num", ""),
+            "TelefonOpiekuna" => "",
+            "KrajOpiekuna" => "",
+            "WojewodztwoOpiekuna" => "",
+            "KodGminyOpiekuna" => "",
+            "MiejscowoscOpiekuna" => record.GetValueOrDefault("ice_city", ""),
+            "KodMiejscowosciOpiekuna" => "",
+            "KodPocztowyOpiekuna" => "",
+            "UlicaOpiekuna" => record.GetValueOrDefault("ice_street", ""),
+            "NrDomuOpiekuna" => record.GetValueOrDefault("ice_house", ""),
+            "NrLokaluOpiekuna" => record.GetValueOrDefault("ice_flat", ""),
+            "StopienPokrewienstwaOpiekuna" => "",
+            "SprawdzUnikalnoscIdImportu" => "1",
+            "SprawdzUnikalnoscPesel" => "0",
+            "AktualizujPoPesel" => "0",
+            "NumerPacjenta" => record.GetValueOrDefault("user", ""),
+            _ => ""
+        };
+    }
+
+    private string MapDocType(string idType)
+    {
+        if (string.IsNullOrEmpty(idType)) return "";
+        return DocTypeMap.TryGetValue(idType, out var mapped) ? mapped : idType;
     }
 
     private void LoadAddressCache(string dataEtap1Path)
