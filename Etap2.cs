@@ -138,12 +138,10 @@ public static class Etap2
             SaveMappingsReport(mappingsOutputPath, mappings, results);
             Console.WriteLine($"\nZapisano raport mapowan: {mappingsOutputPath}");
 
-            // 7. Generuj CSV jesli wymagane (lub dla --model)
-            if (generateCsv || !string.IsNullOrEmpty(specificModel))
-            {
-                var dataEtap2Path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "MyDr_result"));
-                GenerateCsvFiles(dataEtap1Path, dataEtap2Path, mappings);
-            }
+            // 7. Generuj CSV - zawsze
+            var dataEtap2Path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "MyDr_result"));
+            Directory.CreateDirectory(dataEtap2Path);
+            GenerateCsvFiles(dataEtap1Path, dataEtap2Path, mappings);
 
             Console.WriteLine();
             Console.WriteLine(new string('=', 80));
