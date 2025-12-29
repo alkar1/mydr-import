@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.sickleave -->
+<!-- Calkowita liczba rekordow: 2 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.sickleave" pk="536303">
+    <field name="code_2" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="code_4" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date_to" type="DateField">2022-10-21</field>
+    <field name="disease_number" type="TextField">J06-Ostre zakażenie górnych dróg oddechowych o umiejscowieniu mnogim nieokreślonym</field>
+    <field name="doc_id" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="employer_nip" type="CharField">4930261168</field>
+    <field name="explanation" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="for_previous" rel="ManyToOneRel" to="gabinet.sickleave">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hospital_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hospital_stay_days" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurer" type="CharField">4</field>
+    <field name="is_leave_for_patient" type="BooleanField">True</field>
+    <field name="payer_id_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="payer_name" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">68112603281</field>
+    <field name="series_zla" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="surname" type="CharField">Ficek</field>
+    <field name="under_care_date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">212190736</field>
+    <field name="xml" type="TextField"></field>
+  </object>
+  <object model="gabinet.sickleave" pk="574844">
+    <field name="code_2" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="code_4" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date_to" type="DateField">2024-11-22</field>
+    <field name="disease_number" type="TextField">A09 - Biegunka i zapalenie żołądkowo-jelitowe o przypuszczalnie zakaźnej etiologii</field>
+    <field name="doc_id" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="employer_nip" type="CharField">4930261168</field>
+    <field name="explanation" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="for_previous" rel="ManyToOneRel" to="gabinet.sickleave">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hospital_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="hospital_stay_days" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurer" type="CharField">4</field>
+    <field name="is_leave_for_patient" type="BooleanField">True</field>
+    <field name="payer_id_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="payer_name" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">68112603281</field>
+    <field name="series_zla" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="surname" type="CharField">Ficek</field>
+    <field name="under_care_date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">321244676</field>
+    <field name="xml" type="TextField"></field>
+  </object>
+</objects>

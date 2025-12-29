@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.genericmedicaldata -->
+<!-- Calkowita liczba rekordow: 54945 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.genericmedicaldata" pk="7234991">
+    <field name="date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23662383</field>
+    <field name="type_of_data" type="CharField">addictions</field>
+  </object>
+  <object model="gabinet.genericmedicaldata" pk="7235726">
+    <field name="date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23660487</field>
+    <field name="type_of_data" type="CharField">addictions</field>
+  </object>
+  <object model="gabinet.genericmedicaldata" pk="7236375">
+    <field name="date_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23663303</field>
+    <field name="type_of_data" type="CharField">addictions</field>
+  </object>
+  <object model="gabinet.genericmedicaldata" pk="6666630">
+    <field name="date_to" type="DateField">2000-08-25</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23662142</field>
+    <field name="type_of_data" type="CharField">addictions</field>
+  </object>
+</objects>

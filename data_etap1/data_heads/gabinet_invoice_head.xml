@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.invoice -->
+<!-- Calkowita liczba rekordow: 113 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.invoice" pk="819688">
+    <field name="bill_waiver" type="CharField">19</field>
+    <field name="closed" type="BooleanField">True</field>
+    <field name="corrected_invoice" rel="ManyToOneRel" to="gabinet.invoice">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="issue_date" type="DateField">2025-01-07</field>
+    <field name="issuer" rel="ManyToOneRel" to="gabinet.person">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="jpk_signs" type="CharField"></field>
+    <field name="notes" type="TextField"></field>
+    <field name="number_template" rel="ManyToOneRel" to="gabinet.numbertemplate">6054</field>
+    <field name="package" rel="ManyToOneRel" to="gabinet.privateservicespackage">14292834</field>
+    <field name="payment_date" type="DateField">2025-01-07</field>
+    <field name="provider" type="TextField">Centrum Medyczne 4M Sp. z o. o.
+Borkowska 25B/U1
+30-438 Kraków
+POLSKA
+NIP: 6793060743
+REGON: 12149738900027
+tel.: +48123074445</field>
+  </object>
+  <object model="gabinet.invoice" pk="819690">
+    <field name="bill_waiver" type="CharField">19</field>
+    <field name="closed" type="BooleanField">True</field>
+    <field name="corrected_invoice" rel="ManyToOneRel" to="gabinet.invoice">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="issue_date" type="DateField">2025-01-07</field>
+    <field name="issuer" rel="ManyToOneRel" to="gabinet.person">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="jpk_signs" type="CharField"></field>
+    <field name="notes" type="TextField"></field>
+    <field name="number_template" rel="ManyToOneRel" to="gabinet.numbertemplate">6054</field>
+    <field name="package" rel="ManyToOneRel" to="gabinet.privateservicespackage">14292900</field>
+    <field name="payment_date" type="DateField">2025-01-07</field>
+    <field name="provider" type="TextField">Centrum Medyczne 4M Sp. z o. o.
+Borkowska 25B/U1
+30-438 Kraków
+POLSKA
+NIP: 6793060743
+REGON: 12149738900027
+tel.: +48123074445</field>
+  </object>
+  <object model="gabinet.invoice" pk="819689">
+    <field name="bill_waiver" type="CharField">19</field>
+    <field name="closed" type="BooleanField">True</field>
+    <field name="corrected_invoice" rel="ManyToOneRel" to="gabinet.invoice">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="issue_date" type="DateField">2025-01-07</field>
+    <field name="issuer" rel="ManyToOneRel" to="gabinet.person">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="jpk_signs" type="CharField"></field>
+    <field name="notes" type="TextField"></field>
+    <field name="number_template" rel="ManyToOneRel" to="gabinet.numbertemplate">6054</field>
+    <field name="package" rel="ManyToOneRel" to="gabinet.privateservicespackage">14292849</field>
+    <field name="payment_date" type="DateField">2025-01-07</field>
+    <field name="provider" type="TextField">Centrum Medyczne 4M Sp. z o. o.
+Borkowska 25B/U1
+30-438 Kraków
+POLSKA
+NIP: 6793060743
+REGON: 12149738900027
+tel.: +48123074445</field>
+  </object>
+  <object model="gabinet.invoice" pk="1136665">
+    <field name="bill_waiver" type="CharField">19</field>
+    <field name="closed" type="BooleanField">True</field>
+    <field name="corrected_invoice" rel="ManyToOneRel" to="gabinet.invoice">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="issue_date" type="DateField">2025-12-05</field>
+    <field name="issuer" rel="ManyToOneRel" to="gabinet.person">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="jpk_signs" type="CharField"></field>
+    <field name="notes" type="TextField"></field>
+    <field name="number_template" rel="ManyToOneRel" to="gabinet.numbertemplate">6054</field>
+    <field name="package" rel="ManyToOneRel" to="gabinet.privateservicespackage">20771472</field>
+    <field name="payment_date" type="DateField">2025-12-05</field>
+    <field name="provider" type="TextField">Centrum Medyczne 4M Sp. z o. o.
+Borkowska 25B/U1
+30-438 Kraków
+POLSKA
+NIP: 6793060743
+REGON: 12149738900027
+tel.: +48123074445</field>
+  </object>
+</objects>

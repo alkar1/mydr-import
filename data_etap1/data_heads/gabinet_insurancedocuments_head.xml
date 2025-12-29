@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.insurancedocuments -->
+<!-- Calkowita liczba rekordow: 983 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.insurancedocuments" pk="1332366">
+    <field name="document_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurance" rel="OneToOneRel" to="gabinet.insurance">168818235</field>
+    <field name="issuer" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="issuing_authority" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pensioner_card_issuer" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="permission_basis" type="PositiveIntegerField">1</field>
+    <field name="personal_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="set_date" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="uploaded_file" type="FileField"></field>
+  </object>
+  <object model="gabinet.insurancedocuments" pk="593219">
+    <field name="document_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurance" rel="OneToOneRel" to="gabinet.insurance">67719275</field>
+    <field name="issuer" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="issuing_authority" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pensioner_card_issuer" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="permission_basis" type="PositiveIntegerField">1</field>
+    <field name="personal_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="set_date" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="uploaded_file" type="FileField"></field>
+  </object>
+  <object model="gabinet.insurancedocuments" pk="590978">
+    <field name="document_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurance" rel="OneToOneRel" to="gabinet.insurance">67414108</field>
+    <field name="issuer" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="issuing_authority" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pensioner_card_issuer" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="permission_basis" type="PositiveIntegerField">1</field>
+    <field name="personal_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="set_date" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="uploaded_file" type="FileField"></field>
+  </object>
+  <object model="gabinet.insurancedocuments" pk="1377377">
+    <field name="document_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurance" rel="OneToOneRel" to="gabinet.insurance">177497065</field>
+    <field name="issuer" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="issuing_authority" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pensioner_card_issuer" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="permission_basis" type="PositiveIntegerField">1</field>
+    <field name="personal_number" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="set_date" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="uploaded_file" type="FileField"></field>
+  </object>
+</objects>

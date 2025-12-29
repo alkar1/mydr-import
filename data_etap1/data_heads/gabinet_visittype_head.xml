@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.visittype -->
+<!-- Calkowita liczba rekordow: 30 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.visittype" pk="249391">
+    <field name="icd9_list" rel="ManyToManyRel" to="gabinet.icd9"></field>
+    <field name="name" type="CharField">Bilans 60+</field>
+    <field name="preferred_prod_code" type="CharField"></field>
+    <field name="require_referral" type="BooleanField">False</field>
+    <field name="services" rel="ManyToManyRel" to="gabinet.service"></field>
+    <field name="state" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.visittype" pk="180730">
+    <field name="icd9_list" rel="ManyToManyRel" to="gabinet.icd9"></field>
+    <field name="name" type="CharField">Porada lekarza POZ</field>
+    <field name="preferred_prod_code" type="CharField"></field>
+    <field name="require_referral" type="BooleanField">False</field>
+    <field name="services" rel="ManyToManyRel" to="gabinet.service">&lt;object pk=&quot;795940&quot;&gt;&lt;/object&gt;</field>
+    <field name="state" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.visittype" pk="180727">
+    <field name="icd9_list" rel="ManyToManyRel" to="gabinet.icd9"></field>
+    <field name="name" type="CharField">Wizyta patronażowa pielęgniarki POZ</field>
+    <field name="preferred_prod_code" type="CharField"></field>
+    <field name="require_referral" type="BooleanField">False</field>
+    <field name="services" rel="ManyToManyRel" to="gabinet.service">&lt;object pk=&quot;795979&quot;&gt;&lt;/object&gt;</field>
+    <field name="state" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.visittype" pk="249389">
+    <field name="icd9_list" rel="ManyToManyRel" to="gabinet.icd9"></field>
+    <field name="name" type="CharField">Bilans 20-59 lat</field>
+    <field name="preferred_prod_code" type="CharField"></field>
+    <field name="require_referral" type="BooleanField">False</field>
+    <field name="services" rel="ManyToManyRel" to="gabinet.service"></field>
+    <field name="state" type="BooleanField">True</field>
+  </object>
+</objects>

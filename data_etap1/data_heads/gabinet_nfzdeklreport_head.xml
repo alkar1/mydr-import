@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.nfzdeklreport -->
+<!-- Calkowita liczba rekordow: 39 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.nfzdeklreport" pk="300136">
+    <field name="confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">70540</field>
+    <field name="confirmed" type="BooleanField">False</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="filter_text" type="TextField"></field>
+    <field name="non_deleted" type="NullBooleanField">True</field>
+    <field name="report_file" type="FileField">dekl/2024/03/07/DEKL_061_200705_POZ_03_2024_300136.PDX</field>
+    <field name="state" type="CharField">Z</field>
+    <field name="version" type="IntegerField">1</field>
+  </object>
+  <object model="gabinet.nfzdeklreport" pk="327442">
+    <field name="confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">107956</field>
+    <field name="confirmed" type="BooleanField">False</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="filter_text" type="TextField"></field>
+    <field name="non_deleted" type="NullBooleanField">True</field>
+    <field name="report_file" type="FileField">dekl/2025/10/07/DEKL_061_200705_POZ_03_2025_327442.PDX</field>
+    <field name="state" type="CharField">Z</field>
+    <field name="version" type="IntegerField">1</field>
+  </object>
+  <object model="gabinet.nfzdeklreport" pk="307453">
+    <field name="confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">81290</field>
+    <field name="confirmed" type="BooleanField">False</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="filter_text" type="TextField"></field>
+    <field name="non_deleted" type="NullBooleanField">True</field>
+    <field name="report_file" type="FileField">dekl/2024/09/06/DEKL_061_200705_POZ_03_2024_307453.PDX</field>
+    <field name="state" type="CharField">Z</field>
+    <field name="version" type="IntegerField">1</field>
+  </object>
+  <object model="gabinet.nfzdeklreport" pk="321641">
+    <field name="confirmation_feedback" rel="ManyToOneRel" to="gabinet.nfzdeklreportfeedback">99649</field>
+    <field name="confirmed" type="BooleanField">False</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="filter_text" type="TextField"></field>
+    <field name="non_deleted" type="NullBooleanField">True</field>
+    <field name="report_file" type="FileField">dekl/2025/06/05/DEKL_061_200705_POZ_03_2025_321641.PDX</field>
+    <field name="state" type="CharField">Z</field>
+    <field name="version" type="IntegerField">1</field>
+  </object>
+</objects>

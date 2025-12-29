@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.personalvisitstencil -->
+<!-- Calkowita liczba rekordow: 388 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.personalvisitstencil" pk="8908">
+    <field name="examination" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="name" type="CharField">przeziębienie duże dziecko</field>
+    <field name="recognition" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="therapy" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.personalvisitstencil" pk="8649">
+    <field name="examination" rel="ManyToOneRel" to="gabinet.personalstencil">171644</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="name" type="CharField">szablon patronażowy</field>
+    <field name="recognition" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="therapy" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.personalvisitstencil" pk="8666">
+    <field name="examination" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="name" type="CharField">biegunka zalecenia</field>
+    <field name="recognition" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="therapy" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.personalvisitstencil" pk="12514">
+    <field name="examination" rel="ManyToOneRel" to="gabinet.personalstencil">256231</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="name" type="CharField">Ucho - badanie otoskopowe 2</field>
+    <field name="recognition" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="therapy" rel="ManyToOneRel" to="gabinet.personalstencil">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+</objects>

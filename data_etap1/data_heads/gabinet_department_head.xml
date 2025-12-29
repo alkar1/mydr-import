@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.department -->
+<!-- Calkowita liczba rekordow: 14 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.department" pk="39593">
+    <field name="city" type="CharField">Kraków</field>
+    <field name="code_5" type="CharField">01</field>
+    <field name="country" type="CharField">POLSKA</field>
+    <field name="default_teryt" rel="ManyToOneRel" to="gabinet.teryt">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="default_visit_kind" type="CharField">Prywatna</field>
+    <field name="department_code" type="CharField"></field>
+    <field name="departmental_code_8" type="CharField">9450</field>
+    <field name="flat_number" type="CharField">U1</field>
+    <field name="imported_id" type="CharField"></field>
+    <field name="kids_allowed" type="BooleanField">False</field>
+    <field name="name" type="CharField">Gabinet zabiegowy</field>
+    <field name="nfz_contracts" rel="ManyToManyRel" to="nfz.nfzcontract"></field>
+    <field name="recipe_provider" type="CharField">Dane z placówki</field>
+    <field name="regon" type="CharField">12149738900027</field>
+    <field name="service_type" type="CharField">01</field>
+    <field name="street" type="CharField">Borkowska</field>
+    <field name="work_to" type="TimeField">17:00:00</field>
+  </object>
+  <object model="gabinet.department" pk="39595">
+    <field name="city" type="CharField">Kraków</field>
+    <field name="code_5" type="CharField">01</field>
+    <field name="country" type="CharField">POLSKA</field>
+    <field name="default_teryt" rel="ManyToOneRel" to="gabinet.teryt">20102</field>
+    <field name="default_visit_kind" type="CharField">Prywatna</field>
+    <field name="department_code" type="CharField"></field>
+    <field name="departmental_code_8" type="CharField">9450</field>
+    <field name="flat_number" type="CharField">U1</field>
+    <field name="imported_id" type="CharField"></field>
+    <field name="kids_allowed" type="BooleanField">False</field>
+    <field name="name" type="CharField">Gabinet zabiegowy PRV</field>
+    <field name="nfz_contracts" rel="ManyToManyRel" to="nfz.nfzcontract"></field>
+    <field name="recipe_provider" type="CharField">Dane z placówki</field>
+    <field name="regon" type="CharField">12149738900027</field>
+    <field name="service_type" type="CharField">01</field>
+    <field name="street" type="CharField">Borkowska</field>
+    <field name="work_to" type="TimeField">17:00:00</field>
+  </object>
+  <object model="gabinet.department" pk="38484">
+    <field name="city" type="CharField">Kraków</field>
+    <field name="code_5" type="CharField"></field>
+    <field name="country" type="CharField">POLSKA</field>
+    <field name="default_teryt" rel="ManyToOneRel" to="gabinet.teryt">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="default_visit_kind" type="CharField">X</field>
+    <field name="department_code" type="CharField"></field>
+    <field name="departmental_code_8" type="CharField"></field>
+    <field name="flat_number" type="CharField"></field>
+    <field name="imported_id" type="CharField"></field>
+    <field name="kids_allowed" type="BooleanField">False</field>
+    <field name="name" type="CharField">Oddział domyślny</field>
+    <field name="nfz_contracts" rel="ManyToManyRel" to="nfz.nfzcontract"></field>
+    <field name="recipe_provider" type="CharField">Dane z placówki</field>
+    <field name="regon" type="CharField">12149738900027</field>
+    <field name="service_type" type="CharField">01</field>
+    <field name="street" type="CharField">Borkowska</field>
+    <field name="work_to" type="TimeField">17:00:00</field>
+  </object>
+  <object model="gabinet.department" pk="38927">
+    <field name="city" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="code_5" type="CharField"></field>
+    <field name="country" type="CharField">POLSKA</field>
+    <field name="default_teryt" rel="ManyToOneRel" to="gabinet.teryt">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="default_visit_kind" type="CharField">X</field>
+    <field name="department_code" type="CharField"></field>
+    <field name="departmental_code_8" type="CharField"></field>
+    <field name="flat_number" type="CharField"></field>
+    <field name="imported_id" type="CharField"></field>
+    <field name="kids_allowed" type="BooleanField">False</field>
+    <field name="name" type="CharField">Wyniki badań laboratoryjnych</field>
+    <field name="nfz_contracts" rel="ManyToManyRel" to="nfz.nfzcontract"></field>
+    <field name="recipe_provider" type="CharField">Dane z placówki</field>
+    <field name="regon" type="CharField">12149738900027</field>
+    <field name="service_type" type="CharField">01</field>
+    <field name="street" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="work_to" type="TimeField">17:00:00</field>
+  </object>
+</objects>

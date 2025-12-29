@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.personalstencil -->
+<!-- Calkowita liczba rekordow: 972 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.personalstencil" pk="171618">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9_text" type="TextField"></field>
+    <field name="text" type="TextField">Klacid 2x 4ml  co 12h przez 7 dni, Osłona 2xdz, Inhalacje 3xdziennie z 1ampułki Pulmicortu + berodual 10 kropli + 1 ml soli fizjologicznej. Mucosolvan 2xdz do 17.00</field>
+    <field name="type" type="CharField">recommendation</field>
+  </object>
+  <object model="gabinet.personalstencil" pk="171764">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9_text" type="TextField"></field>
+    <field name="text" type="TextField">Nurofen 3x 2,5 ml co 8 h przez 3 dni, Cebion C 2x10 kropli, Nasivin 2xdz . Flegamina - krople 2x 10 kropli w razie uporczywego kaszlu.</field>
+    <field name="type" type="CharField">recommendation</field>
+  </object>
+  <object model="gabinet.personalstencil" pk="171644">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9_text" type="TextField"></field>
+    <field name="text" type="TextField">W badaniu fizykalnym: na skórze twarzy trączki,ślad żółtaczki na powiece i czole i karku naczyniaki płaskie. Podniebienie całe, gardło różowe, śluzówki wilgotne. Obojczyki całe. Odruchy noworodkowe prawidłowe. Osłuchowo nad polami płucnymi szmer pęcherzykowy. ASM ok 110/min, bez patologicznych zjawisk osłuchowych. Brzuch miękki, niebolesny bez oporów. Pępowina nieodpadnięta.Ciemiączko 2x2 cm. czaszka kształtna.</field>
+    <field name="type" type="CharField">examination</field>
+  </object>
+  <object model="gabinet.personalstencil" pk="409714">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9_text" type="TextField"></field>
+    <field name="text" type="TextField">Acnatac (retinoid + antybiotyk) na twarz co 2 noc przez 2-4 tygodnie, potem codziennie na noc
+Nawilżanie skóry  twarzy np. Effaclar H, Effaclar żel myjący
+rano niacynamid 10% the Ordinary
+dieta z ograniczeniem cukrów prostych
+kontrola za 3 miesiące</field>
+    <field name="type" type="CharField">recommendation</field>
+  </object>
+</objects>

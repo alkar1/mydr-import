@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.visitnotes -->
+<!-- Calkowita liczba rekordow: 913366 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.visitnotes" pk="24965327">
+    <field name="action_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date" type="DateTimeField">2022-05-31T10:20:35</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="from_state" type="CharField">Zakończona</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175034050</field>
+  </object>
+  <object model="gabinet.visitnotes" pk="25018448">
+    <field name="action_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date" type="DateTimeField">2022-05-31T13:19:14</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="from_state" type="CharField">Zaplanowana</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">178278655</field>
+  </object>
+  <object model="gabinet.visitnotes" pk="25267350">
+    <field name="action_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="date" type="DateTimeField">2022-06-01T13:46:28</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="from_state" type="CharField">Zakończona</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175004141</field>
+  </object>
+  <object model="gabinet.visitnotes" pk="568100359">
+    <field name="action_type" type="CharField">VISIT_CLOSE</field>
+    <field name="date" type="DateTimeField">2025-12-08T18:04:48</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="from_state" type="CharField">W trakcie</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">381777641</field>
+  </object>
+</objects>

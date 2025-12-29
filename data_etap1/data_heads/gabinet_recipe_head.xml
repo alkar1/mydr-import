@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.recipe -->
+<!-- Calkowita liczba rekordow: 357582 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.recipe" pk="75217341">
+    <field name="date" type="DateTimeField">2011-09-20T00:00:00</field>
+    <field name="expiration_365" type="BooleanField">False</field>
+    <field name="has_pregnant_right" type="BooleanField">False</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="is_electronic_draft" type="BooleanField">False</field>
+    <field name="nurse_recipe_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">87082616329</field>
+    <field name="provider" type="TextField">Placowka
+
+ 
+POLSKA
+REGON: 
+tel.: </field>
+    <field name="recipe_number" rel="OneToOneRel" to="gabinet.recipenumber">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="type" type="CharField">Rp</field>
+  </object>
+  <object model="gabinet.recipe" pk="75217577">
+    <field name="date" type="DateTimeField">2011-12-20T00:00:00</field>
+    <field name="expiration_365" type="BooleanField">False</field>
+    <field name="has_pregnant_right" type="BooleanField">False</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="is_electronic_draft" type="BooleanField">False</field>
+    <field name="nurse_recipe_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">04253005735</field>
+    <field name="provider" type="TextField">Placowka
+
+ 
+POLSKA
+REGON: 
+tel.: </field>
+    <field name="recipe_number" rel="OneToOneRel" to="gabinet.recipenumber">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="type" type="CharField">Rp</field>
+  </object>
+  <object model="gabinet.recipe" pk="75217340">
+    <field name="date" type="DateTimeField">2011-09-20T00:00:00</field>
+    <field name="expiration_365" type="BooleanField">False</field>
+    <field name="has_pregnant_right" type="BooleanField">False</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="is_electronic_draft" type="BooleanField">False</field>
+    <field name="nurse_recipe_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">52080507368</field>
+    <field name="provider" type="TextField">Placowka
+
+ 
+POLSKA
+REGON: 
+tel.: </field>
+    <field name="recipe_number" rel="OneToOneRel" to="gabinet.recipenumber">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="type" type="CharField">Rp</field>
+  </object>
+  <object model="gabinet.recipe" pk="197300971">
+    <field name="date" type="DateTimeField">2025-12-08T00:00:00</field>
+    <field name="expiration_365" type="BooleanField">False</field>
+    <field name="has_pregnant_right" type="BooleanField">False</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="is_electronic_draft" type="BooleanField">True</field>
+    <field name="nurse_recipe_type" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">37061903120</field>
+    <field name="provider" type="TextField">Poradnia lekarza POZ
+Borkowska 25B/U1
+30-438 Kraków-Podgórze, POLSKA
+REGON: 121497389 tel.: 12 307 02 21</field>
+    <field name="recipe_number" rel="OneToOneRel" to="gabinet.recipenumber">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="type" type="CharField">Rp</field>
+  </object>
+</objects>

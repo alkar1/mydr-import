@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.person -->
+<!-- Calkowita liczba rekordow: 199 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.person" pk="170343">
+    <field name="academic_degree" type="CharField"></field>
+    <field name="available_services" rel="ManyToManyRel" to="gabinet.privateservice"></field>
+    <field name="commission_group" rel="ManyToOneRel" to="gabinet.commissiongroup">22587</field>
+    <field name="confirmed" type="BooleanField">True</field>
+    <field name="default_specialty" rel="ManyToManyRel" to="gabinet.specialty"></field>
+    <field name="hubspot_id" type="BigIntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_facility_owner" type="BooleanField">False</field>
+    <field name="languages" type="ArrayField">[]</field>
+    <field name="password_exp" type="DateTimeField">2025-08-24T08:18:17.319332</field>
+    <field name="pesel" type="CharField">06280409744</field>
+    <field name="privacy_policy_timestamp" type="DateTimeField">2025-07-25T08:18:17.659767</field>
+    <field name="pwz" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="skip_2fa" type="NullBooleanField">False</field>
+    <field name="tags" rel="OneToOneRel" to="gabinet.persontags">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="user" rel="OneToOneRel" to="auth.user">46097716</field>
+    <field name="visit_assistants" rel="ManyToManyRel" to="gabinet.person"></field>
+    <field name="visit_time" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.person" pk="171654">
+    <field name="academic_degree" type="CharField"></field>
+    <field name="commission_group" rel="ManyToOneRel" to="gabinet.commissiongroup">22587</field>
+    <field name="confirmed" type="BooleanField">True</field>
+    <field name="hubspot_id" type="BigIntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_facility_owner" type="BooleanField">False</field>
+    <field name="languages" type="ArrayField">[]</field>
+    <field name="password_exp" type="DateTimeField">2025-09-11T14:52:03.320716</field>
+    <field name="pesel" type="CharField">96050709440</field>
+    <field name="privacy_policy_timestamp" type="DateTimeField">2025-08-12T14:52:04.249520</field>
+    <field name="pwz" type="CharField">3879349</field>
+    <field name="skip_2fa" type="NullBooleanField">False</field>
+    <field name="tags" rel="OneToOneRel" to="gabinet.persontags">24454</field>
+    <field name="user" rel="OneToOneRel" to="auth.user">46606287</field>
+    <field name="visit_time" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.person" pk="84440">
+    <field name="academic_degree" type="CharField"></field>
+    <field name="available_services" rel="ManyToManyRel" to="gabinet.privateservice"></field>
+    <field name="commission_group" rel="ManyToOneRel" to="gabinet.commissiongroup">22587</field>
+    <field name="confirmed" type="BooleanField">True</field>
+    <field name="default_specialty" rel="ManyToManyRel" to="gabinet.specialty"></field>
+    <field name="hubspot_id" type="BigIntegerField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_facility_owner" type="BooleanField">False</field>
+    <field name="languages" type="ArrayField">[]</field>
+    <field name="password_exp" type="DateTimeField">2022-06-06T06:29:58.519082</field>
+    <field name="pesel" type="CharField">82081603602</field>
+    <field name="privacy_policy_timestamp" type="DateTimeField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pwz" type="CharField">2501834</field>
+    <field name="skip_2fa" type="NullBooleanField">False</field>
+    <field name="tags" rel="OneToOneRel" to="gabinet.persontags">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="user" rel="OneToOneRel" to="auth.user">23732803</field>
+    <field name="visit_assistants" rel="ManyToManyRel" to="gabinet.person"></field>
+    <field name="visit_time" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.person" pk="170762">
+    <field name="academic_degree" type="CharField">lekarz</field>
+    <field name="commission_group" rel="ManyToOneRel" to="gabinet.commissiongroup">22587</field>
+    <field name="confirmed" type="BooleanField">True</field>
+    <field name="hubspot_id" type="BigIntegerField">92880487270</field>
+    <field name="is_facility_owner" type="BooleanField">False</field>
+    <field name="languages" type="ArrayField">[&quot;pl&quot;]</field>
+    <field name="password_exp" type="DateTimeField">2025-08-30T11:21:11.455347</field>
+    <field name="pesel" type="CharField">82042213893</field>
+    <field name="privacy_policy_timestamp" type="DateTimeField">2025-07-31T11:21:11.808751</field>
+    <field name="pwz" type="CharField">3656449</field>
+    <field name="skip_2fa" type="NullBooleanField">False</field>
+    <field name="tags" rel="OneToOneRel" to="gabinet.persontags">24324</field>
+    <field name="user" rel="OneToOneRel" to="auth.user">46210085</field>
+    <field name="visit_time" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+</objects>

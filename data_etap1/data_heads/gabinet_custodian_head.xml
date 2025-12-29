@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.custodian -->
+<!-- Calkowita liczba rekordow: 2749 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.custodian" pk="3033624">
+    <field name="date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="name" type="CharField"></field>
+    <field name="pesel" type="CharField"></field>
+  </object>
+  <object model="gabinet.custodian" pk="1523280">
+    <field name="date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="name" type="CharField"></field>
+    <field name="pesel" type="CharField"></field>
+  </object>
+  <object model="gabinet.custodian" pk="1511948">
+    <field name="date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="name" type="CharField"></field>
+    <field name="pesel" type="CharField"></field>
+  </object>
+  <object model="gabinet.custodian" pk="1521834">
+    <field name="date_of_birth" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="name" type="CharField"></field>
+    <field name="pesel" type="CharField"></field>
+  </object>
+</objects>

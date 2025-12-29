@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.patient -->
+<!-- Calkowita liczba rekordow: 22397 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.patient" pk="44638616">
+    <field name="active" type="BooleanField">True</field>
+    <field name="blood_type" type="CharField">N</field>
+    <field name="cancelled_visits_count" type="PositiveIntegerField">0</field>
+    <field name="country" type="CharField">PL</field>
+    <field name="dead" rel="OneToOneRel" to="gabinet.patientdead">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="debt" type="DecimalField">0.00</field>
+    <field name="employer_address" rel="OneToOneRel" to="gabinet.address">162204546</field>
+    <field name="employer_nip" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="identity_num" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_active" type="BooleanField">False</field>
+    <field name="is_ice_auth_signed" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_self_registered" type="BooleanField">False</field>
+    <field name="maiden_name" type="CharField"></field>
+    <field name="nfz" type="CharField">06</field>
+    <field name="nobody_ice_authorized" type="BooleanField">False</field>
+    <field name="notification_email" type="BooleanField">False</field>
+    <field name="occupation_code" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">25250900748</field>
+    <field name="place_of_birth" type="CharField"></field>
+    <field name="residence_address" rel="OneToOneRel" to="gabinet.address">162204544</field>
+    <field name="rights_document_info" type="CharField"></field>
+    <field name="rodo_mail_sent" type="BooleanField">False</field>
+    <field name="second_name" type="CharField"></field>
+    <field name="second_telephone" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="takes_part_in_loyalty_program" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.patient" pk="23659633">
+    <field name="active" type="BooleanField">True</field>
+    <field name="blood_type" type="CharField">N</field>
+    <field name="cancelled_visits_count" type="PositiveIntegerField">0</field>
+    <field name="country" type="CharField">PL</field>
+    <field name="dead" rel="OneToOneRel" to="gabinet.patientdead">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="debt" type="DecimalField">0.00</field>
+    <field name="employer_address" rel="OneToOneRel" to="gabinet.address">92423082</field>
+    <field name="employer_nip" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="is_ice_auth_signed" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_self_registered" type="BooleanField">False</field>
+    <field name="maiden_name" type="CharField"></field>
+    <field name="nfz" type="CharField">06</field>
+    <field name="nobody_ice_authorized" type="BooleanField">False</field>
+    <field name="notification_email" type="BooleanField">False</field>
+    <field name="occupation_code" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">84081913952</field>
+    <field name="place_of_birth" type="CharField"></field>
+    <field name="residence_address" rel="OneToOneRel" to="gabinet.address">92423080</field>
+    <field name="rights_document_info" type="CharField"></field>
+    <field name="rodo_mail_sent" type="BooleanField">False</field>
+    <field name="second_name" type="CharField"></field>
+    <field name="second_telephone" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="takes_part_in_loyalty_program" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.patient" pk="39495387">
+    <field name="active" type="BooleanField">True</field>
+    <field name="blood_type" type="CharField">N</field>
+    <field name="cancelled_visits_count" type="PositiveIntegerField">0</field>
+    <field name="country" type="CharField">PL</field>
+    <field name="dead" rel="OneToOneRel" to="gabinet.patientdead">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="debt" type="DecimalField">0.00</field>
+    <field name="employer_address" rel="OneToOneRel" to="gabinet.address">146009874</field>
+    <field name="employer_nip" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="identity_num" type="CharField"></field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="is_ice_auth_signed" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_self_registered" type="BooleanField">False</field>
+    <field name="maiden_name" type="CharField"></field>
+    <field name="nfz" type="CharField">X</field>
+    <field name="nobody_ice_authorized" type="BooleanField">False</field>
+    <field name="notification_email" type="BooleanField">False</field>
+    <field name="occupation_code" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField"></field>
+    <field name="place_of_birth" type="CharField"></field>
+    <field name="residence_address" rel="OneToOneRel" to="gabinet.address">146009873</field>
+    <field name="rights_document_info" type="CharField"></field>
+    <field name="rodo_mail_sent" type="BooleanField">False</field>
+    <field name="second_name" type="CharField"></field>
+    <field name="second_telephone" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="takes_part_in_loyalty_program" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.patient" pk="23668166">
+    <field name="active" type="BooleanField">True</field>
+    <field name="blood_type" type="CharField">N</field>
+    <field name="cancelled_visits_count" type="PositiveIntegerField">0</field>
+    <field name="country" type="CharField">PL</field>
+    <field name="dead" rel="OneToOneRel" to="gabinet.patientdead">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="debt" type="DecimalField">0.00</field>
+    <field name="employer_address" rel="OneToOneRel" to="gabinet.address">92448681</field>
+    <field name="employer_nip" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="identity_num" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_active" type="BooleanField">False</field>
+    <field name="is_ice_auth_signed" type="NullBooleanField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_self_registered" type="BooleanField">False</field>
+    <field name="maiden_name" type="CharField">Osolińska</field>
+    <field name="nfz" type="CharField">06</field>
+    <field name="nobody_ice_authorized" type="BooleanField">False</field>
+    <field name="notification_email" type="BooleanField">False</field>
+    <field name="occupation_code" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="pesel" type="CharField">48041604261</field>
+    <field name="place_of_birth" type="CharField"></field>
+    <field name="residence_address" rel="OneToOneRel" to="gabinet.address">92448679</field>
+    <field name="rights_document_info" type="CharField"></field>
+    <field name="rodo_mail_sent" type="BooleanField">False</field>
+    <field name="second_name" type="CharField">Ewa</field>
+    <field name="second_telephone" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="takes_part_in_loyalty_program" type="BooleanField">True</field>
+  </object>
+</objects>

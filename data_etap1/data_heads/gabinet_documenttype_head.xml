@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.documenttype -->
+<!-- Calkowita liczba rekordow: 16 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.documenttype" pk="112938">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_active" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.documenttype" pk="108414">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_active" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.documenttype" pk="108410">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_active" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.documenttype" pk="147344">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_active" type="BooleanField">True</field>
+  </object>
+</objects>

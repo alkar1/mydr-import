@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.footer -->
+<!-- Calkowita liczba rekordow: 3 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.footer" pk="65189">
+    <field name="city" type="BooleanField">True</field>
+    <field name="code_1" type="BooleanField">True</field>
+    <field name="custom_content_enabled" type="NullBooleanField">False</field>
+    <field name="custom_content_right" type="TextField"></field>
+    <field name="department_code" type="BooleanField">True</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="facility_address" type="BooleanField">True</field>
+    <field name="facility_tel" type="BooleanField">True</field>
+    <field name="font_size" type="PositiveIntegerField">11</field>
+    <field name="logo" type="BooleanField">True</field>
+    <field name="nfz_primal_code" type="BooleanField">False</field>
+    <field name="on_top" type="BooleanField">True</field>
+    <field name="rodo" type="BooleanField">False</field>
+    <field name="time" type="BooleanField">False</field>
+    <field name="www_address" type="BooleanField">False</field>
+  </object>
+  <object model="gabinet.footer" pk="65190">
+    <field name="city" type="BooleanField">True</field>
+    <field name="code_1" type="BooleanField">True</field>
+    <field name="custom_content_enabled" type="NullBooleanField">False</field>
+    <field name="custom_content_right" type="TextField"></field>
+    <field name="department_code" type="BooleanField">True</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="facility_address" type="BooleanField">True</field>
+    <field name="facility_tel" type="BooleanField">True</field>
+    <field name="font_size" type="PositiveIntegerField">11</field>
+    <field name="logo" type="BooleanField">False</field>
+    <field name="nfz_primal_code" type="BooleanField">False</field>
+    <field name="on_top" type="BooleanField">False</field>
+    <field name="rodo" type="BooleanField">False</field>
+    <field name="time" type="BooleanField">False</field>
+    <field name="www_address" type="BooleanField">False</field>
+  </object>
+  <object model="gabinet.footer" pk="65188">
+    <field name="city" type="BooleanField">True</field>
+    <field name="code_1" type="BooleanField">True</field>
+    <field name="custom_content_enabled" type="NullBooleanField">False</field>
+    <field name="custom_content_right" type="TextField"></field>
+    <field name="department_code" type="BooleanField">True</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="facility_address" type="BooleanField">True</field>
+    <field name="facility_tel" type="BooleanField">True</field>
+    <field name="font_size" type="PositiveIntegerField">11</field>
+    <field name="logo" type="BooleanField">True</field>
+    <field name="nfz_primal_code" type="BooleanField">False</field>
+    <field name="on_top" type="BooleanField">True</field>
+    <field name="rodo" type="BooleanField">False</field>
+    <field name="time" type="BooleanField">False</field>
+    <field name="www_address" type="BooleanField">False</field>
+  </object>
+</objects>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: nfz.nfzcontract -->
+<!-- Calkowita liczba rekordow: 6 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="nfz.nfzcontract" pk="31558">
+    <field name="active_to" type="DateField">2022-12-31</field>
+    <field name="delegation_settling" type="CharField">0006</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="primal_code" type="CharField"></field>
+    <field name="service_type" type="CharField">01</field>
+  </object>
+  <object model="nfz.nfzcontract" pk="32699">
+    <field name="active_to" type="DateField">2023-12-31</field>
+    <field name="delegation_settling" type="CharField">0006</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="primal_code" type="CharField"></field>
+    <field name="service_type" type="CharField">01</field>
+  </object>
+  <object model="nfz.nfzcontract" pk="33919">
+    <field name="active_to" type="DateField">2023-12-31</field>
+    <field name="delegation_settling" type="CharField">0006</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="primal_code" type="CharField"></field>
+    <field name="service_type" type="CharField">19</field>
+  </object>
+  <object model="nfz.nfzcontract" pk="36866">
+    <field name="active_to" type="DateField">2025-12-31</field>
+    <field name="delegation_settling" type="CharField">0006</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="primal_code" type="CharField"></field>
+    <field name="service_type" type="CharField">01</field>
+  </object>
+</objects>

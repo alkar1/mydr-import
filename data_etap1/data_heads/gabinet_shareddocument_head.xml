@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.shareddocument -->
+<!-- Calkowita liczba rekordow: 3 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.shareddocument" pk="657">
+    <field name="description" type="CharField">Deklaracja do położnej POZ pusta</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file_size" type="BigIntegerField">417765</field>
+  </object>
+  <object model="gabinet.shareddocument" pk="656">
+    <field name="description" type="CharField">Deklaracja do pielęgniarki POZ pusta</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file_size" type="BigIntegerField">396732</field>
+  </object>
+  <object model="gabinet.shareddocument" pk="655">
+    <field name="description" type="CharField">Deklaracja do lekarza POZ pusta</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="file_size" type="BigIntegerField">400594</field>
+  </object>
+</objects>

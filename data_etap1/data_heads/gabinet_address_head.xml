@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.address -->
+<!-- Calkowita liczba rekordow: 67191 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.address" pk="162204544">
+    <field name="city" type="CharField">Mogilany</field>
+    <field name="country" type="CharField">PL</field>
+    <field name="flat_number" type="CharField"></field>
+    <field name="street" type="CharField">Osiedlowa</field>
+  </object>
+  <object model="gabinet.address" pk="146009873">
+    <field name="city" type="CharField"></field>
+    <field name="country" type="CharField">PL</field>
+    <field name="flat_number" type="CharField"></field>
+    <field name="street" type="CharField"></field>
+  </object>
+  <object model="gabinet.address" pk="94172466">
+    <field name="city" type="CharField">Bodzanów</field>
+    <field name="country" type="CharField">PL</field>
+    <field name="flat_number" type="CharField"></field>
+    <field name="street" type="CharField">Bodzanów</field>
+  </object>
+  <object model="gabinet.address" pk="106138346">
+    <field name="city" type="CharField"></field>
+    <field name="country" type="CharField">PL</field>
+    <field name="flat_number" type="CharField"></field>
+    <field name="street" type="CharField"></field>
+  </object>
+</objects>

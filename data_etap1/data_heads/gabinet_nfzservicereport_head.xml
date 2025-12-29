@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.nfzservicereport -->
+<!-- Calkowita liczba rekordow: 92 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.nfzservicereport" pk="74991">
+    <field name="creation_date" type="DateTimeField">2023-01-23T14:30:13.970454</field>
+    <field name="date_active" type="DateField">2023-01-23</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">266252</field>
+    <field name="nfz_contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="previous" rel="ManyToOneRel" to="gabinet.nfzservicereport">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="price_sum" type="DecimalField">0.00</field>
+  </object>
+  <object model="gabinet.nfzservicereport" pk="75002">
+    <field name="creation_date" type="DateTimeField">2023-01-23T15:06:14.442206</field>
+    <field name="date_active" type="DateField">2023-01-23</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">266253</field>
+    <field name="nfz_contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="previous" rel="ManyToOneRel" to="gabinet.nfzservicereport">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="price_sum" type="DecimalField">0.00</field>
+  </object>
+  <object model="gabinet.nfzservicereport" pk="81232">
+    <field name="creation_date" type="DateTimeField">2023-03-15T19:27:03.714121</field>
+    <field name="date_active" type="DateField">2023-03-15</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="nfz_contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="previous" rel="ManyToOneRel" to="gabinet.nfzservicereport">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="price_sum" type="DecimalField">0.00</field>
+  </object>
+  <object model="gabinet.nfzservicereport" pk="204502">
+    <field name="creation_date" type="DateTimeField">2025-12-05T10:13:18.927842</field>
+    <field name="date_active" type="DateField">2025-12-05</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="mail_reporting_message" rel="ManyToOneRel" to="gabinet.nfzmailreportingmessage">679377</field>
+    <field name="nfz_contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="previous" rel="ManyToOneRel" to="gabinet.nfzservicereport">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="price_sum" type="DecimalField">0.00</field>
+  </object>
+</objects>

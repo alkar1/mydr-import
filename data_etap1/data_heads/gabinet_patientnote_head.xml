@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.patientnote -->
+<!-- Calkowita liczba rekordow: 5178 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.patientnote" pk="1549662">
+    <field name="author" rel="ManyToOneRel" to="gabinet.person">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_medical_data" type="NullBooleanField">False</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23659601</field>
+    <field name="title" type="CharField">Inne</field>
+  </object>
+  <object model="gabinet.patientnote" pk="1549697">
+    <field name="author" rel="ManyToOneRel" to="gabinet.person">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="is_medical_data" type="NullBooleanField">False</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23662254</field>
+    <field name="title" type="CharField">Inne</field>
+  </object>
+  <object model="gabinet.patientnote" pk="2947399">
+    <field name="author" rel="ManyToOneRel" to="gabinet.person">84459</field>
+    <field name="is_medical_data" type="NullBooleanField">False</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">29339629</field>
+    <field name="title" type="CharField">Ryzyko SN</field>
+  </object>
+  <object model="gabinet.patientnote" pk="2944477">
+    <field name="author" rel="ManyToOneRel" to="gabinet.person">85946</field>
+    <field name="is_medical_data" type="NullBooleanField">False</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23666650</field>
+    <field name="title" type="CharField">Wizyta w obecności brata</field>
+  </object>
+</objects>

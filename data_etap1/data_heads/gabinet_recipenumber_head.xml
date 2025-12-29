@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.recipenumber -->
+<!-- Calkowita liczba rekordow: 139374 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.recipenumber" pk="30242794">
+    <field name="number" type="CharField">0206000000000195404283</field>
+    <field name="owner" rel="ManyToOneRel" to="gabinet.person">84440</field>
+  </object>
+  <object model="gabinet.recipenumber" pk="30242835">
+    <field name="number" type="CharField">0206000000000195410680</field>
+    <field name="owner" rel="ManyToOneRel" to="gabinet.person">84440</field>
+  </object>
+  <object model="gabinet.recipenumber" pk="30243092">
+    <field name="number" type="CharField">0206010000009610321388</field>
+    <field name="owner" rel="ManyToOneRel" to="gabinet.person">84536</field>
+  </object>
+  <object model="gabinet.recipenumber" pk="30381560">
+    <field name="number" type="CharField">0206010000007332667285</field>
+    <field name="owner" rel="ManyToOneRel" to="gabinet.person">84518</field>
+  </object>
+</objects>

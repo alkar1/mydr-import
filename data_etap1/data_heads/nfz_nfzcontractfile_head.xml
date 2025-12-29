@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: nfz.nfzcontractfile -->
+<!-- Calkowita liczba rekordow: 35 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="nfz.nfzcontractfile" pk="119371">
+    <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="created" type="DateTimeField">2025-12-05T16:56:49.407534</field>
+    <field name="gen_time" type="DateTimeField">2025-12-05T15:55:33</field>
+  </object>
+  <object model="nfz.nfzcontractfile" pk="118860">
+    <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="created" type="DateTimeField">2025-11-20T09:48:28.677737</field>
+    <field name="gen_time" type="DateTimeField">2025-11-19T13:58:04</field>
+  </object>
+  <object model="nfz.nfzcontractfile" pk="118011">
+    <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="created" type="DateTimeField">2025-10-24T07:24:35.332335</field>
+    <field name="gen_time" type="DateTimeField">2025-10-23T19:15:21</field>
+  </object>
+  <object model="nfz.nfzcontractfile" pk="85335">
+    <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="created" type="DateTimeField">2022-05-31T00:15:31.137868</field>
+    <field name="gen_time" type="DateTimeField">2022-05-04T13:30:35</field>
+  </object>
+</objects>

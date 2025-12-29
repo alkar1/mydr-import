@@ -92,6 +92,10 @@ class Program
             WriteJsonReport(jsonPath, objectInfos);
             Console.WriteLine("Zapisano: xml_structure_summary.json");
 
+            // Zapisz przykladowe rekordy (pierwsze 3 + ostatni) do plikow XML
+            var dataHeadsPath = Path.Combine(dataEtap1Path, "data_heads");
+            analyzer.SaveSampleRecordsToXml(dataHeadsPath, objectInfos);
+
             Console.WriteLine();
             Console.WriteLine(new string('=', 80));
             Console.WriteLine("ANALIZA ZAKONCZONA POMYSLNIE!");

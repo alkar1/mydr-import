@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.patientpermanentdrug -->
+<!-- Calkowita liczba rekordow: 33615 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.patientpermanentdrug" pk="8488873">
+    <field name="dosation_in_words" type="CharField"></field>
+    <field name="drug" rel="ManyToOneRel" to="gabinet.ver">26102167</field>
+    <field name="is_part_of_box" type="BooleanField">False</field>
+    <field name="payment" type="CharField">R</field>
+    <field name="recommendation_technical_str" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.patientpermanentdrug" pk="12845730">
+    <field name="dosation_in_words" type="CharField"></field>
+    <field name="drug" rel="ManyToOneRel" to="gabinet.ver">26536303</field>
+    <field name="is_part_of_box" type="BooleanField">False</field>
+    <field name="payment" type="CharField">R</field>
+    <field name="recommendation_technical_str" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.patientpermanentdrug" pk="13444572">
+    <field name="dosation_in_words" type="CharField"></field>
+    <field name="drug" rel="ManyToOneRel" to="gabinet.ver">26534713</field>
+    <field name="is_part_of_box" type="BooleanField">False</field>
+    <field name="payment" type="CharField">R</field>
+    <field name="recommendation_technical_str" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.patientpermanentdrug" pk="15973099">
+    <field name="dosation_in_words" type="CharField"></field>
+    <field name="drug" rel="ManyToOneRel" to="gabinet.ver">26541067</field>
+    <field name="is_part_of_box" type="BooleanField">False</field>
+    <field name="payment" type="CharField">30%</field>
+    <field name="recommendation_technical_str" type="TextField">1 * 1/1d $ szt.</field>
+  </object>
+</objects>

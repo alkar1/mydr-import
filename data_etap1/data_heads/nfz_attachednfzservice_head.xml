@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: nfz.attachednfzservice -->
+<!-- Calkowita liczba rekordow: 195133 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="nfz.attachednfzservice" pk="30365851">
+    <field name="identifier" type="IntegerField">2</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="jgp_tariff" type="DecimalField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="package_code" type="CharField">01.0010.994.01</field>
+    <field name="quantity" type="DecimalField">1.0000</field>
+    <field name="service_code" type="CharField">5.01.00.0000001</field>
+    <field name="service_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="special_settlement_codes" rel="ManyToManyRel" to="nfz.specialsettlementcode"></field>
+    <field name="version_number" type="IntegerField">1</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">210369948</field>
+  </object>
+  <object model="nfz.attachednfzservice" pk="30449456">
+    <field name="identifier" type="IntegerField">2</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="jgp_tariff" type="DecimalField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="package_code" type="CharField">01.0010.994.01</field>
+    <field name="quantity" type="DecimalField">1.0000</field>
+    <field name="service_code" type="CharField">5.01.00.0000001</field>
+    <field name="service_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="special_settlement_codes" rel="ManyToManyRel" to="nfz.specialsettlementcode"></field>
+    <field name="version_number" type="IntegerField">1</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">210371422</field>
+  </object>
+  <object model="nfz.attachednfzservice" pk="32434781">
+    <field name="identifier" type="IntegerField">2</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="jgp_tariff" type="DecimalField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="package_code" type="CharField">01.0010.994.01</field>
+    <field name="quantity" type="DecimalField">1.0000</field>
+    <field name="service_code" type="CharField">5.01.00.0000001</field>
+    <field name="service_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="special_settlement_codes" rel="ManyToManyRel" to="nfz.specialsettlementcode"></field>
+    <field name="version_number" type="IntegerField">1</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">218202445</field>
+  </object>
+  <object model="nfz.attachednfzservice" pk="97409177">
+    <field name="identifier" type="IntegerField">1</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="jgp_tariff" type="DecimalField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="package_code" type="CharField">01.0034.010.01</field>
+    <field name="quantity" type="DecimalField">1.0000</field>
+    <field name="service_code" type="CharField">5.01.00.0000294</field>
+    <field name="service_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="special_settlement_codes" rel="ManyToManyRel" to="nfz.specialsettlementcode"></field>
+    <field name="version_number" type="IntegerField">1</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">362505089</field>
+  </object>
+</objects>

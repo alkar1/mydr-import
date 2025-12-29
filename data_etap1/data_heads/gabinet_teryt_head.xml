@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.teryt -->
+<!-- Calkowita liczba rekordow: 3290 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.teryt" pk="19280">
+    <field name="kolce_miejscowosc" type="CharField">Pod Wielkolasem</field>
+    <field name="longitude" type="DecimalField">22.27706944</field>
+    <field name="name" type="CharField">Abramów</field>
+  </object>
+  <object model="gabinet.teryt" pk="19326">
+    <field name="kolce_miejscowosc" type="CharField">Dobrowola</field>
+    <field name="longitude" type="DecimalField">22.20707516</field>
+    <field name="name" type="CharField">Adamów</field>
+  </object>
+  <object model="gabinet.teryt" pk="19418">
+    <field name="kolce_miejscowosc" type="CharField">Jacnia</field>
+    <field name="longitude" type="DecimalField">23.20324713</field>
+    <field name="name" type="CharField">Adamów</field>
+  </object>
+  <object model="gabinet.teryt" pk="21414">
+    <field name="kolce_miejscowosc" type="CharField">Do Oleksiaków</field>
+    <field name="longitude" type="DecimalField">19.22566551</field>
+    <field name="name" type="CharField">Żywiec</field>
+  </object>
+</objects>

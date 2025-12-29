@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: nfz.nfzserviceplan -->
+<!-- Calkowita liczba rekordow: 13265 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="nfz.nfzserviceplan" pk="13065995">
+    <field name="additional_data" type="CharField">SLPIPWYK      </field>
+    <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">31558</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="limit_package" type="DecimalField">4142.0000</field>
+    <field name="package_code" type="CharField">01.0010.119.11</field>
+    <field name="rsm" type="BooleanField">False</field>
+    <field name="service_code" type="CharField"></field>
+    <field name="service_name" type="CharField"></field>
+    <field name="unit_type" type="CharField">PUNKT ROZLICZENIOWY</field>
+  </object>
+  <object model="nfz.nfzserviceplan" pk="14561084">
+    <field name="additional_data" type="CharField">RNPIPWYK      </field>
+    <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">34198</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="limit_package" type="DecimalField">0.0000</field>
+    <field name="package_code" type="CharField">19.0319.801.02</field>
+    <field name="rsm" type="BooleanField">False</field>
+    <field name="service_code" type="CharField"></field>
+    <field name="service_name" type="CharField"></field>
+    <field name="unit_type" type="CharField">PUNKT ROZLICZENIOWY</field>
+  </object>
+  <object model="nfz.nfzserviceplan" pk="14561085">
+    <field name="additional_data" type="CharField">RNPIPWYK      </field>
+    <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">34198</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="limit_package" type="DecimalField">0.0000</field>
+    <field name="package_code" type="CharField">19.0319.801.02</field>
+    <field name="rsm" type="BooleanField">False</field>
+    <field name="service_code" type="CharField"></field>
+    <field name="service_name" type="CharField"></field>
+    <field name="unit_type" type="CharField">PUNKT ROZLICZENIOWY</field>
+  </object>
+  <object model="nfz.nfzserviceplan" pk="19209511">
+    <field name="additional_data" type="CharField">SNPIPWYKNPK1PA</field>
+    <field name="contract" rel="ManyToOneRel" to="nfz.nfzcontract">36866</field>
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="limit_package" type="DecimalField">0.0000</field>
+    <field name="package_code" type="CharField">01.0010.131.11</field>
+    <field name="rsm" type="BooleanField">True</field>
+    <field name="service_code" type="CharField">5.01.00.0000302</field>
+    <field name="service_name" type="CharField">LIPIDOGRAM - BADANIE PRZESIEWOWE W KIERUNKU HIPERCHOLESTEROLEMII RODZINNEJ ZREALIZOWANE W RAMACH BILANSU 6-LATKA</field>
+    <field name="unit_type" type="CharField">PORADA</field>
+  </object>
+</objects>

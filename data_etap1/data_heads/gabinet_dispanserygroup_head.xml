@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.dispanserygroup -->
+<!-- Calkowita liczba rekordow: 41 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.dispanserygroup" pk="2782">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="type" type="CharField">C</field>
+  </object>
+  <object model="gabinet.dispanserygroup" pk="2783">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="type" type="CharField">C</field>
+  </object>
+  <object model="gabinet.dispanserygroup" pk="2784">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="type" type="CharField">C</field>
+  </object>
+  <object model="gabinet.dispanserygroup" pk="2822">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="type" type="CharField">C</field>
+  </object>
+</objects>

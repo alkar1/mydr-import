@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.profile -->
+<!-- Calkowita liczba rekordow: 199 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.profile" pk="170103">
+    <field name="actual_department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="calendar_color" type="CharField">#ff9804</field>
+    <field name="dentition_extended" type="BooleanField">True</field>
+    <field name="department_telephone_preference" type="BooleanField">True</field>
+    <field name="is_aptego_on" type="BooleanField">True</field>
+    <field name="ml_generate_recipes_samples" type="BooleanField">True</field>
+    <field name="mobile_access" type="BooleanField">True</field>
+    <field name="send_password_notifications" type="BooleanField">False</field>
+    <field name="send_patient_visit_notifications" type="BooleanField">False</field>
+    <field name="send_patient_visit_notifications_push" type="BooleanField">False</field>
+    <field name="show_cancelled_visits" type="BooleanField">True</field>
+    <field name="show_confirmations" type="BooleanField">False</field>
+    <field name="tooltips" type="BooleanField">True</field>
+    <field name="visit_patient_notification" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.profile" pk="171414">
+    <field name="actual_department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="calendar_color" type="CharField">#ff9804</field>
+    <field name="dentition_extended" type="BooleanField">True</field>
+    <field name="department_telephone_preference" type="BooleanField">True</field>
+    <field name="is_aptego_on" type="BooleanField">True</field>
+    <field name="ml_generate_recipes_samples" type="BooleanField">True</field>
+    <field name="mobile_access" type="BooleanField">True</field>
+    <field name="send_password_notifications" type="BooleanField">False</field>
+    <field name="send_patient_visit_notifications" type="BooleanField">False</field>
+    <field name="send_patient_visit_notifications_push" type="BooleanField">False</field>
+    <field name="show_cancelled_visits" type="BooleanField">False</field>
+    <field name="show_confirmations" type="BooleanField">False</field>
+    <field name="tooltips" type="BooleanField">True</field>
+    <field name="visit_patient_notification" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.profile" pk="84466">
+    <field name="actual_department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="calendar_color" type="CharField">#ff9804</field>
+    <field name="dentition_extended" type="BooleanField">True</field>
+    <field name="department_telephone_preference" type="BooleanField">True</field>
+    <field name="is_aptego_on" type="BooleanField">True</field>
+    <field name="ml_generate_recipes_samples" type="BooleanField">True</field>
+    <field name="mobile_access" type="BooleanField">True</field>
+    <field name="send_password_notifications" type="BooleanField">False</field>
+    <field name="send_patient_visit_notifications" type="BooleanField">False</field>
+    <field name="send_patient_visit_notifications_push" type="BooleanField">False</field>
+    <field name="show_cancelled_visits" type="BooleanField">True</field>
+    <field name="show_confirmations" type="BooleanField">False</field>
+    <field name="tooltips" type="BooleanField">True</field>
+    <field name="visit_patient_notification" type="BooleanField">True</field>
+  </object>
+  <object model="gabinet.profile" pk="170522">
+    <field name="actual_department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="calendar_color" type="CharField">#ff9804</field>
+    <field name="dentition_extended" type="BooleanField">True</field>
+    <field name="department_telephone_preference" type="BooleanField">True</field>
+    <field name="is_aptego_on" type="BooleanField">True</field>
+    <field name="ml_generate_recipes_samples" type="BooleanField">True</field>
+    <field name="mobile_access" type="BooleanField">True</field>
+    <field name="send_password_notifications" type="BooleanField">False</field>
+    <field name="send_patient_visit_notifications" type="BooleanField">False</field>
+    <field name="send_patient_visit_notifications_push" type="BooleanField">False</field>
+    <field name="show_cancelled_visits" type="BooleanField">False</field>
+    <field name="show_confirmations" type="BooleanField">False</field>
+    <field name="tooltips" type="BooleanField">True</field>
+    <field name="visit_patient_notification" type="BooleanField">True</field>
+  </object>
+</objects>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.specialty -->
+<!-- Calkowita liczba rekordow: 67 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.specialty" pk="1390980">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="is_spec_doctor" type="BooleanField">False</field>
+  </object>
+  <object model="gabinet.specialty" pk="1390981">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="is_spec_doctor" type="BooleanField">False</field>
+  </object>
+  <object model="gabinet.specialty" pk="1390982">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="is_spec_doctor" type="BooleanField">False</field>
+  </object>
+  <object model="gabinet.specialty" pk="1723744">
+    <field name="facility" rel="ManyToOneRel" to="gabinet.facility">21540</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="is_spec_doctor" type="BooleanField">True</field>
+  </object>
+</objects>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.icd10 -->
+<!-- Calkowita liczba rekordow: 992503 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.icd10" pk="10001">
+    <field name="code" type="TextField">A00</field>
+    <field name="common" type="TextField"></field>
+    <field name="common_type" type="CharField">nieprzewlekłe główne</field>
+    <field name="descr" type="TextField">Choroba zakaźna wywołana przez Vibrio cholerae [cholera]</field>
+    <field name="descr3" type="TextField"></field>
+    <field name="disease_kind" type="TextField">Choroba bakteryjna</field>
+    <field name="is_cancer" type="BooleanField">False</field>
+    <field name="is_immediate" type="BooleanField">False</field>
+    <field name="special" type="TextField">Choroby zakaźne</field>
+  </object>
+  <object model="gabinet.icd10" pk="10001">
+    <field name="code" type="TextField">A00</field>
+    <field name="common" type="TextField"></field>
+    <field name="common_type" type="CharField">nieprzewlekłe główne</field>
+    <field name="descr" type="TextField">Choroba zakaźna wywołana przez Vibrio cholerae [cholera]</field>
+    <field name="descr3" type="TextField"></field>
+    <field name="disease_kind" type="TextField">Choroba bakteryjna</field>
+    <field name="is_cancer" type="BooleanField">False</field>
+    <field name="is_immediate" type="BooleanField">False</field>
+    <field name="special" type="TextField">Choroby zakaźne</field>
+  </object>
+  <object model="gabinet.icd10" pk="10001">
+    <field name="code" type="TextField">A00</field>
+    <field name="common" type="TextField"></field>
+    <field name="common_type" type="CharField">nieprzewlekłe główne</field>
+    <field name="descr" type="TextField">Choroba zakaźna wywołana przez Vibrio cholerae [cholera]</field>
+    <field name="descr3" type="TextField"></field>
+    <field name="disease_kind" type="TextField">Choroba bakteryjna</field>
+    <field name="is_cancer" type="BooleanField">False</field>
+    <field name="is_immediate" type="BooleanField">False</field>
+    <field name="special" type="TextField">Choroby zakaźne</field>
+  </object>
+  <object model="gabinet.icd10" pk="24232">
+    <field name="code" type="TextField">Z98.8</field>
+    <field name="common" type="TextField"></field>
+    <field name="common_type" type="CharField">nieprzewlekłe główne</field>
+    <field name="descr" type="TextField">Inne określone stany po zabiegach chirurgicznych</field>
+    <field name="descr3" type="TextField"></field>
+    <field name="disease_kind" type="TextField"></field>
+    <field name="is_cancer" type="BooleanField">False</field>
+    <field name="is_immediate" type="BooleanField">False</field>
+    <field name="special" type="TextField"></field>
+  </object>
+</objects>

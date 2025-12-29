@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.nfzdeclaration -->
+<!-- Calkowita liczba rekordow: 30924 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.nfzdeclaration" pk="17676367">
+    <field name="creation_date" type="DateField">2025-05-13</field>
+    <field name="note" type="CharField"></field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44638616</field>
+    <field name="personnel" rel="ManyToOneRel" to="gabinet.person">84444</field>
+    <field name="school_kind" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="state" type="CharField">P</field>
+    <field name="typ_szkoly_plat" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.nfzdeclaration" pk="13159360">
+    <field name="creation_date" type="DateField">2021-04-21</field>
+    <field name="note" type="CharField"></field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23654538</field>
+    <field name="personnel" rel="ManyToOneRel" to="gabinet.person">84523</field>
+    <field name="school_kind" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="state" type="CharField">P</field>
+    <field name="typ_szkoly_plat" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.nfzdeclaration" pk="13163102">
+    <field name="creation_date" type="DateField">2014-03-26</field>
+    <field name="note" type="CharField"></field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23664125</field>
+    <field name="personnel" rel="ManyToOneRel" to="gabinet.person">84433</field>
+    <field name="school_kind" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="state" type="CharField">P</field>
+    <field name="typ_szkoly_plat" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.nfzdeclaration" pk="18861198">
+    <field name="creation_date" type="DateField">2025-11-06</field>
+    <field name="note" type="CharField"></field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">48586206</field>
+    <field name="personnel" rel="ManyToOneRel" to="gabinet.person">84443</field>
+    <field name="school_kind" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="state" type="CharField">Z</field>
+    <field name="typ_szkoly_plat" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+</objects>

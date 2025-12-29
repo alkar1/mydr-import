@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.privateservice -->
+<!-- Calkowita liczba rekordow: 941 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.privateservice" pk="535994">
+    <field name="active" type="BooleanField">True</field>
+    <field name="index" type="CharField">378</field>
+    <field name="insurer_service_code" type="CharField"></field>
+    <field name="is_active_for_all" type="BooleanField">True</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="vat" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.privateservice" pk="214025">
+    <field name="active" type="BooleanField">True</field>
+    <field name="index" type="CharField">406</field>
+    <field name="insurer_service_code" type="CharField"></field>
+    <field name="is_active_for_all" type="BooleanField">False</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="vat" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.privateservice" pk="214261">
+    <field name="active" type="BooleanField">True</field>
+    <field name="index" type="CharField">704</field>
+    <field name="insurer_service_code" type="CharField"></field>
+    <field name="is_active_for_all" type="BooleanField">True</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="vat" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+  <object model="gabinet.privateservice" pk="254428">
+    <field name="active" type="BooleanField">True</field>
+    <field name="index" type="CharField"></field>
+    <field name="insurer_service_code" type="CharField"></field>
+    <field name="is_active_for_all" type="BooleanField">True</field>
+    <field name="is_deleted" type="BooleanField">False</field>
+    <field name="vat" type="IntegerField">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+</objects>

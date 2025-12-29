@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.imagingtest -->
+<!-- Calkowita liczba rekordow: 27735 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.imagingtest" pk="1778507">
+    <field name="attachments" rel="ManyToManyRel" to="gabinet.documents"></field>
+    <field name="date" type="DateTimeField">2016-08-31T00:00:00</field>
+    <field name="external_request" rel="ManyToOneRel" to="external_labs.externallabexaminationsrequest">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23666453</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84449</field>
+  </object>
+  <object model="gabinet.imagingtest" pk="1774721">
+    <field name="attachments" rel="ManyToManyRel" to="gabinet.documents"></field>
+    <field name="date" type="DateTimeField">2015-06-17T00:00:00</field>
+    <field name="external_request" rel="ManyToOneRel" to="external_labs.externallabexaminationsrequest">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23658924</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84435</field>
+  </object>
+  <object model="gabinet.imagingtest" pk="1775597">
+    <field name="attachments" rel="ManyToManyRel" to="gabinet.documents"></field>
+    <field name="date" type="DateTimeField">2015-02-27T00:00:00</field>
+    <field name="external_request" rel="ManyToOneRel" to="external_labs.externallabexaminationsrequest">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23657203</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84459</field>
+  </object>
+  <object model="gabinet.imagingtest" pk="6155040">
+    <field name="attachments" rel="ManyToManyRel" to="gabinet.documents"></field>
+    <field name="date" type="DateTimeField">2025-11-26T09:00:00</field>
+    <field name="external_request" rel="ManyToOneRel" to="external_labs.externallabexaminationsrequest">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="icd9" rel="ManyToOneRel" to="gabinet.icd9">7835</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23659884</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">85946</field>
+  </object>
+</objects>

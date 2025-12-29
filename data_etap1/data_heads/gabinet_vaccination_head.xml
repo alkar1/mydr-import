@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.vaccination -->
+<!-- Calkowita liczba rekordow: 48048 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.vaccination" pk="1195746">
+    <field name="current_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="dose" type="CharField"></field>
+    <field name="drug" type="CharField">p/grypie VAXIGRIP TETRA</field>
+    <field name="ean_override" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="expiration_date" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="external" type="BooleanField">False</field>
+    <field name="funding_source" type="SmallIntegerField">8</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23658234</field>
+    <field name="status" type="BooleanField">True</field>
+    <field name="total_number_of_dose_string" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="vaccination_site" type="CharField"></field>
+    <field name="vaccinations_schedule" rel="ManyToManyRel" to="gabinet.vaccinationsschedule"></field>
+    <field name="vaccine_maker" type="CharField">,</field>
+    <field name="zm_reference_val" type="BigIntegerField">0</field>
+  </object>
+  <object model="gabinet.vaccination" pk="1650398">
+    <field name="current_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="dose" type="CharField">1</field>
+    <field name="drug" type="CharField">VaxigripTetra 2023/2024 (inj. [zaw.], 0,5 ml, 1 amp.-strzyk. 0,5 ml (+ igła))</field>
+    <field name="ean_override" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="expiration_date" type="DateField">2024-05-31</field>
+    <field name="external" type="BooleanField">False</field>
+    <field name="funding_source" type="SmallIntegerField">8</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23666855</field>
+    <field name="status" type="BooleanField">True</field>
+    <field name="total_number_of_dose_string" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="vaccination_site" type="CharField">Lewe ramię</field>
+    <field name="vaccine_maker" type="CharField">Sanofi Pasteur</field>
+    <field name="zm_reference_val" type="BigIntegerField">0</field>
+  </object>
+  <object model="gabinet.vaccination" pk="2000078">
+    <field name="current_hash" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="department" rel="ManyToOneRel" to="gabinet.department">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="dose" type="CharField">1</field>
+    <field name="drug" type="CharField">VaxigripTetra 2024/2025 (inj. [zaw.], 0,5 ml, 1 amp.-strzyk. 0,5 ml (+ igła))</field>
+    <field name="ean_override" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="expiration_date" type="DateField">2025-04-30</field>
+    <field name="external" type="BooleanField">False</field>
+    <field name="funding_source" type="SmallIntegerField">8</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23661336</field>
+    <field name="status" type="BooleanField">True</field>
+    <field name="total_number_of_dose_string" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="vaccination_site" type="CharField">Lewe ramię</field>
+    <field name="vaccine_maker" type="CharField">Sanofi Pasteur</field>
+    <field name="zm_reference_val" type="BigIntegerField">0</field>
+  </object>
+  <object model="gabinet.vaccination" pk="2653039">
+    <field name="current_hash" type="CharField">879fd4c26a621b7c6d81c044c8179f9a</field>
+    <field name="department" rel="ManyToOneRel" to="gabinet.department">38921</field>
+    <field name="dose" type="CharField"></field>
+    <field name="drug" type="CharField">Influvac Tetra 2025/2026 (inj. dom./podsk. [zaw.], 60 µg HA/0,5ml, 1 amp.-strzyk. 0,5 ml (+ igła))</field>
+    <field name="ean_override" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="expiration_date" type="DateField">2026-04-30</field>
+    <field name="external" type="BooleanField">False</field>
+    <field name="funding_source" type="SmallIntegerField">7</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44790192</field>
+    <field name="status" type="BooleanField">True</field>
+    <field name="total_number_of_dose_string" type="CharField">1</field>
+    <field name="vaccination_site" type="CharField">Lewe ramię</field>
+    <field name="vaccine_maker" type="CharField">Viatris Healthcare Limited</field>
+    <field name="zm_reference_val" type="BigIntegerField">297603783754554368</field>
+  </object>
+</objects>

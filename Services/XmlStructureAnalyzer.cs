@@ -1,4 +1,5 @@
-using System.Diagnostics;
+ï»¿using System.Diagnostics;
+using System.Text;
 using System.Xml;
 using MyDr_Import.Models;
 
@@ -11,7 +12,10 @@ namespace MyDr_Import.Services;
 public class XmlStructureAnalyzer
 {
     private readonly string _filePath;
-
+    
+    // Przechowuje surowe rekordy XML (pierwsze 3 + ostatni) dla kazdego modelu
+    public Dictionary<string, List<string>> SampleRecords { get; } = new();
+    
     public XmlStructureAnalyzer(string filePath)
     {
         _filePath = filePath;
@@ -37,7 +41,6 @@ public class XmlStructureAnalyzer
         var settings = new XmlReaderSettings
         {
             IgnoreWhitespace = true,
-            //IgnoreComments = true,
             DtdProcessing = DtdProcessing.Ignore
         };
 
@@ -47,6 +50,9 @@ public class XmlStructureAnalyzer
         string? currentModel = null;
         string? currentPrimaryKey = null;
         var currentFields = new Dictionary<string, (string? value, string? type, string? rel, string? relTo)>();
+
+        // Tymczasowe przechowywanie ostatniego rekordu dla kazdego modelu
+        var lastRecordXml = new Dictionary<string, string>();
 
         while (reader.Read())
         {
@@ -58,10 +64,15 @@ public class XmlStructureAnalyzer
                     if (currentModel != null && currentPrimaryKey != null)
                     {
                         SaveObject(objectInfos, currentModel, currentPrimaryKey, currentFields);
+                        
+                        // Zapisz surowy XML rekordu
+                        var recordXml = BuildRecordXml(currentModel, currentPrimaryKey, currentFields);
+                        SaveSampleRecord(currentModel, recordXml, objectInfos[currentModel].RecordCount, lastRecordXml);
+                        
                         currentFields.Clear();
                     }
 
-                    //Raport postepu co okreslony czas
+                    // Raport postepu co okreslony czas
                     if (stopwatch.Elapsed - lastReportTime >= reportInterval)
                     {
                         lastReportTime = stopwatch.Elapsed;
@@ -69,11 +80,10 @@ public class XmlStructureAnalyzer
                         double avgSpeed = totalObjects / stopwatch.Elapsed.TotalSeconds;
 
                         Console.WriteLine($"[{stopwatch.Elapsed:hh\\:mm\\:ss}] " +
-                                        $"Postêp: {progress:F2}% | " +
-                                        $"Obiektów: {totalObjects:N0} | " +
-                                        $"Prêdkoœæ: {avgSpeed:F0} obj/s");
+                            $"Postep: {progress:F2}% | " +
+                            $"Obiektow: {totalObjects:N0} | " +
+                            $"Predkosc: {avgSpeed:F0} obj/s");
                     }
-
 
                     // Rozpocznij nowy obiekt
                     currentModel = reader.GetAttribute("model");
@@ -102,6 +112,22 @@ public class XmlStructureAnalyzer
         if (currentModel != null && currentPrimaryKey != null)
         {
             SaveObject(objectInfos, currentModel, currentPrimaryKey, currentFields);
+            
+            var recordXml = BuildRecordXml(currentModel, currentPrimaryKey, currentFields);
+            SaveSampleRecord(currentModel, recordXml, objectInfos[currentModel].RecordCount, lastRecordXml);
+        }
+
+        // Dodaj ostatnie rekordy do SampleRecords
+        foreach (var (model, lastXml) in lastRecordXml)
+        {
+            if (SampleRecords.ContainsKey(model) && objectInfos[model].RecordCount > 3)
+            {
+                // Dodaj ostatni rekord tylko jesli jest inny niz juz zapisane
+                if (!SampleRecords[model].Contains(lastXml))
+                {
+                    SampleRecords[model].Add(lastXml);
+                }
+            }
         }
 
         stopwatch.Stop();
@@ -120,6 +146,52 @@ public class XmlStructureAnalyzer
         return objectInfos;
     }
 
+    private string BuildRecordXml(string model, string pk, Dictionary<string, (string? value, string? type, string? rel, string? relTo)> fields)
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine($"  <object model=\"{model}\" pk=\"{pk}\">");
+        
+        foreach (var (fieldName, (value, type, rel, relTo)) in fields.OrderBy(f => f.Key))
+        {
+            var typeAttr = !string.IsNullOrEmpty(type) ? $" type=\"{type}\"" : "";
+            var relAttr = !string.IsNullOrEmpty(rel) ? $" rel=\"{rel}\"" : "";
+            var relToAttr = !string.IsNullOrEmpty(relTo) ? $" to=\"{relTo}\"" : "";
+            
+            sb.AppendLine($"    <field name=\"{fieldName}\"{typeAttr}{relAttr}{relToAttr}>{EscapeXml(value)}</field>");
+        }
+        
+        sb.AppendLine("  </object>");
+        return sb.ToString();
+    }
+
+    private string EscapeXml(string? value)
+    {
+        if (string.IsNullOrEmpty(value)) return "";
+        return value
+            .Replace("&", "&amp;")
+            .Replace("<", "&lt;")
+            .Replace(">", "&gt;")
+            .Replace("\"", "&quot;")
+            .Replace("'", "&apos;");
+    }
+
+    private void SaveSampleRecord(string model, string recordXml, long recordCount, Dictionary<string, string> lastRecordXml)
+    {
+        if (!SampleRecords.ContainsKey(model))
+        {
+            SampleRecords[model] = new List<string>();
+        }
+
+        // Zapisz pierwsze 3 rekordy
+        if (recordCount <= 3)
+        {
+            SampleRecords[model].Add(recordXml);
+        }
+
+        // Zawsze aktualizuj ostatni rekord
+        lastRecordXml[model] = recordXml;
+    }
+
     private void SaveObject(Dictionary<string, XmlObjectInfo> objectInfos, string modelName, string primaryKey, Dictionary<string, (string? value, string? type, string? rel, string? relTo)> fields)
     {
         if (!objectInfos.ContainsKey(modelName))
@@ -128,5 +200,37 @@ public class XmlStructureAnalyzer
         }
 
         objectInfos[modelName].AddRecord(primaryKey, fields);
+    }
+
+    /// <summary>
+    /// Zapisuje przykladowe rekordy (pierwsze 3 + ostatni) do plikow XML
+    /// </summary>
+    public void SaveSampleRecordsToXml(string outputDir, Dictionary<string, XmlObjectInfo> objectInfos)
+    {
+        Directory.CreateDirectory(outputDir);
+
+        foreach (var (model, records) in SampleRecords)
+        {
+            var safeModelName = model.Replace(".", "_");
+            var filePath = Path.Combine(outputDir, $"{safeModelName}_head.xml");
+
+            var sb = new StringBuilder();
+            sb.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+            sb.AppendLine($"<!-- Model: {model} -->");
+            sb.AppendLine($"<!-- Calkowita liczba rekordow: {objectInfos[model].RecordCount} -->");
+            sb.AppendLine($"<!-- Pierwsze 3 rekordy + ostatni rekord -->");
+            sb.AppendLine("<objects>");
+
+            foreach (var record in records)
+            {
+                sb.Append(record);
+            }
+
+            sb.AppendLine("</objects>");
+
+            File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
+        }
+
+        Console.WriteLine($"Zapisano {SampleRecords.Count} plikow XML z przykladowymi rekordami do: {outputDir}");
     }
 }

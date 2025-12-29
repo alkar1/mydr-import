@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.recognition -->
+<!-- Calkowita liczba rekordow: 992503 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.recognition" pk="353683772">
+    <field name="date" type="DateField">2025-05-15</field>
+    <field name="type" type="CharField">nieprzewlekłe główne</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">345587942</field>
+  </object>
+  <object model="gabinet.recognition" pk="369485722">
+    <field name="date" type="DateField">2025-08-20</field>
+    <field name="type" type="CharField">nieprzewlekłe główne</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">362769707</field>
+  </object>
+  <object model="gabinet.recognition" pk="168239933">
+    <field name="date" type="DateField">2015-02-17</field>
+    <field name="type" type="CharField">nieprzewlekłe główne</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">174768941</field>
+  </object>
+  <object model="gabinet.recognition" pk="385168377">
+    <field name="date" type="DateField">2025-11-06</field>
+    <field name="type" type="CharField">nieprzewlekłe główne</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">377763535</field>
+  </object>
+</objects>

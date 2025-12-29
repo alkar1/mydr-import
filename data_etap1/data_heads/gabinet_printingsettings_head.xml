@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.printingsettings -->
+<!-- Calkowita liczba rekordow: 1 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.printingsettings" pk="21468">
+    <field name="facility" rel="OneToOneRel" to="gabinet.facility">21540</field>
+    <field name="show_private_services" type="BooleanField">True</field>
+  </object>
+</objects>

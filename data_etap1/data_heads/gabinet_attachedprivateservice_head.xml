@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.attachedprivateservice -->
+<!-- Calkowita liczba rekordow: 18455 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.attachedprivateservice" pk="19748149">
+    <field name="base_price" type="DecimalField">66.00</field>
+    <field name="commission" rel="ManyToOneRel" to="gabinet.servicegroupcommission">1777280</field>
+    <field name="invoice" rel="ManyToOneRel" to="gabinet.invoice">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service" rel="ManyToOneRel" to="gabinet.privateservice">213607</field>
+  </object>
+  <object model="gabinet.attachedprivateservice" pk="20859591">
+    <field name="base_price" type="DecimalField">17.00</field>
+    <field name="commission" rel="ManyToOneRel" to="gabinet.servicegroupcommission">1782517</field>
+    <field name="invoice" rel="ManyToOneRel" to="gabinet.invoice">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service" rel="ManyToOneRel" to="gabinet.privateservice">212961</field>
+  </object>
+  <object model="gabinet.attachedprivateservice" pk="16164842">
+    <field name="base_price" type="DecimalField">37.00</field>
+    <field name="commission" rel="ManyToOneRel" to="gabinet.servicegroupcommission">1796354</field>
+    <field name="invoice" rel="ManyToOneRel" to="gabinet.invoice">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service" rel="ManyToOneRel" to="gabinet.privateservice">212989</field>
+  </object>
+  <object model="gabinet.attachedprivateservice" pk="24872241">
+    <field name="base_price" type="DecimalField">21.50</field>
+    <field name="commission" rel="ManyToOneRel" to="gabinet.servicegroupcommission">1782604</field>
+    <field name="invoice" rel="ManyToOneRel" to="gabinet.invoice">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="service" rel="ManyToOneRel" to="gabinet.privateservice">212926</field>
+  </object>
+</objects>

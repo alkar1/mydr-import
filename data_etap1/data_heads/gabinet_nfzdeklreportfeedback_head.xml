@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.nfzdeklreportfeedback -->
+<!-- Calkowita liczba rekordow: 116 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.nfzdeklreportfeedback" pk="44564">
+    <field name="dekl_feedback_file" type="FileField">nfz_messages/2023/01/06/c3f6fc1b-9ce1-4cbf-922a-60ffeb33d2a3.wd</field>
+    <field name="generation_time" type="DateTimeField">2023-01-05T19:30:12</field>
+  </object>
+  <object model="gabinet.nfzdeklreportfeedback" pk="65798">
+    <field name="dekl_feedback_file" type="FileField">nfz_messages/2024/01/06/0f8c56ce-1acb-473c-bca0-67e3bff2c2f6.wd</field>
+    <field name="generation_time" type="DateTimeField">2024-01-05T15:33:41</field>
+  </object>
+  <object model="gabinet.nfzdeklreportfeedback" pk="49844">
+    <field name="dekl_feedback_file" type="FileField">nfz_messages/2023/04/06/45899bc5-8975-43d1-b4e8-6288ebb3e3dc.wd</field>
+    <field name="generation_time" type="DateTimeField">2023-04-06T08:03:32</field>
+  </object>
+  <object model="gabinet.nfzdeklreportfeedback" pk="64473">
+    <field name="dekl_feedback_file" type="FileField">nfz_messages/2023/12/28/Z_WDP_2023_12_193694.zip</field>
+    <field name="generation_time" type="DateTimeField">2023-12-28T10:42:08</field>
+  </object>
+</objects>

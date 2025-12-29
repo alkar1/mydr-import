@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: ezwolnienia.esickleave -->
+<!-- Calkowita liczba rekordow: 14541 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="ezwolnienia.esickleave" pk="3356234">
+    <field name="azla_id" type="CharField"></field>
+    <field name="backward" rel="OneToOneRel" to="ezwolnienia.esickleave">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="cancellation" rel="ManyToOneRel" to="ezwolnienia.esickleavecancellation">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="common" rel="ManyToOneRel" to="ezwolnienia.esickleavecommon">3162740</field>
+    <field name="date_from" type="DateField">2022-10-04</field>
+    <field name="do_not_notify_payer" type="BooleanField">False</field>
+    <field name="doc_id" type="CharField">261671688</field>
+    <field name="hospital_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="number_zla" type="CharField">8856262</field>
+    <field name="payer_id" type="CharField">9442256043</field>
+  </object>
+  <object model="ezwolnienia.esickleave" pk="3346519">
+    <field name="azla_id" type="CharField"></field>
+    <field name="backward" rel="OneToOneRel" to="ezwolnienia.esickleave">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="cancellation" rel="ManyToOneRel" to="ezwolnienia.esickleavecancellation">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="common" rel="ManyToOneRel" to="ezwolnienia.esickleavecommon">3153629</field>
+    <field name="date_from" type="DateField">2022-10-03</field>
+    <field name="do_not_notify_payer" type="BooleanField">False</field>
+    <field name="doc_id" type="CharField">261170167</field>
+    <field name="hospital_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="number_zla" type="CharField">9087419</field>
+    <field name="payer_id" type="CharField">6772075248</field>
+  </object>
+  <object model="ezwolnienia.esickleave" pk="3348795">
+    <field name="azla_id" type="CharField"></field>
+    <field name="backward" rel="OneToOneRel" to="ezwolnienia.esickleave">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="cancellation" rel="ManyToOneRel" to="ezwolnienia.esickleavecancellation">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="common" rel="ManyToOneRel" to="ezwolnienia.esickleavecommon">3155771</field>
+    <field name="date_from" type="DateField">2022-10-03</field>
+    <field name="do_not_notify_payer" type="BooleanField">False</field>
+    <field name="doc_id" type="CharField">261315569</field>
+    <field name="hospital_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="number_zla" type="CharField">9019624</field>
+    <field name="payer_id" type="CharField">6851610635</field>
+  </object>
+  <object model="ezwolnienia.esickleave" pk="9957913">
+    <field name="azla_id" type="CharField"></field>
+    <field name="backward" rel="OneToOneRel" to="ezwolnienia.esickleave">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="cancellation" rel="ManyToOneRel" to="ezwolnienia.esickleavecancellation">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="common" rel="ManyToOneRel" to="ezwolnienia.esickleavecommon">9379983</field>
+    <field name="date_from" type="DateField">2025-12-03</field>
+    <field name="do_not_notify_payer" type="BooleanField">False</field>
+    <field name="doc_id" type="CharField">491881772</field>
+    <field name="hospital_date_from" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="number_zla" type="CharField">6471401</field>
+    <field name="payer_id" type="CharField">6792185678</field>
+  </object>
+</objects>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.office -->
+<!-- Calkowita liczba rekordow: 27 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.office" pk="44716">
+    <field name="active" type="BooleanField">False</field>
+    <field name="name" type="CharField">badania analityczne</field>
+  </object>
+  <object model="gabinet.office" pk="44479">
+    <field name="active" type="BooleanField">False</field>
+    <field name="name" type="CharField">Bodzanów 2</field>
+  </object>
+  <object model="gabinet.office" pk="43915">
+    <field name="active" type="BooleanField">True</field>
+    <field name="name" type="CharField">Bodzanów Pielęgniarka</field>
+  </object>
+  <object model="gabinet.office" pk="44726">
+    <field name="active" type="BooleanField">False</field>
+    <field name="name" type="CharField">zab</field>
+  </object>
+</objects>

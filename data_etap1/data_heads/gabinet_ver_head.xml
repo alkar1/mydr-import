@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.ver -->
+<!-- Calkowita liczba rekordow: 756950 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.ver" pk="26104408">
+    <field name="bloz7" type="TextField">8045511</field>
+    <field name="dose" type="TextField">500 mg</field>
+    <field name="dose_value" type="FloatField">500.0</field>
+    <field name="group_id" type="IntegerField">25956915</field>
+    <field name="is_up_to_date" type="BooleanField">False</field>
+    <field name="name_html" type="TextField">Klarmin&amp;lt;sup&amp;gt;®&amp;lt;/sup&amp;gt;</field>
+    <field name="nw_version_id" type="IntegerField">3213937</field>
+    <field name="reg" type="TextField">10301</field>
+    <field name="register_date" type="TextField"></field>
+  </object>
+  <object model="gabinet.ver" pk="26102158">
+    <field name="bloz7" type="TextField">5888901</field>
+    <field name="dose" type="TextField">600 mg</field>
+    <field name="dose_value" type="FloatField">600.0</field>
+    <field name="group_id" type="IntegerField">25966062</field>
+    <field name="is_up_to_date" type="BooleanField">False</field>
+    <field name="name_html" type="TextField">ACC&amp;lt;sup&amp;gt;®&amp;lt;/sup&amp;gt; Optima</field>
+    <field name="nw_version_id" type="IntegerField">16636517</field>
+    <field name="reg" type="TextField">6910</field>
+    <field name="register_date" type="TextField">2012-10-12</field>
+  </object>
+  <object model="gabinet.ver" pk="26120334">
+    <field name="bloz7" type="TextField">3683914</field>
+    <field name="dose" type="TextField">400 mg</field>
+    <field name="dose_value" type="FloatField">400.0</field>
+    <field name="group_id" type="IntegerField">25988153</field>
+    <field name="is_up_to_date" type="BooleanField">False</field>
+    <field name="name_html" type="TextField">Ibuprom&amp;lt;sup&amp;gt;®&amp;lt;/sup&amp;gt; Max</field>
+    <field name="nw_version_id" type="IntegerField">27707278</field>
+    <field name="reg" type="TextField">9700</field>
+    <field name="register_date" type="TextField"></field>
+  </object>
+  <object model="gabinet.ver" pk="26533202">
+    <field name="bloz7" type="TextField">8987501</field>
+    <field name="dose" type="TextField">1 mg/ml</field>
+    <field name="dose_value" type="FloatField">1.0</field>
+    <field name="group_id" type="IntegerField">25987061</field>
+    <field name="is_up_to_date" type="BooleanField">False</field>
+    <field name="name_html" type="TextField">Rupafin&amp;lt;sup&amp;gt;®&amp;lt;/sup&amp;gt;</field>
+    <field name="nw_version_id" type="IntegerField">44650900</field>
+    <field name="reg" type="TextField">20340</field>
+    <field name="register_date" type="TextField"></field>
+  </object>
+</objects>

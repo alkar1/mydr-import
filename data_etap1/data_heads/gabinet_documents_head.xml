@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.documents -->
+<!-- Calkowita liczba rekordow: 96324 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.documents" pk="27331630">
+    <field name="is_browseable" type="BooleanField">False</field>
+    <field name="is_shared" type="BooleanField">False</field>
+    <field name="is_signed" type="BooleanField">True</field>
+    <field name="original_filename" type="CharField">357749029.xml</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">84536</field>
+    <field name="type" rel="ManyToOneRel" to="gabinet.documenttype">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="uploaded_file_size" type="BigIntegerField">17477</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">360212552</field>
+  </object>
+  <object model="gabinet.documents" pk="30259354">
+    <field name="is_browseable" type="BooleanField">False</field>
+    <field name="is_shared" type="BooleanField">False</field>
+    <field name="is_signed" type="BooleanField">True</field>
+    <field name="original_filename" type="CharField">381243986.xml</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">171654</field>
+    <field name="type" rel="ManyToOneRel" to="gabinet.documenttype">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="uploaded_file_size" type="BigIntegerField">84794</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">369687137</field>
+  </object>
+  <object model="gabinet.documents" pk="30259359">
+    <field name="is_browseable" type="BooleanField">False</field>
+    <field name="is_shared" type="BooleanField">False</field>
+    <field name="is_signed" type="BooleanField">True</field>
+    <field name="original_filename" type="CharField">381239950.xml</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">171654</field>
+    <field name="type" rel="ManyToOneRel" to="gabinet.documenttype">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="uploaded_file_size" type="BigIntegerField">89257</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">378376992</field>
+  </object>
+  <object model="gabinet.documents" pk="7972462">
+    <field name="is_browseable" type="BooleanField">True</field>
+    <field name="is_shared" type="BooleanField">False</field>
+    <field name="is_signed" type="BooleanField">False</field>
+    <field name="original_filename" type="CharField">Katarzyna Stankiewicz.pdf</field>
+    <field name="person" rel="ManyToOneRel" to="gabinet.person">93103</field>
+    <field name="type" rel="ManyToOneRel" to="gabinet.documenttype">112720</field>
+    <field name="uploaded_file_size" type="BigIntegerField">413817</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">&lt;None&gt;&lt;/None&gt;</field>
+  </object>
+</objects>

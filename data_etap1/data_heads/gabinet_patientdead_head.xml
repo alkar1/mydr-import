@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.patientdead -->
+<!-- Calkowita liczba rekordow: 1 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.patientdead" pk="170074">
+    <field name="cause" type="TextField"></field>
+    <field name="date" type="DateField">2024-10-03</field>
+  </object>
+</objects>

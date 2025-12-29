@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.medicalprocedure -->
+<!-- Calkowita liczba rekordow: 653130 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.medicalprocedure" pk="77345623">
+    <field name="count" type="PositiveIntegerField">1</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">174901157</field>
+  </object>
+  <object model="gabinet.medicalprocedure" pk="77589080">
+    <field name="count" type="PositiveIntegerField">1</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">174766041</field>
+  </object>
+  <object model="gabinet.medicalprocedure" pk="77590995">
+    <field name="count" type="PositiveIntegerField">1</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">175016136</field>
+  </object>
+  <object model="gabinet.medicalprocedure" pk="180108354">
+    <field name="count" type="PositiveIntegerField">1</field>
+    <field name="visit" rel="ManyToOneRel" to="gabinet.visit">380859277</field>
+  </object>
+</objects>

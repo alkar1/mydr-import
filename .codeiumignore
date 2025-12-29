@@ -77,7 +77,3 @@ BenchmarkDotNet.Artifacts/
 
 # Ignore migration backups
 *.bak
-
-# Ignore data_etap1 folder
-data_etap1/
-data_etap1/

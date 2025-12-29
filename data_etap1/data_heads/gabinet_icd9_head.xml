@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.icd9 -->
+<!-- Calkowita liczba rekordow: 653130 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.icd9" pk="8178">
+    <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd9"></field>
+    <field name="code" type="TextField">89.00</field>
+    <field name="date_valid_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="parent_code" type="TextField">89.0</field>
+    <field name="rank" type="IntegerField">0</field>
+  </object>
+  <object model="gabinet.icd9" pk="8178">
+    <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd9"></field>
+    <field name="code" type="TextField">89.00</field>
+    <field name="date_valid_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="parent_code" type="TextField">89.0</field>
+    <field name="rank" type="IntegerField">0</field>
+  </object>
+  <object model="gabinet.icd9" pk="8178">
+    <field name="aoslist" rel="ManyToManyRel" to="gabinet.nfzaoslisticd9"></field>
+    <field name="code" type="TextField">89.00</field>
+    <field name="date_valid_to" type="DateField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="parent_code" type="TextField">89.0</field>
+    <field name="rank" type="IntegerField">0</field>
+  </object>
+</objects>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: dilo.dilocard -->
+<!-- Calkowita liczba rekordow: 158 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="dilo.dilocard" pk="12223">
+    <field name="cancel_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="card_status" type="CharField">active</field>
+    <field name="creation_date" type="DateField">2022-10-10</field>
+    <field name="fake" type="BooleanField">False</field>
+    <field name="initialization_scenario" type="CharField">WK-POZ-P</field>
+    <field name="issuing_doctor" rel="ManyToOneRel" to="gabinet.person">84435</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23659937</field>
+  </object>
+  <object model="dilo.dilocard" pk="12176">
+    <field name="cancel_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="card_status" type="CharField">active</field>
+    <field name="creation_date" type="DateField">2022-10-07</field>
+    <field name="fake" type="BooleanField">False</field>
+    <field name="initialization_scenario" type="CharField">WK-POZ-P</field>
+    <field name="issuing_doctor" rel="ManyToOneRel" to="gabinet.person">84435</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23668440</field>
+  </object>
+  <object model="dilo.dilocard" pk="12490">
+    <field name="cancel_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="card_status" type="CharField">active</field>
+    <field name="creation_date" type="DateField">2022-10-24</field>
+    <field name="fake" type="BooleanField">False</field>
+    <field name="initialization_scenario" type="CharField">WK-POZ-P</field>
+    <field name="issuing_doctor" rel="ManyToOneRel" to="gabinet.person">84480</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23661342</field>
+  </object>
+  <object model="dilo.dilocard" pk="43925">
+    <field name="cancel_reason" type="CharField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="card_status" type="CharField">active</field>
+    <field name="creation_date" type="DateField">2025-11-27</field>
+    <field name="fake" type="BooleanField">False</field>
+    <field name="initialization_scenario" type="CharField">WK-POZ-P</field>
+    <field name="issuing_doctor" rel="ManyToOneRel" to="gabinet.person">84459</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">31890755</field>
+  </object>
+</objects>

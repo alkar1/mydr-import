@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: gabinet.insurance -->
+<!-- Calkowita liczba rekordow: 353064 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="gabinet.insurance" pk="150740517">
+    <field name="form" rel="ManyToOneRel" to="forms_designer.form">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurance_kind" type="SmallIntegerField">2</field>
+    <field name="insurance_valid_from" type="DateField">2025-05-13</field>
+    <field name="nfz_pesel" type="CharField"></field>
+    <field name="note" type="TextField"></field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44638616</field>
+  </object>
+  <object model="gabinet.insurance" pk="150740051">
+    <field name="form" rel="ManyToOneRel" to="forms_designer.form">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurance_kind" type="SmallIntegerField">0</field>
+    <field name="insurance_valid_from" type="DateField">2025-05-13</field>
+    <field name="nfz_pesel" type="CharField">25250900748</field>
+    <field name="note" type="TextField">Brak PESELu w bazie CWU</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44638616</field>
+  </object>
+  <object model="gabinet.insurance" pk="151078131">
+    <field name="form" rel="ManyToOneRel" to="forms_designer.form">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurance_kind" type="SmallIntegerField">0</field>
+    <field name="insurance_valid_from" type="DateField">2025-05-15</field>
+    <field name="nfz_pesel" type="CharField">25250900748</field>
+    <field name="note" type="TextField">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">44638616</field>
+  </object>
+  <object model="gabinet.insurance" pk="174042198">
+    <field name="form" rel="ManyToOneRel" to="forms_designer.form">&lt;None&gt;&lt;/None&gt;</field>
+    <field name="insurance_kind" type="SmallIntegerField">0</field>
+    <field name="insurance_valid_from" type="DateField">2025-11-07</field>
+    <field name="nfz_pesel" type="CharField">48041604261</field>
+    <field name="note" type="TextField"></field>
+    <field name="patient" rel="ManyToOneRel" to="gabinet.patient">23668166</field>
+  </object>
+</objects>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Model: auth.user -->
+<!-- Calkowita liczba rekordow: 199 -->
+<!-- Pierwsze 3 rekordy + ostatni rekord -->
+<objects>
+  <object model="auth.user" pk="46097716">
+    <field name="email" type="CharField">gabrielaapostoluk@wp.pl</field>
+    <field name="first_name" type="CharField">Gabriela</field>
+  </object>
+  <object model="auth.user" pk="46606287">
+    <field name="email" type="CharField">magda.gozdzialska@gmail.com</field>
+    <field name="first_name" type="CharField">Magdalena</field>
+  </object>
+  <object model="auth.user" pk="23732803">
+    <field name="email" type="CharField"></field>
+    <field name="first_name" type="CharField">Monika</field>
+  </object>
+  <object model="auth.user" pk="46210085">
+    <field name="email" type="CharField">krembiasz@gmail.com</field>
+    <field name="first_name" type="CharField">Krzysztof</field>
+  </object>
+</objects>
