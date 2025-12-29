@@ -9,6 +9,7 @@ namespace MyDr_Import;
 /// - Parsowanie strumieniowe duzych plikow XML
 /// - Generowanie raportow (TXT, JSON)
 /// - Zapis przykladowych rekordow do XML (data_heads)
+/// - Zapis pelnych danych kazdego modelu do osobnych plikow XML (data_full)
 /// </summary>
 public static class Etap1
 {
@@ -21,7 +22,10 @@ public static class Etap1
         try
         {
             var analyzer = new XmlStructureAnalyzer(xmlFilePath);
-            var objectInfos = analyzer.Analyze();
+            
+            // Folder na pelne dane kazdego modelu
+            var dataFullPath = Path.Combine(outputDir, "data_full");
+            var objectInfos = analyzer.Analyze(dataFullPath);
 
             Console.WriteLine();
             foreach (var objectInfo in objectInfos.Values.OrderByDescending(o => o.RecordCount))

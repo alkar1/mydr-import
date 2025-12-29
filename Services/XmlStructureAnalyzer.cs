@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Text;
 using System.Xml;
 using MyDr_Import.Models;
@@ -16,6 +16,10 @@ public class XmlStructureAnalyzer
     // Przechowuje surowe rekordy XML (pierwsze 3 + ostatni) dla kazdego modelu
     public Dictionary<string, List<string>> SampleRecords { get; } = new();
     
+    // Writery do zapisu pelnych danych dla kazdego modelu
+    private Dictionary<string, StreamWriter> _fullDataWriters = new();
+    private string? _fullDataOutputDir;
+    
     public XmlStructureAnalyzer(string filePath)
     {
         _filePath = filePath;
@@ -24,7 +28,8 @@ public class XmlStructureAnalyzer
     /// <summary>
     /// Analizuje plik XML i zwraca statystyki dla kazdego typu obiektu
     /// </summary>
-    public Dictionary<string, XmlObjectInfo> Analyze()
+    /// <param name="fullDataOutputDir">Opcjonalna sciezka do folderu gdzie zapisac pelne dane kazdego modelu</param>
+    public Dictionary<string, XmlObjectInfo> Analyze(string? fullDataOutputDir = null)
     {
         var objectInfos = new Dictionary<string, XmlObjectInfo>();
         var stopwatch = Stopwatch.StartNew();
@@ -36,6 +41,14 @@ public class XmlStructureAnalyzer
         Console.WriteLine($"Plik: {_filePath}");
         Console.WriteLine($"Rozmiar: {fileSize / (1024.0 * 1024.0 * 1024.0):F2} GB");
         Console.WriteLine($"Rozpoczecie analizy: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+        
+        // Przygotuj folder na pelne dane jesli podano
+        _fullDataOutputDir = fullDataOutputDir;
+        if (_fullDataOutputDir != null)
+        {
+            Directory.CreateDirectory(_fullDataOutputDir);
+            Console.WriteLine($"Zapis pelnych danych do: {_fullDataOutputDir}");
+        }
         Console.WriteLine();
 
         var settings = new XmlReaderSettings
@@ -68,6 +81,9 @@ public class XmlStructureAnalyzer
                         // Zapisz surowy XML rekordu
                         var recordXml = BuildRecordXml(currentModel, currentPrimaryKey, currentFields);
                         SaveSampleRecord(currentModel, recordXml, objectInfos[currentModel].RecordCount, lastRecordXml);
+                        
+                        // Zapisz do pelnych danych jesli wlaczono
+                        WriteFullDataRecord(currentModel, recordXml);
                         
                         currentFields.Clear();
                     }
@@ -115,7 +131,13 @@ public class XmlStructureAnalyzer
             
             var recordXml = BuildRecordXml(currentModel, currentPrimaryKey, currentFields);
             SaveSampleRecord(currentModel, recordXml, objectInfos[currentModel].RecordCount, lastRecordXml);
+            
+            // Zapisz do pelnych danych jesli wlaczono
+            WriteFullDataRecord(currentModel, recordXml);
         }
+        
+        // Zamknij wszystkie writery pelnych danych
+        FinalizeFullDataWriters(objectInfos);
 
         // Dodaj ostatnie rekordy do SampleRecords
         foreach (var (model, lastXml) in lastRecordXml)
@@ -232,5 +254,43 @@ public class XmlStructureAnalyzer
         }
 
         Console.WriteLine($"Zapisano {SampleRecords.Count} plikow XML z przykladowymi rekordami do: {outputDir}");
+    }
+
+    /// <summary>
+    /// Zapisuje rekord do pliku pelnych danych dla danego modelu
+    /// </summary>
+    private void WriteFullDataRecord(string model, string recordXml)
+    {
+        if (_fullDataOutputDir == null) return;
+        
+        if (!_fullDataWriters.ContainsKey(model))
+        {
+            var safeModelName = model.Replace(".", "_");
+            var filePath = Path.Combine(_fullDataOutputDir, $"{safeModelName}.xml");
+            var writer = new StreamWriter(filePath, false, Encoding.UTF8);
+            writer.WriteLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+            writer.WriteLine($"<!-- Model: {model} -->");
+            writer.WriteLine("<objects>");
+            _fullDataWriters[model] = writer;
+        }
+        
+        _fullDataWriters[model].Write(recordXml);
+    }
+
+    /// <summary>
+    /// Zamyka wszystkie writery pelnych danych i dodaje koncowe tagi
+    /// </summary>
+    private void FinalizeFullDataWriters(Dictionary<string, XmlObjectInfo> objectInfos)
+    {
+        if (_fullDataOutputDir == null) return;
+        
+        foreach (var (model, writer) in _fullDataWriters)
+        {
+            writer.WriteLine("</objects>");
+            writer.Close();
+        }
+        
+        Console.WriteLine($"Zapisano {_fullDataWriters.Count} plikow XML z pelnymi danymi do: {_fullDataOutputDir}");
+        _fullDataWriters.Clear();
     }
 }
