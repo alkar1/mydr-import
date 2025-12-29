@@ -22,9 +22,9 @@ data/*.zip
 
 # Ignore output reports (can be regenerated)
 output/
-*.csv
-*.json
-*.txt
+
+# Ignore large XML data files only
+data_etap1/data_full/
 
 # Ignore NuGet packages
 *.nupkg

@@ -1,0 +1,561 @@
+﻿{
+  "generatedAt": "2025-12-29T14:27:27",
+  "totalSheets": 1,
+  "validSheets": 1,
+  "mappings": [
+    {
+      "sheetName": "pacjenci",
+      "sourceModel": "unknown",
+      "targetTable": "pacjenci",
+      "fieldsCount": 68,
+      "validFieldsCount": 68,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UprawnieniePacjentaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RodzajPacjenta",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Imie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Nazwisko",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Pesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataUrodzenia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "CzyUmarl",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataZgonu",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DrugieImie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NazwiskoRodowe",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ImieOjca",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NIP",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Plec",
+          "target": "Znak",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Email",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Telefon",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TelefonDodatkowy",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NumerDokumentuTozsamosci",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypDokumentuTozsamosci",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KrajDokumentuTozsamosciKod",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrIdentyfikacyjnyUe",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejsceUrodzenia",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodOddzialuNFZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KrajZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WojewodztwoZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodTerytGminyZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejscowoscZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodMiejscowosciZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodPocztowyZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UlicaZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrDomuZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrMieszkaniaZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DzielnicaZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KrajZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WojewodztwoZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodTerytGminyZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejscowoscZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodMiejscowosciZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodPocztowyZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UlicaZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrDomuZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrMieszkaniaZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DzielnicaZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Uwagi",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Uchodzca",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "VIP",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UprawnieniePacjenta",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ImieOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NazwiskoOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PlecOpiekuna",
+          "target": "Znak",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataUrodzeniaOpiekuna",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PeselOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TelefonOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KrajOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WojewodztwoOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodGminyOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejscowoscOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodMiejscowosciOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodPocztowyOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UlicaOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrDomuOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrLokaluOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "StopienPokrewienstwaOpiekuna",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SprawdzUnikalnoscIdImportu",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SprawdzUnikalnoscPesel",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "AktualizujPoPesel",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NumerPacjenta",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

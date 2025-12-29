@@ -1,0 +1,4359 @@
+﻿{
+  "generatedAt": "2025-12-29T13:49:37",
+  "totalObjectTypes": 60,
+  "totalRecords": 8128385,
+  "objects": [
+    {
+      "model": "gabinet.recognition",
+      "polishName": "Rozpoznanie",
+      "description": "Diagnoza na wizycie (ICD-10, typ)",
+      "recordCount": 992503,
+      "fields": [
+        {
+          "name": "date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 992503,
+          "fillPercentage": 100
+        },
+        {
+          "name": "type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 992503,
+          "fillPercentage": 100
+        },
+        {
+          "name": "visit",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 992501,
+          "fillPercentage": 99.99979848927408
+        }
+      ]
+    },
+    {
+      "model": "gabinet.icd10",
+      "polishName": "Kod ICD-10",
+      "description": "Słownik ICD-10 z kodami, opisami, flagami raka/ostrych",
+      "recordCount": 992503,
+      "fields": [
+        {
+          "name": "code",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 992503,
+          "fillPercentage": 100
+        },
+        {
+          "name": "common",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 7169,
+          "fillPercentage": 0.7223151970321501
+        },
+        {
+          "name": "common_type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 992503,
+          "fillPercentage": 100
+        },
+        {
+          "name": "descr",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 992503,
+          "fillPercentage": 100
+        },
+        {
+          "name": "descr3",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 473587,
+          "fillPercentage": 47.71643007628189
+        },
+        {
+          "name": "disease_kind",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 612708,
+          "fillPercentage": 61.73361692609493
+        },
+        {
+          "name": "is_cancer",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 992503,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_immediate",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 992503,
+          "fillPercentage": 100
+        },
+        {
+          "name": "special",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 622762,
+          "fillPercentage": 62.74661134525538
+        }
+      ]
+    },
+    {
+      "model": "gabinet.visitnotes",
+      "polishName": "Historia wizyty",
+      "description": "Log zmian statusu wizyty",
+      "recordCount": 913366,
+      "fields": [
+        {
+          "name": "action_type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 187185,
+          "fillPercentage": 20.493975033009768
+        },
+        {
+          "name": "date",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 913366,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 225253,
+          "fillPercentage": 24.661855159924936
+        },
+        {
+          "name": "from_state",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 741205,
+          "fillPercentage": 81.15092963828302
+        },
+        {
+          "name": "visit",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 913366,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.ver",
+      "polishName": "Słownik leków VER",
+      "description": "Wersja leku z BLOZ (nazwa, dawka)",
+      "recordCount": 756950,
+      "fields": [
+        {
+          "name": "bloz7",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 707453,
+          "fillPercentage": 93.46099478168968
+        },
+        {
+          "name": "dose",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 732360,
+          "fillPercentage": 96.75143668670322
+        },
+        {
+          "name": "dose_value",
+          "type": "FloatField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 756950,
+          "fillPercentage": 100
+        },
+        {
+          "name": "group_id",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 756950,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_up_to_date",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 756950,
+          "fillPercentage": 100
+        },
+        {
+          "name": "name_html",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 756950,
+          "fillPercentage": 100
+        },
+        {
+          "name": "nw_version_id",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 755743,
+          "fillPercentage": 99.84054428958319
+        },
+        {
+          "name": "reg",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 736245,
+          "fillPercentage": 97.26468062619723
+        },
+        {
+          "name": "register_date",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 223271,
+          "fillPercentage": 29.496135808177556
+        }
+      ]
+    },
+    {
+      "model": "gabinet.recipedrug",
+      "polishName": "Pozycja recepty",
+      "description": "Lek na recepcie (dawka, ilość)",
+      "recordCount": 754227,
+      "fields": [
+        {
+          "name": "dosation",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 754227,
+          "fillPercentage": 100
+        },
+        {
+          "name": "dosation_custom_drug",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 46,
+          "fillPercentage": 0.0060989595970443915
+        },
+        {
+          "name": "drug",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.ver",
+          "filledCount": 691728,
+          "fillPercentage": 91.71350269878963
+        },
+        {
+          "name": "prescribed_place",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 254509,
+          "fillPercentage": 33.744350175742845
+        },
+        {
+          "name": "recipe",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.recipe",
+          "filledCount": 754227,
+          "fillPercentage": 100
+        },
+        {
+          "name": "recommendation",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 754222,
+          "fillPercentage": 99.99933706960901
+        },
+        {
+          "name": "visit_date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 754227,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.visit",
+      "polishName": "Wizyta",
+      "description": "Rekord wizyty (data, pacjent, lekarz)",
+      "recordCount": 696727,
+      "fields": [
+        {
+          "name": "cancelled_patient_info",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 185,
+          "fillPercentage": 0.026552724381285638
+        },
+        {
+          "name": "created_by_plugin",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "creator",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "auth.user",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "doctor",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "ec_enabled",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "evisit",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "interview",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 488281,
+          "fillPercentage": 70.08211250604613
+        },
+        {
+          "name": "known_collisions",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "last_revision",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "more_info",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "note_postvisit",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 51,
+          "fillPercentage": 0.007319940234840906
+        },
+        {
+          "name": "office",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.office",
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "reception_mode_choice",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 87878,
+          "fillPercentage": 12.612974665830375
+        },
+        {
+          "name": "recognition_description",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 322056,
+          "fillPercentage": 46.224130828861234
+        },
+        {
+          "name": "referral",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.specialvisitreferral",
+          "filledCount": 5414,
+          "fillPercentage": 0.7770618908123268
+        },
+        {
+          "name": "schedule",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "schedule.scheduleelement",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "send_patient_notification",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 21364,
+          "fillPercentage": 3.0663373171988453
+        },
+        {
+          "name": "signature",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.visitsignature",
+          "filledCount": 2352,
+          "fillPercentage": 0.33757842024207474
+        },
+        {
+          "name": "specialty",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.specialty",
+          "filledCount": 198048,
+          "fillPercentage": 28.42548085548572
+        },
+        {
+          "name": "terapy",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "timeTo",
+          "type": "TimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "using_loyalty_program_discount",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 696727,
+          "fillPercentage": 100
+        },
+        {
+          "name": "waiting",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 0.0001435282398988413
+        },
+        {
+          "name": "zm_reference_val",
+          "type": "BigIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 696727,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.medicalprocedure",
+      "polishName": "Procedura medyczna",
+      "description": "Słownik procedur, kodów NFZ, punktów",
+      "recordCount": 653130,
+      "fields": [
+        {
+          "name": "count",
+          "type": "PositiveIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 653130,
+          "fillPercentage": 100
+        },
+        {
+          "name": "visit",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 653130,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.icd9",
+      "polishName": "Kod ICD-9",
+      "description": "Słownik procedur ICD-9-CM (starszy system dla raportów)",
+      "recordCount": 653130,
+      "fields": [
+        {
+          "name": "aoslist",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.nfzaoslisticd9",
+          "filledCount": 111689,
+          "fillPercentage": 17.10057722046147
+        },
+        {
+          "name": "code",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 653130,
+          "fillPercentage": 100
+        },
+        {
+          "name": "date_valid_to",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "parent_code",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 653119,
+          "fillPercentage": 99.99831580236706
+        },
+        {
+          "name": "rank",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 653130,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.recipe",
+      "polishName": "Recepta",
+      "description": "Nagłówek recepty (numer, data, wystawiający)",
+      "recordCount": 357582,
+      "fields": [
+        {
+          "name": "date",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 357582,
+          "fillPercentage": 100
+        },
+        {
+          "name": "expiration_365",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 357582,
+          "fillPercentage": 100
+        },
+        {
+          "name": "has_pregnant_right",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 357582,
+          "fillPercentage": 100
+        },
+        {
+          "name": "identity_num",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 43,
+          "fillPercentage": 0.012025213797115067
+        },
+        {
+          "name": "is_electronic_draft",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 357582,
+          "fillPercentage": 100
+        },
+        {
+          "name": "nurse_recipe_type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "pesel",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 356899,
+          "fillPercentage": 99.80899485992025
+        },
+        {
+          "name": "provider",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 357582,
+          "fillPercentage": 100
+        },
+        {
+          "name": "recipe_number",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.recipenumber",
+          "filledCount": 139382,
+          "fillPercentage": 38.979031383011446
+        },
+        {
+          "name": "type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 357582,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.insurance",
+      "polishName": "Ubezpieczenie",
+      "description": "Słownik rodzajów ubezpieczeń / uprawnień NFZ",
+      "recordCount": 353064,
+      "fields": [
+        {
+          "name": "form",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "forms_designer.form",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "insurance_kind",
+          "type": "SmallIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 353064,
+          "fillPercentage": 100
+        },
+        {
+          "name": "insurance_valid_from",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 353064,
+          "fillPercentage": 100
+        },
+        {
+          "name": "nfz_pesel",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 352080,
+          "fillPercentage": 99.72129698864795
+        },
+        {
+          "name": "note",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 58,
+          "fillPercentage": 0.016427616522783406
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 353064,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "nfz.attachednfzservice",
+      "polishName": "Dołączona usługa NFZ",
+      "description": "Usługa NFZ dołączona do kontraktu lub raportu",
+      "recordCount": 195133,
+      "fields": [
+        {
+          "name": "identifier",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 195133,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_deleted",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 195133,
+          "fillPercentage": 100
+        },
+        {
+          "name": "jgp_tariff",
+          "type": "DecimalField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "package_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 195133,
+          "fillPercentage": 100
+        },
+        {
+          "name": "quantity",
+          "type": "DecimalField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 195133,
+          "fillPercentage": 100
+        },
+        {
+          "name": "service_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 195133,
+          "fillPercentage": 100
+        },
+        {
+          "name": "service_date_from",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "special_settlement_codes",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "nfz.specialsettlementcode",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "version_number",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 195133,
+          "fillPercentage": 100
+        },
+        {
+          "name": "visit",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 195133,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.nfzservicereportserviceset",
+      "polishName": "Zestaw usług w raporcie NFZ",
+      "description": "Zbiór usług w raporcie do NFZ",
+      "recordCount": 167016,
+      "fields": [
+        {
+          "name": "is_deleted",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 167016,
+          "fillPercentage": 100
+        },
+        {
+          "name": "last_reported_version",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 167016,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 167016,
+          "fillPercentage": 100
+        },
+        {
+          "name": "service_set_billing_version",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 167016,
+          "fillPercentage": 100
+        },
+        {
+          "name": "updated_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "xml_data",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 167011,
+          "fillPercentage": 99.99700627484792
+        }
+      ]
+    },
+    {
+      "model": "gabinet.recipenumber",
+      "polishName": "Numer recepty",
+      "description": "Sekwencja numerów recept",
+      "recordCount": 139374,
+      "fields": [
+        {
+          "name": "number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 139374,
+          "fillPercentage": 100
+        },
+        {
+          "name": "owner",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 139374,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.documents",
+      "polishName": "Dokumenty",
+      "description": "Ogólne dokumenty medyczne przypisane do pacjenta lub wizyty",
+      "recordCount": 96324,
+      "fields": [
+        {
+          "name": "is_browseable",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 96324,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_shared",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 96324,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_signed",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 96324,
+          "fillPercentage": 100
+        },
+        {
+          "name": "original_filename",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 96324,
+          "fillPercentage": 100
+        },
+        {
+          "name": "person",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 96324,
+          "fillPercentage": 100
+        },
+        {
+          "name": "type",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.documenttype",
+          "filledCount": 34646,
+          "fillPercentage": 35.96819068975541
+        },
+        {
+          "name": "uploaded_file_size",
+          "type": "BigIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 96324,
+          "fillPercentage": 100
+        },
+        {
+          "name": "visit",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 49281,
+          "fillPercentage": 51.16170424816245
+        }
+      ]
+    },
+    {
+      "model": "gabinet.address",
+      "polishName": "Adres",
+      "description": "Dane adresowe osoby lub placówki",
+      "recordCount": 67191,
+      "fields": [
+        {
+          "name": "city",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 40478,
+          "fillPercentage": 60.243187331636676
+        },
+        {
+          "name": "country",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 67191,
+          "fillPercentage": 100
+        },
+        {
+          "name": "flat_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 25273,
+          "fillPercentage": 37.61366849726898
+        },
+        {
+          "name": "street",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 39525,
+          "fillPercentage": 58.824842612849935
+        }
+      ]
+    },
+    {
+      "model": "gabinet.genericmedicaldata",
+      "polishName": "Ogólne dane medyczne",
+      "description": "Podstawowe dane zdrowotne pacjenta (np. alergie, wywiad)",
+      "recordCount": 54945,
+      "fields": [
+        {
+          "name": "date_to",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1098,
+          "fillPercentage": 1.9983619983619985
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 54945,
+          "fillPercentage": 100
+        },
+        {
+          "name": "type_of_data",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 54945,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.vaccination",
+      "polishName": "Szczepienie",
+      "description": "Rekord szczepienia (data, szczepionka)",
+      "recordCount": 48048,
+      "fields": [
+        {
+          "name": "current_hash",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2504,
+          "fillPercentage": 5.2114552114552115
+        },
+        {
+          "name": "department",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.department",
+          "filledCount": 3413,
+          "fillPercentage": 7.103313353313354
+        },
+        {
+          "name": "dose",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 6906,
+          "fillPercentage": 14.373126873126873
+        },
+        {
+          "name": "drug",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 48048,
+          "fillPercentage": 100
+        },
+        {
+          "name": "ean_override",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 30,
+          "fillPercentage": 0.06243756243756244
+        },
+        {
+          "name": "expiration_date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 7850,
+          "fillPercentage": 16.337828837828837
+        },
+        {
+          "name": "external",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 48048,
+          "fillPercentage": 100
+        },
+        {
+          "name": "funding_source",
+          "type": "SmallIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 48048,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 48048,
+          "fillPercentage": 100
+        },
+        {
+          "name": "status",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 48048,
+          "fillPercentage": 100
+        },
+        {
+          "name": "total_number_of_dose_string",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3413,
+          "fillPercentage": 7.103313353313354
+        },
+        {
+          "name": "vaccination_site",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 7706,
+          "fillPercentage": 16.03812853812854
+        },
+        {
+          "name": "vaccinations_schedule",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.vaccinationsschedule",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "vaccine_maker",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 45243,
+          "fillPercentage": 94.16208791208791
+        },
+        {
+          "name": "zm_reference_val",
+          "type": "BigIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 48048,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.patientpermanentdrug",
+      "polishName": "Stały lek pacjenta",
+      "description": "Lista leków stałych (przewlekłych) pacjenta",
+      "recordCount": 33615,
+      "fields": [
+        {
+          "name": "dosation_in_words",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 170,
+          "fillPercentage": 0.5057266101442808
+        },
+        {
+          "name": "drug",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.ver",
+          "filledCount": 32489,
+          "fillPercentage": 96.65030492339729
+        },
+        {
+          "name": "is_part_of_box",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 33615,
+          "fillPercentage": 100
+        },
+        {
+          "name": "payment",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 33571,
+          "fillPercentage": 99.86910605384502
+        },
+        {
+          "name": "recommendation_technical_str",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2475,
+          "fillPercentage": 7.362784471218206
+        }
+      ]
+    },
+    {
+      "model": "gabinet.nfzdeclaration",
+      "polishName": "Deklaracja NFZ",
+      "description": "Deklaracja wyboru POZ dla NFZ",
+      "recordCount": 30924,
+      "fields": [
+        {
+          "name": "creation_date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 30924,
+          "fillPercentage": 100
+        },
+        {
+          "name": "note",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 155,
+          "fillPercentage": 0.5012288190402276
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 30924,
+          "fillPercentage": 100
+        },
+        {
+          "name": "personnel",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 30924,
+          "fillPercentage": 100
+        },
+        {
+          "name": "school_kind",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "state",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 30924,
+          "fillPercentage": 100
+        },
+        {
+          "name": "typ_szkoly_plat",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        }
+      ]
+    },
+    {
+      "model": "gabinet.imagingtest",
+      "polishName": "Badanie obrazowe",
+      "description": "Wyniki badań obrazowych (RTG, USG, MRI itp.)",
+      "recordCount": 27735,
+      "fields": [
+        {
+          "name": "attachments",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.documents",
+          "filledCount": 3244,
+          "fillPercentage": 11.696412475211826
+        },
+        {
+          "name": "date",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 27735,
+          "fillPercentage": 100
+        },
+        {
+          "name": "external_request",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "external_labs.externallabexaminationsrequest",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "icd9",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.icd9",
+          "filledCount": 10228,
+          "fillPercentage": 36.87759149089598
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 27735,
+          "fillPercentage": 100
+        },
+        {
+          "name": "person",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 27735,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.patient",
+      "polishName": "Pacjent",
+      "description": "Dane pacjenta (rozszerzenie osoby o dane medyczne)",
+      "recordCount": 22397,
+      "fields": [
+        {
+          "name": "active",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "blood_type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "cancelled_visits_count",
+          "type": "PositiveIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "country",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "dead",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.patientdead",
+          "filledCount": 1,
+          "fillPercentage": 0.004464883689779881
+        },
+        {
+          "name": "debt",
+          "type": "DecimalField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "employer_address",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.address",
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "employer_nip",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 41,
+          "fillPercentage": 0.18306023128097512
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "identity_num",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1371,
+          "fillPercentage": 6.121355538688217
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_ice_auth_signed",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 580,
+          "fillPercentage": 2.5896325400723312
+        },
+        {
+          "name": "is_self_registered",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "maiden_name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1437,
+          "fillPercentage": 6.416037862213689
+        },
+        {
+          "name": "nfz",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22314,
+          "fillPercentage": 99.62941465374827
+        },
+        {
+          "name": "nobody_ice_authorized",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "notification_email",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "occupation_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "pesel",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 19845,
+          "fillPercentage": 88.60561682368174
+        },
+        {
+          "name": "place_of_birth",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1501,
+          "fillPercentage": 6.701790418359602
+        },
+        {
+          "name": "residence_address",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.address",
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "rights_document_info",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 12,
+          "fillPercentage": 0.053578604277358576
+        },
+        {
+          "name": "rodo_mail_sent",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        },
+        {
+          "name": "second_name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1948,
+          "fillPercentage": 8.697593427691208
+        },
+        {
+          "name": "second_telephone",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 339,
+          "fillPercentage": 1.5135955708353797
+        },
+        {
+          "name": "takes_part_in_loyalty_program",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22397,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.attachedprivateservice",
+      "polishName": "Dołączona usługa prywatna",
+      "description": "Usługa prywatna dołączona do wizyty lub pakietu",
+      "recordCount": 18455,
+      "fields": [
+        {
+          "name": "base_price",
+          "type": "DecimalField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 18455,
+          "fillPercentage": 100
+        },
+        {
+          "name": "commission",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.servicegroupcommission",
+          "filledCount": 14513,
+          "fillPercentage": 78.639934976971
+        },
+        {
+          "name": "invoice",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.invoice",
+          "filledCount": 293,
+          "fillPercentage": 1.5876456244920076
+        },
+        {
+          "name": "service",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.privateservice",
+          "filledCount": 18455,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.incaseofemergency",
+      "polishName": "Kontakt w nagłych wypadkach",
+      "description": "Dane ICE – kontakt w razie wypadku",
+      "recordCount": 17485,
+      "fields": [
+        {
+          "name": "city",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 15278,
+          "fillPercentage": 87.377752359165
+        },
+        {
+          "name": "conditions",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 17485,
+          "fillPercentage": 100
+        },
+        {
+          "name": "flat_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 4925,
+          "fillPercentage": 28.167000285959393
+        },
+        {
+          "name": "identity_num",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 6158,
+          "fillPercentage": 35.218758936231055
+        },
+        {
+          "name": "last_name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 17485,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 17485,
+          "fillPercentage": 100
+        },
+        {
+          "name": "recipes_and_referrals",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 17485,
+          "fillPercentage": 100
+        },
+        {
+          "name": "street",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 8505,
+          "fillPercentage": 48.64169287961109
+        }
+      ]
+    },
+    {
+      "model": "gabinet.personalsequence",
+      "polishName": "Sekwencja osobista",
+      "description": "Sekwencja numeracyjna dla dokumentów osobistych (np. numer recepty)",
+      "recordCount": 15281,
+      "fields": [
+        {
+          "name": "person",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 15281,
+          "fillPercentage": 100
+        },
+        {
+          "name": "quantity",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 15281,
+          "fillPercentage": 100
+        },
+        {
+          "name": "text",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 15281,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "ezwolnienia.esickleave",
+      "polishName": "e-Zwolnienie",
+      "description": "Elektroniczne zwolnienie lekarskie (e-ZLA)",
+      "recordCount": 14541,
+      "fields": [
+        {
+          "name": "azla_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 119,
+          "fillPercentage": 0.8183756275359328
+        },
+        {
+          "name": "backward",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "ezwolnienia.esickleave",
+          "filledCount": 35,
+          "fillPercentage": 0.24069871398115672
+        },
+        {
+          "name": "cancellation",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "ezwolnienia.esickleavecancellation",
+          "filledCount": 119,
+          "fillPercentage": 0.8183756275359328
+        },
+        {
+          "name": "common",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "ezwolnienia.esickleavecommon",
+          "filledCount": 14541,
+          "fillPercentage": 100
+        },
+        {
+          "name": "date_from",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14541,
+          "fillPercentage": 100
+        },
+        {
+          "name": "do_not_notify_payer",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14541,
+          "fillPercentage": 100
+        },
+        {
+          "name": "doc_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14541,
+          "fillPercentage": 100
+        },
+        {
+          "name": "hospital_date_from",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "number_zla",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14541,
+          "fillPercentage": 100
+        },
+        {
+          "name": "payer_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14497,
+          "fillPercentage": 99.69740733099512
+        }
+      ]
+    },
+    {
+      "model": "ezwolnienia.esickleavecommon",
+      "polishName": "Wspólne dane e-Zwolnienia",
+      "description": "Wspólne pola dla zwolnień lekarskich (np. dane pacjenta, lekarza)",
+      "recordCount": 13424,
+      "fields": [
+        {
+          "name": "code_2",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 22,
+          "fillPercentage": 0.16388557806912993
+        },
+        {
+          "name": "code_4",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 0.007449344457687724
+        },
+        {
+          "name": "date_of_birth",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13393,
+          "fillPercentage": 99.76907032181168
+        },
+        {
+          "name": "date_of_issue",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13424,
+          "fillPercentage": 100
+        },
+        {
+          "name": "disease_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 12808,
+          "fillPercentage": 95.41120381406436
+        },
+        {
+          "name": "doctor_name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13424,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility_address",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "ezwolnienia.address",
+          "filledCount": 13424,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility_nip",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13424,
+          "fillPercentage": 100
+        },
+        {
+          "name": "insurer",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13424,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_in_non_hospital",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13424,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient_address",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "ezwolnienia.address",
+          "filledCount": 13424,
+          "fillPercentage": 100
+        },
+        {
+          "name": "surname",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13424,
+          "fillPercentage": 100
+        },
+        {
+          "name": "under_care_date_of_birth",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3022,
+          "fillPercentage": 22.5119189511323
+        },
+        {
+          "name": "visit",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 13424,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "nfz.nfzserviceplan",
+      "polishName": "Plan usług NFZ",
+      "description": "Planowanie usług w kontrakcie NFZ",
+      "recordCount": 13265,
+      "fields": [
+        {
+          "name": "additional_data",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13265,
+          "fillPercentage": 100
+        },
+        {
+          "name": "contract",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "nfz.nfzcontract",
+          "filledCount": 13265,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 13265,
+          "fillPercentage": 100
+        },
+        {
+          "name": "limit_package",
+          "type": "DecimalField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13265,
+          "fillPercentage": 100
+        },
+        {
+          "name": "package_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13265,
+          "fillPercentage": 100
+        },
+        {
+          "name": "rsm",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13265,
+          "fillPercentage": 100
+        },
+        {
+          "name": "service_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 11011,
+          "fillPercentage": 83.00791556728232
+        },
+        {
+          "name": "service_name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 11011,
+          "fillPercentage": 83.00791556728232
+        },
+        {
+          "name": "unit_type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13265,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.privateservicespackage",
+      "polishName": "Pakiet usług prywatnych",
+      "description": "Pakiet usług prywatnych (np. abonament)",
+      "recordCount": 13207,
+      "fields": [
+        {
+          "name": "has_dirty_commissions",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1181,
+          "fillPercentage": 8.942227606572272
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 13207,
+          "fillPercentage": 100
+        },
+        {
+          "name": "visit",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 9901,
+          "fillPercentage": 74.96782009540395
+        }
+      ]
+    },
+    {
+      "model": "gabinet.patientnote",
+      "polishName": "Notatka pacjenta",
+      "description": "Wolny tekst notatki przypisany do pacjenta",
+      "recordCount": 5178,
+      "fields": [
+        {
+          "name": "author",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 2324,
+          "fillPercentage": 44.88219389725763
+        },
+        {
+          "name": "is_medical_data",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 5178,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 5178,
+          "fillPercentage": 100
+        },
+        {
+          "name": "title",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 5178,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.teryt",
+      "polishName": "TERYT",
+      "description": "Kod terytorialny (miejscowość, gmina)",
+      "recordCount": 3290,
+      "fields": [
+        {
+          "name": "kolce_miejscowosc",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3112,
+          "fillPercentage": 94.58966565349544
+        },
+        {
+          "name": "longitude",
+          "type": "DecimalField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3175,
+          "fillPercentage": 96.50455927051672
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3290,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.custodian",
+      "polishName": "Opiekun",
+      "description": "Osoba opiekująca się pacjentem (np. rodzic, prawny opiekun)",
+      "recordCount": 2749,
+      "fields": [
+        {
+          "name": "date_of_birth",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 388,
+          "fillPercentage": 14.11422335394689
+        },
+        {
+          "name": "identity_num",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 45,
+          "fillPercentage": 1.6369588941433248
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 388,
+          "fillPercentage": 14.11422335394689
+        },
+        {
+          "name": "pesel",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 390,
+          "fillPercentage": 14.186977082575481
+        }
+      ]
+    },
+    {
+      "model": "gabinet.insurancedocuments",
+      "polishName": "Dokumenty ubezpieczeniowe",
+      "description": "Dokumenty potwierdzające ubezpieczenie (np. legitymacja)",
+      "recordCount": 983,
+      "fields": [
+        {
+          "name": "document_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 92,
+          "fillPercentage": 9.35910478128179
+        },
+        {
+          "name": "insurance",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.insurance",
+          "filledCount": 983,
+          "fillPercentage": 100
+        },
+        {
+          "name": "issuer",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 44,
+          "fillPercentage": 4.476093591047813
+        },
+        {
+          "name": "issuing_authority",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2,
+          "fillPercentage": 0.2034587995930824
+        },
+        {
+          "name": "pensioner_card_issuer",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 0.1017293997965412
+        },
+        {
+          "name": "permission_basis",
+          "type": "PositiveIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 883,
+          "fillPercentage": 89.82706002034588
+        },
+        {
+          "name": "personal_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 46,
+          "fillPercentage": 4.679552390640895
+        },
+        {
+          "name": "set_date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 46,
+          "fillPercentage": 4.679552390640895
+        },
+        {
+          "name": "uploaded_file",
+          "type": "FileField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 83,
+          "fillPercentage": 8.443540183112919
+        }
+      ]
+    },
+    {
+      "model": "gabinet.personalstencil",
+      "polishName": "Szablon osobisty",
+      "description": "Szablon dokumentów osobistych lekarza (np. pieczątka)",
+      "recordCount": 972,
+      "fields": [
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "icd9_text",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 9,
+          "fillPercentage": 0.9259259259259259
+        },
+        {
+          "name": "text",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 972,
+          "fillPercentage": 100
+        },
+        {
+          "name": "type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 972,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.privateservice",
+      "polishName": "Usługa prywatna",
+      "description": "Usługa odpłatna poza NFZ",
+      "recordCount": 941,
+      "fields": [
+        {
+          "name": "active",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 941,
+          "fillPercentage": 100
+        },
+        {
+          "name": "index",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 280,
+          "fillPercentage": 29.75557917109458
+        },
+        {
+          "name": "insurer_service_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "is_active_for_all",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 941,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_deleted",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 941,
+          "fillPercentage": 100
+        },
+        {
+          "name": "vat",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 0.10626992561105207
+        }
+      ]
+    },
+    {
+      "model": "gabinet.tile",
+      "polishName": "Kafel",
+      "description": "Element UI / dashboard (np. kafelki w interfejsie)",
+      "recordCount": 672,
+      "fields": [
+        {
+          "name": "col",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 672,
+          "fillPercentage": 100
+        },
+        {
+          "name": "tile_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 672,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.personalvisitstencil",
+      "polishName": "Szablon wizyty osobistej",
+      "description": "Szablon dla wizyt osobistych lekarza",
+      "recordCount": 388,
+      "fields": [
+        {
+          "name": "examination",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.personalstencil",
+          "filledCount": 173,
+          "fillPercentage": 44.58762886597938
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 388,
+          "fillPercentage": 100
+        },
+        {
+          "name": "recognition",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.personalstencil",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "therapy",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.personalstencil",
+          "filledCount": 0,
+          "fillPercentage": 0
+        }
+      ]
+    },
+    {
+      "model": "auth.user",
+      "polishName": "Użytkownik",
+      "description": "Konto użytkownika systemu (loginy, role, hasła)",
+      "recordCount": 199,
+      "fields": [
+        {
+          "name": "email",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 166,
+          "fillPercentage": 83.41708542713567
+        },
+        {
+          "name": "first_name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 99.49748743718592
+        }
+      ]
+    },
+    {
+      "model": "gabinet.person",
+      "polishName": "Osoba",
+      "description": "Bazowy model dla pacjentów, lekarzy, personelu (PESEL, dane kontaktowe)",
+      "recordCount": 199,
+      "fields": [
+        {
+          "name": "academic_degree",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 7,
+          "fillPercentage": 3.5175879396984926
+        },
+        {
+          "name": "available_services",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.privateservice",
+          "filledCount": 5,
+          "fillPercentage": 2.512562814070352
+        },
+        {
+          "name": "commission_group",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.commissiongroup",
+          "filledCount": 198,
+          "fillPercentage": 99.49748743718592
+        },
+        {
+          "name": "confirmed",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "default_specialty",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.specialty",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "hubspot_id",
+          "type": "BigIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 7.035175879396985
+        },
+        {
+          "name": "is_facility_owner",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "languages",
+          "type": "ArrayField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "password_exp",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "pesel",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 176,
+          "fillPercentage": 88.44221105527639
+        },
+        {
+          "name": "privacy_policy_timestamp",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 99,
+          "fillPercentage": 49.74874371859296
+        },
+        {
+          "name": "pwz",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 115,
+          "fillPercentage": 57.78894472361809
+        },
+        {
+          "name": "skip_2fa",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "tags",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.persontags",
+          "filledCount": 35,
+          "fillPercentage": 17.587939698492463
+        },
+        {
+          "name": "user",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "auth.user",
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "visit_assistants",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "visit_time",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 16,
+          "fillPercentage": 8.040201005025125
+        }
+      ]
+    },
+    {
+      "model": "gabinet.profile",
+      "polishName": "Profil",
+      "description": "Profil użytkownika lub placówki (ustawienia personalne)",
+      "recordCount": 199,
+      "fields": [
+        {
+          "name": "actual_department",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.department",
+          "filledCount": 43,
+          "fillPercentage": 21.608040201005025
+        },
+        {
+          "name": "calendar_color",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "dentition_extended",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "department_telephone_preference",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_aptego_on",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "ml_generate_recipes_samples",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "mobile_access",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "send_password_notifications",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "send_patient_visit_notifications",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "send_patient_visit_notifications_push",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "show_cancelled_visits",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "show_confirmations",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "tags",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "bot.tag",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "tooltips",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        },
+        {
+          "name": "visit_patient_notification",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 199,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.recipepreferences",
+      "polishName": "Preferencje recept",
+      "description": "Ustawienia domyślne dla recept (np. refundacja)",
+      "recordCount": 198,
+      "fields": [
+        {
+          "name": "barcode_height",
+          "type": "SmallIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "default_365_days",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "departmental_codes",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "drugs_height",
+          "type": "SmallIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "header_font_size",
+          "type": "DecimalField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "header_text",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "margin_bottom",
+          "type": "SmallIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "margin_right",
+          "type": "SmallIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "nip",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "office_name",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient_address",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "person",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "recipe_control",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "recipe_width",
+          "type": "SmallIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "right_col_width",
+          "type": "SmallIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "telephone_number",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        },
+        {
+          "name": "text",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 198,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "dilo.dilocard",
+      "polishName": "Karta DILO",
+      "description": "Karta Diagnostyki i Leczenia Onkologicznego (DiLO) – ścieżka onkologiczna",
+      "recordCount": 158,
+      "fields": [
+        {
+          "name": "cancel_reason",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 21,
+          "fillPercentage": 13.291139240506329
+        },
+        {
+          "name": "card_status",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 158,
+          "fillPercentage": 100
+        },
+        {
+          "name": "creation_date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 158,
+          "fillPercentage": 100
+        },
+        {
+          "name": "fake",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 158,
+          "fillPercentage": 100
+        },
+        {
+          "name": "initialization_scenario",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 158,
+          "fillPercentage": 100
+        },
+        {
+          "name": "issuing_doctor",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 158,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.patient",
+          "filledCount": 158,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.nfzdeklreportfeedback",
+      "polishName": "Feedback raportu deklaracji NFZ",
+      "description": "Odpowiedź/zwrotka z NFZ na raport deklaracji",
+      "recordCount": 116,
+      "fields": [
+        {
+          "name": "dekl_feedback_file",
+          "type": "FileField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 116,
+          "fillPercentage": 100
+        },
+        {
+          "name": "generation_time",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 116,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.invoice",
+      "polishName": "Faktura",
+      "description": "Faktura za usługi prywatne lub rozliczenia",
+      "recordCount": 113,
+      "fields": [
+        {
+          "name": "bill_waiver",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 113,
+          "fillPercentage": 100
+        },
+        {
+          "name": "closed",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 113,
+          "fillPercentage": 100
+        },
+        {
+          "name": "corrected_invoice",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.invoice",
+          "filledCount": 10,
+          "fillPercentage": 8.849557522123893
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 113,
+          "fillPercentage": 100
+        },
+        {
+          "name": "issue_date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 113,
+          "fillPercentage": 100
+        },
+        {
+          "name": "issuer",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 6,
+          "fillPercentage": 5.3097345132743365
+        },
+        {
+          "name": "jpk_signs",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "notes",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 2.6548672566371683
+        },
+        {
+          "name": "number_template",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.numbertemplate",
+          "filledCount": 104,
+          "fillPercentage": 92.03539823008849
+        },
+        {
+          "name": "package",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.privateservicespackage",
+          "filledCount": 107,
+          "fillPercentage": 94.69026548672566
+        },
+        {
+          "name": "payment_date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 113,
+          "fillPercentage": 100
+        },
+        {
+          "name": "provider",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 113,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "ezwolnienia.esickleavecancellation",
+      "polishName": "Anulowanie e-Zwolnienia",
+      "description": "Anulowanie elektronicznego zwolnienia lekarskiego",
+      "recordCount": 110,
+      "fields": [
+        {
+          "name": "additional_info",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 33,
+          "fillPercentage": 30
+        },
+        {
+          "name": "cancellation_date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 110,
+          "fillPercentage": 100
+        },
+        {
+          "name": "cancellation_reason",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 110,
+          "fillPercentage": 100
+        },
+        {
+          "name": "creator",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "auth.user",
+          "filledCount": 110,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_notification_sent",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 110,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.nfzservicereport",
+      "polishName": "Raport usług NFZ",
+      "description": "Raport świadczonych usług do NFZ",
+      "recordCount": 92,
+      "fields": [
+        {
+          "name": "creation_date",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 92,
+          "fillPercentage": 100
+        },
+        {
+          "name": "date_active",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 92,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_deleted",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 92,
+          "fillPercentage": 100
+        },
+        {
+          "name": "mail_reporting_message",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.nfzmailreportingmessage",
+          "filledCount": 88,
+          "fillPercentage": 95.65217391304348
+        },
+        {
+          "name": "nfz_contract",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "nfz.nfzcontract",
+          "filledCount": 92,
+          "fillPercentage": 100
+        },
+        {
+          "name": "previous",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.nfzservicereport",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "price_sum",
+          "type": "DecimalField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 92,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.specialty",
+      "polishName": "Specjalizacja",
+      "description": "Specjalizacja lekarska (np. rodzinna, pediatria)",
+      "recordCount": 67,
+      "fields": [
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 67,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_deleted",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 67,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_spec_doctor",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 67,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.dispanserygroup",
+      "polishName": "Grupa dyspanseryjna",
+      "description": "Grupa pacjentów pod stałą opieką (dyspanseryzacja, np. cukrzyca)",
+      "recordCount": 41,
+      "fields": [
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 41,
+          "fillPercentage": 100
+        },
+        {
+          "name": "type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 41,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.nfzdeklreport",
+      "polishName": "Raport deklaracji NFZ",
+      "description": "Raport zbiorczy deklaracji POZ do NFZ",
+      "recordCount": 39,
+      "fields": [
+        {
+          "name": "confirmation_feedback",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.nfzdeklreportfeedback",
+          "filledCount": 39,
+          "fillPercentage": 100
+        },
+        {
+          "name": "confirmed",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 39,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 39,
+          "fillPercentage": 100
+        },
+        {
+          "name": "filter_text",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "non_deleted",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 39,
+          "fillPercentage": 100
+        },
+        {
+          "name": "report_file",
+          "type": "FileField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 39,
+          "fillPercentage": 100
+        },
+        {
+          "name": "state",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 39,
+          "fillPercentage": 100
+        },
+        {
+          "name": "version",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 39,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "nfz.nfzcontractfile",
+      "polishName": "Plik kontraktu NFZ",
+      "description": "Załącznik do kontraktu NFZ",
+      "recordCount": 35,
+      "fields": [
+        {
+          "name": "contract",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "nfz.nfzcontract",
+          "filledCount": 35,
+          "fillPercentage": 100
+        },
+        {
+          "name": "created",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 35,
+          "fillPercentage": 100
+        },
+        {
+          "name": "gen_time",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 35,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.visittype",
+      "polishName": "Typ wizyty",
+      "description": "Typ wizyty (np. POZ, specjalistyczna, domowa)",
+      "recordCount": 30,
+      "fields": [
+        {
+          "name": "icd9_list",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.icd9",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 30,
+          "fillPercentage": 100
+        },
+        {
+          "name": "preferred_prod_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "require_referral",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 30,
+          "fillPercentage": 100
+        },
+        {
+          "name": "services",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "gabinet.service",
+          "filledCount": 20,
+          "fillPercentage": 66.66666666666667
+        },
+        {
+          "name": "state",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 30,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.office",
+      "polishName": "Gabinet / pokój",
+      "description": "Lokalizacja wewnątrz placówki (np. gabinet nr 1)",
+      "recordCount": 27,
+      "fields": [
+        {
+          "name": "active",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 27,
+          "fillPercentage": 100
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 27,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.documenttype",
+      "polishName": "Typ dokumentu",
+      "description": "Kategoria dokumentów (np. skierowanie, wynik badań)",
+      "recordCount": 16,
+      "fields": [
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 16,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_active",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 16,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.department",
+      "polishName": "Oddział / komórka",
+      "description": "Struktura organizacyjna placówki (np. POZ, pediatria)",
+      "recordCount": 14,
+      "fields": [
+        {
+          "name": "city",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 13,
+          "fillPercentage": 92.85714285714286
+        },
+        {
+          "name": "code_5",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 11,
+          "fillPercentage": 78.57142857142857
+        },
+        {
+          "name": "country",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 100
+        },
+        {
+          "name": "default_teryt",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.teryt",
+          "filledCount": 11,
+          "fillPercentage": 78.57142857142857
+        },
+        {
+          "name": "default_visit_kind",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 100
+        },
+        {
+          "name": "department_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 9,
+          "fillPercentage": 64.28571428571429
+        },
+        {
+          "name": "departmental_code_8",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 11,
+          "fillPercentage": 78.57142857142857
+        },
+        {
+          "name": "flat_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 5,
+          "fillPercentage": 35.714285714285715
+        },
+        {
+          "name": "imported_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "kids_allowed",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 100
+        },
+        {
+          "name": "name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 100
+        },
+        {
+          "name": "nfz_contracts",
+          "type": null,
+          "relation": "ManyToManyRel",
+          "relatedTo": "nfz.nfzcontract",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "recipe_provider",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 100
+        },
+        {
+          "name": "regon",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 100
+        },
+        {
+          "name": "service_type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 100
+        },
+        {
+          "name": "street",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 10,
+          "fillPercentage": 71.42857142857143
+        },
+        {
+          "name": "work_to",
+          "type": "TimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 14,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "nfz.nfzcontract",
+      "polishName": "Kontrakt NFZ",
+      "description": "Umowa z NFZ na świadczenia",
+      "recordCount": 6,
+      "fields": [
+        {
+          "name": "active_to",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 6,
+          "fillPercentage": 100
+        },
+        {
+          "name": "delegation_settling",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 6,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 6,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_deleted",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 6,
+          "fillPercentage": 100
+        },
+        {
+          "name": "primal_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "service_type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 6,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.shareddocument",
+      "polishName": "Dokument współdzielony",
+      "description": "Dokument udostępniony między pacjentami/placówkami",
+      "recordCount": 3,
+      "fields": [
+        {
+          "name": "description",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "file_size",
+          "type": "BigIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.footer",
+      "polishName": "Stopka",
+      "description": "Stopka dokumentów/wydruków (np. dane placówki w footerze recepty)",
+      "recordCount": 3,
+      "fields": [
+        {
+          "name": "city",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "code_1",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "custom_content_enabled",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "custom_content_right",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "department_code",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility_address",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "facility_tel",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "font_size",
+          "type": "PositiveIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "logo",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "nfz_primal_code",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "on_top",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "rodo",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "time",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        },
+        {
+          "name": "www_address",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 3,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.sickleave",
+      "polishName": "Zwolnienie lekarskie",
+      "description": "Starszy model zwolnienia (przed e-ZLA)",
+      "recordCount": 2,
+      "fields": [
+        {
+          "name": "code_2",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "code_4",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "date_to",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2,
+          "fillPercentage": 100
+        },
+        {
+          "name": "disease_number",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2,
+          "fillPercentage": 100
+        },
+        {
+          "name": "doc_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "employer_nip",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2,
+          "fillPercentage": 100
+        },
+        {
+          "name": "explanation",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "for_previous",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.sickleave",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "hospital_date_from",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "hospital_stay_days",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "insurer",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2,
+          "fillPercentage": 100
+        },
+        {
+          "name": "is_leave_for_patient",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2,
+          "fillPercentage": 100
+        },
+        {
+          "name": "payer_id_type",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "payer_name",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "pesel",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2,
+          "fillPercentage": 100
+        },
+        {
+          "name": "series_zla",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "surname",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 2,
+          "fillPercentage": 100
+        },
+        {
+          "name": "under_care_date_of_birth",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "visit",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.visit",
+          "filledCount": 2,
+          "fillPercentage": 100
+        },
+        {
+          "name": "xml",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        }
+      ]
+    },
+    {
+      "model": "gabinet.facility",
+      "polishName": "Placówka",
+      "description": "Instancja gabinetu/przychodni – ustawienia systemowe (NFZ ID, regon, godziny)",
+      "recordCount": 1,
+      "fields": [
+        {
+          "name": "accept_two_visits_same_day",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "archive_visits_facility",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "based_on_contact",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.contact",
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "bdo_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "block_invalid_services_for_department",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "canceled_visits_hour",
+          "type": "PositiveIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "code_1",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "competition_code_link",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "competition_code.competitioncode",
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "created_at",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "created_by_external_user",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "external_api.externalapiuser",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "custom_login_welcome_info",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "data_migrated",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "data_migration_agreement_date",
+          "type": "DateTimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "default_invoices_provider",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.invoiceprovider",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "default_reception_mode",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "default_teryt",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.teryt",
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "disabled_generated_groups",
+          "type": "ArrayField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "email",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "encrypt_ereferrals",
+          "type": "NullBooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "freemium_start_day",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "house_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "image",
+          "type": "FileField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "insurances_automatic_check",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "invited_by",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.person",
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "invoice_signer",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "last_minute_cancellation_threshold",
+          "type": "PositiveIntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "location",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "user_activity.location",
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "max_number_of_hours_for_implementation",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "netsuite_customer_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "nfz_short_system_id",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "no_receipt_duplicates",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "omit_non_working_days",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient_list_declaration_diabetes",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient_list_declaration_doctor",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "patient_list_declaration_midwife",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "postal_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "provider_code",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "province",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "registry_number",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "regon",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "rodo_consent",
+          "type": null,
+          "relation": "ManyToOneRel",
+          "relatedTo": "gabinet.consent",
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "strict_schedules_control",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "subscription_price_group",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "unlimited_sms_packet_enabled",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "visit_time",
+          "type": "IntegerField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "work_from",
+          "type": "TimeField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "www_address",
+          "type": "CharField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "zl_integration_for_free_enabled",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.patientdead",
+      "polishName": "Zgon pacjenta",
+      "description": "Data i przyczyna zgonu",
+      "recordCount": 1,
+      "fields": [
+        {
+          "name": "cause",
+          "type": "TextField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 0,
+          "fillPercentage": 0
+        },
+        {
+          "name": "date",
+          "type": "DateField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        }
+      ]
+    },
+    {
+      "model": "gabinet.printingsettings",
+      "polishName": "Ustawienia drukowania",
+      "description": "Konfiguracja wydruków (np. usługi prywatne)",
+      "recordCount": 1,
+      "fields": [
+        {
+          "name": "facility",
+          "type": null,
+          "relation": "OneToOneRel",
+          "relatedTo": "gabinet.facility",
+          "filledCount": 1,
+          "fillPercentage": 100
+        },
+        {
+          "name": "show_private_services",
+          "type": "BooleanField",
+          "relation": null,
+          "relatedTo": null,
+          "filledCount": 1,
+          "fillPercentage": 100
+        }
+      ]
+    }
+  ]
+}

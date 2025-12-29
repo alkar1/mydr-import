@@ -120,7 +120,13 @@ public abstract class BaseModelProcessor : IModelProcessor
                 var name = field.Attribute("name")?.Value;
                 if (!string.IsNullOrEmpty(name))
                 {
-                    record[name] = field.Value?.Trim() ?? "";
+                    var value = field.Value?.Trim() ?? "";
+                    // Wyczysc wartosci NULL z XML (reprezentowane jako <None></None>)
+                    if (value == "<None></None>" || value == "None")
+                    {
+                        value = "";
+                    }
+                    record[name] = value;
                 }
             }
 
