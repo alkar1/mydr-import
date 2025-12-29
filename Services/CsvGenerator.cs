@@ -160,13 +160,53 @@ public class CsvGenerator
         // Specjalne mapowanie dla znanych modeli
         var modelMappings = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
+            // Pacjenci
             { "pacjenci", "gabinet_patient.xml" },
             { "patient", "gabinet_patient.xml" },
             { "gabinet.patient", "gabinet_patient.xml" },
+            // Wizyty
             { "wizyty", "gabinet_visit.xml" },
             { "visit", "gabinet_visit.xml" },
-            { "lekarze", "gabinet_doctor.xml" },
-            { "pracownicy", "gabinet_employee.xml" }
+            { "gabinet.visit", "gabinet_visit.xml" },
+            // Pracownicy/Lekarze
+            { "pracownicy", "gabinet_person.xml" },
+            { "lekarze", "gabinet_person.xml" },
+            { "gabinet.person", "gabinet_person.xml" },
+            // Karty wizyt
+            { "karty_wizyt", "gabinet_visitnotes.xml" },
+            { "visitnotes", "gabinet_visitnotes.xml" },
+            { "gabinet.visitnotes", "gabinet_visitnotes.xml" },
+            // Szczepienia
+            { "szczepienia", "gabinet_vaccination.xml" },
+            { "vaccination", "gabinet_vaccination.xml" },
+            { "gabinet.vaccination", "gabinet_vaccination.xml" },
+            // Deklaracje POZ
+            { "deklaracje_poz", "gabinet_nfzdeclaration.xml" },
+            { "nfzdeclaration", "gabinet_nfzdeclaration.xml" },
+            { "gabinet.nfzdeclaration", "gabinet_nfzdeclaration.xml" },
+            // Dokumentacja/zalaczniki
+            { "dokumentacja_zalaczniki", "gabinet_documents.xml" },
+            { "documents", "gabinet_documents.xml" },
+            { "gabinet.documents", "gabinet_documents.xml" },
+            // Dokumenty uprawniajace
+            { "dokumenty_uprawniajace", "gabinet_insurancedocuments.xml" },
+            { "insurancedocuments", "gabinet_insurancedocuments.xml" },
+            { "gabinet.insurancedocuments", "gabinet_insurancedocuments.xml" },
+            // Stale choroby pacjenta
+            { "stale_choroby_pacjenta", "gabinet_recognition.xml" },
+            { "recognition", "gabinet_recognition.xml" },
+            { "gabinet.recognition", "gabinet_recognition.xml" },
+            // Stale leki pacjenta
+            { "stale_leki_pacjenta", "gabinet_patientpermanentdrug.xml" },
+            { "patientpermanentdrug", "gabinet_patientpermanentdrug.xml" },
+            { "gabinet.patientpermanentdrug", "gabinet_patientpermanentdrug.xml" },
+            // Jednostki
+            { "jednostki", "gabinet_department.xml" },
+            { "department", "gabinet_department.xml" },
+            { "gabinet.department", "gabinet_department.xml" },
+            // Gabinet
+            { "office", "gabinet_office.xml" },
+            { "gabinet.office", "gabinet_office.xml" },
         };
 
         if (modelMappings.TryGetValue(sheetName, out var mappedFile))

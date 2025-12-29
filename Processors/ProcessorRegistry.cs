@@ -15,6 +15,9 @@ public static class ProcessorRegistry
     {
         // Rejestruj wszystkie znane procesory
         Register(new PacjenciProcessor());
+        Register(new JednostkiProcessor());
+        Register(new StaleChorobyProcessor());
+        Register(new StaleLekiProcessor());
         // Dodaj kolejne procesory tutaj:
         // Register(new WizytyProcessor());
         // Register(new LekarzeProcessor());

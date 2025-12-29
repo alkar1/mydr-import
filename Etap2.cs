@@ -182,16 +182,40 @@ public static class Etap2
         Console.WriteLine();
 
         var results = new List<CsvGenerationResult>();
+        var processedModels = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         foreach (var mapping in mappings)
         {
             // Uzyj ProcessorRegistry - automatycznie wybiera dedykowany procesor lub generyczny
             var result = ProcessorRegistry.ProcessModel(dataEtap1Path, dataEtap2Path, mapping);
             results.Add(result);
+            processedModels.Add(mapping.SheetName);
 
             if (!result.IsSuccess)
             {
                 Console.WriteLine($"  [BLAD] {result.Error}");
+            }
+        }
+
+        // Uruchom procesory dla modeli bez arkuszy mapowan (np. jednostki)
+        foreach (var modelName in ProcessorRegistry.GetRegisteredModels())
+        {
+            if (!processedModels.Contains(modelName))
+            {
+                Console.WriteLine($"\nPrzetwarzanie: {modelName} (bez arkusza mapowania)");
+                var processor = ProcessorRegistry.GetProcessor(modelName);
+                if (processor != null)
+                {
+                    // Utworz puste mapowanie dla procesora
+                    var emptyMapping = new ModelMapping { SheetName = modelName, TargetTable = modelName };
+                    Console.WriteLine($"  Uzycie procesora: {processor.GetType().Name}");
+                    var result = processor.Process(dataEtap1Path, dataEtap2Path, emptyMapping);
+                    results.Add(result);
+                    if (!result.IsSuccess)
+                    {
+                        Console.WriteLine($"  [BLAD] {result.Error}");
+                    }
+                }
             }
         }
 

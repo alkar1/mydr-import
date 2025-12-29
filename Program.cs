@@ -37,6 +37,12 @@ class Program
             return ValidateEtap1Data(dataDir);
         }
 
+        // Komenda compare - porownanie starych i nowych wynikow
+        if (args.Length > 0 && args[0].Equals("compare", StringComparison.OrdinalIgnoreCase))
+        {
+            return OldNewResultCompare();
+        }
+
         // Parsowanie argumentow
         bool startFromEtap1 = args.Contains("--etap1", StringComparer.OrdinalIgnoreCase);
         string? specificModel = GetArgValue(args, "--model");
@@ -321,4 +327,336 @@ class Program
 
         return errors > 0 ? 1 : 0;
     }
+
+    /// <summary>
+    /// Porownuje stare wyniki CSV z nowymi wynikami
+    /// </summary>
+    static int OldNewResultCompare()
+    {
+        Console.WriteLine(new string('=', 80));
+        Console.WriteLine("POROWNANIE STARYCH I NOWYCH WYNIKOW");
+        Console.WriteLine(new string('=', 80));
+        Console.WriteLine();
+
+        // Uzyj sciezek wzglednych od katalogu domowego
+        var homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        var oldResultPath = Path.Combine(homePath, "NC", "PROJ", "OPTIMED", "old_etap2");
+        var newResultPath = Path.Combine(homePath, "NC", "PROJ", "OPTIMED", "MyDr_result");
+
+        Console.WriteLine($"Katalog domowy: {homePath}");
+        Console.WriteLine($"Stare wyniki:   {oldResultPath}");
+        Console.WriteLine($"Nowe wyniki:    {newResultPath}");
+        Console.WriteLine();
+
+        if (!Directory.Exists(oldResultPath))
+        {
+            Console.WriteLine($"Blad: Katalog nie istnieje: {oldResultPath}");
+            return 1;
+        }
+
+        if (!Directory.Exists(newResultPath))
+        {
+            Console.WriteLine($"Blad: Katalog nie istnieje: {newResultPath}");
+            return 1;
+        }
+
+        var oldFiles = Directory.GetFiles(oldResultPath, "*.csv").Select(Path.GetFileName).ToHashSet();
+        var newFiles = Directory.GetFiles(newResultPath, "*.csv").Select(Path.GetFileName).ToHashSet();
+
+        Console.WriteLine($"Plikow CSV w old_etap2:   {oldFiles.Count}");
+        Console.WriteLine($"Plikow CSV w MyDr_result: {newFiles.Count}");
+        Console.WriteLine();
+
+        // Pliki tylko w starych
+        var onlyInOld = oldFiles.Except(newFiles).OrderBy(x => x).ToList();
+        if (onlyInOld.Any())
+        {
+            Console.WriteLine($"[!] Pliki tylko w old_etap2 ({onlyInOld.Count}):");
+            foreach (var f in onlyInOld)
+                Console.WriteLine($"    - {f}");
+            Console.WriteLine();
+        }
+
+        // Pliki tylko w nowych
+        var onlyInNew = newFiles.Except(oldFiles).OrderBy(x => x).ToList();
+        if (onlyInNew.Any())
+        {
+            Console.WriteLine($"[!] Pliki tylko w MyDr_result ({onlyInNew.Count}):");
+            foreach (var f in onlyInNew)
+                Console.WriteLine($"    - {f}");
+            Console.WriteLine();
+        }
+
+        // Porownaj wspolne pliki
+        var commonFiles = oldFiles.Intersect(newFiles).OrderBy(x => x).ToList();
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine($"POROWNANIE WSPOLNYCH PLIKOW ({commonFiles.Count}):");
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine();
+
+        Console.WriteLine(String.Format("{0,-35} {1,15} {2,15} {3,12} {4,10}", "Plik", "Stare wiersze", "Nowe wiersze", "Roznica", "Status"));
+        Console.WriteLine(new string('-', 90));
+
+        int differences = 0;
+        foreach (var fileName in commonFiles)
+        {
+            var oldFilePath = Path.Combine(oldResultPath, fileName!);
+            var newFilePath = Path.Combine(newResultPath, fileName!);
+
+            var oldLines = File.ReadLines(oldFilePath, Encoding.UTF8).Count();
+            var newLines = File.ReadLines(newFilePath, Encoding.UTF8).Count();
+
+            var diff = newLines - oldLines;
+            var diffStr = diff > 0 ? $"+{diff}" : diff.ToString();
+            var status = diff == 0 ? "OK" : (Math.Abs(diff) > oldLines * 0.1 ? "ROZNICA!" : "roznica");
+
+            if (diff != 0)
+                differences++;
+
+            Console.WriteLine($"{fileName,-35} {oldLines,15:N0} {newLines,15:N0} {diffStr,12} {status,10}");
+        }
+
+        Console.WriteLine(new string('-', 90));
+        Console.WriteLine();
+
+        // Porownanie rozmiaru plikow
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine("POROWNANIE ROZMIARU PLIKOW:");
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine();
+
+        Console.WriteLine(String.Format("{0,-35} {1,15} {2,15} {3,12}", "Plik", "Stary rozmiar", "Nowy rozmiar", "Zmiana %"));
+        Console.WriteLine(new string('-', 80));
+
+        foreach (var fileName in commonFiles)
+        {
+            var oldFilePath = Path.Combine(oldResultPath, fileName!);
+            var newFilePath = Path.Combine(newResultPath, fileName!);
+
+            var oldSize = new FileInfo(oldFilePath).Length;
+            var newSize = new FileInfo(newFilePath).Length;
+
+            var changePercent = oldSize > 0 ? ((double)(newSize - oldSize) / oldSize * 100) : 0;
+            var changeStr = changePercent >= 0 ? $"+{changePercent:F1}%" : $"{changePercent:F1}%";
+
+            Console.WriteLine($"{fileName,-35} {FormatBytes(oldSize),15} {FormatBytes(newSize),15} {changeStr,12}");
+        }
+
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine();
+
+        // Porownanie pol (kolumn) i ich wypelnienia - zapis do pliku dla LLM
+        var reportPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "compare_report.md"));
+        var report = new StringBuilder();
+        
+        report.AppendLine("# Raport porownania starych i nowych wynikow CSV");
+        report.AppendLine($"Data: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
+        report.AppendLine();
+        report.AppendLine("## Podsumowanie");
+        report.AppendLine($"- Plikow w old_etap2: {oldFiles.Count}");
+        report.AppendLine($"- Plikow w MyDr_result: {newFiles.Count}");
+        if (onlyInOld.Any()) report.AppendLine($"- Pliki tylko w starych: {string.Join(", ", onlyInOld)}");
+        if (onlyInNew.Any()) report.AppendLine($"- Pliki tylko w nowych: {string.Join(", ", onlyInNew)}");
+        report.AppendLine();
+
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine("POROWNANIE POL (KOLUMN) I ICH WYPELNIENIA:");
+        Console.WriteLine(new string('-', 80));
+        Console.WriteLine();
+
+        foreach (var fileName in commonFiles)
+        {
+            var oldFilePath = Path.Combine(oldResultPath, fileName!);
+            var newFilePath = Path.Combine(newResultPath, fileName!);
+
+            var (oldHeaders, oldFillRates) = AnalyzeCsvFields(oldFilePath);
+            var (newHeaders, newFillRates) = AnalyzeCsvFields(newFilePath);
+
+            var onlyInOldFields = oldHeaders.Except(newHeaders).ToList();
+            var onlyInNewFields = newHeaders.Except(oldHeaders).ToList();
+            var commonFieldsList = oldHeaders.Intersect(newHeaders).ToList();
+
+            // Raport do pliku - zawsze dla kazdego pliku
+            report.AppendLine($"## {fileName}");
+            report.AppendLine($"Stare pola: {oldHeaders.Count}, Nowe pola: {newHeaders.Count}");
+            report.AppendLine();
+
+            if (onlyInOldFields.Any())
+            {
+                report.AppendLine("### Usuniete pola");
+                foreach (var f in onlyInOldFields)
+                    report.AppendLine($"- `{f}` (wypelnienie: {oldFillRates.GetValueOrDefault(f, 0):F1}%)");
+                report.AppendLine();
+            }
+
+            if (onlyInNewFields.Any())
+            {
+                report.AppendLine("### Nowe pola");
+                foreach (var f in onlyInNewFields)
+                    report.AppendLine($"- `{f}` (wypelnienie: {newFillRates.GetValueOrDefault(f, 0):F1}%)");
+                report.AppendLine();
+            }
+
+            // Tabela wszystkich pol z wypelnieniem
+            report.AppendLine("### Wypelnienie pol");
+            report.AppendLine("| Pole | Stare % | Nowe % | Status |");
+            report.AppendLine("|------|---------|--------|--------|");
+
+            foreach (var field in commonFieldsList.OrderBy(x => x))
+            {
+                var oldFill = oldFillRates.GetValueOrDefault(field, 0);
+                var newFill = newFillRates.GetValueOrDefault(field, 0);
+                
+                string status;
+                if (oldFill == 0 && newFill == 0) status = "PUSTE";
+                else if (newFill == 0) status = "BRAK DANYCH";
+                else if (oldFill == 0) status = "NOWE DANE";
+                else if (Math.Abs(oldFill - newFill) > 20) status = "DUZA ZMIANA";
+                else if (Math.Abs(oldFill - newFill) > 5) status = "zmiana";
+                else status = "OK";
+
+                report.AppendLine($"| `{field}` | {oldFill:F1} | {newFill:F1} | {status} |");
+            }
+            report.AppendLine();
+
+            // Konsola - pokaz tylko problemy
+            bool hasFieldDiff = onlyInOldFields.Any() || onlyInNewFields.Any();
+            var emptyInNew = commonFieldsList.Where(f => newFillRates.GetValueOrDefault(f, 0) == 0).ToList();
+            
+            if (hasFieldDiff || emptyInNew.Any())
+            {
+                Console.WriteLine($"[{fileName}]");
+                Console.WriteLine($"  Stare pola: {oldHeaders.Count}, Nowe pola: {newHeaders.Count}");
+
+                if (onlyInOldFields.Any())
+                    Console.WriteLine($"  [-] Usuniete: {string.Join(", ", onlyInOldFields)}");
+                if (onlyInNewFields.Any())
+                    Console.WriteLine($"  [+] Nowe: {string.Join(", ", onlyInNewFields)}");
+                if (emptyInNew.Any())
+                    Console.WriteLine($"  [!] PUSTE KOLUMNY: {string.Join(", ", emptyInNew.Take(5))}{(emptyInNew.Count > 5 ? $" (+{emptyInNew.Count - 5} wiecej)" : "")}");
+                Console.WriteLine();
+            }
+        }
+
+        // Zapisz raport
+        File.WriteAllText(reportPath, report.ToString(), Encoding.UTF8);
+        Console.WriteLine($"Raport zapisany do: {reportPath}");
+        Console.WriteLine();
+
+        Console.WriteLine(new string('=', 80));
+        if (differences == 0 && !onlyInOld.Any() && !onlyInNew.Any())
+        {
+            Console.WriteLine("POROWNANIE ZAKONCZONE - BRAK ROZNIC");
+        }
+        else
+        {
+            Console.WriteLine($"POROWNANIE ZAKONCZONE - {differences} plikow z roznicami w wierszach");
+            if (onlyInOld.Any()) Console.WriteLine($"                       {onlyInOld.Count} plikow tylko w starych");
+            if (onlyInNew.Any()) Console.WriteLine($"                       {onlyInNew.Count} plikow tylko w nowych");
+        }
+        Console.WriteLine(new string('=', 80));
+
+        return 0;
+    }
+
+    static string FormatBytes(long bytes)
+    {
+        string[] sizes = { "B", "KB", "MB", "GB" };
+        int order = 0;
+        double size = bytes;
+        while (size >= 1024 && order < sizes.Length - 1)
+        {
+            order++;
+            size /= 1024;
+        }
+        return $"{size:F1} {sizes[order]}";
+    }
+
+    /// <summary>
+    /// Analizuje pola CSV i zwraca naglowki oraz procent wypelnienia kazdego pola
+    /// </summary>
+    static (List<string> Headers, Dictionary<string, double> FillRates) AnalyzeCsvFields(string csvPath)
+    {
+        var headers = new List<string>();
+        var fillCounts = new Dictionary<string, int>();
+        int totalRows = 0;
+
+        using var reader = new StreamReader(csvPath, Encoding.UTF8);
+        
+        // Wczytaj naglowki
+        var headerLine = reader.ReadLine();
+        if (string.IsNullOrEmpty(headerLine))
+            return (headers, new Dictionary<string, double>());
+
+        headers = ParseCsvLine(headerLine);
+        foreach (var h in headers)
+            fillCounts[h] = 0;
+
+        // Analizuj wiersze (max 10000 dla wydajnosci)
+        const int maxRows = 10000;
+        string? line;
+        while ((line = reader.ReadLine()) != null && totalRows < maxRows)
+        {
+            totalRows++;
+            var values = ParseCsvLine(line);
+            
+            for (int i = 0; i < Math.Min(headers.Count, values.Count); i++)
+            {
+                if (!string.IsNullOrWhiteSpace(values[i]))
+                {
+                    fillCounts[headers[i]]++;
+                }
+            }
+        }
+
+        // Oblicz procent wypelnienia
+        var fillRates = new Dictionary<string, double>();
+        foreach (var h in headers)
+        {
+            fillRates[h] = totalRows > 0 ? (double)fillCounts[h] / totalRows * 100 : 0;
+        }
+
+        return (headers, fillRates);
+    }
+
+    /// <summary>
+    /// Parsuje linie CSV z uwzglednieniem cudzys�ow�w
+    /// </summary>
+    static List<string> ParseCsvLine(string line)
+    {
+        var result = new List<string>();
+        bool inQuotes = false;
+        var current = new StringBuilder();
+
+        for (int i = 0; i < line.Length; i++)
+        {
+            char c = line[i];
+            
+            if (c == '"')
+            {
+                if (inQuotes && i + 1 < line.Length && line[i + 1] == '"')
+                {
+                    current.Append('"');
+                    i++;
+                }
+                else
+                {
+                    inQuotes = !inQuotes;
+                }
+            }
+            else if (c == ';' && !inQuotes)
+            {
+                result.Add(current.ToString());
+                current.Clear();
+            }
+            else
+            {
+                current.Append(c);
+            }
+        }
+        result.Add(current.ToString());
+
+        return result;
+    }
 }
+
