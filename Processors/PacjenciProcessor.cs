@@ -7,8 +7,16 @@ namespace MyDr_Import.Processors;
 
 /// <summary>
 /// Procesor dla modelu PACJENCI
-/// Zrodlo: gabinet_patient.xml + gabinet_address.xml
+/// Zrodlo: gabinet_patient.xml + gabinet_address.xml + gabinet_incaseofemergency.xml + gabinet_patientdead.xml + gabinet_patientnote.xml
 /// Cel: pacjenci.csv
+/// 
+/// UWAGA: Pola Imie i Nazwisko NIE SA dostepne w eksporcie XML (dane osobowe).
+/// Dostepne pola w gabinet.patient wg xml_structure_summary.json:
+/// - pesel (88.6%), second_name (8.7%), maiden_name (6.4%), place_of_birth (6.7%)
+/// - nfz (99.6%), identity_num (6.1%), country (100%), blood_type (100%)
+/// - is_active (100%), second_telephone (1.5%), takes_part_in_loyalty_program (100%)
+/// - residence_address -> gabinet.address (city, street, flat_number, country)
+/// - employer_nip (0.2%), dead -> gabinet.patientdead
 /// </summary>
 public class PacjenciProcessor : BaseModelProcessor
 {
@@ -23,6 +31,7 @@ public class PacjenciProcessor : BaseModelProcessor
 
     /// <summary>
     /// Mapowanie nazw pol z arkusza Excel na nazwy pol XML dla pacjentow
+    /// Zrodlo mapowan: data_etap1/xml_structure_summary.json
     /// </summary>
     protected override Dictionary<string, string> FieldNameMappings => new(StringComparer.OrdinalIgnoreCase)
     {
@@ -31,17 +40,19 @@ public class PacjenciProcessor : BaseModelProcessor
         { "Pesel", "pesel" },
         
         // Dane osobowe dostepne w gabinet.patient
+        // UWAGA: Imie i Nazwisko NIE SA dostepne w eksporcie XML!
         { "DrugieImie", "second_name" },
         { "NazwiskoRodowe", "maiden_name" },
         { "MiejsceUrodzenia", "place_of_birth" },
         
-        // Kontakt
+        // Kontakt - UWAGA: telephone i email NIE SA dostepne w gabinet.patient!
+        // second_telephone jest dostepny ale tylko 1.5% wypelnione
         { "TelefonDodatkowy", "second_telephone" },
         
         // Dokumenty
         { "NumerDokumentuTozsamosci", "identity_num" },
         
-        // NFZ
+        // NFZ - 99.6% wypelnione
         { "KodOddzialuNFZ", "nfz" },
         
         // Inne
@@ -51,6 +62,10 @@ public class PacjenciProcessor : BaseModelProcessor
         
         // Flagi
         { "Aktywny", "is_active" },
+        
+        // Adresy zamieszkania (z gabinet.address przez residence_address)
+        { "NrDomuZamieszkanie", "address_house" },
+        { "NrMieszkaniaZamieszkanie", "address_flat" },
     };
 
     public override CsvGenerationResult Process(string dataEtap1Path, string dataEtap2Path, ModelMapping mapping)
@@ -63,6 +78,14 @@ public class PacjenciProcessor : BaseModelProcessor
 
         try
         {
+            // OSTRZEZENIE: Pola niedostepne w eksporcie XML
+            Console.WriteLine();
+            Console.WriteLine("  [INFO] Pola niedostepne w eksporcie gabinet.patient XML:");
+            Console.WriteLine("         - Imie, Nazwisko (dane osobowe nie eksportowane)");
+            Console.WriteLine("         - Telefon, Email (brak w gabinet.patient)");
+            Console.WriteLine("         Dane beda puste w CSV dla tych kolumn.");
+            Console.WriteLine();
+
             // 1. Wczytaj wszystkie powiazane dane do cache
             LoadAddressCache(dataEtap1Path);
             LoadIceCache(dataEtap1Path);
@@ -350,9 +373,22 @@ public class PacjenciProcessor : BaseModelProcessor
                 if (address.TryGetValue("city", out var city))
                     record["address_city"] = city;
                 if (address.TryGetValue("street", out var street))
-                    record["address_street"] = street;
-                if (address.TryGetValue("flat_number", out var flat))
-                    record["address_flat"] = flat;
+                {
+                    // Parsuj ulice i numer domu jesli sa razem (np. "Wielicka 15")
+                    var (parsedStreet, parsedHouse) = ParseStreetAndNumber(street);
+                    record["address_street"] = parsedStreet;
+                    if (!string.IsNullOrEmpty(parsedHouse))
+                        record["address_house"] = parsedHouse;
+                }
+                // UWAGA: W danych zrodlowych flat_number czesto zawiera numer DOMU, nie mieszkania
+                // Wstawiamy go do address_house jesli jeszcze pusty
+                if (address.TryGetValue("flat_number", out var flat) && !string.IsNullOrEmpty(flat))
+                {
+                    if (string.IsNullOrEmpty(record.GetValueOrDefault("address_house")))
+                        record["address_house"] = flat;
+                    else
+                        record["address_flat"] = flat; // Jesli mamy juz numer domu, to flat idzie do mieszkania
+                }
                 if (address.TryGetValue("country", out var addrCountry))
                     record["address_country"] = addrCountry;
             }
@@ -367,9 +403,20 @@ public class PacjenciProcessor : BaseModelProcessor
                 if (ice.TryGetValue("city", out var iceCity))
                     record["ice_city"] = iceCity;
                 if (ice.TryGetValue("street", out var iceStreet))
-                    record["ice_street"] = iceStreet;
-                if (ice.TryGetValue("flat_number", out var iceFlat))
-                    record["ice_flat"] = iceFlat;
+                {
+                    var (parsedStreet, parsedHouse) = ParseStreetAndNumber(iceStreet);
+                    record["ice_street"] = parsedStreet;
+                    if (!string.IsNullOrEmpty(parsedHouse))
+                        record["ice_house"] = parsedHouse;
+                }
+                // UWAGA: W danych zrodlowych flat_number czesto zawiera numer DOMU
+                if (ice.TryGetValue("flat_number", out var iceFlat) && !string.IsNullOrEmpty(iceFlat))
+                {
+                    if (string.IsNullOrEmpty(record.GetValueOrDefault("ice_house")))
+                        record["ice_house"] = iceFlat;
+                    else
+                        record["ice_flat"] = iceFlat;
+                }
             }
 
             // Dodaj dane o zgonie z cache (pk patientdead = pk patient)
@@ -433,6 +480,8 @@ public class PacjenciProcessor : BaseModelProcessor
             return record.TryGetValue("address_city", out var v1) ? v1 : "";
         if (sourceField.Equals("UlicaZamieszkanie", StringComparison.OrdinalIgnoreCase))
             return record.TryGetValue("address_street", out var v2) ? v2 : "";
+        if (sourceField.Equals("NrDomuZamieszkanie", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("address_house", out var v2h) ? v2h : "";
         if (sourceField.Equals("NrMieszkaniaZamieszkanie", StringComparison.OrdinalIgnoreCase))
             return record.TryGetValue("address_flat", out var v3) ? v3 : "";
         if (sourceField.Equals("KrajZamieszkanie", StringComparison.OrdinalIgnoreCase))
@@ -447,6 +496,8 @@ public class PacjenciProcessor : BaseModelProcessor
             return record.TryGetValue("ice_city", out var iceCity) ? iceCity : "";
         if (sourceField.Equals("UlicaOpiekuna", StringComparison.OrdinalIgnoreCase))
             return record.TryGetValue("ice_street", out var iceStreet) ? iceStreet : "";
+        if (sourceField.Equals("NrDomuOpiekuna", StringComparison.OrdinalIgnoreCase))
+            return record.TryGetValue("ice_house", out var iceHouse) ? iceHouse : "";
         if (sourceField.Equals("NrLokaluOpiekuna", StringComparison.OrdinalIgnoreCase))
             return record.TryGetValue("ice_flat", out var iceFlat) ? iceFlat : "";
 
@@ -532,5 +583,27 @@ public class PacjenciProcessor : BaseModelProcessor
         {
             return "";
         }
+    }
+
+    /// <summary>
+    /// Parsuje ulice i wyodrebnia numer domu jesli jest na koncu
+    /// np. "Wielicka 15" -> ("Wielicka", "15")
+    /// np. "Osiedlowa" -> ("Osiedlowa", "")
+    /// </summary>
+    private (string street, string houseNumber) ParseStreetAndNumber(string input)
+    {
+        if (string.IsNullOrWhiteSpace(input))
+            return ("", "");
+
+        input = input.Trim();
+        
+        // Szukaj numeru na koncu (cyfry, opcjonalnie z litera)
+        var match = System.Text.RegularExpressions.Regex.Match(input, @"^(.+?)\s+(\d+[a-zA-Z]?)$");
+        if (match.Success)
+        {
+            return (match.Groups[1].Value.Trim(), match.Groups[2].Value);
+        }
+
+        return (input, "");
     }
 }
