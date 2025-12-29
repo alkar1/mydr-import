@@ -141,7 +141,7 @@ public static class Etap2
             // 7. Generuj CSV jesli wymagane (lub dla --model)
             if (generateCsv || !string.IsNullOrEmpty(specificModel))
             {
-                var dataEtap2Path = Path.Combine(Path.GetDirectoryName(dataEtap1Path) ?? ".", "data_etap2");
+                var dataEtap2Path = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "MyDr_result"));
                 GenerateCsvFiles(dataEtap1Path, dataEtap2Path, mappings);
             }
 
