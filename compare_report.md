@@ -1,5 +1,5 @@
 ﻿# Raport porownania starych i nowych wynikow CSV
-Data: 2025-12-29 23:57:59
+Data: 2026-01-02 00:47:20
 
 ## Podsumowanie
 - Plikow w old_etap2: 11

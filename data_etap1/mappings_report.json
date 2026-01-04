@@ -1,8 +1,606 @@
 ﻿{
-  "generatedAt": "2025-12-29T23:54:15",
-  "totalSheets": 1,
-  "validSheets": 1,
+  "generatedAt": "2026-01-02T00:43:13",
+  "totalSheets": 14,
+  "validSheets": 14,
   "mappings": [
+    {
+      "sheetName": "deklaracje_poz",
+      "sourceModel": "unknown",
+      "targetTable": "deklaracje_poz",
+      "fieldsCount": 33,
+      "validFieldsCount": 33,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypDeklaracjiPOZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypDeklaracjiPOZId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataZlozenia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataWygasniecia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypPacjentaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikNPWZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PeselOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PeselOpiekuna2",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodTypuPodopiecznego",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypSzkolyId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodRodzajuSzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NazwaSzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PatronSzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RegonSzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UlicaSzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodPocztowySzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodGminySzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejscowoscSzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrDomuSzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrTelefonuSzkoly",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrUmowyUbezpieczeniowej",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NIP",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ProfilaktykaFluorkowa",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Komentarz",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "dokumentacja_zalaczniki",
+      "sourceModel": "unknown",
+      "targetTable": "dokumentacja_zalaczniki",
+      "fieldsCount": 16,
+      "validFieldsCount": 16,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "IdImport",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentNumer",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WizytaIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Data",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NazwaPliku",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Opis",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SciezkaBazowa",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Sciezka",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypPliku",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "LimitRozmiaruMB",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "dokumenty_uprawniajace",
+      "sourceModel": "unknown",
+      "targetTable": "dokumenty_uprawniajace",
+      "fieldsCount": 22,
+      "validFieldsCount": 22,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodDokumentu",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodUprawnienia",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NazwaDokumentu",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodOddzialuNFZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NIP",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataOd",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataDo",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataWystawienia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodInstytucjiWystawiajacej",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NazwaInstytucjiWystawiajacej",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Numer",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypOswiadczenia",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PodstawaOswiadczenia",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PeselOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RodzajZezwoleniaLubOchrony",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "InstytucjaWystawiajaca",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "EwusId",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
     {
       "sheetName": "karty_wizyt",
       "sourceModel": "unknown",
@@ -190,6 +788,2090 @@
         {
           "source": "ProceduryICD9",
           "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "pacjenci",
+      "sourceModel": "unknown",
+      "targetTable": "pacjenci",
+      "fieldsCount": 68,
+      "validFieldsCount": 68,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UprawnieniePacjentaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RodzajPacjenta",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Imie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Nazwisko",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Pesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataUrodzenia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "CzyUmarl",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataZgonu",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DrugieImie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NazwiskoRodowe",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ImieOjca",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NIP",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Plec",
+          "target": "Znak",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Email",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Telefon",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TelefonDodatkowy",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NumerDokumentuTozsamosci",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypDokumentuTozsamosci",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KrajDokumentuTozsamosciKod",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrIdentyfikacyjnyUe",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejsceUrodzenia",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodOddzialuNFZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KrajZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WojewodztwoZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodTerytGminyZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejscowoscZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodMiejscowosciZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodPocztowyZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UlicaZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrDomuZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrMieszkaniaZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DzielnicaZameldowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KrajZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WojewodztwoZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodTerytGminyZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejscowoscZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodMiejscowosciZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodPocztowyZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UlicaZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrDomuZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrMieszkaniaZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DzielnicaZamieszkanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Uwagi",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Uchodzca",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "VIP",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UprawnieniePacjenta",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ImieOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NazwiskoOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PlecOpiekuna",
+          "target": "Znak",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataUrodzeniaOpiekuna",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PeselOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TelefonOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KrajOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WojewodztwoOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodGminyOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejscowoscOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodMiejscowosciOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodPocztowyOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UlicaOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrDomuOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrLokaluOpiekuna",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "StopienPokrewienstwaOpiekuna",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SprawdzUnikalnoscIdImportu",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SprawdzUnikalnoscPesel",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "AktualizujPoPesel",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NumerPacjenta",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "pracownicy",
+      "sourceModel": "unknown",
+      "targetTable": "pracownicy",
+      "fieldsCount": 23,
+      "validFieldsCount": 23,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Imie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Nazwisko",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Pesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Email",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Telefon",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NPWZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TytulNaukowyId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TytulNaukowyNazwa",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypPersoneluId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypPersoneluNFZ",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SpecjalizacjeIds",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PersonelKierujacy",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Konto",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KontoLogin",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NieWymagajZmianyHasla",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikNiemedyczny",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SprawdzUnikalnoscPesel",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SprawdzUnikalnoscNpwz",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SprawdzUnikalnoscLoginu",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ZachowajIdentyfikator",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Usunieto",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "skierowania_wystawione",
+      "sourceModel": "unknown",
+      "targetTable": "skierowania_wystawione",
+      "fieldsCount": 23,
+      "validFieldsCount": 23,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataWystawienia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikNPWZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RozpoznaniaICD10",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RozpoznanieGlowneICD10",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RozpoznanieWspolistniejaceICD10",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RozpoznanieOpisowe",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WizytaIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PobytIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaObslugujacaNazwa",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaObslugujacaKodResVIII",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Pilne",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Uwagi",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ESkierowanie",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Eskier_Kod",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Eskier_Klucz",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Eskier_OidRoot",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Eskier_OidExtension",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Eskier_KomentarzTymczasowy",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Eskier_BrakRefundacji",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Eskier_Status",
+          "target": "StatusESkierowania?",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "stale_choroby_pacjenta",
+      "sourceModel": "unknown",
+      "targetTable": "stale_choroby_pacjenta",
+      "fieldsCount": 6,
+      "validFieldsCount": 6,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ICD10",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NumerChoroby",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Opis",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "stale_leki_pacjenta",
+      "sourceModel": "unknown",
+      "targetTable": "stale_leki_pacjenta",
+      "fieldsCount": 12,
+      "validFieldsCount": 12,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodKreskowy",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataZalecenia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataZakonczenia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Dawkowanie",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Ilosc",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RodzajIlosci",
+          "target": "RodzajIlosciLeku?",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodOdplatnosci",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "szczepienia",
+      "sourceModel": "unknown",
+      "targetTable": "szczepienia",
+      "fieldsCount": 16,
+      "validFieldsCount": 16,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikNPWZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Nazwa",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "MiejscePodania",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NrSerii",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataPodania",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataWaznosci",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DrogaPodaniaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "CzyZKalendarza",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "SzczepienieId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Dawka",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "wizyty",
+      "sourceModel": "unknown",
+      "targetTable": "wizyty",
+      "fieldsCount": 33,
+      "validFieldsCount": 33,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ZasobIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikNPWZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PlatnikIdImportu",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaRozliczeniowaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaRozliczeniowaIdImportu",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataUtworzenia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataOd",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataDo",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "CzasOd",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "CzasDo",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Status",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NFZ",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "NieRozliczaj",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Dodatkowy",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "Komentarz",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TrybPrzyjecia",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TrybDalszegoLeczenia",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "TypWizyty",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodSwiadczeniaNFZ",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "KodUprawnieniaPacjenta",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "ProceduryICD9",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "RozpoznaniaICD10",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DokumentSkierowujacyIdImportu",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "wyniki_badan_laboratoryjnych_szczegoly",
+      "sourceModel": "unknown",
+      "targetTable": "wyniki_badan_laboratoryjnych_szczegoly",
+      "fieldsCount": 31,
+      "validFieldsCount": 31,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "InstalacjaId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImport",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "IdImportPrefix",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataWystawienia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "DataAutoryzacji",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikWystawiajacyIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikWystawiajacyNpwz",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PracownikWystawiajacyPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "JednostkaIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentId",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PacjentPesel",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "WizytaIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PobytIdImport",
+          "target": "Liczba całkowita",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UslugaKod",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UslugaNazwa",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UslugaDataPobrania",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UslugaOsobaWykonujaca",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "UslugaAutoryzowana",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaId",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaKod",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaNazwa",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaWartosc",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaJednostkaWartosci",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaZakresNormy",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaNorma",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaDataWykonania",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaDataWprowadzenia",
+          "target": "Data i czas",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaKomentarz",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaOsobaWykonujaca",
+          "target": "Tekst",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "PozycjaAutoryzowana",
+          "target": "Tak/Nie",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "departments",
+      "sourceModel": "unknown",
+      "targetTable": "departments",
+      "fieldsCount": 13,
+      "validFieldsCount": 13,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40278",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40278",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40483",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40277",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40278",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40483",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40277",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40278",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40483",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40277",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "40278",
+          "target": "True",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "sheetName": "office",
+      "sourceModel": "unknown",
+      "targetTable": "office",
+      "fieldsCount": 23,
+      "validFieldsCount": 23,
+      "isValid": true,
+      "fields": [
+        {
+          "source": "False",
+          "target": "38918",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "False",
+          "target": "38920",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38922",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38925",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38920",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38920",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "False",
+          "target": "38918",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "False",
+          "target": "38918",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38923",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38926",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38918",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "39595",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38918",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "False",
+          "target": "38484",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "False",
+          "target": "38923",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38921",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38924",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38919",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38919",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "38919",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "True",
+          "target": "45825",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "False",
+          "target": "45825",
+          "type": null,
+          "rule": null,
+          "isValid": true,
+          "error": null
+        },
+        {
+          "source": "False",
+          "target": "38927",
           "type": null,
           "rule": null,
           "isValid": true,
